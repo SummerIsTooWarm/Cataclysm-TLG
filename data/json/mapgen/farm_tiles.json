@@ -11,293 +11,6 @@
   {
     "type": "mapgen",
     "method": "json",
-    "om_terrain": [ "farm_lot_wire_straight_h" ],
-    "weight": 100,
-    "object": {
-      "fill_ter": "t_region_soil",
-      "rows": [
-        "%%%%%%%%%%%%%%%%%%%%%%%%",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################"
-      ],
-      "palettes": [ "farm_lots" ],
-      "place_monsters": [
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
-      ]
-    }
-  },
-  {
-    "type": "mapgen",
-    "method": "json",
-    "om_terrain": [ "farm_lot_wire_straight_v" ],
-    "weight": 100,
-    "object": {
-      "fill_ter": "t_region_soil",
-      "rows": [
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "                        ",
-        "%%%%%%%%%%%%%%%%%%%%%%%%"
-      ],
-      "palettes": [ "farm_lots" ],
-      "place_monsters": [
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
-      ]
-    }
-  },
-  {
-    "type": "mapgen",
-    "method": "json",
-    "om_terrain": [ "farm_lot_wire_straight_v_open" ],
-    "weight": 100,
-    "object": {
-      "fill_ter": "t_region_soil",
-      "rows": [
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "# ## ## ## ## ## ## ## #",
-        "        ////////        ",
-        "%%%%%%%%////////%%%%%%%%"
-      ],
-      "palettes": [ "farm_lots" ],
-      "place_monsters": [
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
-      ]
-    }
-  },
-  {
-    "type": "mapgen",
-    "method": "json",
-    "om_terrain": [ "farm_lot_wire_turn_v_open" ],
-    "weight": 100,
-    "object": {
-      "fill_ter": "t_region_soil",
-      "rows": [
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "%       ////////        ",
-        "%%%%%%%%////////%%%%%%%%"
-      ],
-      "palettes": [ "farm_lots" ],
-      "place_monsters": [
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
-      ]
-    }
-  },
-  {
-    "type": "mapgen",
-    "method": "json",
-    "om_terrain": [ "farm_lot_M1" ],
-    "weight": 100,
-    "object": {
-      "fill_ter": "t_region_soil",
-      "rows": [
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        ",
-        "########################",
-        "########################",
-        "                        "
-      ],
-      "palettes": [ "farm_lots" ],
-      "place_monsters": [
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
-      ]
-    }
-  },
-  {
-    "type": "mapgen",
-    "method": "json",
-    "om_terrain": [ "farm_lot_wire_turn_h" ],
-    "weight": 100,
-    "object": {
-      "fill_ter": "t_region_soil",
-      "rows": [
-        "% ######################",
-        "%                       ",
-        "% ######################",
-        "% ######################",
-        "%                       ",
-        "% ######################",
-        "% ######################",
-        "%                       ",
-        "% ######################",
-        "% ######################",
-        "%                       ",
-        "% ######################",
-        "% ######################",
-        "%                       ",
-        "% ######################",
-        "% ######################",
-        "%                       ",
-        "% ######################",
-        "% ######################",
-        "%                       ",
-        "% ######################",
-        "% ######################",
-        "%                       ",
-        "%%%%%%%%%%%%%%%%%%%%%%%%"
-      ],
-      "palettes": [ "farm_lots" ],
-      "place_monsters": [
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
-      ]
-    }
-  },
-  {
-    "type": "mapgen",
-    "method": "json",
-    "om_terrain": [ "farm_lot_wire_turn_v" ],
-    "weight": 100,
-    "object": {
-      "fill_ter": "t_region_soil",
-      "rows": [
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "% ## ## ## ## ## ## ## #",
-        "%                       ",
-        "%%%%%%%%%%%%%%%%%%%%%%%%"
-      ],
-      "palettes": [ "farm_lots" ],
-      "place_monsters": [
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
-      ]
-    }
-  },
-  {
-    "type": "mapgen",
-    "method": "json",
     "om_terrain": [ [ "farmland_straight", "farmland_turn", "farmland_U", "farmland_turn_inside" ] ],
     "weight": 100,
     "object": {
@@ -331,9 +44,9 @@
       "palettes": [ "farm_lots" ],
       "place_vehicles": [ { "vehicle": "farm_vehicles", "x": [ 4, 18 ], "y": [ 4, 18 ], "chance": 3, "rotation": [ 90, 270 ] } ],
       "place_monsters": [
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 1 },
+        { "monster": "GROUP_CROWS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 }
       ]
     }
   },
@@ -376,6 +89,11 @@
         { "chunks": [ [ "2x2_haybale", 3 ], [ "null", 2 ] ], "x": [ 25, 46 ], "y": [ 14, 22 ] },
         { "chunks": [ [ "2x2_haybale", 5 ], [ "null", 2 ] ], "x": [ 49, 70 ], "y": [ 0, 22 ] },
         { "chunks": [ [ "2x2_haybale", 3 ], [ "null", 2 ] ], "x": [ 73, 94 ], "y": [ 14, 22 ] }
+      ],
+      "place_monsters": [
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 1 },
+        { "monster": "GROUP_CROWS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 }
       ]
     }
   },
@@ -421,6 +139,11 @@
           "x": 0,
           "y": 0
         }
+      ],
+      "place_monsters": [
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
+        { "monster": "GROUP_CROWS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
       ]
     }
   },
@@ -741,11 +464,11 @@
         "_": "t_region_soil"
       },
       "sealed_item": {
-        "♥": { "item": { "item": "seed_tomato" }, "furniture": "f_plant_seedling", "chance": 20 },
-        "♠": { "item": { "item": "seed_lettuce" }, "furniture": "f_plant_seedling", "chance": 20 },
-        "♦": { "item": { "item": "seed_cucumber" }, "furniture": "f_plant_seedling", "chance": 20 },
-        "♣": { "item": { "item": "seed_carrot" }, "furniture": "f_plant_seedling", "chance": 20 },
-        "Ʌ": { "item": { "item": "seed_zucchini" }, "furniture": "f_plant_seedling", "chance": 20 }
+        "♥": { "item": { "item": "seed_tomato" }, "furniture": "f_plant_seedling", "chance": 15 },
+        "♠": { "item": { "item": "seed_lettuce" }, "furniture": "f_plant_seedling", "chance": 15 },
+        "♦": { "item": { "item": "seed_cucumber" }, "furniture": "f_plant_seedling", "chance": 15 },
+        "♣": { "item": { "item": "seed_carrot" }, "furniture": "f_plant_seedling", "chance": 15 },
+        "Ʌ": { "item": { "item": "seed_zucchini" }, "furniture": "f_plant_seedling", "chance": 15 }
       }
     }
   },
@@ -798,12 +521,16 @@
         "_": "t_region_soil"
       },
       "sealed_item": {
-        "♥": { "item": { "item": "seed_tomato" }, "furniture": "f_plant_seedling", "chance": 20 },
-        "♠": { "item": { "item": "seed_lettuce" }, "furniture": "f_plant_seedling", "chance": 20 },
-        "♦": { "item": { "item": "seed_cucumber" }, "furniture": "f_plant_seedling", "chance": 20 },
-        "♣": { "item": { "item": "seed_carrot" }, "furniture": "f_plant_seedling", "chance": 20 },
-        "Ʌ": { "item": { "item": "seed_zucchini" }, "furniture": "f_plant_seedling", "chance": 20 }
-      }
+        "♥": { "item": { "item": "seed_tomato" }, "furniture": "f_plant_seedling", "chance": 15 },
+        "♠": { "item": { "item": "seed_lettuce" }, "furniture": "f_plant_seedling", "chance": 15 },
+        "♦": { "item": { "item": "seed_cucumber" }, "furniture": "f_plant_seedling", "chance": 15 },
+        "♣": { "item": { "item": "seed_carrot" }, "furniture": "f_plant_seedling", "chance": 15 },
+        "Ʌ": { "item": { "item": "seed_zucchini" }, "furniture": "f_plant_seedling", "chance": 15 }
+      },
+      "place_monsters": [
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 }
+      ]
     }
   },
   {
