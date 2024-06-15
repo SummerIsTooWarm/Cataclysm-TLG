@@ -3369,6 +3369,7 @@
     "overmaps": [
       { "point": [ 0, 0, 0 ], "overmap": "s_baseballfield_a1_north" },
       { "point": [ 1, 0, 0 ], "overmap": "s_baseballfield_a2_north" },
+      { "point": [ 1, 0, 1 ], "overmap": "s_baseballfield_a2_2_north" },
       { "point": [ 0, 1, 0 ], "overmap": "s_baseballfield_b1_north" },
       { "point": [ 1, 1, 0 ], "overmap": "s_baseballfield_b2_north" }
     ]
