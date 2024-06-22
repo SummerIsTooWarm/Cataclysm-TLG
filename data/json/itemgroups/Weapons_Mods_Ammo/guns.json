@@ -907,8 +907,10 @@
     "//2": "Making the assumption any loaded gun will have additional ammo and mags with it.",
     "subtype": "distribution",
     "entries": [
-      { "group": "nested_ksg", "prob": 50 },
-      { "group": "nested_ksg-25", "prob": 8 },
+      { "group": "nested_ksg", "prob": 6 },
+      { "group": "nested_ksg-25", "prob": 6 },
+      { "group": "nested_dp_12", "prob": 3 },
+      { "group": "nested_srm_1216", "prob": 2 },
       { "group": "nested_tavor_12", "prob": 5 },
       { "group": "nested_m1014", "prob": 10 },
       { "group": "nested_SPAS_12", "prob": 2 },
@@ -923,8 +925,10 @@
     "//2": "ammo handled elsewhere so these can be worn.",
     "subtype": "distribution",
     "entries": [
-      { "item": "ksg", "prob": 50, "charges": [ 0, 7 ] },
-      { "item": "ksg-25", "prob": 8, "charges": [ 0, 12 ] },
+      { "item": "ksg", "prob": 6, "charges": [ 0, 7 ] },
+      { "item": "ksg-25", "prob": 6, "charges": [ 0, 12 ] },
+      { "item": "srm_1216", "prob": 1, "charges": [ 0, 16 ] },
+      { "item": "dp_12", "prob": 2, "charges": [ 0, 14 ] },
       { "item": "tavor_12", "prob": 5, "charges": [ 0, 5 ] },
       { "group": "nested_SPAS_12", "prob": 2 },
       { "item": "mossberg_930", "variant": "m1014", "prob": 10, "charges": [ 0, 8 ] },
@@ -938,9 +942,11 @@
     "subtype": "distribution",
     "//": "Uncommon or rare shotguns found in gun stores.",
     "entries": [
-      { "item": "ksg", "prob": 25 },
+      { "item": "ksg", "prob": 5 },
       { "item": "tavor_12", "prob": 5 },
       { "group": "nested_SPAS_12", "prob": 2 },
+      { "item": "srm_1216", "prob": 3 },
+      { "item": "dp_12", "prob": 4 },
       { "item": "mossberg_930", "variant": "m1014", "prob": 10 },
       { "item": "mossberg_590", "variant": "slp", "contents-item": [ "rail_mount" ], "prob": 10 },
       { "item": "mossberg_590m", "prob": 2 }
