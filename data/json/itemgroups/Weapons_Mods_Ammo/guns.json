@@ -254,10 +254,11 @@
     "id": "guns_pistol_hunting_display",
     "//": "Empty high-caliber pistols and revolvers found within hunting supply stores and related locations.",
     "items": [
-      { "item": "glock_20", "variant": "glock_20", "prob": 15 },
-      { "item": "glock_40", "variant": "glock_40", "prob": 15 },
-      { "item": "sw_610", "prob": 20 },
-      { "item": "sw_619", "prob": 25 },
+      { "item": "glock_20", "variant": "glock_20", "prob": 1 },
+      { "item": "glock_40", "variant": "glock_40", "prob": 1 },
+      { "item": "sw_610", "prob": 1 },
+      { "item": "sw_619", "prob": 40 },
+      { "item": "colt_python", "prob": 40 },
       { "item": "bfr", "prob": 10 },
       { "item": "raging_bull", "prob": 15 },
       { "item": "raging_judge", "prob": 15 },
@@ -2033,7 +2034,8 @@
       { "item": "m9", "variant": "m9", "prob": 5, "charges": [ 0, 15 ] },
       { "item": "sig_40", "prob": 20, "charges": [ 0, 12 ] },
       { "item": "usp_45", "prob": 10, "charges": [ 0, 12 ] },
-      { "item": "usp_9mm", "prob": 10, "charges": [ 0, 15 ] }
+      { "item": "usp_9mm", "prob": 10, "charges": [ 0, 15 ] },
+      { "item": "colt_python", "prob": 5, "charges": [ 0, 6 ] }
     ]
   },
   {
@@ -2119,7 +2121,8 @@
       { "item": "garand", "prob": 1, "charges": [ 0, 8 ] },
       { "item": "mk47", "prob": 1, "charges": [ 0, 30 ] },
       { "item": "ak556", "prob": 2, "charges": [ 0, 30 ] },
-      { "item": "ak556", "variant": "zpapm90", "prob": 1 }
+      { "item": "ak556", "variant": "zpapm90", "prob": 1 },
+      { "item": "colt_python", "prob": 1, "charges": [ 0, 6 ] }
     ]
   }
 ]
