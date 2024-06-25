@@ -1047,7 +1047,6 @@
       }
     ],
     "flags": [ "EATEN_HOT" ],
-    "extend": { "vitamins": [ [ "iron", 3 ] ] },
     "relative": { "calories": 200, "fun": 2 },
     "price": "5 USD",
     "price_postapoc": "50 cent",
