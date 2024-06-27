@@ -1004,7 +1004,7 @@ class map
         bool is_dry( const tripoint &p );
 
         // Check if a tile with LIQUIDCONT flag only contains liquids
-        bool only_liquid_in_liquidcont( const tripoint &p );
+        bool only_liquid_in_liquidcont( const tripoint_bub_ms &p );
 
         /**
          * Calls the examine function of furniture or terrain at given tile, for given character.
@@ -1607,7 +1607,9 @@ class map
         const trap &tr_at( const tripoint_abs_ms &p ) const;
         const trap &tr_at( const tripoint_bub_ms &p ) const;
         /// See @ref trap::can_see, which is called for the trap here.
+        // TODO: Get rid of untyped overload.
         bool can_see_trap_at( const tripoint &p, const Character &c ) const;
+        bool can_see_trap_at( const tripoint_bub_ms &p, const Character &c ) const;
 
         // TODO: fix point types (remove the first overload)
         void remove_trap( const tripoint &p );
@@ -1809,7 +1811,7 @@ class map
                              const point &min, const point &max );
 
         // Computers
-        computer *computer_at( const tripoint &p );
+        computer *computer_at( const tripoint_bub_ms &p );
         computer *add_computer( const tripoint &p, const std::string &name, int security );
 
         // Camps

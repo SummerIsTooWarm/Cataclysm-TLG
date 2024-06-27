@@ -6112,7 +6112,7 @@ bool map::is_dry( const tripoint &p )
     return true;
 }
 
-bool map::only_liquid_in_liquidcont( const tripoint &p )
+bool map::only_liquid_in_liquidcont( const tripoint_bub_ms &p )
 {
     if( has_flag( ter_furn_flag::TFLAG_LIQUIDCONT, p ) ) {
         for( const item &it : i_at( p ) ) {
@@ -6410,6 +6410,11 @@ std::list<std::pair<tripoint, item *> > map::get_rc_items( const tripoint &p )
 }
 
 bool map::can_see_trap_at( const tripoint &p, const Character &c ) const
+{
+    return tr_at( p ).can_see( p, c );
+}
+
+bool map::can_see_trap_at( const tripoint_bub_ms &p, const Character &c ) const
 {
     return tr_at( p ).can_see( p, c );
 }
@@ -6959,16 +6964,16 @@ void map::add_splash( const field_type_id &type, const tripoint &center, int rad
     }
 }
 
-computer *map::computer_at( const tripoint &p )
+computer *map::computer_at( const tripoint_bub_ms &p )
 {
     if( !inbounds( p ) ) {
         return nullptr;
     }
 
-    point l;
+    point_sm_ms l;
     submap *const sm = unsafe_get_submap_at( p, l );
     if( sm == nullptr ) {
-        debugmsg( "Tried to get computer at (%d,%d) but the submap is not loaded", l.x, l.y );
+        debugmsg( "Tried to get computer at (%d,%d) but the submap is not loaded", l.x(), l.y() );
         return nullptr;
     }
     return sm->get_computer( l );
