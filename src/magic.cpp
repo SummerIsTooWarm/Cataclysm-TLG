@@ -1427,6 +1427,9 @@ float spell::spell_fail( const Character &guy ) const
         }
         float concentration_loss = ( 1.0f - ( guy.get_focus() / 100.0f ) ) *
                                    temp_concentration_difficulty_multiplyer;
+        if( concentration_loss >= 1.0f ) {
+            return 1.0f;
+        }
         fail_chance /= 1.0f - concentration_loss;
         psi_fail_chance /= 1.0f - concentration_loss;
     }
