@@ -206,7 +206,8 @@
       { "group": "nested_makarov", "prob": 15 },
       { "group": "nested_tokarev", "prob": 15 },
       { "group": "nested_walther_ppk", "prob": 20 },
-      { "group": "nested_minidraco556", "prob": 20 }
+      { "group": "nested_minidraco556", "prob": 20 },
+      { "group": "nested_rp63", "prob": 8 }
     ]
   },
   {
@@ -256,6 +257,7 @@
     "items": [
       { "item": "glock_20", "variant": "glock_20", "prob": 1 },
       { "item": "glock_40", "variant": "glock_40", "prob": 1 },
+      { "item": "rp63", "prob": 3 },
       { "item": "sw_610", "prob": 1 },
       { "item": "sw_619", "prob": 40 },
       { "item": "colt_python", "prob": 40 },
