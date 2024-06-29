@@ -1006,6 +1006,7 @@
     "points": 2,
     "description": "You eat faster, and can eat and drink more, than anyone else!  You also enjoy food more; delicious food is better for your morale, and you don't mind unsavory meals as much.  Activate to skip prompt for overeating.",
     "category": [ "MOUSE", "LUPINE" ],
+    "cancels": [ "PICKYEATER" ],
     "starting_trait": true,
     "active": true,
     "enchantments": [
@@ -9551,6 +9552,7 @@
     "points": -1,
     "description": "You're a very picky eater.  You refuse to eat any food that tastes bad unless you're starving.",
     "category": [ "ALPHA" ],
+    "cancels": [ "GOURMAND" ],
     "starting_trait": true
   },
   {
