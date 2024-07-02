@@ -5609,7 +5609,7 @@ item &map::add_item( const tripoint_bub_ms &p, item new_item, int copies )
         current_submap->get_items( l ).insert( new_item );
     }
 
-    if( current_submap->active_items.add( *new_pos, rebase_rel( l ) ) ) {
+    if( current_submap->active_items.add( *new_pos, l ) ) {
         // TODO: fix point types
         tripoint_abs_sm const loc( abs_sub.x() + p.x() / SEEX, abs_sub.y() + p.y() / SEEY, p.z() );
         submaps_with_active_items_dirty.insert( loc );
