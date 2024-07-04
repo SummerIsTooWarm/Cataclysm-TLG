@@ -4762,8 +4762,10 @@ void submap::store( JsonOut &jsout ) const
                 jsout.start_array();
                 jsout.write( p.x );
                 jsout.write( p.y );
+                const trap_id &trap_at = get_trap( p );
                 // TODO: jsout should support writing an id like jsout.write( trap_id )
-                jsout.write( get_trap( p ).id().str() );
+                jsout.write( trap_at.id().str() );
+                jsout.write( trap_at->trap_item_type );
                 jsout.end_array();
             }
         }
