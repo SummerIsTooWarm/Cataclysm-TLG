@@ -596,7 +596,7 @@ class Character : public Creature, public visitable
         std::set<const profession *> hobbies;
 
         // Relative direction of a grab, add to posx, posy to get the coordinates of the grabbed thing.
-        tripoint grab_point;
+        tripoint_rel_ms grab_point;
 
         // Structs for grabs maintained by this character. Each struct holds one creature, one
         // grab_strength value, and (if the victim is a character) one body part to be grabbed.
