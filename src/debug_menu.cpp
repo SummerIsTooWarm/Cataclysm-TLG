@@ -476,6 +476,29 @@ static int player_uilist()
     return uilist( _( "Player…" ), uilist_initializer );
 }
 
+static void normalize_body( Character &u )
+{
+    u.clear_effects();
+    u.clear_morale();
+    u.clear_vitamins();
+    u.set_all_parts_hp_to_max();
+    u.set_sleepiness( 0 );
+    u.set_focus( 100 );
+    u.set_hunger( 0 );
+    u.set_pain( 0 );
+    u.set_rad( 0 );
+    u.set_sleep_deprivation( 0 );
+    u.set_stamina( u.get_stamina_max() );
+    u.set_stored_kcal( u.get_healthy_kcal() );
+    u.set_thirst( 0 );
+}
+
+static tripoint_abs_ms player_picks_tile()
+{
+    std::optional<tripoint> newpos = g->look_around();
+    return newpos ? get_map().getglobal( *newpos ) : get_player_character().get_location();
+}
+
 static void monster_ammo_edit( monster &mon )
 {
     uilist smenu;
@@ -680,14 +703,14 @@ static void monster_edit_menu()
             break;
         }
         case D_TELE: {
-            if( const std::optional<tripoint> newpos = g->look_around() ) {
-                critter->setpos( *newpos );
+            if( tripoint_abs_ms newpos = player_picks_tile(); newpos != get_avatar().get_location() ) {
+                critter->setpos( get_map().bub_from_abs( newpos ) );
             }
             break;
         }
         case D_WANDER_DES: {
-            if( const std::optional<tripoint> newpos = g->look_around() ) {
-                critter->wander_to( get_map().getglobal( *newpos ), 1000 );
+            if( tripoint_abs_ms newpos = player_picks_tile(); newpos != get_avatar().get_location() ) {
+                critter->wander_to( newpos, 1000 );
             }
             break;
         }
@@ -2166,7 +2189,7 @@ static void character_edit_menu()
 
     enum {
         D_DESC, D_SKILLS, D_THEORY, D_PROF, D_STATS, D_SPELLS, D_ITEMS, D_DELETE_ITEMS, D_DROP_ITEMS, D_ITEM_WORN,
-        D_HP, D_STAMINA, D_MORALE, D_PAIN, D_NEEDS, D_HEALTHY, D_STATUS, D_MISSION_ADD, D_MISSION_EDIT,
+        D_HP, D_STAMINA, D_MORALE, D_PAIN, D_NEEDS, D_NORMALIZE_BODY, D_HEALTHY, D_STATUS, D_MISSION_ADD, D_MISSION_EDIT,
         D_TELE, D_MUTATE, D_BIONICS, D_CLASS, D_ATTITUDE, D_OPINION, D_PERSONALITY, D_ADD_EFFECT, D_ASTHMA, D_PRINT_VARS,
         D_WRITE_EOCS, D_KILL_XP, D_CHECK_TEMP, D_EDIT_VARS, D_FACTION
     };
@@ -2187,6 +2210,7 @@ static void character_edit_menu()
     nmenu.addentry( D_PAIN, true, 'p', "%s", _( "Cause pain" ) );
     nmenu.addentry( D_HEALTHY, true, 'a', "%s", _( "Set health" ) );
     nmenu.addentry( D_NEEDS, true, 'n', "%s", _( "Set needs" ) );
+    nmenu.addentry( D_NORMALIZE_BODY, true, 'N', "%s", _( "Normalize body stats" ) );
     if( get_option<bool>( "STATS_THROUGH_KILLS" ) ) {
         nmenu.addentry( D_KILL_XP, true, 'X', "%s", _( "Set kill XP" ) );
     }
@@ -2311,6 +2335,9 @@ static void character_edit_menu()
         break;
         case D_NEEDS:
             character_edit_needs_menu( you );
+            break;
+        case D_NORMALIZE_BODY:
+            normalize_body( you );
             break;
         case D_MUTATE: {
             uilist smenu;
@@ -3456,7 +3483,7 @@ static void unlock_all()
 static void vehicle_battery_charge()
 {
 
-    optional_vpart_position v_part_pos = get_map().veh_at( get_avatar().pos() );
+    optional_vpart_position v_part_pos = get_map().veh_at( player_picks_tile() );
     if( !v_part_pos ) {
         add_msg( m_bad, _( "There's no vehicle there." ) );
         return;
@@ -4007,7 +4034,7 @@ void debug()
 
         case debug_menu_index::VEHICLE_DELETE: {
 
-            if( const optional_vpart_position ovp = here.veh_at( player_character.pos() ) ) {
+            if( const optional_vpart_position ovp = here.veh_at( player_picks_tile() ) ) {
                 here.destroy_vehicle( &ovp->vehicle() );
                 break;
             }
@@ -4046,8 +4073,14 @@ void debug()
         }
 
         case debug_menu_index::QUICK_SETUP: {
+            if( !debug_mode ) {
+                // Turn on debug mode if not already on, but without any filters enabled (to prevent log spam).
+                // Save a few keypresses.
+                debug_mode = true;
+                debugmode::enabled_filters.clear();
+            }
             Character &u = get_avatar();
-            normalize_body();
+            normalize_body( u );
             // Specifically only adds mutations instead of toggling them.
             u.set_mutations( setup_traits );
             u.remove_weapon();
@@ -4069,7 +4102,7 @@ void debug()
         }
 
         case debug_menu_index::NORMALIZE_BODY_STAT: {
-            normalize_body();
+            normalize_body( get_avatar() );
             break;
         }
 
