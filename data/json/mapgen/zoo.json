@@ -15,6 +15,16 @@
     "monsters": [ { "group": "GROUP_PIGS", "weight": 950 }, { "monster": "mon_zombie_pig", "weight": 50 } ]
   },
   {
+    "name": "GROUP_SPIDERS_ZOO",
+    "type": "monstergroup",
+    "monsters": [
+      { "group": "GROUP_SPIDER" },
+      { "group": "GROUP_SPIDER_TRAPDOOR" },
+      { "group": "GROUP_SPIDER_WIDOW" },
+      { "group": "GROUP_SPIDER_WOLF" }
+    ]
+  },
+  {
     "method": "json",
     "om_terrain": "zoo_0_0",
     "type": "mapgen",
