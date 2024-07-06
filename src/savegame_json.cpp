@@ -5020,7 +5020,14 @@ void submap::load( const JsonValue &jv, const std::string &member_name, int vers
             // TODO: jsin should support returning an id like jsin.get_id<trap>()
             const trap_str_id trid( trap_entry.next_string() );
             m->trp[p.x][p.y] = trid.id();
-            if( trap_entry.size() > 3 ) {
+            if( trap_entry.has_more() ) {
+                std::optional<std::string> trap_item_type = std::nullopt;
+                trap_entry.read_next( trap_item_type );
+                if( trap_item_type.has_value() ) {
+                    const_cast<trap &>( m->trp[p.x][p.y].obj() ).set_trap_data( itype_id( trap_item_type.value() ) );
+                }
+            }
+            if( trap_entry.size() > 4 ) {
                 trap_entry.throw_error( "Too many values for trap entry" );
             }
         }
