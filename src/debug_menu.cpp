@@ -482,7 +482,7 @@ static void normalize_body( Character &u )
     u.clear_morale();
     u.clear_vitamins();
     u.set_all_parts_hp_to_max();
-    u.set_sleepiness( 0 );
+    u.set_fatigue( 0 );
     u.set_focus( 100 );
     u.set_hunger( 0 );
     u.set_pain( 0 );
@@ -3098,24 +3098,6 @@ static cata_path prepare_export_dir_and_find_unused_name( const std::string &cha
         try_next++;
     }
     return ret;
-}
-
-static void normalize_body()
-{
-    Character &u = get_avatar();
-    u.clear_effects();
-    u.clear_morale();
-    u.clear_vitamins();
-    u.set_all_parts_hp_to_max();
-    u.set_fatigue( 0 );
-    u.set_focus( 100 );
-    u.set_hunger( 0 );
-    u.set_pain( 0 );
-    u.set_rad( 0 );
-    u.set_sleep_deprivation( 0 );
-    u.set_stamina( u.get_stamina_max() );
-    u.set_stored_kcal( u.get_healthy_kcal() );
-    u.set_thirst( 0 );
 }
 
 static void bleed_self()
