@@ -1288,7 +1288,6 @@ bool trapfunc::ledge( const tripoint &p, Creature *c, item * )
     if( m != nullptr && m->flies() ) {
         return false;
     }
-
     if( c->has_effect_with_flag( json_flag_LEVITATION ) && !c->has_effect( effect_slow_descent ) ) {
         return false;
     }
@@ -1353,8 +1352,9 @@ bool trapfunc::ledge( const tripoint &p, Creature *c, item * )
     }
 
     item jetpack = you->item_worn_with_flag( STATIC( flag_id( "JETPACK" ) ) );
-
-    if( you->has_flag( json_flag_WALL_CLING ) &&  get_map().is_clingable_wall_adjacent( p ) ) {
+    // TODO: Typify this whole function
+    tripoint_bub_ms p_bub = here.bub_from_abs( p );
+    if( you->has_flag( json_flag_WALL_CLING ) &&  get_map().is_clingable_wall_adjacent( p_bub ) ) {
         you->add_msg_player_or_npc( _( "You cling to the nearby wall." ),
                                     _( "<npcname> clings to the wall." ) );
         return false;
@@ -1515,7 +1515,7 @@ bool trapfunc::map_regen( const tripoint &p, Creature *c, item * )
                 return false;
             }
             set_queued_points();
-            here.set_seen_cache_dirty( p );
+            here.set_seen_cache_dirty( tripoint_bub_ms( p ) );
             here.set_transparency_cache_dirty( p.z );
             return true;
         }
