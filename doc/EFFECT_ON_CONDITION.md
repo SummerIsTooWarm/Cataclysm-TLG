@@ -68,7 +68,8 @@ For example, `{ "npc_has_effect": "Shadow_Reveal" }`, used by shadow lieutenant,
 | Use computer                                     | player (Avatar)             | computer (Furniture)        |
 | furniture: "examine_action"                      | player (Avatar)             | NONE                        |
 | SPELL: "effect": "effect_on_condition"           | target (Character, Monster) | spell caster (Character, Monster) |
-| use_action: "type": "effect_on_conditions"       | user (Character)            | item (item)                 |
+| monster_attack: "eoc"                            | attacker ( Monster)         | victim (Creature)           | `damage`, int, damage dealt by attack
+| use_action: "type": "effect_on_conditions"       | user (Character)            | item (item)                 | `id`, string, stores item id
 | tick_action: "type": "effect_on_conditions"      | carrier (Character)         | item (item)                 |
 | countdown_action: "type": "effect_on_conditions" | carrier (Character)         | item (item)                 |
 | COMESTIBLE: "consumption_effect_on_conditions"   | user (Character)            | item (item)                 |
