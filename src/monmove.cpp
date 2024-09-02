@@ -843,34 +843,33 @@ void monster::move()
 
     const bool pacified = has_effect( effect_pacified );
 
-    uint attacks_size = type->special_attacks.size();
+    auto attacks_size = type->special_attacks.size();
 
-    std::vector<uint> random;
-    uint array_offset = rng(0, attacks_size - 1);
+    std::vector<std::size_t> random;
+    auto array_offset = rng( 0, attacks_size - 1 );
 
-    // Offsets which special attack will be checked first by
-    // random number making it seems like its completely random
-    for (uint i = 0; i < attacks_size; i++)
-    {
-        uint value = i + array_offset;
+    for( std::size_t i = 0; i < attacks_size; i++ ) {
+        std::size_t value = i + array_offset;
 
-        if( value > attacks_size - 1) 
+        if( value >= attacks_size ) {
             value -= attacks_size;
+        }
 
-        random.push_back(value);
+        random.push_back( value );
     }
 
+
     std::vector<std::string> keys_copy;
-    for( const auto &sp_type : type->special_attacks )
-        keys_copy.push_back(sp_type.first);
-    
+    for( const auto &sp_type : type->special_attacks ) {
+        keys_copy.push_back( sp_type.first );
+    }
+
     // First, use the special attack, if we can!
     // The attack may change `monster::special_attacks` (e.g. by transforming
     // this into another monster type). Therefore we can not iterate over it
     // directly and instead iterate over the map from the monster type
     // (properties of monster types should never change).
-    for (uint i = 0; i < attacks_size; i++)
-    {
+    for( std::size_t i = 0; i < attacks_size; i++ ) {
         const std::string &special_name = keys_copy[random[i]];
         const auto local_iter = special_attacks.find( special_name );
         if( local_iter == special_attacks.end() ) {
@@ -884,7 +883,7 @@ void monster::move()
                        special_name, local_attack_data.cooldown );
 
         // Cooldowns are decremented in monster::process_turn
-        const mtype_special_attack &attack_ref = type->special_attacks.at(keys_copy[random[i]]);
+        const mtype_special_attack &attack_ref = type->special_attacks.at( keys_copy[random[i]] );
         if( local_attack_data.cooldown == 0 && !pacified && !is_hallucination() ) {
             if( !attack_ref->call( *this ) ) {
                 add_msg_debug( debugmode::DF_MATTACK, "Attack failed" );
