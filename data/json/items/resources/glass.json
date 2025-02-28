@@ -10,8 +10,7 @@
     "description": "A pile of broken glass.  The pieces are sharp, but too small to use for cutting as they are. They must be prepared before they can be scattered on the ground.",
     "material": [ "glass" ],
     "weight": "75 g",
-    "volume": "30 ml",
-    "flags": [ "TRADER_AVOID" ]
+    "volume": "30 ml"
   },
   {
     "type": "AMMO",
