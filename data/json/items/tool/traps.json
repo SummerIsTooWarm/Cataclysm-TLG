@@ -337,5 +337,5 @@
     },
     "flags": [ "HURT_WHEN_WIELDED", "TRADER_AVOID", "SINGLE_USE" ],
     "to_hit": -1
-  
+    }
 ]
