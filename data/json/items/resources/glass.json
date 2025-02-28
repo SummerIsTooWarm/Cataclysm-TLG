@@ -7,10 +7,11 @@
     "color": "light_cyan",
     "name": { "str": "broken glass" },
     "category": "other",
-    "description": "A pile of broken glass.  The pieces are sharp, but too small to use for cutting as they are. They must be gathered together before they can be scattered on the ground.",
+    "description": "A pile of broken glass.  The pieces are sharp, but too small to use for cutting as they are. They must be prepared before they can be scattered on the ground.",
     "material": [ "glass" ],
     "weight": "75 g",
     "volume": "30 ml",
+    "flags": [ "TRADER_AVOID" ]
   },
   {
     "type": "AMMO",
