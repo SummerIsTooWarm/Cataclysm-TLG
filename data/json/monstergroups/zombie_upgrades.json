@@ -152,9 +152,11 @@
     "name": "GROUP_ZOMBIE_ELECTRIC_UPGRADE",
     "//": "Note that 'freq' units are tenth of a percent, with default filling in the gap.",
     "monsters": [
-      { "monster": "mon_zombie_nullfield", "weight": 400 },
-      { "monster": "mon_zombie_brute_shocker", "weight": 300 },
-      { "monster": "mon_skeleton_electric", "weight": 300 }
+      { "monster": "mon_zombie_nullfield", "weight": 40 },
+      { "monster": "mon_zombie_scorched", "weight": 800 },
+      { "monster": "mon_zombie_electric", "weight": 100 },
+      { "monster": "mon_zombie_brute_shocker", "weight": 30 },
+      { "monster": "mon_skeleton_electric", "weight": 30 }
     ]
   },
   {
