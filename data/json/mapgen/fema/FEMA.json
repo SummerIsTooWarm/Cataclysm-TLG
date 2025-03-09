@@ -84,7 +84,7 @@
         "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
       ],
       "furniture": { "d": "f_desk", "L": [ "f_rack", "f_utility_shelf" ] },
-      "items": { "L": { "item": "tools_general", "chance": 50, "repeat": [ 1, 3 ] } },
+      "items": { "L": { "item": "tools_general", "chance": 40, "repeat": [ 1, 3 ] } },
       "monster": { "_": { "monster": "mon_turret_searchlight" } },
       "monsters": {
         "~": { "monster": "GROUP_MIL_WEAK", "chance": 1, "density": 0.005 },

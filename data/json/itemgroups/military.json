@@ -348,10 +348,10 @@
     "id": "military_patrol_food",
     "subtype": "collection",
     "entries": [
-      { "group": "any_MRE", "count": [ 1, 3 ], "prob": 70 },
+      { "group": "any_MRE", "count": [ 0, 3 ], "prob": 60 },
       { "prob": 20, "group": "chocolate_wrapper_1_3" },
       { "prob": 20, "group": "neccowafers_bag_plastic_3" },
-      { "item": "water_clean", "container-item": "canteen", "prob": 80, "charges": [ 0, 6 ] }
+      { "item": "water_clean", "container-item": "canteen", "prob": 60, "charges": [ 0, 6 ] }
     ]
   },
   {
