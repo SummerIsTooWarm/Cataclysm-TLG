@@ -55,7 +55,7 @@
     "subtype": "collection",
     "items": [
       { "group": "milspec_arsenal_group_guns&mags&cans", "prob": 20 },
-      { "group": "arsenal_empty_cans", "prob": 100 },
+      { "group": "arsenal_empty_cans", "prob": 70 },
       { "group": "arsenal_leftovers", "prob": 30 }
     ]
   },

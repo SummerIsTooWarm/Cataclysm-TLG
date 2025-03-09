@@ -402,52 +402,37 @@
   {
     "type": "profession_item_substitutions",
     "item": "blazer",
-    "sub": [
-      { "present": [ "WOOLALLERGY" ], "new": [ "jacket_leather" ] },
-      { "present": [ "VEGAN" ], "new": [ "jacket_light" ] }
-    ]
+    "sub": [ { "present": [ "WOOLALLERGY" ], "new": [ "jacket_leather" ] }, { "present": [ "VEGAN" ], "new": [ "jacket_light" ] } ]
   },
   {
     "type": "profession_item_substitutions",
     "item": "jacket_leather",
-    "sub": [
-      { "present": [ "VEGAN" ], "new": [ "jacket_jean" ] }
-    ]
+    "sub": [ { "present": [ "VEGAN" ], "new": [ "jacket_jean" ] } ]
   },
   {
     "type": "profession_item_substitutions",
     "item": "leather_police_jacket",
-    "sub": [
-      { "present": [ "VEGAN" ], "new": [ "jacket_jean" ] }
-    ]
+    "sub": [ { "present": [ "VEGAN" ], "new": [ "jacket_jean" ] } ]
   },
   {
     "type": "profession_item_substitutions",
     "item": "pants_leather",
-    "sub": [
-      { "present": [ "VEGAN" ], "new": [ "jeans_skinny" ] }
-    ]
+    "sub": [ { "present": [ "VEGAN" ], "new": [ "jeans_skinny" ] } ]
   },
   {
     "type": "profession_item_substitutions",
     "item": "motor_police_boots",
-    "sub": [
-      { "present": [ "VEGAN" ], "new": [ "motorbike_boots" ] }
-    ]
+    "sub": [ { "present": [ "VEGAN" ], "new": [ "motorbike_boots" ] } ]
   },
   {
     "type": "profession_item_substitutions",
     "item": "boots",
-    "sub": [
-      { "present": [ "VEGAN" ], "new": [ "motorbike_boots" ] }
-    ]
+    "sub": [ { "present": [ "VEGAN" ], "new": [ "motorbike_boots" ] } ]
   },
   {
     "type": "profession_item_substitutions",
     "item": "boots_hiking",
-    "sub": [
-      { "present": [ "VEGAN" ], "new": [ "motorbike_boots" ] }
-    ]
+    "sub": [ { "present": [ "VEGAN" ], "new": [ "motorbike_boots" ] } ]
   },
   {
     "type": "profession_item_substitutions",
