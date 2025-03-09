@@ -315,36 +315,36 @@ jobs:
           sudo apt-get update
           sudo apt-get install gettext          
 
-      # - name: Build Ctlg (android)
-      #   if: runner.os == 'Linux' && matrix.android != 'none' && matrix.mxe == 'none'
-      #   working-directory: ./android
-      #   run: |
-      #     # Set environment variables for NDK compatibility
-      #     export NDK_VERSION="25.2.9519653" # Set to the required NDK version
+      - name: Build Ctlg (android)
+        if: runner.os == 'Linux' && matrix.android != 'none' && matrix.mxe == 'none'
+        working-directory: ./android
+        run: |
+          # Set environment variables for NDK compatibility
+          export NDK_VERSION="25.2.9519653" # Set to the required NDK version
           
-      #     # Uncomment and configure these if you're using keystore properties files
-      #     echo "${{ secrets.KEYSTORE }}" > ctlg-release-key.jks.asc
-      #     gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD }}" --batch ctlg-release-key.jks.asc > app/release.keystore 
-      #     # echo "${{ secrets.KEYSTORE_PROPERTIES }}" > keystore.properties.asc   
-      #     # gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD }}" --batch keystore.properties.asc > keystore.properties
+          # Uncomment and configure these if you're using keystore properties files
+          echo "${{ secrets.KEYSTORE }}" > release.keystore.asc
+          gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD }}" --batch release.keystore.asc > app/release.keystore 
+          echo "${{ secrets.KEYSTORE_PROPERTIES }}" > keystore.properties.asc   
+          gpg -d --passphrase "${{ secrets.KEYSTORE_PASSWORD }}" --batch keystore.properties.asc > keystore.properties
           
-      #     export UPSTREAM_BUILD_NUMBER="$((11581 + ${{ github.run_number }}))"
-      #     chmod +x gradlew
+          export UPSTREAM_BUILD_NUMBER="$((11581 + ${{ github.run_number }}))"
+          chmod +x gradlew
           
-      #     # Build Android APK or AAB for different architectures
-      #     if [ ${{ matrix.android }} = arm64 ]
-      #     then
-      #          ./gradlew -Pj=$((`nproc`+0)) -Pabi_arm_32=false assembleExperimentalRelease
-      #          mv ./app/build/outputs/apk/experimental/release/*.apk ../ctlg-${{ matrix.artifact }}-${{ needs.release.outputs.timestamp }}.apk
-      #     elif [ ${{ matrix.android }} = arm32 ]
-      #     then
-      #          ./gradlew -Pj=$((`nproc`+0)) -Pabi_arm_64=false assembleExperimentalRelease
-      #          mv ./app/build/outputs/apk/experimental/release/*.apk ../ctlg-${{ matrix.artifact }}-${{ needs.release.outputs.timestamp }}.apk 
-      #     elif [ ${{ matrix.android }} = bundle ]
-      #     then
-      #          ./gradlew -Pj=$((`nproc`+0)) bundleExperimentalRelease
-      #          mv ./app/build/outputs/bundle/experimentalRelease/*.aab ../ctlg-${{ matrix.artifact }}-${{ needs.release.outputs.timestamp }}.aab     
-      #     fi
+          # Build Android APK or AAB for different architectures
+          if [ ${{ matrix.android }} = arm64 ]
+          then
+               ./gradlew -Pj=$((`nproc`+0)) -Pabi_arm_32=false assembleExperimentalRelease
+               mv ./app/build/outputs/apk/experimental/release/*.apk ../ctlg-${{ matrix.artifact }}-${{ needs.release.outputs.timestamp }}.apk
+          elif [ ${{ matrix.android }} = arm32 ]
+          then
+               ./gradlew -Pj=$((`nproc`+0)) -Pabi_arm_64=false assembleExperimentalRelease
+               mv ./app/build/outputs/apk/experimental/release/*.apk ../ctlg-${{ matrix.artifact }}-${{ needs.release.outputs.timestamp }}.apk 
+          elif [ ${{ matrix.android }} = bundle ]
+          then
+               ./gradlew -Pj=$((`nproc`+0)) bundleExperimentalRelease
+               mv ./app/build/outputs/bundle/experimentalRelease/*.aab ../ctlg-${{ matrix.artifact }}-${{ needs.release.outputs.timestamp }}.aab     
+          fi
 
-      # - run: |
-      #     gh release upload ${{ needs.release.outputs.tag_name }} ctlg-${{ matrix.artifact }}-${{ needs.release.outputs.timestamp }}.${{ matrix.ext }}
+      - run: |
+          gh release upload ${{ needs.release.outputs.tag_name }} ctlg-${{ matrix.artifact }}-${{ needs.release.outputs.timestamp }}.${{ matrix.ext }}
