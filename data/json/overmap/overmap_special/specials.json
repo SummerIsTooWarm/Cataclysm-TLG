@@ -264,8 +264,11 @@
     "id": "farm_abandoned",
     "overmaps": [
       { "point": [ 1, 0, 0 ], "overmap": "car_corner_aban1_north" },
+      { "point": [ 1, 0, 1 ], "overmap": "car_corner_aban1_roof_north" },
       { "point": [ 0, 0, 0 ], "overmap": "cabin_aban1_north" },
+      { "point": [ 0, 0, 1 ], "overmap": "cabin_aban1_roof_north" },
       { "point": [ 1, -1, 0 ], "overmap": "barn_aban1_north" },
+      { "point": [ 1, -1, 1 ], "overmap": "barn_aban1_roof_north" },
       { "point": [ 0, -1, 0 ], "overmap": "dirtplaza_aban1_north" },
       { "point": [ 0, -2, 0 ], "overmap": "dirtroad2_aban1_north" },
       { "point": [ 0, -3, 0 ], "overmap": "dirtroad2_aban1_north" },
@@ -413,6 +416,7 @@
       { "point": [ 0, 1, 1 ], "overmap": "sewage_treatment_0_1_roof_north" },
       { "point": [ 1, 1, 0 ], "overmap": "sewage_treatment_1_1_0_north" },
       { "point": [ 1, 1, 1 ], "overmap": "sewage_treatment_1_1_roof_north" },
+      { "point": [ 1, 0, 2 ], "overmap": "sewage_treatment_1_0_upper_roof_north" },
       { "point": [ 0, 0, -1 ], "overmap": "sewage_treatment_0_0_-1_north" },
       { "point": [ 1, 0, -1 ], "overmap": "sewage_treatment_1_0_-1_north" },
       { "point": [ 2, 0, -1 ], "overmap": "sewage_treatment_2_0_-1_north" },
@@ -1200,6 +1204,12 @@
       { "point": [ 2, 2, 1 ], "overmap": "prison_alcatraz_13_2f_north" },
       { "point": [ 1, 2, 1 ], "overmap": "prison_alcatraz_14_2f_north" },
       { "point": [ 0, 2, 1 ], "overmap": "prison_alcatraz_15_2f_north" },
+      { "point": [ 4, 1, 2 ], "overmap": "prison_alcatraz_6_3f_north" },
+      { "point": [ 1, 1, 2 ], "overmap": "prison_alcatraz_9_3f_north" },
+      { "point": [ 0, 1, 2 ], "overmap": "prison_alcatraz_10_3f_north" },
+      { "point": [ 4, 2, 2 ], "overmap": "prison_alcatraz_11_3f_north" },
+      { "point": [ 1, 2, 2 ], "overmap": "prison_alcatraz_14_3f_north" },
+      { "point": [ 0, 2, 2 ], "overmap": "prison_alcatraz_15_3f_north" },
       { "point": [ 4, 0, -1 ], "overmap": "solid_earth", "locations": [ "lake_water_cube" ] },
       { "point": [ 3, 0, -1 ], "overmap": "solid_earth", "locations": [ "lake_water_cube" ] },
       { "point": [ 2, 0, -1 ], "overmap": "solid_earth", "locations": [ "lake_water_cube" ] },
@@ -1336,6 +1346,11 @@
       { "point": [ 2, 2, 1 ], "overmap": "prison_island_1_2f_13_north" },
       { "point": [ 3, 2, 1 ], "overmap": "prison_island_1_2f_14_north" },
       { "point": [ 4, 2, 1 ], "overmap": "prison_island_1_2f_15_north" },
+      { "point": [ 0, 0, 2 ], "overmap": "prison_island_1_3f_1_north" },
+      { "point": [ 3, 0, 2 ], "overmap": "prison_island_1_3f_4_north" },
+      { "point": [ 4, 0, 2 ], "overmap": "prison_island_1_3f_5_north" },
+      { "point": [ 0, 2, 2 ], "overmap": "prison_island_1_3f_11_north" },
+      { "point": [ 3, 2, 2 ], "overmap": "prison_island_1_3f_14_north" },
       { "point": [ 0, 0, -1 ], "overmap": "prison_island_1_ug_1_north", "locations": [ "lake_water_cube" ] },
       { "point": [ 1, 0, -1 ], "overmap": "prison_island_1_ug_2_north", "locations": [ "lake_water_cube" ] },
       { "point": [ 2, 0, -1 ], "overmap": "prison_island_1_ug_3_north", "locations": [ "lake_water_cube" ] },
@@ -1908,7 +1923,10 @@
   {
     "type": "overmap_special",
     "id": "Toxic Waste Dump",
-    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "toxic_dump_north" } ],
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "toxic_dump_north" },
+      { "point": [ 0, 0, 1 ], "overmap": "toxic_dump_roof_north" }
+    ],
     "locations": [ "land" ],
     "city_distance": [ 20, -1 ],
     "city_sizes": [ 8, -1 ],
@@ -1923,6 +1941,10 @@
       { "point": [ 0, 0, 0 ], "overmap": "haz_sar_1_2_north" },
       { "point": [ 1, 1, 0 ], "overmap": "haz_sar_1_3_north" },
       { "point": [ 0, 1, 0 ], "overmap": "haz_sar_1_4_north" },
+      { "point": [ 1, 0, 1 ], "overmap": "haz_sar_1_1_2_north" },
+      { "point": [ 0, 0, 1 ], "overmap": "haz_sar_1_2_2_north" },
+      { "point": [ 1, 1, 1 ], "overmap": "haz_sar_1_3_2_north" },
+      { "point": [ 0, 1, 1 ], "overmap": "haz_sar_1_4_2_north" },
       { "point": [ 1, 0, -2 ], "overmap": "haz_sar_b_1_north" },
       { "point": [ 0, 0, -2 ], "overmap": "haz_sar_b_2_north" },
       { "point": [ 1, 1, -2 ], "overmap": "haz_sar_b_3_north" },
@@ -2179,6 +2201,9 @@
       { "point": [ 6, 8, 1 ], "overmap": "evac_center_17_z1_north" },
       { "point": [ 7, 8, 1 ], "overmap": "evac_center_18_z1_north" },
       { "point": [ 8, 8, 1 ], "overmap": "evac_center_19_z1_north" },
+      { "point": [ 6, 7, 2 ], "overmap": "evac_center_12_z2_north" },
+      { "point": [ 7, 7, 2 ], "overmap": "evac_center_13_z2_north" },
+      { "point": [ 8, 7, 2 ], "overmap": "evac_center_14_z2_north" },
       { "point": [ 4, 4, -1 ], "overmap": "special_earth" },
       { "point": [ 5, 4, -1 ], "overmap": "special_earth" },
       { "point": [ 6, 4, -1 ], "overmap": "special_earth" },
@@ -2709,7 +2734,10 @@
   {
     "type": "overmap_special",
     "id": "campsite_cabin_incomplete",
-    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "campsite_cabin_incomplete_north" } ],
+    "overmaps": [
+      { "point": [ 0, 0, 0 ], "overmap": "campsite_cabin_incomplete_north" },
+      { "point": [ 0, 0, 1 ], "overmap": "campsite_cabin_incomplete_roof_north" }
+    ],
     "locations": [ "forest_without_trail" ],
     "connections": [ { "point": [ 0, -1, 0 ], "terrain": "forest_trail", "connection": "forest_trail", "existing": true } ],
     "city_distance": [ 25, -1 ],
@@ -2949,6 +2977,7 @@
     "overmaps": [
       { "point": [ 0, 0, 0 ], "overmap": "state_park_0_0_north" },
       { "point": [ 1, 0, 0 ], "overmap": "state_park_1_0_north" },
+      { "point": [ 1, 0, 1 ], "overmap": "state_park_1_0_1_north" },
       { "point": [ 0, 1, 0 ], "overmap": "state_park_0_1_north" },
       { "point": [ 1, 1, 0 ], "overmap": "state_park_1_1_north" },
       { "point": [ 1, -1, 0 ], "locations": [ "land", "road" ] }
@@ -3237,7 +3266,9 @@
       { "point": [ 1, 0, 0 ], "overmap": "junkyard_1b_north" },
       { "point": [ 1, 0, 1 ], "overmap": "junkyard_roof_1b_north" },
       { "point": [ 0, 1, 0 ], "overmap": "junkyard_2a_north" },
+      { "point": [ 0, 1, 1 ], "overmap": "junkyard_roof_2a_north" },
       { "point": [ 1, 1, 0 ], "overmap": "junkyard_2b_north" },
+      { "point": [ 1, 1, 1 ], "overmap": "junkyard_roof_2b_north" },
       { "point": [ 0, -1, 0 ], "locations": [ "land", "road" ] },
       { "point": [ 1, -1, 0 ], "locations": [ "land", "road" ] }
     ],
@@ -3284,6 +3315,7 @@
     "id": "tree farm",
     "overmaps": [
       { "point": [ 0, 0, 0 ], "overmap": "TreeFarm_1a_north" },
+      { "point": [ 0, 0, 1 ], "overmap": "TreeFarm_1a_roof_north" },
       { "point": [ 1, 0, 0 ], "overmap": "TreeFarm_1b_north" },
       { "point": [ 0, -1, 0 ], "locations": [ "land", "road" ] }
     ],
@@ -4094,6 +4126,7 @@
       { "point": [ 1, 0, 0 ], "overmap": "ws_biker_dump_1_0_north" },
       { "point": [ 2, 0, 0 ], "overmap": "ws_biker_dump_2_0_north" },
       { "point": [ 3, 0, 0 ], "overmap": "ws_biker_dump_3_0_north" },
+      { "point": [ 3, 0, 1 ], "overmap": "ws_biker_dump_3_0_roof_north" },
       { "point": [ 0, 1, 0 ], "overmap": "ws_biker_dump_0_1_north" },
       { "point": [ 1, 1, 0 ], "overmap": "ws_biker_dump_1_1_north" },
       { "point": [ 2, 1, 0 ], "overmap": "ws_biker_dump_2_1_north" },
@@ -7502,6 +7535,7 @@
       { "point": [ 5, 7, 1 ], "overmap": "speedway_5_7_1_north" },
       { "point": [ 6, 7, 1 ], "overmap": "speedway_6_7_1_north" },
       { "point": [ 6, 7, 2 ], "overmap": "speedway_6_7_2_north" },
+      { "point": [ 6, 7, 3 ], "overmap": "speedway_6_7_3_north" },
       { "point": [ 5, 10, 0 ], "locations": [ "land", "road" ] }
     ],
     "occurrences": [ 50, 100 ],
@@ -7555,7 +7589,8 @@
       { "point": [ 1, 4, 0 ], "overmap": "LIXA_road_north" },
       { "point": [ 1, 5, 0 ], "overmap": "LIXA_road_north" },
       { "point": [ 1, 6, 0 ], "overmap": "LIXA_road_north" },
-      { "point": [ 1, 7, 0 ], "overmap": "LIXA_road_guard_north" }
+      { "point": [ 1, 7, 0 ], "overmap": "LIXA_road_guard_north" },
+      { "point": [ 1, 7, 1 ], "overmap": "LIXA_road_guard_roof_north" }
     ],
     "connections": [ { "point": [ 1, 8, 0 ], "terrain": "road", "connection": "local_road", "existing": true, "from": [ 1, 7, 0 ] } ],
     "city_distance": [ 3, -1 ],
