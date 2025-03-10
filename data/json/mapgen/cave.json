@@ -352,7 +352,7 @@
       ],
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
       "palettes": [ "cave_surface_palette" ],
-      "monster": { "F": { "monster": "mon_frog" } }
+      "monster": { "F": { "monster": "mon_bullfrog" } }
     }
   },
   {
