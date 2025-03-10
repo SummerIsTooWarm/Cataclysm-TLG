@@ -103,10 +103,7 @@
         "collection": [ { "item": "knife_carving", "damage": [ 0, 4 ] }, { "item": "carving_fork", "prob": 90, "damage": [ 0, 4 ] } ],
         "prob": 42
       },
-      {
-        "collection": [ { "item": "knife_carving" }, { "item": "carving_fork", "prob": 90 } ],
-        "prob": 42
-      },
+      { "collection": [ { "item": "knife_carving" }, { "item": "carving_fork", "prob": 90 } ], "prob": 42 },
       { "item": "scissors", "prob": 80, "damage": [ 0, 4 ] },
       { "item": "peeler", "prob": 75, "damage": [ 0, 4 ] },
       { "item": "cutting_board", "count": [ 0, 2 ] },
