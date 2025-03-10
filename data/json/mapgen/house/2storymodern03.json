@@ -87,8 +87,8 @@
         "........................"
       ],
       "terrain": {
-        "%": [ [ "t_shrub", 2 ], "t_shrub_strawberry", "t_shrub_blueberry" ],
-        "[": [ [ "t_region_tree_nut", 5 ], [ "t_region_tree_shade", 4 ], [ "t_region_tree_fruit", 2 ] ],
+        "%": [ [ "t_shrub", 4 ], "t_shrub_strawberry", "t_shrub_blueberry" ],
+        "[": [ [ "t_region_tree_nut", 5 ], [ "t_region_tree_shade", 8 ], [ "t_region_tree_fruit", 2 ] ],
         ",": "t_shrub_lilac",
         "`": "t_thconc_floor",
         "U": "t_thconc_floor",

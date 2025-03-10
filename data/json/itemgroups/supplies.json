@@ -588,8 +588,8 @@
       [ "diesel", 20 ],
       [ "gasoline", 50 ],
       [ "motor_oil", 100 ],
-      [ "lamp_oil", 100 ],
-      [ "propane", 75 ]
+      [ "lamp_oil", 60 ],
+      [ "propane", 30 ]
     ]
   },
   {

@@ -61,7 +61,7 @@
         "0": [ { "item": "dress_shop", "chance": 30, "repeat": [ 1, 2 ] }, { "item": "jackets", "chance": 30, "repeat": [ 1, 2 ] } ]
       },
       "place_loot": [
-        { "item": "laptop", "x": 11, "y": 20, "chance": 100 },
+        { "item": "laptop", "x": 11, "y": 20, "chance": 90 },
         { "item": "stereo", "x": 12, "y": 15, "chance": 100 },
         { "item": "television", "x": 19, "y": 17, "chance": 100 },
         { "item": "television", "x": 11, "y": 15, "chance": 100 }
