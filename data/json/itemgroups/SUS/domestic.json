@@ -7,19 +7,20 @@
     "subtype": "collection",
     "entries": [
       { "item": "knife_butter", "prob": 75, "damage": [ 0, 4 ] },
+      { "item": "knife_butter", "prob": 75 },
       { "item": "knife_butter", "prob": 75, "damage": [ 0, 4 ] },
+      { "item": "knife_butter", "prob": 75 },
       { "item": "knife_butter", "prob": 75, "damage": [ 0, 4 ] },
-      { "item": "knife_butter", "prob": 75, "damage": [ 0, 4 ] },
-      { "item": "knife_butter", "prob": 75, "damage": [ 0, 4 ] },
+      { "item": "knife_steak", "prob": 75 },
       { "item": "knife_steak", "prob": 75, "damage": [ 0, 4 ] },
+      { "item": "knife_steak", "prob": 75 },
       { "item": "knife_steak", "prob": 75, "damage": [ 0, 4 ] },
-      { "item": "knife_steak", "prob": 75, "damage": [ 0, 4 ] },
-      { "item": "knife_steak", "prob": 75, "damage": [ 0, 4 ] },
-      { "item": "knife_paring", "prob": 75, "damage": [ 0, 4 ] },
+      { "item": "knife_paring", "prob": 35, "damage": [ 0, 4 ] },
+      { "item": "knife_paring", "prob": 35 },
       { "item": "fork", "count": [ 0, 6 ] },
-      { "item": "fork", "count": [ 0, 6 ], "prob": 75 },
+      { "item": "fork", "count": [ 0, 6 ], "prob": 75, "damage": [ 0, 4 ] },
       { "item": "spoon", "count": [ 0, 6 ] },
-      { "item": "spoon", "count": [ 0, 6 ], "prob": 75 },
+      { "item": "spoon", "count": [ 0, 6 ], "prob": 75, "damage": [ 0, 4 ] },
       { "item": "chopsticks", "prob": 70, "count": [ 0, 6 ] },
       {
         "collection": [
@@ -59,7 +60,7 @@
       { "item": "whisk", "prob": 95 },
       { "item": "whisk", "prob": 50, "damage": [ 0, 4 ] },
       { "item": "rolling_pin", "prob": 80 },
-      { "item": "rolling_pin", "prob": 30 },
+      { "item": "rolling_pin", "prob": 30, "damage": [ 0, 4 ] },
       { "item": "can_opener", "prob": 95 },
       { "item": "can_opener", "prob": 70, "damage": [ 0, 4 ] },
       { "item": "peeler", "prob": 95 },
@@ -95,12 +96,16 @@
         "prob": 65
       },
       { "item": "knife_steak", "prob": 75, "damage": [ 0, 4 ] },
+      { "item": "knife_steak", "prob": 75 },
       { "item": "knife_steak", "prob": 75, "damage": [ 0, 4 ] },
-      { "item": "knife_steak", "prob": 75, "damage": [ 0, 4 ] },
-      { "item": "knife_steak", "prob": 75, "damage": [ 0, 4 ] },
+      { "item": "knife_steak", "prob": 75 },
       {
         "collection": [ { "item": "knife_carving", "damage": [ 0, 4 ] }, { "item": "carving_fork", "prob": 90, "damage": [ 0, 4 ] } ],
-        "prob": 85
+        "prob": 42
+      },
+      {
+        "collection": [ { "item": "knife_carving" }, { "item": "carving_fork", "prob": 90 } ],
+        "prob": 42
       },
       { "item": "scissors", "prob": 80, "damage": [ 0, 4 ] },
       { "item": "peeler", "prob": 75, "damage": [ 0, 4 ] },
@@ -115,7 +120,8 @@
     "//2": "This group is for a junk drawer.",
     "subtype": "collection",
     "entries": [
-      { "item": "xacto", "prob": 30, "damage": [ 0, 4 ] },
+      { "item": "xacto", "prob": 15, "damage": [ 0, 4 ] },
+      { "item": "xacto", "prob": 15 },
       { "item": "scissors", "prob": 40, "damage": [ 0, 4 ] },
       { "item": "bag_garbage", "prob": 45, "count": [ 1, 25 ] },
       { "item": "bag_zipper", "prob": 45, "count": [ 1, 18 ] },
@@ -574,8 +580,8 @@
       },
       {
         "collection": [
-          { "item": "small_propane_tank", "prob": 70, "count": [ 1, 3 ], "charges": [ 0, 3000 ] },
-          { "item": "medium_propane_tank", "prob": 85, "count": [ 1, 2 ], "charges": [ 0, 15000 ] },
+          { "item": "small_propane_tank", "prob": 70, "count": [ 0, 2 ], "charges": [ 0, 3000 ] },
+          { "item": "medium_propane_tank", "prob": 85, "count": [ 0, 2 ], "charges": [ 0, 15000 ] },
           { "item": "large_propane_tank", "prob": 25, "charges": [ 0, 60000 ] },
           { "item": "propane_cooker", "prob": 80, "damage": [ 0, 4 ] }
         ],
@@ -783,10 +789,10 @@
       },
       {
         "distribution": [
-          { "item": "medium_propane_tank", "prob": 40, "count": [ 1, 2 ], "charges": [ 0, 15000 ] },
-          { "item": "large_propane_tank", "prob": 60, "charges": [ 0, 60000 ] }
+          { "item": "medium_propane_tank", "prob": 20, "count": [ 0, 2 ], "charges": [ 0, 15000 ] },
+          { "item": "large_propane_tank", "prob": 10, "charges": [ 0, 60000 ] }
         ],
-        "prob": 15
+        "prob": 10
       }
     ]
   },
