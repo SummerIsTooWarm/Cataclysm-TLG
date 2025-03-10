@@ -786,10 +786,10 @@
       },
       {
         "distribution": [
-          { "item": "medium_propane_tank", "prob": 20, "count": [ 0, 2 ], "charges": [ 0, 15000 ] },
-          { "item": "large_propane_tank", "prob": 10, "charges": [ 0, 60000 ] }
+          { "item": "medium_propane_tank", "prob": 20, "charges": [ 0, 3000 ] },
+          { "item": "small_propane_tank", "prob": 10, "charges": [ 0, 3000 ] }
         ],
-        "prob": 10
+        "prob": 8
       }
     ]
   },
