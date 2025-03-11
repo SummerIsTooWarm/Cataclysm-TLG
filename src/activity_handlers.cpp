@@ -621,12 +621,12 @@ static void set_up_butchery( player_activity &act, Character &you, butcher_type 
                           !corpse.in_species( species_ZOMBIE ) );
 
     // Applies to all butchery actions except for dissections. Bloodfeeders are OK with draining humans for blood.
-    if( is_human && 
-        action != butcher_type::DISSECT && 
-        !(  you.has_flag( json_flag_CANNIBAL ) || 
-            you.has_flag( json_flag_PSYCHOPATH ) || 
-            you.has_flag( json_flag_SAPIOVORE ) ||
-            (you.has_flag( json_flag_BLOODFEEDER) && action == butcher_type::BLEED) ) ) {
+    if( is_human &&
+        action != butcher_type::DISSECT &&
+        !( you.has_flag( json_flag_CANNIBAL ) ||
+           you.has_flag( json_flag_PSYCHOPATH ) ||
+           you.has_flag( json_flag_SAPIOVORE ) ||
+           ( you.has_flag( json_flag_BLOODFEEDER ) && action == butcher_type::BLEED ) ) ) {
         // First determine if the butcherer has the dissect_humans proficiency.
         if( you.has_proficiency( proficiency_prof_dissect_humans ) ) {
             // If it's player doing the butchery, ask them first.

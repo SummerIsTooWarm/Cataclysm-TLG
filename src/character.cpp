@@ -2255,22 +2255,26 @@ bool Character::movement_mode_is( const move_mode_id &mode ) const
 
 bool Character::is_running() const
 {
-    return move_mode->type() == move_mode_type::RUNNING;
+    return move_mode->type() == move_mode_type::RUNNING && !has_effect( effect_downed ) &&
+           !has_effect( effect_lying_down );
 }
 
 bool Character::is_walking() const
 {
-    return move_mode->type() == move_mode_type::WALKING;
+    return move_mode->type() == move_mode_type::WALKING && !has_effect( effect_downed ) &&
+           !has_effect( effect_lying_down );
 }
 
 bool Character::is_crouching() const
 {
-    return move_mode->type() == move_mode_type::CROUCHING;
+    return move_mode->type() == move_mode_type::CROUCHING && !has_effect( effect_downed ) &&
+           !has_effect( effect_lying_down );
 }
 
 bool Character::is_prone() const
 {
-    return move_mode->type() == move_mode_type::PRONE;
+    return move_mode->type() == move_mode_type::PRONE || has_effect( effect_downed ) ||
+           has_effect( effect_lying_down );
 }
 
 int Character::footstep_sound() const

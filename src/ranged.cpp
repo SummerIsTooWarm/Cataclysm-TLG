@@ -607,9 +607,14 @@ double Creature::ranged_target_size() const
     if( const Character *character = this->as_character() ) {
         if( character->is_crouching() || ( character->has_effect( effect_quadruped_full ) &&
                                            character->is_running() ) ) {
-            stance_factor = 0.6;
+            stance_factor = 0.75;
         } else if( character->is_prone() ) {
-            stance_factor = 0.25;
+            stance_factor = 0.5;
+        }
+    }
+    if( const monster *monster = this->as_monster() ) {
+        if( monster->has_effect( effect_downed ) ) {
+            stance_factor = 0.5;
         }
     }
     if( has_flag( mon_flag_HARDTOSHOOT ) ) {
