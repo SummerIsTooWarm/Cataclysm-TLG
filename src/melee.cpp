@@ -1427,6 +1427,7 @@ std::tuple<matec_id, attack_vector_id, sub_bodypart_str_id> Character::pick_tech
 
     std::vector<std::tuple<matec_id, attack_vector_id, sub_bodypart_str_id>> possible;
     std::vector<std::tuple<matec_id, attack_vector_id, sub_bodypart_str_id>> fallbacks;
+    std::vector<std::tuple<matec_id, attack_vector_id, sub_bodypart_str_id>> basics;
 
     for( const matec_id &tec_id : all ) {
         add_msg_debug( debugmode::DF_MELEE, "Evaluating technique %s", tec_id->name );
@@ -1437,23 +1438,38 @@ std::tuple<matec_id, attack_vector_id, sub_bodypart_str_id> Character::pick_tech
         }
 
         auto tec = evaluate_technique( tec_id, t, weap, fallbacks, crit, dodge_counter, block_counter );
-
+        // TODO: Can't we just check for fallbacks below here like we do with basics?
         if( tec ) {
-            possible.push_back( tec.value() );
+            if( tec_id->basic ) {
+                basics.push_back( tec.value() );
+            } else {
+                possible.push_back( tec.value() );
+            }
             if( tec_id->weighting > 1 ) {
                 for( int i = 1; i < tec_id->weighting; i++ ) {
-                    possible.push_back( tec.value() );
+                    if( tec_id->basic ) {
+                        basics.push_back( tec.value() );
+                    } else {
+                        possible.push_back( tec.value() );
+                    }
                     add_msg_debug( debugmode::DF_MELEE, "Adding technique %s to the tech list (%d)", tec_id->name, i );
                 }
             }
         }
     }
 
+    // Pick whether we're going with "possible" or "fallbacks" attacks and stick our "basics" in with the winner.
     if( possible.empty() && !fallbacks.empty() ) {
+        if ( !basics.empty() ) {
+            fallbacks.insert(fallbacks.end(), basics.begin(), basics.end());
+        }
         return random_entry( fallbacks,
                              std::make_tuple( tec_none, attack_vector_vector_null,
                                               sub_body_part_sub_limb_debug ) );
     } else {
+        if ( !basics.empty() ) {
+            possible.insert(possible.end(), basics.begin(), basics.end());
+        }
         return random_entry( possible,
                              std::make_tuple( tec_none, attack_vector_vector_null,
                                               sub_body_part_sub_limb_debug ) );

@@ -602,7 +602,7 @@
     "warmth": 2,
     "qualities": [ [ "CUT", 2 ], [ "BUTCHER", 4 ] ],
     "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "SKINTIGHT", "PADDED", "NO_SALVAGE", "PROVIDES_TECHNIQUES" ],
-    "techniques": [ "MANDIBLES_BITE", "MANDIBLES_BITE_NATURAL", "MANDIBLES_BITE_CRIT" ],
+    "techniques": [ "MANDIBLES_BITE", "MANDIBLES_BITE_NATURAL" ],
     "armor": [
       {
         "material": [ { "type": "chitin", "covered_by_mat": 100, "thickness": 3 } ],
@@ -637,7 +637,7 @@
       "NO_SALVAGE",
       "PROVIDES_TECHNIQUES"
     ],
-    "techniques": [ "FOLDING_FANGS_BITE", "FOLDING_FANGS_BITE_NATURAL", "FOLDING_FANGS_BITE_CRIT" ],
+    "techniques": [ "FOLDING_FANGS_BITE", "FOLDING_FANGS_BITE_NATURAL" ],
     "armor": [
       {
         "material": [ { "type": "sclerotin", "covered_by_mat": 100, "thickness": 3 } ],
@@ -1479,7 +1479,6 @@
   },
   {
     "id": "armor_bio_eyes",
-    "//": "These do not preclude wearing glasses, but you'll get double-up penalties.  If you really needed to you could likely still situate the lenses in front of them.  You should probably just augment your eyes though.",
     "type": "ARMOR",
     "category": "armor",
     "name": { "str_sp": "protective lenses" },
@@ -1521,11 +1520,105 @@
     ]
   },
   {
+    "id": "integrated_eyestalks_rigid",
+    "type": "ARMOR",
+    "category": "armor",
+    "name": { "str_sp": "rigid eyestalks" },
+    "description": "Compound eyes on rigid stalks which can fold back against the head.",
+    "weight": "180 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -2,
+    "material": [ "sclerotin", "chitin" ],
+    "symbol": "[",
+    "color": "brown",
+    "warmth": 0,
+    "material_thickness": 1.5,
+    "environmental_protection": 10,
+    "flags": [
+      "INTEGRATED",
+      "UNBREAKABLE",
+      "SKINTIGHT",
+      "SOFT",
+      "WATER_FRIENDLY",
+      "NO_REPAIR",
+      "SWIM_GOGGLES",
+      "NO_SALVAGE"
+    ],
+    "armor": [
+      {
+        "material": [
+          { "type": "chitin", "covered_by_mat": 100, "thickness": 0.5 },
+          { "type": "sclerotin", "covered_by_mat": 70, "thickness": 1.0 }
+        ],
+        "covers": [ "eyes" ],
+        "coverage": 100,
+        "encumbrance": 1,
+        "rigid_layer_only": true,
+        "cover_vitals": 90
+      }
+    ]
+  },
+  {
+    "id": "integrated_nails",
+    "type": "ARMOR",
+    "category": "armor",
+    "name": { "str_sp": "nails" },
+    "description": "Long, sharp fingernails, thickened and durable enough to be dangerous.  On close examination, these don't quite look human.",
+    "weight": "25 g",
+    "volume": "50 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "material": [ "chitin" ],
+    "symbol": ";",
+    "color": "dark_gray",
+    "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "NO_SALVAGE", "TRANSPARENT", "PROVIDES_TECHNIQUES" ],
+    "techniques": [ "TEC_SCRATCH" ],
+    "armor": [
+      {
+        "material": [ { "type": "chitin", "covered_by_mat": 100, "thickness": 2 } ],
+        "covers": [ "hand_l", "hand_r" ],
+        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ],
+        "coverage": 2,
+        "encumbrance": 1
+      }
+    ],
+    "melee_damage": { "cut": 6 }
+  },
+  {
+    "id": "integrated_razors",
+    "type": "ARMOR",
+    "category": "armor",
+    "name": { "str_sp": "Fingertip Razors" },
+    "description": "Small steel blades peek from beneath the fingernails, like a manicure from hell.",
+    "weight": "80 g",
+    "volume": "100 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 8 ], [ "CUT_FINE", 1 ] ],
+    "material": [ "steel" ],
+    "symbol": ";",
+    "color": "dark_gray",
+    "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "NO_SALVAGE", "TRANSPARENT", "PROVIDES_TECHNIQUES" ],
+    "techniques": [ "TEC_SCRATCH" ],
+    "armor": [
+      {
+        "material": [ { "type": "steel", "covered_by_mat": 100, "thickness": 0.4 } ],
+        "covers": [ "hand_l", "hand_r" ],
+        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ],
+        "coverage": 2,
+        "encumbrance": 1
+      }
+    ],
+    "melee_damage": { "cut": 10 }
+  },
+  {
     "id": "integrated_claws",
     "type": "ARMOR",
     "category": "armor",
     "name": { "str_sp": "claws" },
-    "description": "You have long, sharp claws at the tips of your fingers.",
+    "description": "Long, sharp claws at the tips of the fingers.",
     "weight": "100 g",
     "volume": "200 ml",
     "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 4 ] ],
@@ -1534,7 +1627,8 @@
     "material": [ "chitin" ],
     "symbol": ";",
     "color": "dark_gray",
-    "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "OUTER", "PADDED", "NO_SALVAGE", "TRANSPARENT" ],
+    "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "NO_SALVAGE", "TRANSPARENT", "PROVIDES_TECHNIQUES" ],
+    "techniques": [ "TEC_CLAW" ],
     "armor": [
       {
         "material": [ { "type": "chitin", "covered_by_mat": 100, "thickness": 3 } ],
@@ -1544,7 +1638,7 @@
         "encumbrance": 1
       }
     ],
-    "melee_damage": { "cut": 9 }
+    "melee_damage": { "cut": 11 }
   },
   {
     "id": "integrated_claws_rat",
@@ -1560,7 +1654,8 @@
     "material": [ "chitin" ],
     "symbol": ";",
     "color": "dark_gray",
-    "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "OUTER", "PADDED", "NO_SALVAGE", "TRANSPARENT" ],
+    "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "NO_SALVAGE", "TRANSPARENT", "PROVIDES_TECHNIQUES" ],
+    "techniques": [ "TEC_CLAW" ],
     "armor": [
       {
         "material": [ { "type": "chitin", "covered_by_mat": 100, "thickness": 3 } ],
@@ -1570,7 +1665,7 @@
         "encumbrance": 3
       }
     ],
-    "melee_damage": { "cut": 10 }
+    "melee_damage": { "cut": 12 }
   },
   {
     "id": "integrated_claws_st",
@@ -1586,7 +1681,8 @@
     "material": [ "chitin" ],
     "symbol": ";",
     "color": "dark_gray",
-    "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "OUTER", "PADDED", "NO_SALVAGE", "TRANSPARENT" ],
+    "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "NO_SALVAGE", "TRANSPARENT", "PROVIDES_TECHNIQUES" ],
+    "techniques": [ "TEC_CLAW" ],
     "armor": [
       {
         "material": [ { "type": "chitin", "covered_by_mat": 100, "thickness": 3 } ],
@@ -1596,7 +1692,7 @@
         "encumbrance": 5
       }
     ],
-    "melee_damage": { "cut": 11 }
+    "melee_damage": { "cut": 3 }
   },
   {
     "id": "integrated_talons",
@@ -1612,7 +1708,8 @@
     "material": [ "chitin" ],
     "symbol": ";",
     "color": "dark_gray",
-    "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "OUTER", "PADDED", "NO_SALVAGE", "TRANSPARENT" ],
+    "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "SKINTIGHT", "NORMAL", "OUTER", "PADDED", "NO_SALVAGE", "TRANSPARENT", "PROVIDES_TECHNIQUES" ],
+    "techniques": [ "TEC_CLAW" ],
     "armor": [
       {
         "material": [ { "type": "chitin", "covered_by_mat": 100, "thickness": 3 } ],
@@ -1638,7 +1735,7 @@
     "symbol": ",",
     "color": "white",
     "qualities": [ [ "CUT", 2 ], [ "BUTCHER", 4 ] ],
-    "techniques": [ "SHARKTEETH_BITE", "SHARKTEETH_BITE_NATURAL", "SHARKTEETH_BITE_CRIT" ],
+    "techniques": [ "SHARKTEETH_BITE", "SHARKTEETH_BITE_NATURAL" ],
     "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "PROVIDES_TECHNIQUES" ],
     "armor": [
       {
@@ -1667,17 +1764,12 @@
     "techniques": [
       "FANGS_BITE",
       "FANGS_BITE_NATURAL",
-      "FANGS_BITE_CRIT",
       "FANGS_BITE_MUZZLE",
       "FANGS_BITE_NATURAL_MUZZLE",
-      "FANGS_BITE_CRIT_MUZZLE",
       "FANGS_BITE_LUCKY_MUZZLE",
       "FANGS_BITE_MUZZLE_BEAR",
-      "FANGS_BITE_CRIT_MUZZLE_BEAR",
       "FANGS_BITE_MUZZLE_RAPTOR",
-      "FANGS_BITE_CRIT_MUZZLE_RAPTOR",
       "FANGS_BITE_NATURAL_MUZZLE_RAPTOR",
-      "FANGS_BITE_CRIT_MUZZLE_LONG",
       "FANGS_BITE_MUZZLE_LONG"
     ],
     "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "PROVIDES_TECHNIQUES" ],
@@ -1690,7 +1782,7 @@
         "encumbrance": 0
       }
     ],
-    "melee_damage": { "stab": 9 }
+    "melee_damage": { "stab": 12 }
   },
   {
     "id": "integrated_vampire_fangs",
@@ -1706,7 +1798,7 @@
     "symbol": ",",
     "color": "white",
     "qualities": [ [ "CUT", 2 ], [ "BUTCHER", 4 ] ],
-    "techniques": [ "VAMPIRE_BITE", "VAMPIRE_BITE_NATURAL", "VAMPIRE_BITE_CRIT" ],
+    "techniques": [ "VAMPIRE_BITE", "VAMPIRE_BITE_NATURAL" ],
     "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "PROVIDES_TECHNIQUES" ],
     "armor": [
       {
@@ -1717,7 +1809,7 @@
         "encumbrance": 0
       }
     ],
-    "melee_damage": { "stab": 16 }
+    "melee_damage": { "stab": 19 }
   },
   {
     "id": "integrated_saber_teeth",
@@ -1733,7 +1825,7 @@
     "symbol": ",",
     "color": "white",
     "qualities": [ [ "CUT", 2 ], [ "BUTCHER", 4 ] ],
-    "techniques": [ "SABER_TEETH_BITE", "SABER_TEETH_BITE_NATURAL", "SABER_TEETH_BITE_CRIT" ],
+    "techniques": [ "SABER_TEETH_BITE", "SABER_TEETH_BITE_NATURAL" ],
     "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "PROVIDES_TECHNIQUES" ],
     "armor": [
       {
@@ -1743,7 +1835,7 @@
         "encumbrance": 0
       }
     ],
-    "melee_damage": { "stab": 22, "bash": 5 }
+    "melee_damage": { "stab": 24, "bash": 6 }
   },
   {
     "id": "integrated_incisors",
@@ -1762,9 +1854,7 @@
     "techniques": [
       "INCISORS_BITE",
       "INCISORS_BITE_NATURAL",
-      "INCISORS_BITE_CRIT",
       "INCISORS_BITE_MUZZLE_RAT_RABBIT_NOSE",
-      "INCISORS_BITE_CRIT_MUZZLE_RAT_RABBIT_NOSE",
       "INCISORS_BITE_NATURAL_MUZZLE_RAT_RABBIT_NOSE"
     ],
     "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "PROVIDES_TECHNIQUES" ],
@@ -1776,7 +1866,7 @@
         "encumbrance": 0
       }
     ],
-    "melee_damage": { "cut": 7, "bash": 6 }
+    "melee_damage": { "cut": 9, "bash": 7 }
   },
   {
     "id": "integrated_wide_mouth",
@@ -1791,7 +1881,7 @@
     "material": [ "bone" ],
     "symbol": ",",
     "color": "white",
-    "techniques": [ "WIDE_MOUTH_BITE", "WIDE_MOUTH_BITE_NATURAL", "WIDE_MOUTH_BITE_CRIT" ],
+    "techniques": [ "WIDE_MOUTH_BITE", "WIDE_MOUTH_BITE_NATURAL" ],
     "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "PROVIDES_TECHNIQUES" ],
     "armor": [
       {
@@ -1801,7 +1891,7 @@
         "encumbrance": 0
       }
     ],
-    "melee_damage": { "stab": 4, "bash": 5 }
+    "melee_damage": { "stab": 5, "bash": 7 }
   },
   {
     "id": "integrated_beak",
@@ -1817,7 +1907,7 @@
     "symbol": ",",
     "color": "white",
     "qualities": [ [ "HAMMER", 1 ] ],
-    "techniques": [ "BEAK_BITE", "BEAK_BITE_CRIT", "BEAK_BITE_NATURAL", "BEAK_BITE_MOUTH_TENTACLES", "BEAK_BITE_CRIT_MOUTH_TENTACLES" ],
+    "techniques": [ "BEAK_BITE", "BEAK_BITE_NATURAL", "BEAK_BITE_MOUTH_TENTACLES" ],
     "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "PROVIDES_TECHNIQUES" ],
     "armor": [
       {
@@ -1827,7 +1917,7 @@
         "encumbrance": 0
       }
     ],
-    "melee_damage": { "cut": 7, "bash": 9 }
+    "melee_damage": { "cut": 8, "bash": 11 }
   },
   {
     "id": "integrated_drill_beak",
@@ -1843,7 +1933,7 @@
     "symbol": ",",
     "color": "yellow",
     "qualities": [ [ "DRILL", 1 ], [ "CHISEL_WOOD", 1 ] ],
-    "techniques": [ "DRILL_BEAK_PECK", "DRILL_BEAK_PECK_NATURAL", "DRILL_BEAK_PECK_CRIT" ],
+    "techniques": [ "DRILL_BEAK_PECK", "DRILL_BEAK_PECK_NATURAL" ],
     "flags": [ "INTEGRATED", "ALLOWS_NATURAL_ATTACKS", "UNBREAKABLE", "PERSONAL", "PADDED", "PROVIDES_TECHNIQUES" ],
     "armor": [
       {
@@ -1853,6 +1943,6 @@
         "encumbrance": 0
       }
     ],
-    "melee_damage": { "stab": 17, "bash": 4 }
+    "melee_damage": { "stab": 19, "bash": 5 }
   }
 ]

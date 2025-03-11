@@ -89,6 +89,8 @@
   "crit_ok": true,            // This technique works on both normal and critical hits
   "reach_tec": true,          // This technique only works on a reach attack hit
   "reach_ok": true,           // This technique works on both normal and reach attack hits
+  "fallback": true,          // This technique will only be used if no others are available.
+  "basic": true,             // This technique does not (on its own) prevent fallbacks from being used.  Best used for natural attacks.
   "condition": "u_is_outside",// Optional (array of) dialog conditions the attack requires to trigger.  Failing these will disqualify the tech from being selected
   "condition_desc": "Needs X",// Description string describing the conditions of this attack (since dialog conditions can't be automatically evaluated)       
   "repeat_min": 1,            // Technique's damage and any added effects are repeated rng(repeat_min, repeat_max) times. The target's armor and the effect's chances are applied for each repeat.
@@ -121,7 +123,7 @@
 
 ### Attack vectors
 
-Attack vectors define which (sub)bodypart is used for the attack in question, allow filtering of eligable bodyparts and apply the relevant worn armor's unarmed damage to the attack. Note for the (sub)part to apply its unarmed damage it needs unrestricted natural attacks.
+Attack vectors define which (sub)bodypart is used for the attack in question, allow filtering of eligable bodyparts and apply the relevant worn armor's unarmed damage to the attack.
 
 ```JSON
 [ 
@@ -132,6 +134,7 @@ Attack vectors define which (sub)bodypart is used for the attack in question, al
     "contact_area": [ "hand_fingers_l", "hand_fingers_r" ],  // List of subbodyparts that can be used as a strike surface in the attack using the sbp's armor or intrinsic unarmed damage
     "strict_limb_definition": false,  // Bool, default false. When true *only* the bodyparts defined above are used for the vector, otherwise similar bodyparts can be used as long as both the contact area and the defined limb are similar, see JSON_INFO.md/Bodyparts for bodypart similarity
     "armor_bonus": true,              // Bool, default true, defines if the vector takes the unarmed damage bonus of the armor worn on the contact area into account
+    "natural": true,                 // The part and/or subpart must not be covered by any gear without ALLOWS_NATURAL_ATTACKS
     "required_limb_flags": [ "foo", "bar" ],  // List of character flags required for the bodypart to be eligable for this vector
     "forbidden_limb_flags": [ "foo", "bar" ], // List of character flags that disqualify a limb from being usable by this vector
     "encumbrance_limit": 15,          // Int, default 100, encumbrance of the limb above this will disqualify it from this vector
