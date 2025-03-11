@@ -448,8 +448,10 @@ static std::vector<tripoint> shrapnel( const Creature *source, const tripoint &s
         if( damage > 0 && critter && !critter->is_dead_state() ) {
             std::poisson_distribution<> d( cloud.density );
             int hits = d( rng_get_engine() );
-            hits = std::max( 0, rng( ( -hits / 2.5 ) / critter->ranged_target_size(),
-                                     hits * critter->ranged_target_size() ) );
+            double size_1 = rng_float( critter->ranged_target_size() + 1.0, 5.0 );
+            double size_2 = rng_float( critter->ranged_target_size(), std::min( 5.0,
+                                       critter->ranged_target_size() + 1.0 ) );
+            hits = rng( ( -hits / size_1 ), ( hits * size_2 ) );
             dealt_projectile_attack frag;
             frag.proj = proj;
             frag.proj.speed = cloud.velocity;
