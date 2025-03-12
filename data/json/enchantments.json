@@ -41,7 +41,7 @@
     "type": "enchantment",
     "id": "SQUEAKY_ANKLES",
     "condition": "ALWAYS",
-    "values": [ { "value": "FOOTSTEP_NOISE", "multiply": 3 } ]
+    "values": [ { "value": "FOOTSTEP_NOISE", "multiply": 1.0 } ]
   },
   {
     "type": "enchantment",
