@@ -1,35 +1,35 @@
-# Game Balance
-# Stat system scaling:
-0 - Helpless:  Totally incapacitated.  (0 STR or DEX - cannot move. 0 INT or PER - unconscious and cannot wake. Not currently implemented so for now 1 is the minimum.)
-1-2 - Feeble:  Can barely function.  (Should only happen as the result of injury or other effects. Permanent 1-2s would likely require assisted living.)
-3-4 - Disabled:  Severely impaired.  (Lowest chargen stat. Could represent a permanent disability or transitory effects of e.g. extreme pain or drunkenness.)
-5-6 - Weak:  Barely adequate.  (Noticably worse off than most people, the lowest limit of what would be "typical" in the pre-Cataclysm workplace.)
-7-8 - Below Average:  A little worse than most.  (Not noticably worse off. A nominally healthy but inactive adult, or a teen who skips class too often)
-9-10  Average:  Typical for an adult human.  (You are neither good nor bad at this. A person who goes for a run two or three times a month.)
-11-12 Above Average:  A little better than most.  (Good but not especially great, like someone who reads regularly or goes to the gym 1 to 2 times weekly.)
-13-14 Great:  Head and shoulders above the rest.  (Someone who is obviously quite talented. The smartest guy in a small town. A minor league athlete.)
-15-16 World-Class:  Exceptional, with few peers.  (15 = chargen max. Good enough to compete in the major leagues or Olympics.)
-17-18 Peak:  The absolute limit of human potential.  (Would have been one of the best in the world, if not THE best.)
-19-20 Superhuman:  Better than anyone ever was.  (No human ever reached this level before bionics and mutagens.)
-21-22 Freakish:  Beyond what is natural.  (Obviously capable of incredible feats.)
-23-24 Monstrous:  Frightening to behold.  (Capabilities that even the most gullible person could not mistake for human.)
-25-26 Impossible:  Tremendously capable.  (At this point you are flipping over small cars and doing calculus without scratch paper.)
-27-28 Unbelievable:  Out of this world.  (You get the idea.)
-29-30 Transcendant:  Phenomenal.
+# Game Balance<br>
+# Stat system scaling:<br>
+0 - Helpless:  Totally incapacitated.  (0 STR or DEX - cannot move. 0 INT or PER - unconscious and cannot wake. Not currently implemented so for now 1 is the minimum.)<br>
+1-2 - Feeble:  Can barely function.  (Should only happen as the result of injury or other effects. Permanent 1-2s would likely require assisted living.)<br>
+3-4 - Disabled:  Severely impaired.  (Lowest chargen stat. Could represent a permanent disability or transitory effects of e.g. extreme pain or drunkenness.)<br>
+5-6 - Weak:  Barely adequate.  (Noticably worse off than most people, the lowest limit of what would be "typical" in the pre-Cataclysm workplace.)<br>
+7-8 - Below Average:  A little worse than most.  (Not noticably worse off. A nominally healthy but inactive adult, or a teen who skips class too often)<br>
+9-10  Average:  Typical for an adult human.  (You are neither good nor bad at this. A person who goes for a run two or three times a month.)<br>
+11-12 Above Average:  A little better than most.  (Good but not especially great, like someone who reads regularly or goes to the gym 1 to 2 times weekly.)<br>
+13-14 Great:  Head and shoulders above the rest.  (Someone who is obviously quite talented. The smartest guy in a small town. A minor league athlete.)<br>
+15-16 World-Class:  Exceptional, with few peers.  (15 = chargen max. Good enough to compete in the major leagues or Olympics.)<br>
+17-18 Peak:  The absolute limit of human potential.  (Would have been one of the best in the world, if not THE best.)<br>
+19-20 Superhuman:  Better than anyone ever was.  (No human ever reached this level before bionics and mutagens.)<br>
+21-22 Freakish:  Beyond what is natural.  (Obviously capable of incredible feats.)<br>
+23-24 Monstrous:  Frightening to behold.  (Capabilities that even the most gullible person could not mistake for human.)<br>
+25-26 Impossible:  Tremendously capable.  (At this point you are flipping over small cars and doing calculus without scratch paper.)<br>
+27-28 Unbelievable:  Out of this world.  (You get the idea.)<br>
+29-30 Transcendant:  Phenomenal.<br>
 31+ Post-human:  Beyond what was.
 
 
-# Skill System Scaling:
-0 - Never Practiced.  (You've never done any cooking that didn't involve a microwave, and even then only rarely.)
-1 - Basic Understanding.  (You drove around the block a few times while your dad reminded you to check your rear view mirror.)
-2 - Elementary Familiarity.  (You spent a year on the swim team back in high school.)
-3 - Employable.  (You can design a website, but you're not writing browser extensions by hand.)
-4 - Skilled.  (You learned how to clean, maintain, and operate a rifle during Army basic training, and have had your share of experience since the world ended.)
-5 - Journeyman.  (You're a journeyman electrician with years of education and experience.)
-6 - Esteemed Professional.  (You were a backup dancer for a famous pop star.)
-7 - Major Talent.  (You represented your country in archery during the last Olympics and placed fourth.)
-8 - Top of the Field.  (Your scientific abilities were so renowned that the government kidnapped you and forced you to work in an underground lab.)
-9 - Phenom.  (If the world hadn't ended, your contributions to the field of medicine could have been considered invaluable for decades to come.)
+# Skill System Scaling:<br>
+0 - Never Practiced.  (You've never done any cooking that didn't involve a microwave, and even then only rarely.)<br>
+1 - Basic Understanding.  (You drove around the block a few times while your dad reminded you to check your rear view mirror.)<br>
+2 - Elementary Familiarity.  (You spent a year on the swim team back in high school.)<br>
+3 - Employable.  (You can design a website, but you're not writing browser extensions by hand.)<br>
+4 - Skilled.  (You learned how to clean, maintain, and operate a rifle during Army basic training, and have had your share of experience since the world ended.)<br>
+5 - Journeyman.  (You're a journeyman electrician with years of education and experience.)<br>
+6 - Esteemed Professional.  (You were a backup dancer for a famous pop star.)<br>
+7 - Major Talent.  (You represented your country in archery during the last Olympics and placed fourth.)<br>
+8 - Top of the Field.  (Your scientific abilities were so renowned that the government kidnapped you and forced you to work in an underground lab.)<br>
+9 - Phenom.  (If the world hadn't ended, your contributions to the field of medicine could have been considered invaluable for decades to come.)<br>
 10 - Legendary.  (If you are not literaly Miyamoto Musashi, then you are pretty sure you could take him in a duel.)
 
 
