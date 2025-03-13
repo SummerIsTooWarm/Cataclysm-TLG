@@ -160,7 +160,7 @@
     "looks_like": "ar15",
     "type": "GUN",
     "reload_noise_volume": 10,
-    "name": { "str": ".22 pipe rifle" },
+    "name": { "str": ".22 Pipe Rifle" },
     "description": "A home-made rifle.  It is simply a pipe attached to a stock, with a hammer to strike the single round it holds.",
     "ascii_picture": "sm_pipe_gun",
     "weight": "1953 g",
@@ -310,7 +310,7 @@
     "variants": [
       {
         "id": "sig_mosquito",
-        "name": { "str": "GSG Firefly", "str_pl": "GSG Fireflies" },
+        "name": { "str_sp": "GSG Firefly Pistol" },
         "description": "The GSG firefly is a .22 semi-automatic handgun.  While the GSG Firefly started off as the SIG Mosquito, after the Mosquito ceased production, German Sport Guns picked it up and renamed it to the Firefly."
       }
     ],
@@ -481,7 +481,7 @@
     "variants": [
       {
         "id": "cp33",
-        "name": { "str": "CP33" },
+        "name": { "str": "Kel-Tec CP33 Pistol" },
         "description": "The Kel-Tec CP33, standing for Competition Pistol 33, is a .22 semi automatic pistol targeted towards competition shooters and recreational shooters alike, with the ability to feed from 33 round quad stack magazines, or even 50 with an extension.  While in a fairly weak cartridge, the capacity makes it quite a formidable weapon in the right hands."
       }
     ],
@@ -523,19 +523,19 @@
     "variants": [
       {
         "id": "ruger_mk2",
-        "name": { "str": "Ruger Mark II" },
+        "name": { "str": "Ruger Mark II Pistol" },
         "description": "The 2nd version of the Ruger Standard, which replaced production of the Standard in 1982 and continued until 2005 with the main feature of having adjustable sights.  Features a 5.5 inch barrel and feeds from a 10 round magazine.",
         "weight": 17
       },
       {
         "id": "ruger_mk3",
-        "name": { "str": "Ruger Mark III" },
+        "name": { "str": "Ruger Mark III Pistol" },
         "description": "The 3rd version of the Ruger Standard, which replaced production of the Mark II in 2005 and continued until 2016.  Features a 5.5 inch barrel and feeds from a 10 round magazine.",
         "weight": 19
       },
       {
         "id": "ruger_mk4",
-        "name": { "str": "Ruger Mark IV" },
+        "name": { "str": "Ruger Mark IV Pistol" },
         "description": "The 4th, and most modern version of the Ruger Standard.  Still in production since 2016, and has a simplified disassembly feature.  Has a 5.5 inch barrel and feeds from a 10 round magazine.",
         "weight": 135
       }
@@ -573,7 +573,7 @@
     "variants": [
       {
         "id": "ruger_charger",
-        "name": { "str": "Ruger 22 Charger" },
+        "name": { "str": "Ruger 22 Charger Pistol" },
         "description": "This gun is essentially a shortened 10/22, feeding from the same magazines.  While it does feature a shorter barrel and a lack of a stock, it is a fair bit lighter, and comes included with a bipod to more steadily plink away at the undead."
       }
     ],
@@ -625,7 +625,7 @@
     "variants": [
       {
         "id": "ruger_charger_auto",
-        "name": { "str": "full-auto Ruger 22 Charger" },
+        "name": { "str": "full-auto Ruger 22 Charger Pistol" },
         "description": "A Ruger 22 Charger modified post-Cataclysm to selective fire.  While the .22 round isn't very powerful, full auto makes it a lot more effective, and still easily controllable in full auto even with the lack of a stock."
       }
     ],
