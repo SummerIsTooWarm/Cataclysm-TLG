@@ -1243,7 +1243,7 @@
     "id": "marine",
     "name": { "male": "Marine Infantryman", "female": "Marine Infantrywoman" },
     "description": "You are one of the few and the proud: a member of the US Marine Corps.  Now that military command has collapsed in on itself as far as you can tell, you suppose that it falls to you to carry the memory of the Corps forward into the future.  Semper fi.",
-    "points": 6,
+    "points": 5,
     "proficiencies": [
       "prof_gunsmithing_basic",
       "prof_gun_cleaning",
@@ -1253,8 +1253,8 @@
     ],
     "skills": [
       { "level": 5, "name": "gun" },
-      { "level": 5, "name": "rifle" },
-      { "level": 4, "name": "pistol" },
+      { "level": 4, "name": "rifle" },
+      { "level": 3, "name": "pistol" },
       { "level": 3, "name": "melee" },
       { "level": 2, "name": "stabbing" },
       { "level": 2, "name": "dodge" },
@@ -1709,7 +1709,7 @@
     "id": "seal_sniper",
     "name": "Navy SEAL Marksmen",
     "description": "Recruited into the ranks of the US Navy's Special Warfare forces as a designated sniper, your training in precision marksmanship and maritime operations was extensive.  As a proficient soldier and combative in all respects, you provided overwatch and long-range elimination services in the line of duty.  Now, with naval command imploding and your spotter MIA, your skills with a rifle and covert operations are the only things standing between you and the Cataclysm.",
-    "points": 8,
+    "points": 7,
     "proficiencies": [
       "prof_gunsmithing_basic",
       "prof_spotting",
@@ -1766,7 +1766,7 @@
     "id": "seal",
     "name": "Navy SEAL",
     "description": "You were a member of the SEALs; a key component of the US Navy's special forces and a proficient combatant in both maritime and ground operations.  'The only easy day was yesterday', and with the chain of command in ruins, you may fulfill your final mission in any way you see fit.",
-    "points": 8,
+    "points": 7,
     "proficiencies": [
       "prof_gunsmithing_basic",
       "prof_spotting",
@@ -1829,7 +1829,7 @@
     "id": "specops",
     "name": "Special Operator",
     "description": "You were the best of the best, the military's finest.  That's why you're still alive, even after all your comrades fell to the undead.  As far as you can tell, military command abandoned you in this hellhole when you missed the emergency evac.",
-    "points": 8,
+    "points": 7,
     "proficiencies": [
       "prof_gunsmithing_basic",
       "prof_traps",
@@ -4628,7 +4628,7 @@
     "id": "winter_scavenger",
     "name": "Hardened Scavenger",
     "description": "One of the lucky few who escaped the Cataclysm, you made a life for yourself amidst the ruins of civilization.  Whether through force, guile, or luck, you've obtained the best gear you could find.",
-    "points": 8,
+    "points": 7,
     "proficiencies": [
       "prof_fibers",
       "prof_fibers_rope",
@@ -4691,14 +4691,14 @@
     "skills": [
       { "level": 4, "name": "gun" },
       { "level": 4, "name": "rifle" },
-      { "level": 4, "name": "pistol" },
-      { "level": 4, "name": "melee" },
-      { "level": 4, "name": "stabbing" },
-      { "level": 4, "name": "dodge" },
-      { "level": 4, "name": "firstaid" },
+      { "level": 3, "name": "pistol" },
+      { "level": 3, "name": "melee" },
+      { "level": 3, "name": "stabbing" },
+      { "level": 3, "name": "dodge" },
+      { "level": 3, "name": "firstaid" },
       { "level": 4, "name": "survival" },
-      { "level": 4, "name": "throw" },
-      { "level": 4, "name": "swimming" }
+      { "level": 3, "name": "throw" },
+      { "level": 3, "name": "swimming" }
     ],
     "items": {
       "both": {
@@ -4776,8 +4776,8 @@
       { "level": 5, "name": "archery" },
       { "level": 4, "name": "chemistry" },
       { "level": 4, "name": "cooking" },
-      { "level": 3, "name": "melee" },
-      { "level": 3, "name": "stabbing" },
+      { "level": 2, "name": "melee" },
+      { "level": 2, "name": "stabbing" },
       { "level": 2, "name": "dodge" },
       { "level": 2, "name": "swimming" }
     ],
@@ -6710,14 +6710,14 @@
     "id": "hitman",
     "name": { "male": "Hitman", "female": "Hitwoman" },
     "description": "You were the best undercover agent they had, with a mission so vital that you had to take it even with the riots going on.  Your target seems to have turned feral as well as your contact, you are all alone now.",
-    "points": 6,
+    "points": 5,
     "skills": [
-      { "level": 5, "name": "gun" },
-      { "level": 5, "name": "pistol" },
+      { "level": 4, "name": "gun" },
+      { "level": 4, "name": "pistol" },
       { "level": 4, "name": "melee" },
       { "level": 4, "name": "stabbing" },
-      { "level": 4, "name": "unarmed" },
-      { "level": 4, "name": "dodge" },
+      { "level": 3, "name": "unarmed" },
+      { "level": 3, "name": "dodge" },
       { "level": 4, "name": "speech" }
     ],
     "proficiencies": [
@@ -6781,12 +6781,12 @@
     "id": "assassin",
     "name": "Assassin",
     "description": "You were the best undercover agent they had, with a mission so vital that you had to take it even with the riots going on.  Your target seems to have turned feral as well as your contact, you are all alone now.",
-    "points": 6,
+    "points": 5,
     "skills": [
       { "level": 6, "name": "throw" },
       { "level": 5, "name": "melee" },
       { "level": 5, "name": "stabbing" },
-      { "level": 5, "name": "dodge" },
+      { "level": 4, "name": "dodge" },
       { "level": 4, "name": "speech" }
     ],
     "proficiencies": [ "prof_spotting", "prof_wp_syn_armored", "prof_knives_familiar", "prof_knives_pro", "prof_knives_master" ],
@@ -7063,7 +7063,7 @@
     "id": "bionic_customer",
     "name": "Commercial Cyborg",
     "description": "You always had to have the latest and best gadgets and gizmos, so is it any wonder that you upgraded your flesh along with your smart phone?",
-    "points": 6,
+    "points": 5,
     "CBMs": [ "bio_flashlight", "bio_tools", "bio_ups", "bio_watch", "bio_batteries", "bio_power_storage_mkII" ],
     "skills": [ { "level": 4, "name": "electronics" }, { "level": 2, "name": "fabrication" } ],
     "items": {
@@ -7087,7 +7087,7 @@
     "id": "bionic_hitman",
     "name": "Bionic Assassin",
     "description": "The product of millions of dollars of clandestine research, you are a bionic sleeper agent capable of silently engaging your target while maintaining an innocuous appearance.  Your handler cut all contact a week ago.",
-    "points": 8,
+    "points": 7,
     "CBMs": [
       "bio_cqb",
       "bio_blade",
@@ -7185,7 +7185,7 @@
     "id": "bio_sniper",
     "name": "Bionic Sniper",
     "description": "A top-secret military program sought to convert you into the perfect sniper.  Your bionics, equipment, and extensive field training enable you to drop targets from implausible distances, even after weeks of total isolation in enemy territory.",
-    "points": 8,
+    "points": 7,
     "proficiencies": [
       "prof_gunsmithing_basic",
       "prof_spotting",

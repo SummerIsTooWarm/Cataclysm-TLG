@@ -1271,9 +1271,9 @@
     "id": "fireperformance",
     "name": "Fire Performing",
     "description": "Whether you twirled, spun, juggled, or ate it, your manipulation of flaming objects was impressive and terrifying to behold.",
-    "points": 1,
-    "traits": [ "PYROMANIA", "ADRENALINE", "DEFT" ],
-    "skills": [ { "level": 1, "name": "survival" } ]
+    "points": 2,
+    "traits": [ "PYROMANIA", "DEFT" ],
+    "skills": [ { "level": 1, "name": "throw" }, { "level": 1, "name": "dodge" } ]
   },
   {
     "type": "profession",
