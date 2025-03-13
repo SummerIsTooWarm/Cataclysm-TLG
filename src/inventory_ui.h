@@ -366,7 +366,7 @@ class inventory_column
         // Removes reference to item from column
         // True means item was found and removed
         // False means no item was found
-        bool RemoveItem(item *&remove);
+        bool RemoveItem( item *&remove );
 
         size_t page_index() const {
             return page_of( page_offset );
@@ -626,7 +626,7 @@ class inventory_selector
         void add_remote_map_items( tinymap *remote_map, const tripoint &target );
         void add_basecamp_items( const basecamp &camp );
 
-        void RemoveItem(item *&remove);
+        void RemoveItem( item *&remove );
         /** Remove all items */
         void clear_items();
         /** Assigns a title that will be shown on top of the menu. */

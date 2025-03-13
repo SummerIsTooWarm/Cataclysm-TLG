@@ -2038,7 +2038,7 @@ void activity_handlers::start_fire_do_turn( player_activity *act, Character *you
 
         // Removes firestarter from potential tinder options
         item *firestarter_ptr = act->targets.front().get_item();
-        inv_s.RemoveItem(firestarter_ptr);
+        inv_s.RemoveItem( firestarter_ptr );
 
         inv_s.set_title( _( "Select tinder to use for lighting a fire" ) );
 
