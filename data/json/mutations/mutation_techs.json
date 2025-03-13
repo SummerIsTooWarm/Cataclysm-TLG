@@ -46,7 +46,7 @@
     "id": "WIDE_MOUTH_BITE",
     "name": "Wide Mouth Bite",
     "melee_allowed": true,
-    "messages": [ "You chomp %s", "<npcname> chomps %s!" ],
+    "messages": [ "You chomp %s", "<npcname> chomps %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -99,7 +99,7 @@
     "id": "WIDE_MOUTH_BITE_NATURAL",
     "name": "Wide Mouth Bite",
     "melee_allowed": true,
-    "messages": [ "You chomp %s", "<npcname> chomps %s!" ],
+    "messages": [ "You chomp %s", "<npcname> chomps %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -156,7 +156,7 @@
     "id": "FANGS_BITE",
     "name": "Fang Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -205,7 +205,7 @@
     "id": "FANGS_BITE_NATURAL",
     "name": "Fang Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -259,7 +259,7 @@
     "id": "FANGS_BITE_MUZZLE_RAPTOR",
     "name": "Fangs Bite With Dromeosaur Muzzle",
     "melee_allowed": true,
-    "messages": [ "You fiercely bite %s", "<npcname> fiercely bites %s!" ],
+    "messages": [ "You fiercely bite %s", "<npcname> fiercely bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -299,14 +299,15 @@
         "message": "Venom gets into the wound!",
         "req_flag": "VENOM2"
       }
-    ]
+    ],
+    "flat_bonuses": [ { "stat": "damage", "type": "bash", "scale": 2 }, { "stat": "damage", "type": "stab", "scale": 2 } ]
   },
   {
     "type": "technique",
     "id": "FANGS_BITE_NATURAL_MUZZLE_RAPTOR",
     "name": "Fang Bite",
     "melee_allowed": true,
-    "messages": [ "You fiercely bite %s", "<npcname> fiercely bites %s!" ],
+    "messages": [ "You fiercely bite %s", "<npcname> fiercely bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -350,14 +351,15 @@
         "message": "Venom gets into the wound!",
         "req_flag": "VENOM2"
       }
-    ]
+    ],
+    "flat_bonuses": [ { "stat": "damage", "type": "bash", "scale": 2 }, { "stat": "arpen", "type": "stab", "scale": 2 } ]
   },
   {
     "type": "technique",
     "id": "FANGS_BITE_MUZZLE_LONG",
     "name": "Fang Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s and thrash around wildly", "<npcname> bites %s and thrashes around wildly!" ],
+    "messages": [ "You bite %s and thrash around wildly", "<npcname> bites %s and thrashes around wildly" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -400,6 +402,11 @@
         "message": "Venom gets into the wound!",
         "req_flag": "VENOM2"
       }
+    ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 5 },
+      { "stat": "arpen", "type": "stab", "scale": 6 },
+      { "stat": "movecost", "scale": 20 }
     ]
   },
   {
@@ -407,7 +414,7 @@
     "id": "FANGS_BITE_MUZZLE",
     "name": "Fangs Bite with Lupine Muzzle",
     "melee_allowed": true,
-    "messages": [ "You savagely bite %s", "<npcname> savagely bites %s!" ],
+    "messages": [ "You savagely bite %s", "<npcname> savagely bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -457,14 +464,15 @@
         "req_flag": "VENOM2"
       },
       { "id": "downed", "chance": 30, "duration": 150, "on_damage": true, "message": "The attack pulls %s down!" }
-    ]
+    ],
+    "flat_bonuses": [ { "stat": "damage", "type": "bash", "scale": 1 }, { "stat": "damage", "type": "stab", "scale": 3 } ]
   },
   {
     "type": "technique",
     "id": "FANGS_BITE_LUCKY_MUZZLE",
     "name": "Lucky Fangs Bite with Lupine Muzzle",
     "melee_allowed": true,
-    "messages": [ "You savagely bite %s", "<npcname> savagely bites %s!" ],
+    "messages": [ "You savagely bite %s", "<npcname> savagely bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -8,
@@ -510,14 +518,15 @@
         "req_flag": "VENOM2"
       },
       { "id": "downed", "chance": 70, "duration": 150, "on_damage": true, "message": "The attack pulls %s down!" }
-    ]
+    ],
+    "flat_bonuses": [ { "stat": "damage", "type": "bash", "scale": 2 }, { "stat": "damage", "type": "stab", "scale": 2 } ]
   },
   {
     "type": "technique",
     "id": "FANGS_BITE_NATURAL_MUZZLE",
     "name": "Fangs Bite with Lupine Muzzle",
     "melee_allowed": true,
-    "messages": [ "You savagely bite %s", "<npcname> savagely bites %s!" ],
+    "messages": [ "You savagely bite %s", "<npcname> savagely bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -571,14 +580,15 @@
         "req_flag": "VENOM2"
       },
       { "id": "downed", "chance": 30, "duration": 150, "on_damage": true, "message": "The attack pulls %s down!" }
-    ]
+    ],
+    "flat_bonuses": [ { "stat": "damage", "type": "bash", "scale": 2 }, { "stat": "damage", "type": "stab", "scale": 2 } ]
   },
   {
     "type": "technique",
     "id": "FANGS_BITE_MUZZLE_BEAR",
     "name": "Fangs Bite with Ursine Muzzle",
     "melee_allowed": true,
-    "messages": [ "You maul %s", "<npcname> mauls %s!" ],
+    "messages": [ "You maul %s", "<npcname> mauls %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -611,6 +621,11 @@
         "message": "Venom gets into the wound!",
         "req_flag": "VENOM2"
       }
+    ],
+    "flat_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 5 },
+      { "stat": "damage", "type": "stab", "scale": 10 },
+      { "stat": "movecost", "scale": 40 }
     ]
   },
   {
@@ -618,7 +633,7 @@
     "id": "FOLDING_FANGS_BITE",
     "name": "Folding Fang Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -665,7 +680,7 @@
     "id": "FOLDING_FANGS_BITE_NATURAL",
     "name": "Folding Fang Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -716,7 +731,7 @@
     "id": "VAMPIRE_BITE",
     "name": "Vampire Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -762,7 +777,7 @@
     "id": "VAMPIRE_BITE_NATURAL",
     "name": "Vampire Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -804,7 +819,7 @@
     "id": "SABER_TEETH_BITE",
     "name": "Saber Teeth Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -850,7 +865,7 @@
     "id": "SABER_TEETH_BITE_NATURAL",
     "name": "Saber Teeth Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -900,7 +915,7 @@
     "id": "SHARKTEETH_BITE",
     "name": "Shark Teeth Bite",
     "melee_allowed": true,
-    "messages": [ "You chomp %s", "<npcname> chomps %s!" ],
+    "messages": [ "You chomp %s", "<npcname> chomps %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -946,7 +961,7 @@
     "id": "SHARKTEETH_BITE_NATURAL",
     "name": "Shark Teeth Bite",
     "melee_allowed": true,
-    "messages": [ "You chomp %s", "<npcname> chomps %s!" ],
+    "messages": [ "You chomp %s", "<npcname> chomps %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -996,7 +1011,7 @@
     "id": "MANDIBLES_BITE",
     "name": "Mandibles Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -1016,7 +1031,7 @@
     "id": "MANDIBLES_BITE_NATURAL",
     "name": "Mandibles Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -1040,7 +1055,7 @@
     "id": "INCISORS_BITE",
     "name": "Incisors Bite",
     "melee_allowed": true,
-    "messages": [ "You gnaw %s", "<npcname> gnaws %s!" ],
+    "messages": [ "You gnaw %s", "<npcname> gnaws %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -1088,7 +1103,7 @@
     "id": "INCISORS_BITE_NATURAL",
     "name": "Incisors Bite",
     "melee_allowed": true,
-    "messages": [ "You gnaw %s", "<npcname> gnaws %s!" ],
+    "messages": [ "You gnaw %s", "<npcname> gnaws %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -1140,7 +1155,7 @@
     "id": "INCISORS_BITE_MUZZLE_RAT_RABBIT_NOSE",
     "name": "Incisors Bite with Rat Muzzle or Rabbit Nose",
     "melee_allowed": true,
-    "messages": [ "You quickly gnaw %s", "<npcname> quickly gnaws %s!" ],
+    "messages": [ "You quickly gnaw %s", "<npcname> quickly gnaws %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -1187,7 +1202,7 @@
     "id": "INCISORS_BITE_NATURAL_MUZZLE_RAT_RABBIT_NOSE",
     "name": "Incisors Bite",
     "melee_allowed": true,
-    "messages": [ "You quickly gnaw %s", "<npcname> quickly gnaws %s!" ],
+    "messages": [ "You quickly gnaw %s", "<npcname> quickly gnaws %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -1238,7 +1253,7 @@
     "id": "BEAK_BITE",
     "name": "Beak Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -1284,7 +1299,7 @@
     "id": "BEAK_BITE_NATURAL",
     "name": "Beak Bite",
     "melee_allowed": true,
-    "messages": [ "You bite %s", "<npcname> bites %s!" ],
+    "messages": [ "You bite %s", "<npcname> bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -1335,7 +1350,7 @@
     "id": "BEAK_BITE_MOUTH_TENTACLES",
     "name": "Beak Bite With Mouth Tentacles",
     "melee_allowed": true,
-    "messages": [ "You latch on and bite %s", "<npcname> latches on and bites %s!" ],
+    "messages": [ "You latch on and bite %s", "<npcname> latches on and bites %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -1379,14 +1394,15 @@
         "message": "Venom gets into the wound!",
         "req_flag": "VENOM2"
       }
-    ]
+    ],
+    "flat_bonuses": [ { "stat": "damage", "type": "bash", "scale": 2 }, { "stat": "damage", "type": "cut", "scale": 2 } ]
   },
   {
     "type": "technique",
     "id": "DRILL_BEAK_PECK",
     "name": "Drill Beak Peck",
     "melee_allowed": true,
-    "messages": [ "You peck %s", "<npcname> pecks %s!" ],
+    "messages": [ "You peck %s", "<npcname> pecks %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -5,
@@ -1416,7 +1432,7 @@
     "id": "DRILL_BEAK_PECK_NATURAL",
     "name": "Drill Beak Peck",
     "melee_allowed": true,
-    "messages": [ "You peck %s", "<npcname> pecks %s!" ],
+    "messages": [ "You peck %s", "<npcname> pecks %s" ],
     "unarmed_allowed": true,
     "basic": true,
     "weighting": -2,
@@ -1447,27 +1463,113 @@
   },
   {
     "type": "technique",
-    "id": "TEC_SCRATCH",
-    "name": "Scratch",
-    "messages": [ "You scratch %s", "<npcname> scratches %s!" ],
+    "id": "TEC_CLAW",
+    "name": "Claw",
+    "melee_allowed": false,
+    "messages": [ "You claw %s", "<npcname> claws %s" ],
     "unarmed_allowed": true,
-    "weighting": -7,
     "basic": true,
+    "weighting": -5,
     "reach_ok": false,
     "crit_ok": true,
     "attack_vectors": [ "vector_claw" ]
   },
   {
     "type": "technique",
-    "id": "TEC_CLAW",
+    "id": "TEC_TENTACLE_RAKE_NATURAL",
     "name": "Claw",
     "melee_allowed": false,
-    "messages": [ "You claw %s", "<npcname> claws %s!" ],
+    "messages": [ "Your tentacles rake %s", "<npcname>'s tentacles rake %s" ],
     "unarmed_allowed": true,
     "basic": true,
-    "weighting": -6,
+    "weighting": -4,
     "reach_ok": false,
     "crit_ok": true,
+    "attack_vectors": [ "vector_claw" ],
+    "condition": {
+      "or": [
+        { "and": [ { "u_has_flag": "GRAB_FILTER" }, { "npc_has_flag": "GRAB" } ] },
+        { "and": [ { "npc_has_flag": "GRAB_FILTER" }, { "u_has_flag": "GRAB" } ] }
+      ]
+    },
+    "flat_bonuses": [ { "stat": "movecost", "scale": -10 } ]
+  },
+  {
+    "type": "technique",
+    "id": "TEC_PINCER_CRUSH",
+    "name": "Pincer Crush",
+    "messages": [ "You crush %s with your pincer", "<npcname> crushes %s with their pincer" ],
+    "skill_requirements": [ { "name": "unarmed", "level": 3 } ],
+    "unarmed_allowed": true,
+    "crit_ok": true,
+    "condition": {
+      "and": [
+        { "math": [ "u_val('size') + 1", ">=", "n_val('size')" ] },
+        { "npc_has_flag": "GRAB" },
+        { "u_has_flag": "GRAB_FILTER" },
+        {
+          "or": [
+            { "npc_has_species": "ZOMBIE" },
+            { "npc_has_species": "NETHER" },
+            { "npc_has_species": "NETHER_EMANATION" },
+            { "npc_has_species": "LEECH_PLANT" },
+            { "npc_has_species": "MIGO" },
+            { "npc_has_species": "SLIME" },
+            { "npc_has_species": "FUNGUS" },
+            { "npc_has_species": "PLANT" },
+            { "npc_has_species": "ROBOT" },
+            { "npc_has_species": "HALLUCINATION" },
+            { "npc_has_species": "HORROR" },
+            { "npc_has_species": "ABERRATION" },
+            { "npc_has_species": "KRAKEN" },
+            { "npc_has_flag": "AQUATIC" },
+            { "npc_has_flag": "AMPHIBIOUS" },
+            { "npc_has_flag": "NO_BREATHE" },
+            { "and": [ { "npc_has_flag": "GILLS" }, "npc_is_underwater" ] }
+          ]
+        }
+      ]
+    },
+    "attack_vectors": [ "vector_claw" ]
+  },
+  {
+    "type": "technique",
+    "id": "TEC_PINCER_STRANGLE",
+    "name": "Pincer Strangle",
+    "messages": [ "You crush the life out of %s with your pincer", "<npcname> crushes the life out of %s with their pincer" ],
+    "skill_requirements": [ { "name": "unarmed", "level": 3 } ],
+    "unarmed_allowed": true,
+    "crit_ok": true,
+    "condition": {
+      "and": [
+        { "math": [ "u_val('size') + 1", ">=", "n_val('size')" ] },
+        { "npc_has_flag": "GRAB" },
+        { "u_has_flag": "GRAB_FILTER" },
+        {
+          "and": [
+            { "not": { "npc_has_species": "ZOMBIE" } },
+            { "not": { "npc_has_species": "NETHER" } },
+            { "not": { "npc_has_species": "NETHER_EMANATION" } },
+            { "not": { "npc_has_species": "LEECH_PLANT" } },
+            { "not": { "npc_has_species": "MIGO" } },
+            { "not": { "npc_has_species": "SLIME" } },
+            { "not": { "npc_has_species": "FUNGUS" } },
+            { "not": { "npc_has_species": "PLANT" } },
+            { "not": { "npc_has_species": "ROBOT" } },
+            { "not": { "npc_has_species": "HALLUCINATION" } },
+            { "not": { "npc_has_species": "HORROR" } },
+            { "not": { "npc_has_species": "ABERRATION" } },
+            { "not": { "npc_has_species": "KRAKEN" } },
+            { "not": { "npc_has_flag": "AQUATIC" } },
+            { "not": { "npc_has_flag": "AMPHIBIOUS" } },
+            { "not": { "npc_has_flag": "NO_BREATHE" } },
+            { "not": { "and": [ { "npc_has_flag": "GILLS" }, "npc_is_underwater" ] } }
+          ]
+        }
+      ]
+    },
+    "condition_desc": "* Only works on a <info>mundane</info> target of <info>similar or smaller</info> size",
+    "tech_effects": [ { "id": "choking", "chance": 100, "duration": 200, "on_damage": false, "message": "%s struggles to breathe!" } ],
     "attack_vectors": [ "vector_claw" ]
   }
 ]

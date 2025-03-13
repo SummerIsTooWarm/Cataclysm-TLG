@@ -35,6 +35,13 @@
   },
   {
     "type": "attack_vector",
+    "id": "vector_claw_right",
+    "limbs": [ "hand_r" ],
+    "contact_area": [ "hand_fingers_r" ],
+    "natural_attack": true
+  },
+  {
+    "type": "attack_vector",
     "id": "vector_punch",
     "limbs": [ "hand_l", "hand_r" ],
     "contact_area": [ "hand_fingers_l", "hand_fingers_r" ]

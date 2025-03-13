@@ -241,21 +241,28 @@
     "techniques": [ "RAPID" ],
     "flags": [ "ALLOWS_BODY_BLOCK", "CONDUCTIVE" ],
     "weapon_category": [ "SHIVS" ],
-    "variant_type": "generic",
-    "variants": [
-      {
-        "id": "switchblade_balisong",
-        "name": { "str": "balisong" },
-        "description": "A flashy knife with hinged handles that completely conceal the blade while folded.  Popular among movie gangbangers and people who thought fidget spinners were too safe."
-      },
-      {
-        "id": "switchblade_generic",
-        "name": { "str": "switchblade" },
-        "description": "A long, thin knife with a spring-loaded blade that rests inside the handle while not in use.",
-        "weight": 3
-      }
-    ],
-    "melee_damage": { "stab": 16 }
+    "melee_damage": { "stab": 15 }
+  },
+  {
+    "id": "balisong",
+    "type": "TOOL",
+    "category": "weapons",
+    "name": { "str": "balisong" },
+    "description": "Also called a butterfy knife, this is a flashy knife with hinged handles that completely conceal the blade while folded.",
+    "weight": "100 g",
+    "volume": "50 ml",
+    "longest_side": "15 cm",
+    "price": "20 USD",
+    "price_postapoc": "50 cent",
+    "to_hit": { "grip": "weapon", "length": "hand", "surface": "point", "balance": "neutral" },
+    "material": [ "steel", "plastic" ],
+    "symbol": ";",
+    "color": "dark_gray",
+    "qualities": [ [ "CUT", 2 ], [ "CUT_FINE", 1 ], [ "BUTCHER", 14 ] ],
+    "techniques": [ "RAPID" ],
+    "flags": [ "ALLOWS_BODY_BLOCK", "CONDUCTIVE", "DURABLE_MELEE" ],
+    "weapon_category": [ "SHIVS" ],
+    "melee_damage": { "stab": 11 }
   },
   {
     "id": "knife_folding",
@@ -274,7 +281,7 @@
     "qualities": [ [ "CUT", 2 ], [ "CUT_FINE", 1 ], [ "BUTCHER", 12 ] ],
     "flags": [ "BELT_CLIP", "ALLOWS_BODY_BLOCK", "CONDUCTIVE" ],
     "weapon_category": [ "KNIVES" ],
-    "melee_damage": { "stab": 12 }
+    "melee_damage": { "stab": 13 }
   },
   {
     "id": "utility_knife_folding",
@@ -294,7 +301,7 @@
     "qualities": [ [ "CUT", 2 ], [ "CUT_FINE", 1 ], [ "BUTCHER", 12 ], [ "SCREW", 1 ], [ "PRYING_NAIL", 1 ], [ "LEATHER_AWL", 2 ] ],
     "flags": [ "BELT_CLIP", "ALLOWS_BODY_BLOCK", "CONDUCTIVE" ],
     "weapon_category": [ "KNIVES" ],
-    "melee_damage": { "stab": 12 }
+    "melee_damage": { "stab": 13 }
   },
   {
     "id": "knife_combat_marine",

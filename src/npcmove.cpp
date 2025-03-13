@@ -93,7 +93,6 @@ static const activity_id ACT_TIDY_UP( "ACT_TIDY_UP" );
 static const bionic_id bio_ads( "bio_ads" );
 static const bionic_id bio_blade( "bio_blade" );
 static const bionic_id bio_chain_lightning( "bio_chain_lightning" );
-static const bionic_id bio_claws( "bio_claws" );
 static const bionic_id bio_faraday( "bio_faraday" );
 static const bionic_id bio_heat_absorb( "bio_heat_absorb" );
 static const bionic_id bio_heatsink( "bio_heatsink" );
@@ -206,12 +205,11 @@ const std::vector<bionic_id> health_cbms = { {
     }
 };
 
-// lightning, laser, blade, claws in order of use priority
+// lightning, laser, blade, in order of use priority
 const std::vector<bionic_id> weapon_cbms = { {
         bio_chain_lightning,
         bio_laser,
-        bio_blade,
-        bio_claws
+        bio_blade
     }
 };
 

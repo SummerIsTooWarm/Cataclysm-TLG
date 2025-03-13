@@ -170,7 +170,8 @@
       [ "pockknife", 50 ],
       [ "punch_dagger", 10 ],
       [ "knife_trench", 7 ],
-      [ "switchblade", 20 ],
+      [ "switchblade", 8 ],
+      [ "balisong", 20 ],
       [ "knife_hunting", 20 ],
       { "group": "knife_rambo_full", "prob": 5 }
     ]

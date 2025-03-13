@@ -783,7 +783,7 @@
     "id": "RAINPROOF",
     "type": "json_flag",
     "//": "Prevents the covered body-part(s) from getting wet in the rain.",
-    "info": "This clothing is designed to keep you <info>dry</info> in the rain."
+    "info": "This item can keep the body dry in the rain."
   },
   {
     "id": "RESTRICT_HANDS",
@@ -2448,5 +2448,10 @@
     "id": "PREFIX_XS",
     "type": "json_flag",
     "item_prefix": "XS "
+  },
+  {
+    "id": "NATURAL_WEAPON",
+    "type": "json_flag",
+    "//": "Intended for integrated items like claws. Only contributes its damage if used via an attack vector that has natural: true."
   }
 ]

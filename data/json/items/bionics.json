@@ -230,18 +230,6 @@
     "difficulty": 4
   },
   {
-    "id": "bio_claws",
-    "copy-from": "bionic_general_npc_usable",
-    "type": "BIONIC_ITEM",
-    "name": { "str": "Bionic Claws CBM" },
-    "looks_like": "bio_int_enhancer",
-    "description": "A set of vicious, retractable claws that are implanted inside the user's fingers.  They do considerable cutting damage, but prevent the user from holding anything else while extended.",
-    "price": "5500 USD",
-    "price_postapoc": "30 USD",
-    "weight": "500 g",
-    "difficulty": 5
-  },
-  {
     "id": "bio_climate",
     "copy-from": "bionic_general",
     "type": "BIONIC_ITEM",
