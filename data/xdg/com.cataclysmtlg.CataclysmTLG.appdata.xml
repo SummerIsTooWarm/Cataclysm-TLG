@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-  <id>com.cataclysmtlg.CataclysmTLG</id>
+  <id>com.cataclysm-tlg.cataclysm-tlg</id>
   <metadata_license>CC-BY-SA-3.0</metadata_license>
   <project_license>CC-BY-SA-3.0</project_license>
   <name>Cataclysm: The Last Generation</name>
@@ -60,7 +60,7 @@
   <url type="contribute">
     https://github.com/Cataclysm-TLG/Cataclysm-TLG
   </url>
-  <launchable type="desktop-id">org.cataclysmtlg.CataclysmTLG.desktop</launchable>
+  <launchable type="desktop-id">com.cataclysm-tlg.cataclysm-tlg.desktop</launchable>
   <provides>
     <binary>cataclysm-tiles</binary>
   </provides>
