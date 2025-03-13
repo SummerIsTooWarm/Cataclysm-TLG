@@ -29,7 +29,7 @@
     "id": "batrachian_sample",
     "copy-from": "mutagen_sample",
     "color": "green",
-    "name": { "str": "frog sample" },
+    "name": { "str": "batrachian sample" },
     "description": "A slurry of simplicity.",
     "looks_like": "medical_sample",
     "material": [ "slime", "blood" ]
@@ -49,7 +49,7 @@
     "id": "bird_sample",
     "copy-from": "mutagen_sample",
     "color": "cyan",
-    "name": { "str": "bird sample" },
+    "name": { "str": "avian sample" },
     "description": "A slurry of freedom.",
     "looks_like": "medical_sample",
     "material": [ "bone" ]
@@ -59,7 +59,7 @@
     "id": "cattle_sample",
     "copy-from": "mutagen_sample",
     "color": "brown",
-    "name": { "str": "cattle sample" },
+    "name": { "str": "bovoid sample" },
     "description": "A slurry of tranquility.",
     "looks_like": "medical_sample",
     "material": [ "flesh", "gutskin" ]
@@ -89,7 +89,7 @@
     "id": "elfa_sample",
     "copy-from": "mutagen_sample",
     "color": "light_green",
-    "name": { "str": "Elf-A sample" },
+    "name": { "str": "sylvan sample" },
     "description": "A slurry of responsibility.",
     "looks_like": "medical_sample",
     "material": [ "veggy", "hblood" ]
@@ -109,7 +109,7 @@
     "id": "fish_sample",
     "copy-from": "mutagen_sample",
     "color": "yellow",
-    "name": { "str": "fish sample" },
+    "name": { "str": "piscine sample" },
     "description": "A slurry of transformation.",
     "looks_like": "medical_sample",
     "material": [ "blood", "water" ]
@@ -119,7 +119,7 @@
     "id": "gastropod_sample",
     "copy-from": "mutagen_sample",
     "color": "brown_cyan",
-    "name": { "str": "snail sample" },
+    "name": { "str": "gastropod sample" },
     "description": "A slurry of steadfastness.",
     "looks_like": "medical_sample",
     "material": [ "chitin", "slime" ]
@@ -149,7 +149,7 @@
     "id": "lizard_sample",
     "copy-from": "mutagen_sample",
     "color": "green_cyan",
-    "name": { "str": "lizard sample" },
+    "name": { "str": "reptilian sample" },
     "description": "A slurry of healing.",
     "looks_like": "medical_sample",
     "material": [ "flesh", "blood" ]
@@ -178,7 +178,7 @@
     "id": "mouse_sample",
     "copy-from": "mutagen_sample",
     "color": "brown",
-    "name": { "str": "mouse sample" },
+    "name": { "str": "murine sample" },
     "description": "A slurry of experimentation.",
     "looks_like": "medical_sample",
     "material": [ "flesh", "bone" ]
@@ -198,7 +198,7 @@
     "id": "raptor_sample",
     "copy-from": "mutagen_sample",
     "color": "red",
-    "name": { "str": "raptor sample" },
+    "name": { "str": "theropod sample" },
     "description": "A slurry of evolution.",
     "looks_like": "medical_sample",
     "material": [ "bone" ]
@@ -208,7 +208,7 @@
     "id": "rabbit_sample",
     "copy-from": "mutagen_sample",
     "color": "light_gray",
-    "name": { "str": "rabbit sample" },
+    "name": { "str": "lagomorph sample" },
     "description": "A slurry of luck.",
     "looks_like": "medical_sample",
     "material": [ "flesh", "fur" ]
@@ -218,7 +218,7 @@
     "id": "rat_sample",
     "copy-from": "mutagen_sample",
     "color": "brown",
-    "name": { "str": "rat sample" },
+    "name": { "str": "rattine sample" },
     "description": "A slurry of survival.",
     "looks_like": "medical_sample",
     "material": [ "fur", "bone" ]
@@ -238,7 +238,7 @@
     "id": "spider_sample",
     "copy-from": "mutagen_sample",
     "color": "dark_gray",
-    "name": { "str": "spider sample" },
+    "name": { "str": "aranean sample" },
     "description": "A slurry of sustainability.",
     "looks_like": "medical_sample",
     "material": [ "chitin", "fur" ]

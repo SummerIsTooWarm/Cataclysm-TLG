@@ -1170,10 +1170,6 @@ void suffer::from_other_mutations( Character &you )
 {
     map &here = get_map();
     const tripoint position = you.pos();
-    if( you.has_trait( trait_SHARKTEETH ) && one_turn_in( 24_hours ) ) {
-        you.add_msg_if_player( m_neutral, _( "You shed a tooth!" ) );
-        here.spawn_item( position, "bone", 1 );
-    }
 
     if( you.has_trait( trait_WINGS_INSECT_active ) ) {
         //~Sound of buzzing Insect Wings
