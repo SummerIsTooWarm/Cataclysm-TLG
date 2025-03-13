@@ -976,13 +976,13 @@ endif
 
 ifeq ($(TARGETSYSTEM), LINUX)
   ifneq ($(PREFIX),)
-    DEFINES += -DPREFIX="$(PREFIX)" -tlgTA_DIR_PREFIX
+    DEFINES += -DPREFIX="$(PREFIX)" -DDATA_DIR_PREFIX
   endif
 endif
 
 ifeq ($(TARGETSYSTEM), CYGWIN)
   ifneq ($(PREFIX),)
-    DEFINES += -DPREFIX="$(PREFIX)" -tlgTA_DIR_PREFIX
+    DEFINES += -DPREFIX="$(PREFIX)" -DDATA_DIR_PREFIX
   endif
 endif
 
