@@ -86,6 +86,8 @@ static const trait_id trait_TREE_COMMUNION( "TREE_COMMUNION" );
 static const trait_id trait_VOMITOUS( "VOMITOUS" );
 static const trait_id trait_WEB_WEAVER( "WEB_WEAVER" );
 
+static const vitamin_id vitamin_mutagen( "mutagen" );
+
 namespace io
 {
 
@@ -1263,9 +1265,9 @@ void Character::mutate( const int &true_random_chance, bool use_vitamins )
                                cat.c_str() );
                 cat_list.add_or_replace( cat, 0 );
             } else {
-                // every option we have vitamins for is invalid
+                // Every option we have vitamins for is invalid.
                 add_msg_if_player( m_bad,
-                                   _( "Your body tries to mutate, but it lacks a primer to do so and only contorts for a moment." ) );
+                                   _( "Your flesh feels like it's crawling, but the sensation passes." ) );
                 return;
             }
         } else {
@@ -1672,8 +1674,7 @@ bool Character::mutate_towards( const trait_id &mut, const mutation_category_id 
         return false;
     }
 
-    const vitamin_id mut_vit = mut_cat == mutation_category_ANY ||
-                               !use_vitamins ? vitamin_id::NULL_ID() :
+    const vitamin_id mut_vit = !use_vitamins ? vitamin_id::NULL_ID() :
                                category.vitamin;
 
     if( mut_vit != vitamin_id::NULL_ID() ) {
@@ -1689,6 +1690,11 @@ bool Character::mutate_towards( const trait_id &mut, const mutation_category_id 
                            mut_vit.c_str(), vitamin_get( mut_vit ), vitamin_cost );
             vitamin_mod( mut_vit, -vitamin_cost );
             add_msg_debug( debugmode::DF_MUTATION, "mutate_towards: vitamin level %d", vitamin_get( mut_vit ) );
+        } else if( vitamin_get( vitamin_mutagen ) >= vitamin_cost ) {
+            add_msg_debug( debugmode::DF_MUTATION,
+                           "mutate_towards: using generic mutagen (level %d) for vitamin cost %.1f",
+                           vitamin_get( vitamin_mutagen ), vitamin_cost );
+            vitamin_mod( vitamin_mutagen, -vitamin_cost );
         } else {
             add_msg_debug( debugmode::DF_MUTATION, "mutate_towards: vitamin %s level %d below vitamin cost %d",
                            mut_vit.c_str(), vitamin_get( mut_vit ), vitamin_cost );

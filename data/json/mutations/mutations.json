@@ -7036,7 +7036,7 @@
   {
     "type": "mutation",
     "id": "TROGLO3",
-    "name": { "str": "Troglobite" },
+    "name": { "str": "Dweller" },
     "points": -5,
     "description": "Sunlight makes you extremely uncomfortable, resulting in large penalties to all stats.",
     "types": [ "SUNLIGHT" ],
@@ -8107,7 +8107,7 @@
   {
     "type": "mutation",
     "id": "THRESH_LIZARD",
-    "name": { "str": "Lizard" },
+    "name": { "str": "Reptile" },
     "points": 1,
     "description": "You sometimes look back on your days before your tail came in.  But you're better now.",
     "valid": false,
@@ -8128,7 +8128,7 @@
   {
     "type": "mutation",
     "id": "THRESH_BIRD",
-    "name": { "str": "Bird" },
+    "name": { "str": "Avian" },
     "points": 1,
     "description": "You're sure you'll fly someday.  In the meantime, there are still nests to build.",
     "valid": false,
@@ -8138,7 +8138,7 @@
   {
     "type": "mutation",
     "id": "THRESH_FISH",
-    "name": { "str": "Aquatic" },
+    "name": { "str": "Fish" },
     "points": 1,
     "description": "Ninety percent of the planet, and it's yours to explore.  And colonize.  And enjoy.  What was that about a surface?",
     "valid": false,
@@ -8168,7 +8168,7 @@
   {
     "type": "mutation",
     "id": "THRESH_LUPINE",
-    "name": { "str": "Wolf" },
+    "name": { "str": "Lupine" },
     "points": 1,
     "description": "You're the perfect candidate to lead a pack.",
     "valid": false,
@@ -8178,7 +8178,7 @@
   {
     "type": "mutation",
     "id": "THRESH_URSINE",
-    "name": { "str": "Bear" },
+    "name": { "str": "Ursine" },
     "points": 1,
     "description": "So the humans died; what's the worry?  Now they won't ruin the woods.",
     "valid": false,
@@ -8220,7 +8220,7 @@
   {
     "type": "mutation",
     "id": "THRESH_SLIME",
-    "name": { "str": "Aqueous" },
+    "name": { "str": "Slime" },
     "points": 1,
     "description": "What was that old advertisement?  'Paint the planet'?  That might be a good long-term goal, but for now…",
     "valid": false,
@@ -8230,7 +8230,7 @@
   {
     "type": "mutation",
     "id": "THRESH_TROGLOBITE",
-    "name": { "str": "Subterranean" },
+    "name": { "str": "Troglobite" },
     "points": 1,
     "description": "Not much point to rebuilding up in that horribly bright, roofless wasteland.  Now that you've become accustomed to your new digs, there's the beginning of a great empire right here, underground.",
     "valid": false,
@@ -8251,7 +8251,7 @@
   {
     "type": "mutation",
     "id": "THRESH_SPIDER",
-    "name": { "str": "Arachnid" },
+    "name": { "str": "Spider" },
     "points": 1,
     "description": "Well, maybe you'll just have to make your own worldwide web.",
     "flags": [ "INSECTBLOOD" ],
@@ -8262,7 +8262,7 @@
   {
     "type": "mutation",
     "id": "THRESH_RAT",
-    "name": { "str": "Survivor" },
+    "name": { "str": "Rat" },
     "points": 1,
     "description": "Hey.  Civilization fell.  You're still around.  'Rat' just isn't respectful.",
     "valid": false,
@@ -8332,7 +8332,7 @@
   {
     "type": "mutation",
     "id": "THRESH_MOUSE",
-    "name": { "str": "Diminutive" },
+    "name": { "str": "Mouse" },
     "points": 1,
     "description": "So much food, everywhere!  And nobody's even guarding it anymore!  These are good times.",
     "valid": false,

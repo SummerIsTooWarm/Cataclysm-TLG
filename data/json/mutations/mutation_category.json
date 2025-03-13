@@ -43,7 +43,7 @@
   {
     "type": "mutation_category",
     "id": "SPIDER",
-    "name": "Spider",
+    "name": "Aranean",
     "threshold_mut": "THRESH_SPIDER",
     "mutagen_message": "You feel insidious, and your vision fragments for a moment.",
     "memorial_message": "Found a place in the web of life.",
@@ -64,7 +64,7 @@
   {
     "type": "mutation_category",
     "id": "FISH",
-    "name": "Fish",
+    "name": "Piscine",
     "threshold_mut": "THRESH_FISH",
     "mutagen_message": "You are overcome by an overwhelming longing for the ocean.",
     "memorial_message": "Went deep.",
@@ -86,7 +86,7 @@
   {
     "type": "mutation_category",
     "id": "RAT",
-    "name": "Rat",
+    "name": "Rattine",
     "threshold_mut": "THRESH_RAT",
     "mutagen_message": "You feel a momentary nausea.",
     "memorial_message": "Found that survival *is* everything.",
@@ -141,7 +141,7 @@
   {
     "type": "mutation_category",
     "id": "CATTLE",
-    "name": "Cattle",
+    "name": "Bovoid",
     "threshold_mut": "THRESH_CATTLE",
     "mutagen_message": "Your mind and body slow down.  You feel peaceful.",
     "memorial_message": "Stopped worrying and learned to love the cowbell.",
@@ -163,7 +163,7 @@
   {
     "type": "mutation_category",
     "id": "BIRD",
-    "name": "Bird",
+    "name": "Avian",
     "threshold_mut": "THRESH_BIRD",
     "mutagen_message": "Your body lightens and you long for the sky.",
     "memorial_message": "Broke free of humanity.",
@@ -174,7 +174,7 @@
   {
     "type": "mutation_category",
     "id": "LIZARD",
-    "name": "Lizard",
+    "name": "Reptilian",
     "threshold_mut": "THRESH_LIZARD",
     "mutagen_message": "For a heartbeat, your blood cools down.",
     "memorial_message": "Shed the ugly human skin.",
@@ -237,7 +237,7 @@
   {
     "type": "mutation_category",
     "id": "ELFA",
-    "name": "Elf-A",
+    "name": "Sylvan",
     "threshold_mut": "THRESH_ELFA",
     "mutagen_message": "Everything goes green for a second.  Nature is becoming one with you…",
     "memorial_message": "Accepted a more natural way of life.",
@@ -247,7 +247,7 @@
   {
     "type": "mutation_category",
     "id": "RAPTOR",
-    "name": "Raptor",
+    "name": "Theropod",
     "threshold_mut": "THRESH_RAPTOR",
     "mutagen_message": "You're struck by a primordial flashback… and then it passes.",
     "memorial_message": "Hatched.",
@@ -258,7 +258,7 @@
   {
     "type": "mutation_category",
     "id": "MOUSE",
-    "name": "Mouse",
+    "name": "Murine",
     "threshold_mut": "THRESH_MOUSE",
     "mutagen_message": "You feel a desire to curl up in a nice, warm pile of… shredded paper.",
     "memorial_message": "Found the cheese.",
@@ -269,7 +269,7 @@
   {
     "type": "mutation_category",
     "id": "RABBIT",
-    "name": "Rabbit",
+    "name": "Lagomorph",
     "threshold_mut": "THRESH_RABBIT",
     "mutagen_message": "Walking is overrated.  It's time to start hopping.",
     "memorial_message": "Acquired a taste for carrots.",

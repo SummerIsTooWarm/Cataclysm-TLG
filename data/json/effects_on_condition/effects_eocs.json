@@ -86,7 +86,7 @@
     "type": "effect_on_condition",
     "id": "bile_unstink",
     "recurrence": [ "3 minutes", "10 minutes" ],
-    "condition": { "not": { "u_has_flag": "BILE_AFFLICTED" } },
+    "condition": { "and": [ { "not": { "u_has_flag": "BILE_AFFLICTED" } }, { "u_has_trait": "BILE_STINK" } ] },
     "effect": [ { "u_lose_trait": "BILE_STINK" } ]
   },
   {
