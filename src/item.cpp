@@ -13332,7 +13332,7 @@ bool item::process_corpse( map &here, Character *carrier, const tripoint &pos )
             if( corpse->in_species( species_ROBOT ) ) {
                 add_msg_if_player_sees( pos, m_warning, _( "A nearby robot has repaired itself and stands up!" ) );
             } else {
-                add_msg_if_player_sees( pos, m_warning, _( "A nearby corpse rises and moves towards you!" ) );
+                add_msg_if_player_sees( pos, m_warning, _( "A nearby corpse rises from the dead!" ) );
             }
         } else {
             if( corpse->in_species( species_ROBOT ) ) {

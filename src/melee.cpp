@@ -776,7 +776,8 @@ bool Character::melee_attack_abstract( Creature &t, bool allow_special,
             // so only cur_weapon = worn.current_unarmed_weapon remains
             // Check if our vector allows armor-derived damage
             if( vector_id->armor_bonus ) {
-                item *worn_weap = worn.current_unarmed_weapon( contact_area );
+                item *worn_weap = worn.current_unarmed_weapon( contact_area, vector_id->natural_attack );
+                // Prevent claws from helping with closed-hand punches, etc.
                 cur_weapon = worn_weap ? item_location( *this, worn_weap ) : item_location();
                 cur_weap = cur_weapon ? *cur_weapon : null_item_reference();
                 add_msg_debug( debugmode::DF_MELEE, "Vector allows armor damage calculation, chosen weapon %s",
@@ -815,7 +816,7 @@ bool Character::melee_attack_abstract( Creature &t, bool allow_special,
             perform_technique( technique, t, d, move_cost, cur_weapon );
         }
 
-        //player has a very small chance, based on their intelligence, to learn a style whilst using the CQB bionic
+        // Player has a very small chance, based on their intelligence, to learn a style whilst using the CQB bionic
         if( has_active_bionic( bio_cqb ) && !martial_arts_data->knows_selected_style() ) {
             /** @EFFECT_INT slightly increases chance to learn techniques when using CQB bionic */
             // Enhanced Memory Banks bionic doubles chance to learn martial art
@@ -1427,6 +1428,7 @@ std::tuple<matec_id, attack_vector_id, sub_bodypart_str_id> Character::pick_tech
 
     std::vector<std::tuple<matec_id, attack_vector_id, sub_bodypart_str_id>> possible;
     std::vector<std::tuple<matec_id, attack_vector_id, sub_bodypart_str_id>> fallbacks;
+    std::vector<std::tuple<matec_id, attack_vector_id, sub_bodypart_str_id>> basics;
 
     for( const matec_id &tec_id : all ) {
         add_msg_debug( debugmode::DF_MELEE, "Evaluating technique %s", tec_id->name );
@@ -1437,23 +1439,38 @@ std::tuple<matec_id, attack_vector_id, sub_bodypart_str_id> Character::pick_tech
         }
 
         auto tec = evaluate_technique( tec_id, t, weap, fallbacks, crit, dodge_counter, block_counter );
-
+        // TODO: Can't we just check for fallbacks below here like we do with basics?
         if( tec ) {
-            possible.push_back( tec.value() );
+            if( tec_id->basic ) {
+                basics.push_back( tec.value() );
+            } else {
+                possible.push_back( tec.value() );
+            }
             if( tec_id->weighting > 1 ) {
                 for( int i = 1; i < tec_id->weighting; i++ ) {
-                    possible.push_back( tec.value() );
+                    if( tec_id->basic ) {
+                        basics.push_back( tec.value() );
+                    } else {
+                        possible.push_back( tec.value() );
+                    }
                     add_msg_debug( debugmode::DF_MELEE, "Adding technique %s to the tech list (%d)", tec_id->name, i );
                 }
             }
         }
     }
 
+    // Pick whether we're going with "possible" or "fallbacks" attacks and stick our "basics" in with the winner.
     if( possible.empty() && !fallbacks.empty() ) {
+        if( !basics.empty() ) {
+            fallbacks.insert( fallbacks.end(), basics.begin(), basics.end() );
+        }
         return random_entry( fallbacks,
                              std::make_tuple( tec_none, attack_vector_vector_null,
                                               sub_body_part_sub_limb_debug ) );
     } else {
+        if( !basics.empty() ) {
+            possible.insert( possible.end(), basics.begin(), basics.end() );
+        }
         return random_entry( possible,
                              std::make_tuple( tec_none, attack_vector_vector_null,
                                               sub_body_part_sub_limb_debug ) );
@@ -2386,15 +2403,9 @@ static damage_instance hardcoded_mutation_attack( const Character &u, const trai
             return damage_instance();
         }
 
-        const bool rake = u.has_trait( trait_CLAWS_TENTACLE );
-
         /** @EFFECT_STR increases damage with ARM_TENTACLES* */
         damage_instance ret;
-        if( rake ) {
-            ret.add_damage( damage_cut, u.get_str() / 2.0f + 1.0f, 0, 1.0f, num_attacks );
-        } else {
-            ret.add_damage( damage_bash, u.get_str() / 3.0f + 1.0f, 0, 1.0f, num_attacks );
-        }
+        ret.add_damage( damage_bash, u.get_str() / 3.0f + 1.0f, 0, 1.0f, num_attacks );
 
         return ret;
     }
@@ -2496,52 +2507,50 @@ std::string melee_message( const ma_technique &tec, Character &p,
 {
     // Those could be extracted to a json
 
-    // Three last values are for low damage
-    static const std::array<std::string, 6> player_stab = {{
+    // High to low
+    static const std::array<std::string, 7> player_stab = {{
             translate_marker( "You impale %s" ),
             translate_marker( "You gouge %s" ),
             translate_marker( "You run %s through" ),
+            translate_marker( "You stab %s" ),
             translate_marker( "You puncture %s" ),
             translate_marker( "You pierce %s" ),
             translate_marker( "You poke %s" )
         }
     };
-    static const std::array<std::string, 6> npc_stab = {{
+    static const std::array<std::string, 7> npc_stab = {{
             translate_marker( "<npcname> impales %s" ),
             translate_marker( "<npcname> gouges %s" ),
             translate_marker( "<npcname> runs %s through" ),
+            translate_marker( "<npcname> stabs %s" ),
             translate_marker( "<npcname> punctures %s" ),
             translate_marker( "<npcname> pierces %s" ),
             translate_marker( "<npcname> pokes %s" )
         }
     };
-    // First 5 are for high damage, next 2 for medium, then for low and then for v. low
-    static const std::array<std::string, 9> player_cut = {{
-            translate_marker( "You gut %s" ),
-            translate_marker( "You chop %s" ),
+    static const std::array<std::string, 8> player_cut = {{
+            translate_marker( "You shred %s" ),
+            translate_marker( "You hack %s" ),
             translate_marker( "You slash %s" ),
-            translate_marker( "You mutilate %s" ),
-            translate_marker( "You maim %s" ),
-            translate_marker( "You stab %s" ),
+            translate_marker( "You carve %s" ),
+            translate_marker( "You chop %s" ),
             translate_marker( "You slice %s" ),
             translate_marker( "You cut %s" ),
             translate_marker( "You nick %s" )
         }
     };
-    static const std::array<std::string, 9> npc_cut = {{
-            translate_marker( "<npcname> guts %s" ),
-            translate_marker( "<npcname> chops %s" ),
+    static const std::array<std::string, 8> npc_cut = {{
+            translate_marker( "<npcname> shreds %s" ),
+            translate_marker( "<npcname> hacks %s" ),
             translate_marker( "<npcname> slashes %s" ),
-            translate_marker( "<npcname> mutilates %s" ),
-            translate_marker( "<npcname> maims %s" ),
-            translate_marker( "<npcname> stabs %s" ),
+            translate_marker( "<npcname> carves %s" ),
+            translate_marker( "<npcname> chops %s" ),
             translate_marker( "<npcname> slices %s" ),
             translate_marker( "<npcname> cuts %s" ),
             translate_marker( "<npcname> nicks %s" )
         }
     };
 
-    // Three last values are for low damage
     static const std::array<std::string, 6> player_bash = {{
             translate_marker( "You clobber %s" ),
             translate_marker( "You smash %s" ),

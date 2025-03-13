@@ -31,13 +31,21 @@
     "id": "real_shivs",
     "type": "requirement",
     "//": "Any real, small weapons that can be concealed and stab someone at close range, like pocket knives.",
-    "tools": [ [ [ "switchblade", -1 ], [ "knife_swissarmy", -1 ], [ "punch_dagger", -1 ], [ "knuckle_katar", -1 ] ] ]
+    "tools": [
+      [
+        [ "switchblade", -1 ],
+        [ "knife_swissarmy", -1 ],
+        [ "punch_dagger", -1 ],
+        [ "knuckle_katar", -1 ],
+        [ "balisong", -1 ]
+      ]
+    ]
   },
   {
     "id": "real_claws",
     "type": "requirement",
     "//": "Any claw-like weapons that are real and good quality.  Excludes makeshift stuff.",
-    "tools": [ [ [ "bagh_nakha", -1 ], [ "bio_claws_weapon", -1 ] ] ]
+    "tools": [ [ [ "bagh_nakha", -1 ], [ "integrated_fingertip_razors", -1 ] ] ]
   },
   {
     "id": "basic_hooks",

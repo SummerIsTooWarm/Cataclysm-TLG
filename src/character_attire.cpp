@@ -2382,14 +2382,18 @@ item *outfit::best_shield()
     return ret;
 }
 
-item *outfit::current_unarmed_weapon( const sub_bodypart_str_id &contact_area )
+item *outfit::current_unarmed_weapon( const sub_bodypart_str_id &contact_area, bool natural_attack )
 {
     item *cur_weapon = &null_item_reference();
     for( item &worn_item : worn ) {
         bool covers = worn_item.covers( contact_area );
         // Uses enum layer_level to make distinction for top layer.
         if( covers ) {
-            if( cur_weapon->is_null() || ( worn_item.get_layer() >= cur_weapon->get_layer() ) ) {
+            // Make sure the attack type is appropriate for our unarmed weapon.
+            // Punching shouldn't be buffed by mutant claws, and mutant claws shouldn't be buffed by wearing gauntlets.
+            if( ( cur_weapon->is_null() || ( worn_item.get_layer() >= cur_weapon->get_layer() ) ) &&
+                ( ( !natural_attack && !worn_item.has_flag( flag_NATURAL_WEAPON ) ) || ( natural_attack &&
+                        worn_item.has_flag( flag_NATURAL_WEAPON ) ) ) ) {
                 cur_weapon = &worn_item;
             }
         }

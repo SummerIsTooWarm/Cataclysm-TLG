@@ -473,6 +473,7 @@
     "name": { "str": "Consumed human flesh" },
     "min": 0,
     "max": 10000,
+    "flags": [ "NO_DISPLAY" ],
     "rate": "1 h"
   }
 ]

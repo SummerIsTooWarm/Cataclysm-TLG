@@ -292,6 +292,7 @@ void ma_technique::load( const JsonObject &jo, const std::string &src )
     optional( jo, was_loaded, "miss_recovery", miss_recovery, false );
     optional( jo, was_loaded, "grab_break", grab_break, false );
     optional( jo, was_loaded, "fallback", fallback, false );
+    optional( jo, was_loaded, "basic", basic, false );
 
     optional( jo, was_loaded, "weighting", weighting, 1 );
 

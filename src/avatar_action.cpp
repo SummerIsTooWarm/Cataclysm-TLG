@@ -1170,7 +1170,7 @@ void avatar_action::plthrow( avatar &you, item_location loc,
     }
 
     if( you.is_wielding( *orig ) && orig->has_flag( flag_NO_UNWIELD ) ) {
-        // pos == -1 is the weapon, NO_UNWIELD is used for bio_claws_weapon
+        // pos == -1 is the weapon, NO_UNWIELD is for the bio_blade item
         add_msg( m_info, _( "That's part of your body, you can't throw that!" ) );
         return;
     }
