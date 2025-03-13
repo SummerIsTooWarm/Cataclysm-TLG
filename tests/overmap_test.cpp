@@ -299,7 +299,15 @@ TEST_CASE( "overmap_terrain_coverage", "[overmap][slow]" )
                 // Periodically clear the generated maps to save memory
                 if( ++num_generated_since_last_clear >= 64 ) {
                     MAPBUFFER.clear_outside_reality_bubble();
-                    num_generated_since_last_clear = 0;
+                    smallmap tm;
+                    tm.generate( pos, calendar::turn, false );
+                    bool found = tally_items( item_counts, p.second.item_counts, tm );
+                    if( enable_item_demographics && found && !p.second.found ) {
+                        goal_samples = std::pow( std::log( std::max( 10, count ) ), 3 );
+                        sample_size = goal_samples - p.second.samples;
+                        p.second.found = true;
+                    }
+                    tm.delete_unmerged_submaps();
                 }
             } );
             CAPTURE( msg );
