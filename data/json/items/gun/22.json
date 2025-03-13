@@ -10,7 +10,7 @@
     "variants": [
       {
         "id": "american_180",
-        "name": { "str": "American-180 submachine gun" },
+        "name": { "str": "ILARCO American-180 SMG" },
         "description": "The American-180 is a submachine gun developed in the 1960s that fires .22 LR, unusual for an SMG.  Though the round is low-powered, the high rate of fire and large magazine makes the 180 a formidable weapon."
       }
     ],
