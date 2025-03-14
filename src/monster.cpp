@@ -173,7 +173,6 @@ static const species_id species_CYBORG( "CYBORG" );
 static const species_id species_FISH( "FISH" );
 static const species_id species_FUNGUS( "FUNGUS" );
 static const species_id species_HORROR( "HORROR" );
-static const species_id species_LEECH_PLANT( "LEECH_PLANT" );
 static const species_id species_MAMMAL( "MAMMAL" );
 static const species_id species_MIGO( "MIGO" );
 static const species_id species_MOLLUSK( "MOLLUSK" );
@@ -1802,8 +1801,7 @@ bool monster::is_immune_effect( const efftype_id &effect ) const
         effect == effect_venom_player1 ||
         effect == effect_venom_player2 ) {
         return ( !made_of( material_flesh ) && !made_of( material_iflesh ) ) ||
-               type->in_species( species_NETHER ) || type->in_species( species_MIGO ) ||
-               type->in_species( species_LEECH_PLANT );
+               type->in_species( species_NETHER ) || type->in_species( species_MIGO );
     }
 
     if( effect == effect_paralyzepoison ||
@@ -1812,7 +1810,7 @@ bool monster::is_immune_effect( const efftype_id &effect ) const
         effect == effect_poison ) {
         return type->in_species( species_ZOMBIE ) || type->in_species( species_NETHER ) ||
                type->in_species( species_MIGO ) ||
-               !made_of_any( Creature::cmat_flesh ) || type->in_species( species_LEECH_PLANT );
+               !made_of_any( Creature::cmat_flesh );
     }
 
     if( effect == effect_tpollen ) {

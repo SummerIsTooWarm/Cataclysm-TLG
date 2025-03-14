@@ -79,8 +79,7 @@
     "type": "MONSTER_FACTION",
     "name": "cult",
     "base_faction": "zombie",
-    "neutral": [ "slime", "zombie", "nether", "vortex", "passive_machine" ],
-    "by_mood": [ "leech_plant" ]
+    "neutral": [ "slime", "zombie", "nether", "vortex", "passive_machine" ]
   },
   {
     "type": "MONSTER_FACTION",
@@ -215,7 +214,7 @@
     "name": "nether",
     "friendly": [ "attack_player_only" ],
     "neutral": [ "cult", "small_animal", "fish", "slime", "passive_machine" ],
-    "by_mood": [ "leech_plant", "vortex", "mi-go" ]
+    "by_mood": [ "vortex", "mi-go" ]
   },
   {
     "type": "MONSTER_FACTION",
@@ -257,12 +256,6 @@
     "base_faction": "nether",
     "neutral": [ "nether", "mi-go", "passive_machine" ],
     "friendly": [ "zombie", "attack_player_only" ]
-  },
-  {
-    "type": "MONSTER_FACTION",
-    "name": "leech_plant",
-    "base_faction": "nether",
-    "by_mood": [ "cult", "nether", "slime", "mi-go" ]
   },
   {
     "type": "MONSTER_FACTION",
@@ -402,7 +395,6 @@
       "nether",
       "vortex",
       "slime",
-      "leech_plant",
       "mutant",
       "razorclaw",
       "frog",

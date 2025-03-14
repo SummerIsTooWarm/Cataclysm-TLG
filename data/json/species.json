@@ -91,13 +91,6 @@
   },
   {
     "type": "SPECIES",
-    "id": "LEECH_PLANT",
-    "description": "a leech plant",
-    "fear_triggers": [ "HURT", "FIRE" ],
-    "flags": [ "DRACULIN_IMMUNE" ]
-  },
-  {
-    "type": "SPECIES",
     "id": "INSECT",
     "description": "an insect",
     "anger_triggers": [ "FRIEND_DIED" ],
