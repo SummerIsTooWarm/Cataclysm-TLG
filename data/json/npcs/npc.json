@@ -23,18 +23,6 @@
   },
   {
     "type": "npc",
-    "id": "apis",
-    "//": "Bee mutant or mutant bee (supposed to be ambiguous). Should be 'it', but we'll go with 'she' because it's a bee.",
-    "name_unique": "Apis",
-    "class": "NC_APIS",
-    "gender": "female",
-    "attitude": 0,
-    "mission": 7,
-    "chat": "TALK_DONE",
-    "faction": "apis_hive"
-  },
-  {
-    "type": "npc",
     "id": "derelict_dweller",
     "//": "Crazy Person.",
     "name_suffix": "Psycho",

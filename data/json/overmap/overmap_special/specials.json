@@ -447,7 +447,7 @@
       { "point": [ 0, 1, 0 ], "overmap": "hive_edge_01_north" },
       { "point": [ 0, 2, 0 ], "overmap": "hive_edge_02_north" },
       { "point": [ 1, 0, 0 ], "overmap": "hive_edge_10_north" },
-      { "point": [ 1, 1, 0 ], "overmap": "hive_north", "camp": "apis_hive", "camp_name": "???" },
+      { "point": [ 1, 1, 0 ], "overmap": "hive_north" },
       { "point": [ 1, 2, 0 ], "overmap": "hive_edge_12_north" },
       { "point": [ 2, 0, 0 ], "overmap": "hive_edge_20_north" },
       { "point": [ 2, 1, 0 ], "overmap": "hive_edge_21_north" },
