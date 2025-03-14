@@ -649,7 +649,7 @@
     "melee_skill": 6,
     "melee_dice": 3,
     "melee_dice_sides": 6,
-    "melee_damage": [ { "damage_type": "stab", "amount": 15, "armor_penetration": 25 } ],
+    "melee_damage": [ { "damage_type": "stab", "amount": 15, "armor_penetration": 18 } ],
     "grab_strength": 75,
     "special_attacks": [
       {
@@ -667,7 +667,7 @@
         "type": "bite",
         "cooldown": 5,
         "move_cost": 100,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 20, "armor_penetration": 110 } ],
+        "damage_max_instance": [ { "damage_type": "stab", "amount": 20, "armor_penetration": 20 } ],
         "min_mul": 0.8,
         "max_mul": 1.1,
         "infection_chance": 3,
@@ -1883,7 +1883,7 @@
         "id": "sting",
         "move_cost": 300,
         "cooldown": 5,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 10, "armor_penetration": 25 } ],
+        "damage_max_instance": [ { "damage_type": "stab", "amount": 10, "armor_penetration": 8 } ],
         "min_mul": 0.5,
         "max_mul": 2
       },
@@ -1891,7 +1891,7 @@
         "type": "bite",
         "cooldown": 5,
         "move_cost": 130,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 10, "armor_penetration": 20 } ],
+        "damage_max_instance": [ { "damage_type": "cut", "amount": 10, "armor_penetration": 6 } ],
         "body_parts": [ [ "leg_l", 2 ], [ "leg_r", 2 ], [ "head", 1 ], [ "arm_l", 2 ], [ "arm_r", 2 ], [ "torso", 4 ] ],
         "min_mul": 0.5,
         "max_mul": 1.5,
@@ -1900,7 +1900,7 @@
       [ "EAT_CARRION", 100 ],
       [ "EAT_FOOD", 100 ]
     ],
-    "//": "sting 5-15 damage, 8 hits to max intensity, 9 to max duration",
+    "//": "sting 10-15 damage, 8 hits to max intensity, 9 to max duration",
     "dodge": 7,
     "bleed_rate": 80,
     "weakpoint_sets": [ "wps_arthropod", "wps_arthropod_flying", "wps_arthropod_hymenoptera" ],
@@ -1951,7 +1951,7 @@
         "id": "sting",
         "cooldown": 5,
         "move_cost": 200,
-        "damage_max_instance": [ { "damage_type": "stab", "amount": 15, "armor_penetration": 60 } ],
+        "damage_max_instance": [ { "damage_type": "stab", "amount": 15, "armor_penetration": 14 } ],
         "min_mul": 1,
         "max_mul": 3,
         "effects": [ { "id": "venom_weaken", "duration": 600 }, { "id": "downed", "duration": 1, "chance": 50 } ]
@@ -1960,7 +1960,7 @@
         "type": "bite",
         "cooldown": 3,
         "move_cost": 100,
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 10, "armor_penetration": 30 } ],
+        "damage_max_instance": [ { "damage_type": "cut", "amount": 10, "armor_penetration": 12 } ],
         "min_mul": 1,
         "max_mul": 3,
         "body_parts": [ [ "leg_l", 2 ], [ "leg_r", 2 ], [ "head", 1 ], [ "arm_l", 2 ], [ "arm_r", 2 ], [ "torso", 4 ] ],
