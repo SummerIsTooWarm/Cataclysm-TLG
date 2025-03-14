@@ -1893,7 +1893,7 @@ bool Character::mutate_towards( const trait_id &mut, const mutation_category_id 
 
 bool Character::mutate_towards( const trait_id &mut, const mutation_variant *chosen_var )
 {
-    return mutate_towards( mut, mutation_category_ANY, chosen_var );
+    return mutate_towards( mut, mutation_category_ANY, chosen_var, false );
 }
 
 bool Character::has_conflicting_trait( const trait_id &flag ) const
