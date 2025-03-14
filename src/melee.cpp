@@ -2551,19 +2551,21 @@ std::string melee_message( const ma_technique &tec, Character &p,
         }
     };
 
-    static const std::array<std::string, 6> player_bash = {{
+    static const std::array<std::string, 7> player_bash = {{
             translate_marker( "You clobber %s" ),
             translate_marker( "You smash %s" ),
             translate_marker( "You thrash %s" ),
+            translate_marker( "You bash %s" ),
             translate_marker( "You batter %s" ),
             translate_marker( "You whack %s" ),
             translate_marker( "You hit %s" )
         }
     };
-    static const std::array<std::string, 6> npc_bash = {{
+    static const std::array<std::string, 7> npc_bash = {{
             translate_marker( "<npcname> clobbers %s" ),
             translate_marker( "<npcname> smashes %s" ),
             translate_marker( "<npcname> thrashes %s" ),
+            translate_marker( "<npcname> bashes %s" ),
             translate_marker( "<npcname> batters %s" ),
             translate_marker( "<npcname> whacks %s" ),
             translate_marker( "<npcname> hits %s" )
@@ -2604,9 +2606,9 @@ std::string melee_message( const ma_technique &tec, Character &p,
     } else if( total_dam > 20 ) {
         index = cutting ? rng( 5, 6 ) : 3;
     } else if( total_dam > 10 ) {
-        index = cutting ? 7 : 4;
+        index = cutting ? 6 : 4;
     } else {
-        index = cutting ? 8 : 5;
+        index = cutting ? 7 : 5;
     }
 
     std::string message;
