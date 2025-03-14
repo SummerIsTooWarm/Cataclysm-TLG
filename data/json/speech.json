@@ -2107,30 +2107,6 @@
   },
   {
     "type": "speech",
-    "speaker": [ "mon_leech_blossom", "mon_mi_go", "mon_mi_go_slaver", "mon_mi_go_surgeon", "mon_mi_go_guard", "mon_mi_go_myrmidon" ],
-    "sound": "visceral chittering.",
-    "volume": 15
-  },
-  {
-    "type": "speech",
-    "speaker": [ "mon_leech_blossom", "mon_mi_go", "mon_mi_go_slaver", "mon_mi_go_surgeon", "mon_mi_go_guard", "mon_mi_go_myrmidon" ],
-    "sound": "a clear, high-pitched hum.",
-    "volume": 15
-  },
-  {
-    "type": "speech",
-    "speaker": [ "mon_leech_blossom", "mon_mi_go", "mon_mi_go_slaver", "mon_mi_go_surgeon", "mon_mi_go_guard", "mon_mi_go_myrmidon" ],
-    "sound": "the hum of static electricity.",
-    "volume": 15
-  },
-  {
-    "type": "speech",
-    "speaker": [ "mon_leech_blossom", "mon_mi_go", "mon_mi_go_slaver", "mon_mi_go_surgeon", "mon_mi_go_guard", "mon_mi_go_myrmidon" ],
-    "sound": "a low buzzing sound.",
-    "volume": 15
-  },
-  {
-    "type": "speech",
     "speaker": [ "talking_doll", "mon_mi_go", "mon_mi_go_slaver", "mon_mannequin_decoy" ],
     "sound": "\"Wanna play with me?\"",
     "volume": 10
