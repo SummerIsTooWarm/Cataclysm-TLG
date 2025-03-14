@@ -206,10 +206,6 @@ static const mtype_id mon_fungaloid( "mon_fungaloid" );
 static const mtype_id mon_fungaloid_young( "mon_fungaloid_young" );
 static const mtype_id mon_headless_dog_thing( "mon_headless_dog_thing" );
 static const mtype_id mon_hound_tindalos_afterimage( "mon_hound_tindalos_afterimage" );
-static const mtype_id mon_leech_blossom( "mon_leech_blossom" );
-static const mtype_id mon_leech_root_drone( "mon_leech_root_drone" );
-static const mtype_id mon_leech_root_runner( "mon_leech_root_runner" );
-static const mtype_id mon_leech_stalk( "mon_leech_stalk" );
 static const mtype_id mon_manhack( "mon_manhack" );
 static const mtype_id mon_nursebot_defective( "mon_nursebot_defective" );
 static const mtype_id mon_shadow( "mon_shadow" );
@@ -227,7 +223,6 @@ static const skill_id skill_melee( "melee" );
 static const skill_id skill_rifle( "rifle" );
 static const skill_id skill_unarmed( "unarmed" );
 
-static const species_id species_LEECH_PLANT( "LEECH_PLANT" );
 static const species_id species_SLIME( "SLIME" );
 static const species_id species_ZOMBIE( "ZOMBIE" );
 
@@ -4665,58 +4660,6 @@ bool mattack::evolve_kill_strike( monster *z )
             add_msg( m_warning, _( "The %1$s burrows within %2$s corpse!" ), old_name, target_name );
         } else if( can_see_z_upgrade ) {
             add_msg( m_warning, _( "A %1$s emerges from %2$s corpse!" ), upgrade_name, target_name );
-        }
-    }
-    return true;
-}
-
-bool mattack::leech_spawner( monster *z )
-{
-    const bool u_see = get_player_view().sees( *z );
-    std::list<monster *> allies;
-    for( monster &candidate : g->all_monsters() ) {
-        if( candidate.in_species( species_LEECH_PLANT ) && !candidate.has_flag( mon_flag_IMMOBILE ) ) {
-            allies.push_back( &candidate );
-        }
-    }
-    if( allies.size() > 45 ) {
-        return true;
-    }
-    const int monsters_spawned = rng( 1, 4 );
-    const mtype_id monster_type = one_in( 3 ) ? mon_leech_root_runner : mon_leech_root_drone;
-    for( int i = 0; i < monsters_spawned; i++ ) {
-        if( monster *const new_mon = g->place_critter_around( monster_type, z->pos(), 1 ) ) {
-            if( u_see ) {
-                add_msg( m_warning,
-                         _( "An egg pod ruptures and a %s crawls out from the remains!" ), new_mon->name() );
-            }
-            if( one_in( 25 ) ) {
-                z->poly( mon_leech_stalk );
-                if( u_see ) {
-                    add_msg( m_warning,
-                             _( "Resplendent fronds emerge from the still intact pods!" ) );
-                }
-            }
-        }
-    }
-    return true;
-}
-
-bool mattack::mon_leech_evolution( monster *z )
-{
-    const bool is_queen = z->has_flag( mon_flag_QUEEN );
-    std::list<monster *> queens;
-    for( monster &candidate : g->all_monsters() ) {
-        if( candidate.in_species( species_LEECH_PLANT ) && candidate.has_flag( mon_flag_QUEEN ) &&
-            rl_dist( z->pos(), candidate.pos() ) < 35 ) {
-            queens.push_back( &candidate );
-        }
-    }
-    if( !is_queen ) {
-        if( queens.empty() ) {
-            z->poly( mon_leech_blossom );
-            z->set_hp( z->get_hp_max() );
-            add_msg_if_player_sees( *z, m_warning, _( "The %s blooms into flowers!" ), z->name() );
         }
     }
     return true;

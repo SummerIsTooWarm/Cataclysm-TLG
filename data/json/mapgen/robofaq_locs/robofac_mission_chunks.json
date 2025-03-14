@@ -93,9 +93,9 @@
       "terrain": { "@": "t_pavement" },
       "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ],
       "monster": {
-        "T": { "monster": "mon_leech_blossom" },
-        "k": { "monster": "mon_leech_pod_cluster" },
-        "u": { "monster": "mon_leech_stalk" }
+        "T": { "monster": "mon_zombie_necro" },
+        "k": { "monster": "mon_zombie_electric" },
+        "u": { "monster": "mon_zombie_plated" }
       }
     }
   }
