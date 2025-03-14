@@ -2,7 +2,7 @@
   {
     "type": "effect_on_condition",
     "id": "changing_initiate_check",
-    "//": "Give player the CHANGING trait when they have enough basic mutagen in their blood.",
+    "//": "Give player the CHANGING trait when they have enough mutagen in their blood.",
     "recurrence": [ "30 m", "45 m" ],
     "condition": { "and": [ { "math": [ "u_vitamin('mutagen')", ">=", "450" ] }, { "not": { "u_has_flag": "CHANGING" } } ] },
     "deactivate_condition": { "u_has_flag": "CHANGING" },
@@ -86,10 +86,9 @@
     "type": "snippet",
     "category": "<CHANGING_ENDS>",
     "text": [
-      "You can palpably feel the churning sensation within fade, your mutation cut short by a lack of nutrients.",
-      "The strain of mutation fades, leaving a throbbing sensation like a bad headache.  Or an afterglow.",
-      "You're pulled back to reality as your body stops warping, leaving you in your current state for the time being.",
-      "Your mutation abruptly ends from a lack of nutrients.  Back to Earth for now."
+      "You can palpably feel the churning sensation within fade.",
+      "The strain of mutation fades, leaving a throbbing sensation like a bad headache.",
+      "You're pulled back to reality as your body stops warping, leaving you in your current state for the time being."
     ]
   }
 ]
