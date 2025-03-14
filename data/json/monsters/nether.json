@@ -1606,7 +1606,7 @@
     "symbol": "v",
     "color": "light_gray",
     "bodytype": "blob",
-    "harvest": "flesh_plant",
+    "death_function": { "message": "The %s fades away into nothingness.", "corpse_type": "NO_CORPSE" },
     "flags": [ "GRABS", "HEARS" ]
   },
   {
