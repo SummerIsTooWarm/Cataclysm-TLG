@@ -2953,8 +2953,8 @@
     "connects_to": "WALL",
     "flags": [ "NOITEM", "SUPPORTS_ROOF", "PLACE_ITEM", "WALL", "NO_SCENT" ],
     "bash": {
-      "str_min": 12,
-      "str_max": 150,
+      "str_min": 11,
+      "str_max": 140,
       "sound": "crunch!",
       "sound_fail": "whump!",
       "ter_set": "t_floor_wax",

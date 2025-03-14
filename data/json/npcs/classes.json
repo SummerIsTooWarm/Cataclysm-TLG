@@ -513,39 +513,6 @@
   },
   {
     "type": "npc_class",
-    "id": "NC_APIS",
-    "name": { "str": "Apis" },
-    "job_description": "I'm bugged - I shouldn't talk to you.",
-    "common": false,
-    "bonus_dex": { "rng": [ 5, 10 ] },
-    "bonus_int": { "rng": [ -4, -8 ] },
-    "bonus_per": { "rng": [ 4, 8 ] },
-    "skills": [
-      { "skill": "dodge", "level": { "dice": [ 2, 2 ] } },
-      { "skill": "melee", "level": { "dice": [ 2, 2 ] } },
-      { "skill": "unarmed", "level": { "dice": [ 2, 2 ] } }
-    ],
-    "worn_override": "EMPTY_GROUP",
-    "carry_override": "EMPTY_GROUP",
-    "weapon_override": "EMPTY_GROUP",
-    "//": "NPCs can't run yet and we want this one to be fast, so road runner.",
-    "//2": "This is a unique NPC who doesn't get randomly selected background traits",
-    "traits": [
-      [ "THRESH_INSECT", 100 ],
-      [ "BEE", 100 ],
-      [ "MANDIBLES", 100 ],
-      [ "TAIL_STING", 100 ],
-      [ "INSECT_ARMS_OK", 100 ],
-      [ "CHITIN3", 100 ],
-      [ "POISONOUS2", 100 ],
-      [ "PAINRESIST", 100 ],
-      [ "ADRENALINE", 100 ],
-      [ "FLEET2", 100 ],
-      [ "ANTENNAE", 100 ]
-    ]
-  },
-  {
-    "type": "npc_class",
     "id": "NC_HALLU",
     "name": { "str": "Real Person" },
     "job_description": "I'm just wandering, like a totally real and normal NP… person!",
