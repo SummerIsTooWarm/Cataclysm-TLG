@@ -1050,6 +1050,12 @@ class Character : public Creature, public visitable
         /** Bitset of all the body parts covered only with items with `flag` (or nothing) */
         body_part_set exclusive_flag_coverage( const flag_id &flag ) const;
 
+        /** Stat-weighted RNG used in fire_gun() to ensure shooting is non deterministic. */
+        double dispersion_variance() const;
+
+        /** Average of the above calculation for aim prediction purposes. */
+        double expected_dispersion_variance() const;
+
         /** Processes effects which may prevent the Character from moving (bear traps, crushed, etc.).
          *  Returns false if movement is stopped. */
         bool move_effects( bool attacking ) override;
