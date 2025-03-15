@@ -1999,9 +1999,10 @@ void npc::evaluate_best_attack( const Creature *target )
     visit_items( [&compare, this]( item * it, item * ) {
         // you can theoretically melee with anything.
         if( !it->has_flag( flag_INTEGRATED ) && !is_worn( *it ) ) {
-        compare( std::make_shared<npc_attack_melee>( *it ) );
+            compare( std::make_shared<npc_attack_melee>( *it ) );
         }
-        if( ( !is_wielding( *it ) || !it->has_flag( flag_NO_UNWIELD ) ) && ( !it->has_flag( flag_INTEGRATED ) && !is_worn( *it ) ) ) {
+        if( ( !is_wielding( *it ) || !it->has_flag( flag_NO_UNWIELD ) ) &&
+            ( !it->has_flag( flag_INTEGRATED ) && !is_worn( *it ) ) ) {
             compare( std::make_shared<npc_attack_throw>( *it ) );
         }
         if( !it->type->use_methods.empty() ) {
@@ -2696,7 +2697,8 @@ int npc::confident_gun_mode_range( const gun_mode &gun, int at_recoil ) const
 
     // Same calculation as in @ref item::info
     // TODO: Extract into common method
-    double max_dispersion = get_weapon_dispersion( *( gun.target ) ).max() + at_recoil + expected_dispersion_variance();
+    double max_dispersion = get_weapon_dispersion( *( gun.target ) ).max() + at_recoil +
+                            expected_dispersion_variance();
     double even_chance_range = range_with_even_chance_of_good_hit( max_dispersion );
     double confident_range = even_chance_range * confidence_mult();
     add_msg_debug( debugmode::DF_NPC, "confident_gun (%s<=%.2f) at %.1f", gun.tname(), confident_range,
@@ -4060,7 +4062,9 @@ bool npc::do_player_activity()
 
 double npc::evaluate_weapon( item &maybe_weapon, bool can_use_gun, bool use_silent ) const
 {
-    bool allowed = ( !maybe_weapon.is_gun() && !is_worn( maybe_weapon ) && !maybe_weapon.has_flag( flag_INTEGRATED ) ) || ( can_use_gun && maybe_weapon.is_gun() && ( !use_silent || maybe_weapon.is_silent() ) );
+    bool allowed = ( !maybe_weapon.is_gun() && !is_worn( maybe_weapon ) &&
+                     !maybe_weapon.has_flag( flag_INTEGRATED ) ) || ( can_use_gun && maybe_weapon.is_gun() &&
+                             ( !use_silent || maybe_weapon.is_silent() ) );
     // According to unmodified evaluation score, NPCs almost always prioritize wielding guns if they have one.
     // This is relatively reasonable, as players can issue commands to NPCs when we do not want them to use ranged weapons.
     // Conversely, we cannot directly issue commands when we want NPCs to prioritize ranged weapons.
@@ -4107,7 +4111,8 @@ item *npc::evaluate_best_weapon() const
                                              && node != &weap
                                              && node->type->get_id() == weap.type->get_id();
 
-        if( ( node->is_melee() || node->is_gun() ) && ( !node->has_flag( flag_INTEGRATED ) && !is_worn( *node ) ) ) {
+        if( ( node->is_melee() || node->is_gun() ) && ( !node->has_flag( flag_INTEGRATED ) &&
+                !is_worn( *node ) ) ) {
             weapon_value = evaluate_weapon( *node, can_use_gun, use_silent );
             if( weapon_value > best_value && !using_same_type_bionic_weapon ) {
                 best = const_cast<item *>( node );
