@@ -4270,6 +4270,20 @@ body_part_set Character::exclusive_flag_coverage( const flag_id &flag ) const
     return worn.exclusive_flag_coverage( ret, flag );
 }
 
+double Character::dispersion_variance() const
+{
+return rng( 900.0 - ( std::min( 800.0,
+    ( 40.0 * ( get_per() * ( ( get_limb_score( limb_score_manip ) + get_limb_score(
+            limb_score_vision ) ) / 2.0 ) ) ) ) ), -200 );
+}
+
+double Character::expected_dispersion_variance() const
+{
+    return (900.0 - ( std::min( 800.0,
+        ( 40.0 * ( get_per() * ( ( get_limb_score( limb_score_manip ) + get_limb_score(
+                limb_score_vision ) ) / 2.0 ) ) ) ) ) - 200) / 2.0;
+}
+
 /*
  * Innate stats getters
  */

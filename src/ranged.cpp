@@ -1027,12 +1027,9 @@ int Character::fire_gun( const tripoint &target, int shots, item &gun, item_loca
         dispersion_sources dispersion = get_weapon_dispersion( gun );
         dispersion.add_range( recoil_total() );
         dispersion.add_spread( proj.shot_spread );
-        // Shooting is never completely deterministic.
-        // Peak Human (18+) perception can get a bit better than - 200 variance, but it caps at -100.
-        double variance_min = 900.0 - ( std::min( 800.0,
-                                        ( 40.0 * ( get_per() * ( ( get_limb_score( limb_score_manip ) + get_limb_score(
-                                                limb_score_vision ) ) / 2.0 ) ) ) ) );
-        dispersion.add_range( rng( variance_min, -200 ) );
+
+        // Keeps shooting non-deterministic, but perception helps a lot.
+        dispersion.add_range( dispersion_variance() );
 
         bool first = true;
         bool headshot = false;
