@@ -38,6 +38,7 @@
       "BIOLUM0",
       "BIOLUM1",
       "BIOLUM2",
+      "BLOODLETTER",
       "BOOMING_VOICE",
       "BOVINE_BULK",
       "BOVINE_BULK2",
@@ -73,8 +74,6 @@
       "ELECTRORECEPTORS",
       "ELFAEYES",
       "ELFA_EARS",
-      "ELFA_FNV",
-      "ELFA_NV",
       "EYEBULGE",
       "EYESTALKS1",
       "EYESTALKS2",
@@ -154,6 +153,8 @@
       "MOUSE_EARS",
       "MOUTH_FLAPS",
       "MOUTH_TENTACLES",
+      "MUCUS_SECRETION",
+      "MUCUS_SECRETION2",
       "MUTAGEN_AVOID",
       "MUTE",
       "MUZZLE",
@@ -169,7 +170,6 @@
       "NOMAD",
       "NOMAD2",
       "NOMAD3",
-      "NUMB",
       "OUTDOORSMAN",
       "PADDED_FEET",
       "PAINREC1",
@@ -229,6 +229,7 @@
       "SMALL",
       "SMALL2",
       "SMELLY2",
+      "SNAIL_TRAIL",
       "SNARL",
       "SNOUT",
       "SORES",
@@ -238,7 +239,6 @@
       "STIMBOOST",
       "STR_UP",
       "STR_UP_2",
-      "STR_UP_3",
       "STRONG_LEGS",
       "STRONGKNEES",
       "STYLISH",
@@ -332,6 +332,7 @@
         "WATERSLEEP",
         "TOXICFLESH",
         "FRESHWATEROSMOSIS",
+	"AMPHIBIAN",
         "STRONGER_RESISTWARM"
       ]
     }
@@ -355,7 +356,8 @@
         "PRED4",
         "SAPIOVORE",
         "STR_UP_4",
-        "STRONGER_RESISTCHILL"
+        "STRONGER_RESISTCHILL",
+	"STR_UP_3"
       ]
     }
   },
@@ -376,7 +378,8 @@
         "DEX_UP_3",
         "PER_UP_3",
         "PER_UP_4",
-        "DRILL_BEAK"
+        "DRILL_BEAK",
+        "BEAK_HUM"
       ]
     }
   },
@@ -472,7 +475,6 @@
         "DEX_UP_3",
         "WINGS_BAT",
         "BLOODFEEDER",
-        "BLOODLETTER",
         "FANGS_VAMPIRE"
       ]
     }
@@ -497,7 +499,6 @@
         "HUGE_OK",
         "STR_UP_4",
         "THIRST3",
-        "BEAK_HUM",
         "SCUTTLE"
       ]
     }
@@ -512,6 +513,8 @@
     "extend": {
       "traits": [
         "FEYHEARING",
+	"ELFA_NV",
+	"ELFA_FNV",
         "WAKEFUL2",
         "WAKEFUL3",
         "FLOWERS",
@@ -555,6 +558,7 @@
     "extend": {
       "traits": [
         "WATERSLEEPER",
+	"AMPHIBIOUS",
         "GILLS",
         "SLEEK_SCALES",
         "DEX_UP_3",
@@ -581,14 +585,12 @@
         "GASTROPOD_EXTREMITY3",
         "GASTROPOD_FOOT",
         "GASTROPOD_BALANCE",
-        "MUCUS_SECRETION",
-        "MUCUS_SECRETION2",
-        "SNAIL_TRAIL",
         "VISCOUS",
         "SHELL2",
         "SHELL3",
         "TOXICFLESH",
-        "STRONGER_RESISTWARM"
+        "STRONGER_RESISTWARM",
+	"EATPOISON"
       ]
     }
   },
@@ -651,7 +653,8 @@
         "PRED3",
         "PACK_HUNTER",
         "PERSISTENCE_HUNTER2",
-        "STRONGER_RESISTCHILL"
+        "STRONGER_RESISTCHILL",
+	"STR_UP_3"
       ]
     }
   },
@@ -679,6 +682,7 @@
         "MUT_JUNKIE",
         "ACIDPROOF",
         "ACIDBLOOD",
+      	"NUMB",
         "TOUGH_MEDICAL",
         "TOUGH2_MEDICAL"
       ]
@@ -751,6 +755,7 @@
         "CHLOROMORPH",
         "TREE_COMMUNION",
         "COLDBLOOD4",
+	"STRONGER_RESISTWARM",
         "RESISTCHILL_RESISTWARM"
       ]
     }
@@ -902,6 +907,7 @@
         "LARGE_OK",
         "HUGE",
         "HUGE_OK",
+	"STR_UP_3",
         "STR_UP_4",
         "CARNIVORE_FAKE",
         "STRONGER_RESISTCHILL"
