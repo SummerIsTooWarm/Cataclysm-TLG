@@ -9486,7 +9486,7 @@
     "points": 2,
     "visibility": 7,
     "ugliness": 1,
-    "description": "Your can change your skin patterns to match your environment, somewhat increasing your stealthiness.",
+    "description": "You can change your skin patterns to match your environment, somewhat increasing your stealthiness.",
     "types": [ "SKIN" ],
     "purifiable": false,
     "category": [ "CEPHALOPOD" ],
