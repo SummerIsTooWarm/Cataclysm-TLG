@@ -9,17 +9,9 @@
     "difficulty": 6,
     "time": "6 h",
     "autolearn": true,
-    "using": [
-      [ "tailoring_kevlar_fabric", 20 ],
-      [ "fabric_nylon", 2 ],
-      [ "fastener_large", 1 ],
-      [ "clasps", 8 ]
-    ],
+    "using": [ [ "tailoring_kevlar_fabric", 20 ], [ "fabric_nylon", 2 ], [ "fastener_large", 1 ], [ "clasps", 8 ] ],
     "components": [ [ [ "technician_coveralls", 1 ] ] ],
-    "proficiencies": [
-      { "proficiency": "prof_closures" },
-      { "proficiency": "prof_polymerworking" }
-    ],
+    "proficiencies": [ { "proficiency": "prof_closures" }, { "proficiency": "prof_polymerworking" } ],
     "byproducts": [ [ "scrap_kevlar", 17 ] ]
   },
   {
@@ -27,12 +19,7 @@
     "type": "recipe",
     "copy-from": "lsurvivor_suit",
     "time": "6 h",
-    "using": [
-      [ "tailoring_kevlar_fabric", 35 ],
-      [ "fabric_nylon", 1 ],
-      [ "fastener_large", 1 ],
-      [ "clasps", 8 ]
-    ],
+    "using": [ [ "tailoring_kevlar_fabric", 35 ], [ "fabric_nylon", 1 ], [ "fastener_large", 1 ], [ "clasps", 8 ] ],
     "byproducts": [ [ "scrap_kevlar", 22 ] ],
     "components": [ [ [ "technician_coveralls_xs", 1 ] ] ]
   },
@@ -41,12 +28,7 @@
     "type": "recipe",
     "copy-from": "lsurvivor_suit",
     "time": "7 h",
-    "using": [
-      [ "tailoring_kevlar_fabric", 50 ],
-      [ "fabric_nylon", 3 ],
-      [ "fastener_large", 1 ],
-      [ "clasps", 8 ]
-    ],
+    "using": [ [ "tailoring_kevlar_fabric", 50 ], [ "fabric_nylon", 3 ], [ "fastener_large", 1 ], [ "clasps", 8 ] ],
     "byproducts": [ [ "scrap_kevlar", 25 ] ],
     "components": [ [ [ "technician_coveralls_xl", 1 ] ] ]
   },
@@ -118,13 +100,9 @@
     "difficulty": 2,
     "time": "1 h",
     "autolearn": true,
-    "using": [
-      [ "liquid_rubber", 12 ]
-    ],
+    "using": [ [ "liquid_rubber", 12 ] ],
     "components": [ [ [ "lsurvivor_suit", 1 ] ] ],
-    "proficiencies": [
-      { "proficiency": "prof_closures_waterproofing" }
-    ]
+    "proficiencies": [ { "proficiency": "prof_closures_waterproofing" } ]
   },
   {
     "result": "survivor_suit_xs",
@@ -133,13 +111,9 @@
     "copy-from": "survivor_suit",
     "activity_level": "LIGHT_EXERCISE",
     "time": "1 h",
-    "using": [
-      [ "liquid_rubber", 10 ]
-    ],
+    "using": [ [ "liquid_rubber", 10 ] ],
     "components": [ [ [ "lsurvivor_suit_xs", 1 ] ] ],
-    "proficiencies": [
-      { "proficiency": "prof_closures_waterproofing" }
-    ]
+    "proficiencies": [ { "proficiency": "prof_closures_waterproofing" } ]
   },
   {
     "result": "survivor_suit_xl",
@@ -148,13 +122,9 @@
     "copy-from": "survivor_suit",
     "activity_level": "LIGHT_EXERCISE",
     "time": "1 h 10 m",
-    "using": [
-      [ "liquid_rubber", 18 ]
-    ],
+    "using": [ [ "liquid_rubber", 18 ] ],
     "components": [ [ [ "lsurvivor_suit_xl", 1 ] ] ],
-    "proficiencies": [
-      { "proficiency": "prof_closures_waterproofing" }
-    ]
+    "proficiencies": [ { "proficiency": "prof_closures_waterproofing" } ]
   },
   {
     "result": "survivor_rig",

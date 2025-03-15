@@ -392,7 +392,7 @@
     "byproducts": [ [ "scrap_leather", 2 ] ],
     "using": [ [ "tailoring_leather", 2 ] ]
   },
-    {
+  {
     "result": "leather_pauldrons",
     "type": "recipe",
     "activity_level": "LIGHT_EXERCISE",

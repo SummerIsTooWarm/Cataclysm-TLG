@@ -85,7 +85,10 @@
     "type": "item_group",
     "//": "ESAPI plates for light vest",
     "subtype": "collection",
-    "entries": [ { "item": "steel_ballistic_plate", "damage": [ 0, 2 ], "prob": 30 }, { "item": "steel_ballistic_plate", "damage": [ 0, 2 ], "prob": 30 } ]
+    "entries": [
+      { "item": "steel_ballistic_plate", "damage": [ 0, 2 ], "prob": 30 },
+      { "item": "steel_ballistic_plate", "damage": [ 0, 2 ], "prob": 30 }
+    ]
   },
   {
     "id": "some_heavy_steel_front_plates",
