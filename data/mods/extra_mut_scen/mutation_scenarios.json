@@ -558,7 +558,7 @@
     "extend": {
       "traits": [
         "WATERSLEEPER",
-	"AMPHIBIOUS",
+	"AMPHIBIAN",
         "GILLS",
         "SLEEK_SCALES",
         "DEX_UP_3",
