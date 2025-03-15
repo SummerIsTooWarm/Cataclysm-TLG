@@ -1077,7 +1077,7 @@
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
     "name": "survivor suits",
-    "description": "Recipes related to constructing custom-made jumpsuits meant to keep the wearer safe from harm.",
+    "description": "Recipes related to constructing custom-made rubberized jumpsuits meant to keep the wearer safe from harm.",
     "skill_used": "fabrication",
     "nested_category_data": [ "survivor_suit", "survivor_suit_xs", "survivor_suit_xl" ],
     "difficulty": 6
@@ -1101,10 +1101,10 @@
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
     "name": "light survivor suits",
-    "description": "Recipes related to constructing custom-made jumpsuits meant to keep the wearer safe from harm while still being flexible.",
+    "description": "Recipes related to constructing custom-made jumpsuits meant to keep the wearer safe from harm.",
     "skill_used": "fabrication",
     "nested_category_data": [ "lsurvivor_suit", "lsurvivor_suit_xs", "lsurvivor_suit_xl" ],
-    "difficulty": 5
+    "difficulty": 6
   },
   {
     "id": "nested_survivor_firesuits",

@@ -6,12 +6,12 @@
     "category": "CC_*",
     "subcategory": "CSC_*_NESTED",
     "skill_used": "tailor",
-    "difficulty": 5,
+    "difficulty": 6,
     "time": "6 h",
     "autolearn": true,
     "using": [
       [ "tailoring_kevlar_fabric", 20 ],
-      [ "fabric_nylon", 10 ],
+      [ "fabric_nylon", 2 ],
       [ "fastener_large", 1 ],
       [ "clasps", 8 ]
     ],
@@ -29,7 +29,7 @@
     "time": "6 h",
     "using": [
       [ "tailoring_kevlar_fabric", 35 ],
-      [ "fabric_nylon", 8 ],
+      [ "fabric_nylon", 1 ],
       [ "fastener_large", 1 ],
       [ "clasps", 8 ]
     ],
@@ -43,7 +43,7 @@
     "time": "7 h",
     "using": [
       [ "tailoring_kevlar_fabric", 50 ],
-      [ "fabric_nylon", 12 ],
+      [ "fabric_nylon", 3 ],
       [ "fastener_large", 1 ],
       [ "clasps", 8 ]
     ],
@@ -63,7 +63,7 @@
     "using": [
       [ "tailoring_kevlar_fabric", 20 ],
       [ "liquid_rubber", 12 ],
-      [ "fabric_nylon", 10 ],
+      [ "fabric_nylon", 2 ],
       [ "fastener_large", 1 ],
       [ "clasps", 8 ]
     ],
@@ -84,7 +84,7 @@
     "using": [
       [ "tailoring_kevlar_fabric", 35 ],
       [ "liquid_rubber", 10 ],
-      [ "fabric_nylon", 8 ],
+      [ "fabric_nylon", 1 ],
       [ "fastener_large", 1 ],
       [ "clasps", 8 ]
     ],
@@ -100,7 +100,7 @@
     "using": [
       [ "tailoring_kevlar_fabric", 50 ],
       [ "liquid_rubber", 18 ],
-      [ "fabric_nylon", 12 ],
+      [ "fabric_nylon", 3 ],
       [ "fastener_large", 1 ],
       [ "clasps", 8 ]
     ],
@@ -194,7 +194,7 @@
       [ "tailoring_kevlar_fabric", 20 ],
       [ "liquid_rubber", 8 ],
       [ "tailoring_cotton_patchwork", 10 ],
-      [ "fabric_nomex", 10 ],
+      [ "fabric_nomex", 2 ],
       [ "fastener_large", 1 ],
       [ "clasps", 8 ]
     ],
@@ -214,7 +214,7 @@
       [ "tailoring_kevlar_fabric", 35 ],
       [ "liquid_rubber", 6 ],
       [ "tailoring_cotton_patchwork", 8 ],
-      [ "fabric_nomex", 8 ],
+      [ "fabric_nomex", 1 ],
       [ "fastener_large", 1 ],
       [ "clasps", 8 ]
     ],
@@ -229,7 +229,7 @@
       [ "tailoring_kevlar_fabric", 50 ],
       [ "liquid_rubber", 12 ],
       [ "tailoring_cotton_patchwork", 12 ],
-      [ "fabric_nomex", 16 ],
+      [ "fabric_nomex", 3 ],
       [ "fastener_large", 1 ],
       [ "clasps", 12 ]
     ],
