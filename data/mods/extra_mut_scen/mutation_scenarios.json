@@ -435,7 +435,7 @@
     "extend": {
       "traits": [
         "ADRENALINE",
-        "COMBAT_ADAPTATION",
+        "ADRENALINE2",
         "PATCHSKIN3",
         "EATPOISON",
         "EATDEAD",
