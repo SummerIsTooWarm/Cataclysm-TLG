@@ -81,7 +81,7 @@
       "a": { "item": "trash", "repeat": [ 0, 2 ], "chance": 45 },
       "{": { "item": "trash", "chance": 100, "repeat": [ 0, 5 ] },
       "s": { "item": "public_sink", "chance": 40, "repeat": [ 0, 2 ] },
-      "F": { "item": "SUS_fridge_breakroom", "chance": 100 },
+      "F": { "item": "SUS_fridge_breakroom", "chance": 10 },
       "c": { "item": "office_supplies", "chance": 20, "repeat": [ 1, 4 ] }
     },
     "toilets": { "T": {  } },
@@ -128,7 +128,7 @@
       "8": { "item": "shower", "chance": 33 },
       ":": { "item": "traveler", "chance": 80, "repeat": [ 3, 5 ] },
       "d": { "item": "book_motel", "chance": 100 },
-      "Q": { "item": "SUS_fridge_bachelor", "chance": 100 },
+      "Q": { "item": "SUS_fridge_bachelor", "chance": 15 },
       "s": { "item": "public_sink", "chance": 40, "repeat": [ 0, 2 ] }
     },
     "item": { "x": { "item": "television", "chance": 100 } }
@@ -711,7 +711,7 @@
       "D": {
         "terrain": { "param": "floor_type", "fallback": "t_floor" },
         "furniture": "f_dresser",
-        "items": { "item": "traveler", "chance": 80, "repeat": [ 3, 5 ] }
+        "items": { "item": "traveler", "chance": 40, "repeat": [ 3, 5 ] }
       },
       "r": { "terrain": { "param": "floor_type", "fallback": "t_floor" }, "furniture": "f_chair" },
       "c": {
