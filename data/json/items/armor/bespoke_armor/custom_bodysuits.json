@@ -4,7 +4,7 @@
     "type": "ARMOR",
     "category": "armor",
     "name": { "str": "light survivor suit" },
-    "description": "Body armor handmade from a durable coverall with quilted Kevlar lining and a partial rubberized coating.  It provides lightweight all-around protection from many of the hazards of the Cataclysm, but likely won't stand up to gunfire.",
+    "description": "Body armor handmade from a durable coverall with quilted Kevlar lining.  It's tough and chemical-resistant, but not waterproofed and it likely won't stand up to gunfire.",
     "weight": "5200 g",
     "volume": "10500 ml",
     "price": "1100 USD",
@@ -13,34 +13,32 @@
     "to_hit": -3,
     "symbol": "[",
     "looks_like": "touring_suit",
-    "color": "brown",
-    "//": "A mechanic's polyester boiler suit with a layer of Flexseal sprayed over top and a bunch of cut up Kevlar from cut-resistant garments sewn underneath.  A bit less rubber than the survivor suit for more breathability.",
+    "color": "green",
+    "//": "A mechanic's polyester boiler suit with a bunch of cut up Kevlar from cut-resistant garments sewn underneath.  No rubber, so it's breathable.",
     "armor": [
       {
         "material": [ { "type": "kevlar", "covered_by_mat": 100, "thickness": 1.0 } ],
         "encumbrance": [ 2, 2 ],
         "covers": [ "head" ],
-        "specifically_covers": [ "head_throat", "head_nape" ],
+        "specifically_covers": [ "head_throat" ],
         "coverage": 95
       },
       {
         "material": [
-          { "type": "soft_rubber", "covered_by_mat": 80, "thickness": 0.1 },
           { "type": "nylon", "covered_by_mat": 100, "thickness": 0.6 },
           { "type": "kevlar", "covered_by_mat": 95, "thickness": 2.0 }
         ],
+        "encumbrance": [ 14, 22 ],
         "covers": [ "torso" ],
-        "encumbrance": [ 14, 21 ],
         "coverage": 100
       },
       {
         "material": [
-          { "type": "soft_rubber", "covered_by_mat": 85, "thickness": 0.1 },
           { "type": "nylon", "covered_by_mat": 100, "thickness": 0.6 },
           { "type": "kevlar", "covered_by_mat": 97, "thickness": 2.0 }
         ],
         "covers": [ "leg_l", "leg_r", "arm_l", "arm_r" ],
-        "encumbrance": [ 14, 21 ],
+        "encumbrance": [ 14, 22 ],
         "specifically_covers": [
           "arm_shoulder_l",
           "arm_shoulder_r",
@@ -59,9 +57,8 @@
       },
       {
         "material": [
-          { "type": "soft_rubber", "covered_by_mat": 90, "thickness": 0.1 },
           { "type": "nylon", "covered_by_mat": 100, "thickness": 1.2 },
-          { "type": "kevlar", "covered_by_mat": 100, "thickness": 2.0 }
+          { "type": "kevlar", "covered_by_mat": 100, "thickness": 2.5 }
         ],
         "covers": [ "leg_l", "leg_r", "arm_l", "arm_r" ],
         "encumbrance": [ 0, 0 ],
@@ -127,9 +124,9 @@
         "moves": 100
       }
     ],
-    "warmth": 16,
+    "warmth": 7,
     "environmental_protection": 3,
-    "flags": [ "VARSIZE", "POCKETS", "HOOD", "RAINPROOF", "STURDY" ],
+    "flags": [ "VARSIZE", "POCKETS", "STURDY" ],
     "melee_damage": { "bash": 6 }
   },
   {
@@ -153,7 +150,7 @@
     "type": "ARMOR",
     "category": "armor",
     "name": { "str": "survivor suit" },
-    "description": "Body armor handmade from a durable coverall with quilted Kevlar lining and a rubberized coating, reinforced around the torso with soft ballistic armor.  It provides good all-around protection from many of the hazards of the Cataclysm.",
+    "description": "Body armor handmade from a durable coverall with quilted Kevlar lining and a rubberized coating.  It provides good all-around protection from many of the hazards of the Cataclysm.",
     "weight": "5200 g",
     "volume": "10500 ml",
     "price": "1800 USD",
@@ -163,23 +160,22 @@
     "symbol": "[",
     "looks_like": "touring_suit",
     "color": "green",
-    "//": "Some of the cut-resistant kevlar has been left out of the suit's torso because the ballistic stuff makes up for it.  More has been added to the arms and legs.",
+    "//": "A little extra kevlar and a rubberized coating.",
     "armor": [
       {
         "material": [ { "type": "kevlar", "covered_by_mat": 100, "thickness": 1.0 } ],
         "encumbrance": [ 2, 2 ],
         "covers": [ "head" ],
-        "specifically_covers": [ "head_throat", "head_nape" ],
+        "specifically_covers": [ "head_throat" ],
         "coverage": 95
       },
       {
         "material": [
           { "type": "soft_rubber", "covered_by_mat": 86, "thickness": 0.1 },
           { "type": "nylon", "covered_by_mat": 100, "thickness": 0.6 },
-          { "type": "kevlar", "covered_by_mat": 95, "thickness": 1.0 },
-          { "type": "kevlar_layered", "covered_by_mat": 85, "thickness": 4.4 }
+          { "type": "kevlar", "covered_by_mat": 95, "thickness": 2.0 }
         ],
-        "encumbrance": [ 18, 29 ],
+        "encumbrance": [ 16, 24 ],
         "covers": [ "torso" ],
         "coverage": 100
       },
@@ -190,7 +186,7 @@
           { "type": "kevlar", "covered_by_mat": 97, "thickness": 2.0 }
         ],
         "covers": [ "leg_l", "leg_r", "arm_l", "arm_r" ],
-        "encumbrance": [ 15, 23 ],
+        "encumbrance": [ 16, 24 ],
         "specifically_covers": [
           "arm_shoulder_l",
           "arm_shoulder_r",
@@ -279,7 +275,7 @@
     ],
     "warmth": 25,
     "environmental_protection": 3,
-    "flags": [ "VARSIZE", "POCKETS", "HOOD", "RAINPROOF", "STURDY" ],
+    "flags": [ "VARSIZE", "POCKETS", "RAINPROOF", "STURDY" ],
     "melee_damage": { "bash": 6 }
   },
   {
@@ -322,7 +318,7 @@
         ],
         "encumbrance": [ 2, 2 ],
         "covers": [ "head" ],
-        "specifically_covers": [ "head_throat", "head_nape" ],
+        "specifically_covers": [ "head_throat" ],
         "coverage": 95
       },
       {
@@ -334,7 +330,7 @@
         ],
         "covers": [ "torso" ],
         "coverage": 100,
-        "encumbrance": [ 14, 21 ]
+        "encumbrance": [ 16, 22 ]
       },
       {
         "material": [
@@ -345,7 +341,7 @@
         ],
         "covers": [ "leg_l", "leg_r", "arm_l", "arm_r" ],
         "coverage": 98,
-        "encumbrance": [ 14, 21 ]
+        "encumbrance": [ 16, 22 ]
       }
     ],
     "pocket_data": [

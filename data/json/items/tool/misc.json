@@ -665,7 +665,6 @@
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
-        "open_container": true,
         "ammo_restriction": { "liquid_rubber_spray": 10 },
         "watertight": true,
         "rigid": true
