@@ -1785,7 +1785,8 @@ static std::vector<aim_type_prediction> calculate_ranged_chances(
     std::vector<aim_type> aim_types { get_default_aim_type() };
     std::vector<aim_type_prediction> aim_outputs;
 
-    if( mode != target_ui::TargetMode::Throw && mode != target_ui::TargetMode::ThrowBlind ) {
+    if( mode != target_ui::TargetMode::Throw && mode != target_ui::TargetMode::ThrowBlind &&
+        mode != target_ui::TargetMode::ThrowCreature ) {
         aim_types = you.get_aim_types( weapon );
     }
 
@@ -1809,6 +1810,8 @@ static std::vector<aim_type_prediction> calculate_ranged_chances(
 
         if( mode == target_ui::TargetMode::Throw || mode == target_ui::TargetMode::ThrowBlind ) {
             prediction.moves = throw_moves;
+        } else if( mode == target_ui::TargetMode::ThrowCreature ) {
+            prediction.moves = 100 + you.attack_speed( weapon );
         } else {
             prediction.moves = predict_recoil( you, weapon, target, ui.get_sight_dispersion(), aim_type,
                                                you.recoil ).moves + time_to_attack( you, *weapon.type )
@@ -2087,6 +2090,46 @@ static void draw_throw_aim( const target_ui &ui, const Character &you, const cat
     const target_ui::TargetMode throwing_target_mode = is_blind_throw ?
             target_ui::TargetMode::ThrowBlind :
             target_ui::TargetMode::Throw;
+    Target_attributes attributes( range, target_size,
+                                  get_map().ambient_light_at( tripoint_bub_ms( target_pos ) ),
+                                  you.sees( target_pos ) );
+
+    const std::vector<aim_type_prediction> aim_chances = calculate_ranged_chances( ui, you,
+            throwing_target_mode, ctxt, weapon, dispersion, confidence_config, attributes, target_pos,
+            item_location() );
+
+    text_y = print_ranged_chance( w, text_y, aim_chances, 0 );
+}
+
+static void draw_throwcreature_aim( const target_ui &ui, const Character &you,
+                                    const catacurses::window &w,
+                                    int &text_y, input_context &ctxt, const tripoint &target_pos )
+{
+    Creature *target = get_creature_tracker().creature_at( target_pos, true );
+    if( target != nullptr && !you.sees( *target ) ) {
+        target = nullptr;
+    }
+    item weapon = null_item_reference();
+
+    const dispersion_sources dispersion( you.throwing_dispersion( weapon, target, false ) );
+    const double range = rl_dist( you.pos(), target_pos );
+
+    const double target_size = target != nullptr ? target->ranged_target_size() : 1.0f;
+
+    static const std::vector<confidence_rating> confidence_config_critter = {{
+            { accuracy_critical, '*', "green", translate_marker_context( "aim_confidence", "Great" ) },
+            { accuracy_standard, '+', "light_gray", translate_marker_context( "aim_confidence", "Normal" ) },
+            { accuracy_grazing, '|', "magenta", translate_marker_context( "aim_confidence", "Graze" ) }
+        }
+    };
+    static const std::vector<confidence_rating> confidence_config_object = {{
+            { accuracy_grazing, '*', "white", translate_marker_context( "aim_confidence", "Hit" ) }
+        }
+    };
+    const auto &confidence_config = target != nullptr ?
+                                    confidence_config_critter : confidence_config_object;
+
+    const target_ui::TargetMode throwing_target_mode = target_ui::TargetMode::ThrowCreature;
     Target_attributes attributes( range, target_size,
                                   get_map().ambient_light_at( tripoint_bub_ms( target_pos ) ),
                                   you.sees( target_pos ) );
@@ -3762,7 +3805,10 @@ void target_ui::draw_ui_window()
         } else if( mode == TargetMode::Throw || mode == TargetMode::ThrowBlind ) {
             bool blind = mode == TargetMode::ThrowBlind;
             draw_throw_aim( *this, *you, w_target, text_y, ctxt, *relevant, dst, blind );
+        } else if( mode == TargetMode::ThrowCreature ) {
+            draw_throwcreature_aim( *this, *you, w_target, text_y, ctxt, dst );
         }
+
     }
 
     if( !narrow ) {
