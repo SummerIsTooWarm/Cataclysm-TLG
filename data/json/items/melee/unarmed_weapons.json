@@ -11,7 +11,7 @@
     "weight": "300 g",
     "price_postapoc": "2 USD 50 cent",
     "to_hit": { "grip": "weapon", "length": "hand", "surface": "any", "balance": "neutral" },
-    "flags": [ "DURABLE_MELEE", "NONCONDUCTIVE" ],
+    "flags": [ "DURABLE_MELEE", "NONCONDUCTIVE", "WORN_WEAPON", "ALLOWS_NATURAL_ATTACKS", "NORMAL" ],
     "material_thickness": 1,
     "armor": [
       {
@@ -22,7 +22,9 @@
         "encumbrance": 5,
         "coverage": 100,
         "covers": [ "hand_l", "hand_r" ],
-        "specifically_covers": [ "hand_wrist_l", "hand_wrist_r", "hand_palm_l", "hand_palm_r", "hand_back_l", "hand_back_r" ]
+        "specifically_covers": [ "hand_wrist_l", "hand_wrist_r", "hand_palm_l", "hand_palm_r", "hand_back_l", "hand_back_r" ],
+        "layers": [ "OUTER" ],
+        "rigid_layer_only": true
       },
       {
         "material": [
@@ -32,7 +34,9 @@
         "encumbrance": 0,
         "coverage": 50,
         "covers": [ "hand_l", "hand_r" ],
-        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ]
+        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ],
+        "layers": [ "OUTER" ],
+        "rigid_layer_only": true
       },
       {
         "material": [ { "type": "leather", "covered_by_mat": 100, "thickness": 1.0 } ],
@@ -72,14 +76,15 @@
     "volume": "250 ml",
     "price_postapoc": "2 USD 50 cent",
     "to_hit": { "grip": "weapon", "length": "hand", "surface": "any", "balance": "neutral" },
-    "flags": [ "DURABLE_MELEE" ],
+    "flags": [ "DURABLE_MELEE", "WORN_WEAPON", "ALLOWS_NATURAL_ATTACKS", "PADDED", "OUTER", "BELTED" ],
     "material_thickness": 2,
     "armor": [
       {
         "encumbrance": 5,
         "coverage": 20,
         "covers": [ "hand_l", "hand_r" ],
-        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ]
+        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ],
+        "rigid_layer_only": true
       }
     ],
     "melee_damage": { "bash": 6 }
@@ -112,14 +117,15 @@
     "weight": "200 g",
     "price_postapoc": "50 cent",
     "to_hit": { "grip": "weapon", "length": "hand", "surface": "line", "balance": "neutral" },
-    "flags": [  ],
+    "flags": [ "WORN_WEAPON", "ALLOWS_NATURAL_ATTACKS", "NORMAL", "OUTER" ],
     "material_thickness": 1,
     "armor": [
       {
         "encumbrance": 7,
         "coverage": 40,
         "covers": [ "hand_l", "hand_r" ],
-        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ]
+        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ],
+        "rigid_layer_only": true
       }
     ],
     "melee_damage": { "bash": 4, "stab": 4 }
@@ -146,12 +152,13 @@
     "symbol": "3",
     "color": "dark_gray",
     "name": { "str": "pair of scrap knuckles", "str_pl": "pairs of scrap knuckles" },
-    "description": "A mass of scrap metal crudely beat into shape, with folded rags underneath to protect the wearer's knuckles.  A good, quick weapon - but you have to get within punching range to use it.",
+    "description": "A mass of scrap metal crudely beat into shape, with folded rags underneath to protect the wearer's knuckles.",
     "material": [ "steel" ],
     "volume": "250 ml",
     "weight": "430 g",
     "price_postapoc": "50 cent",
     "to_hit": { "grip": "weapon", "length": "hand", "surface": "any", "balance": "neutral" },
+    "flags": [ "WORN_WEAPON", "ALLOWS_NATURAL_ATTACKS", "PADDED" ],
     "qualities": [ [ "HAMMER", 1 ] ],
     "material_thickness": 1,
     "armor": [
@@ -159,7 +166,8 @@
         "encumbrance": 7,
         "coverage": 20,
         "covers": [ "hand_l", "hand_r" ],
-        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ]
+        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ],
+        "rigid_layer_only": true
       }
     ],
     "melee_damage": { "bash": 5, "cut": 1 }
@@ -187,21 +195,22 @@
     "color": "light_gray",
     "name": { "str": "pair of steel knuckles", "str_pl": "pairs of steel knuckles" },
     "looks_like": "knuckle_brass",
-    "description": "A pair of knuckles forged from steel, designed to be gripped in the palm to cause punches to do more damage.  A good, quick weapon - but you have to get within punching range to use it.",
+    "description": "A pair of knuckles forged from steel, designed to be worn over the fingers to cause punches to do more damage.",
     "material": [ "steel" ],
     "volume": "250 ml",
     "weight": "240 g",
     "price_postapoc": "1 USD 80 cent",
     "to_hit": { "grip": "weapon", "length": "hand", "surface": "any", "balance": "neutral" },
     "qualities": [ [ "HAMMER", 1 ] ],
-    "flags": [ "DURABLE_MELEE" ],
+    "flags": [ "DURABLE_MELEE", "WORN_WEAPON", "ALLOWS_NATURAL_ATTACKS", "PADDED" ],
     "material_thickness": 2,
     "armor": [
       {
         "encumbrance": 5,
         "coverage": 20,
         "covers": [ "hand_l", "hand_r" ],
-        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ]
+        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ],
+        "rigid_layer_only": true
       }
     ],
     "melee_damage": { "bash": 7 }
@@ -238,7 +247,7 @@
     "color": "light_gray",
     "warmth": 5,
     "material_thickness": 2,
-    "flags": [ "WATER_FRIENDLY", "DURABLE_MELEE", "NONCONDUCTIVE" ],
+    "flags": [ "WATER_FRIENDLY", "DURABLE_MELEE", "NONCONDUCTIVE", "WORN_WEAPON", "NORMAL", "OUTER" ],
     "armor": [
       {
         "material": [
@@ -249,7 +258,8 @@
         "encumbrance": 3,
         "coverage": 100,
         "covers": [ "hand_l", "hand_r" ],
-        "specifically_covers": [ "hand_back_l", "hand_back_r" ]
+        "specifically_covers": [ "hand_back_l", "hand_back_r" ],
+        "rigid_layer_only": true
       },
       {
         "material": [
@@ -270,7 +280,8 @@
         "encumbrance": 2,
         "coverage": 100,
         "covers": [ "hand_l", "hand_r" ],
-        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ]
+        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ],
+        "rigid_layer_only": true
       }
     ],
     "melee_damage": { "bash": 2, "stab": 4 }
@@ -295,7 +306,7 @@
     "id": "knuckle_impact",
     "type": "ARMOR",
     "name": { "str_sp": "impact knuckles" },
-    "description": "A pair of thick steel plates covering your proximal phalange.  They are strapped to your hands with metal braces.",
+    "description": "A pair of thick steel plates to wear over the knuckles.",
     "weight": "500 g",
     "volume": "300 ml",
     "price": "11 USD",
@@ -306,13 +317,14 @@
     "color": "light_gray",
     "warmth": 0,
     "material_thickness": 3,
-    "flags": [ "WATER_FRIENDLY", "DURABLE_MELEE", "OUTER" ],
+    "flags": [ "WATER_FRIENDLY", "DURABLE_MELEE", "BELTED", "OUTER", "PADDED", "WORN_WEAPON", "ALLOWS_NATURAL_ATTACKS" ],
     "armor": [
       {
         "encumbrance": 5,
         "coverage": 80,
         "covers": [ "hand_l", "hand_r" ],
-        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ]
+        "specifically_covers": [ "hand_fingers_l", "hand_fingers_r" ],
+        "rigid_layer_only": true
       }
     ],
     "melee_damage": { "bash": 9 }
@@ -348,8 +360,8 @@
     "color": "light_gray",
     "warmth": 0,
     "material_thickness": 2,
-    "flags": [ "WATER_FRIENDLY", "DURABLE_MELEE", "OUTER" ],
-    "armor": [ { "encumbrance": 5, "coverage": 20, "covers": [ "hand_l", "hand_r" ] } ],
+    "flags": [ "WATER_FRIENDLY", "DURABLE_MELEE", "OUTER", "BELTED", "PADDED", "WORN_WEAPON", "ALLOWS_NATURAL_ATTACKS" ],
+    "armor": [ { "encumbrance": 5, "coverage": 20, "covers": [ "hand_l", "hand_r" ], "rigid_layer_only": true } ],
     "melee_damage": { "bash": 3, "stab": 6 }
   },
   {

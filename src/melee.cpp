@@ -375,7 +375,13 @@ float Character::hit_roll() const
 {
     // Dexterity, skills, weapon and martial arts
     float hit = get_melee_hit_base();
+    item_location cur_weapon = used_weapon();
+    item cur_weap = cur_weapon ? *cur_weapon : null_item_reference();
 
+    // Spears are for reach attacks.
+    if( !reach_attacking && cur_weap.has_flag( flag_POLEARM ) ) {
+        hit -= 2.0f;
+    }
     // Farsightedness makes us hit worse
     if( has_flag( json_flag_HYPEROPIC ) && !worn_with_flag( flag_FIX_FARSIGHT ) &&
         !has_effect( effect_contacts ) &&
@@ -386,8 +392,6 @@ float Character::hit_roll() const
     // Difficult to land a hit while prone
     // Quadrupeds don't mind crouching as long as they're unarmed
     // Tentacles and goo-limbs care even less
-    item_location cur_weapon = used_weapon();
-    item cur_weap = cur_weapon ? *cur_weapon : null_item_reference();
     if( is_on_ground() ) {
         if( has_flag( json_flag_PSEUDOPOD_GRASP ) ) {
             hit -= 2.0f;
@@ -424,6 +428,8 @@ std::string Character::get_miss_reason()
     // everything that lowers accuracy in player::hit_roll()
     // adding it in hit_roll() might not be safe if it's called multiple times
     // in one turn
+    item_location cur_weapon = used_weapon();
+    item cur_weap = cur_weapon ? *cur_weapon : null_item_reference();
     add_miss_reason(
         _( "Your torso encumbrance throws you off-balance." ),
         roll_remainder( avg_encumb_of_limb_type( body_part_type::type::torso ) / 10.0 ) );
@@ -437,6 +443,10 @@ std::string Character::get_miss_reason()
     add_miss_reason(
         _( "You struggle to hit reliably while on the ground." ),
         3 * is_on_ground() );
+    add_miss_reason(
+        _( "Using this weapon is awkward at close range." ),
+        !reach_attacking &&
+        cur_weap.has_flag( flag_POLEARM ) );
 
     const std::string *const reason = melee_miss_reasons.pick();
     if( reason == nullptr ) {

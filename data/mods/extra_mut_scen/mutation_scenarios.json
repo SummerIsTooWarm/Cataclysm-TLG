@@ -293,18 +293,7 @@
     "name": "Mutant - Alpha Threshold",
     "description": "Start as a post-threshold Alpha mutant.",
     "forced_traits": "THRESH_ALPHA",
-    "extend": {
-      "traits": [
-        "WAKEFUL2",
-        "STR_ALPHA",
-        "DEX_ALPHA",
-        "INT_ALPHA",
-        "PER_ALPHA",
-        "BEAUTIFUL2",
-        "ROT3",
-        "ALPHA_COMPLEX"
-      ]
-    }
+    "extend": { "traits": [ "WAKEFUL2", "STR_ALPHA", "DEX_ALPHA", "INT_ALPHA", "PER_ALPHA", "BEAUTIFUL2", "ROT3", "ALPHA_COMPLEX" ] }
   },
   {
     "type": "scenario",
@@ -332,7 +321,7 @@
         "WATERSLEEP",
         "TOXICFLESH",
         "FRESHWATEROSMOSIS",
-	"AMPHIBIAN",
+        "AMPHIBIAN",
         "STRONGER_RESISTWARM"
       ]
     }
@@ -357,7 +346,7 @@
         "SAPIOVORE",
         "STR_UP_4",
         "STRONGER_RESISTCHILL",
-	"STR_UP_3"
+        "STR_UP_3"
       ]
     }
   },
@@ -513,8 +502,8 @@
     "extend": {
       "traits": [
         "FEYHEARING",
-	"ELFA_NV",
-	"ELFA_FNV",
+        "ELFA_NV",
+        "ELFA_FNV",
         "WAKEFUL2",
         "WAKEFUL3",
         "FLOWERS",
@@ -536,16 +525,7 @@
     "description": "Start as a post-threshold Feline mutant.",
     "forced_traits": "THRESH_FELINE",
     "extend": {
-      "traits": [
-        "FELINE_LEAP",
-        "SABER_TEETH",
-        "PRED1",
-        "PRED2",
-        "PRED3",
-        "DEX_UP_3",
-        "FELINE_FLEXIBILITY",
-        "STRONGER_RESISTCHILL"
-      ]
+      "traits": [ "FELINE_LEAP", "SABER_TEETH", "PRED1", "PRED2", "PRED3", "DEX_UP_3", "FELINE_FLEXIBILITY", "STRONGER_RESISTCHILL" ]
     }
   },
   {
@@ -558,7 +538,7 @@
     "extend": {
       "traits": [
         "WATERSLEEPER",
-	"AMPHIBIAN",
+        "AMPHIBIAN",
         "GILLS",
         "SLEEK_SCALES",
         "DEX_UP_3",
@@ -590,7 +570,7 @@
         "SHELL3",
         "TOXICFLESH",
         "STRONGER_RESISTWARM",
-	"EATPOISON"
+        "EATPOISON"
       ]
     }
   },
@@ -646,16 +626,7 @@
     "description": "Start as a post-threshold Lupine mutant.",
     "forced_traits": "THRESH_LUPINE",
     "extend": {
-      "traits": [
-        "BURROWLARGE",
-        "PRED1",
-        "PRED2",
-        "PRED3",
-        "PACK_HUNTER",
-        "PERSISTENCE_HUNTER2",
-        "STRONGER_RESISTCHILL",
-	"STR_UP_3"
-      ]
+      "traits": [ "BURROWLARGE", "PRED1", "PRED2", "PRED3", "PACK_HUNTER", "PERSISTENCE_HUNTER2", "STRONGER_RESISTCHILL", "STR_UP_3" ]
     }
   },
   {
@@ -682,7 +653,7 @@
         "MUT_JUNKIE",
         "ACIDPROOF",
         "ACIDBLOOD",
-      	"NUMB",
+        "NUMB",
         "TOUGH_MEDICAL",
         "TOUGH2_MEDICAL"
       ]
@@ -755,7 +726,7 @@
         "CHLOROMORPH",
         "TREE_COMMUNION",
         "COLDBLOOD4",
-	"STRONGER_RESISTWARM",
+        "STRONGER_RESISTWARM",
         "RESISTCHILL_RESISTWARM"
       ]
     }
@@ -767,16 +738,7 @@
     "name": "Mutant - Lagomorph Threshold",
     "description": "Start as a post-threshold Lagomorph mutant.",
     "forced_traits": "THRESH_RABBIT",
-    "extend": {
-      "traits": [
-        "GOODCARDIO2",
-        "EASYSLEEPER2",
-        "LEAPING_LEGS",
-        "GRAZER",
-        "BURROW",
-        "STRONGER_RESISTCHILL"
-      ]
-    }
+    "extend": { "traits": [ "GOODCARDIO2", "EASYSLEEPER2", "LEAPING_LEGS", "GRAZER", "BURROW", "STRONGER_RESISTCHILL" ] }
   },
   {
     "type": "scenario",
@@ -785,17 +747,7 @@
     "name": "Mutant - Theropod Threshold",
     "description": "Start as a post-threshold Theropod mutant.",
     "forced_traits": "THRESH_RAPTOR",
-    "extend": {
-      "traits": [
-        "EATPOISON",
-        "PRED1",
-        "PRED2",
-        "PRED3",
-        "PRED4",
-        "SAPIOVORE",
-        "PER_UP_3"
-      ]
-    }
+    "extend": { "traits": [ "EATPOISON", "PRED1", "PRED2", "PRED3", "PRED4", "SAPIOVORE", "PER_UP_3" ] }
   },
   {
     "type": "scenario",
@@ -804,16 +756,7 @@
     "name": "Mutant - Rattine Threshold",
     "description": "Start as a post-threshold Rattine mutant.",
     "forced_traits": "THRESH_RAT",
-    "extend": {
-      "traits": [
-        "CLAWS_ST",
-        "EATPOISON",
-        "EATDEAD",
-        "BURROW",
-        "MOUSE_EARS",
-        "DEFORMED3"
-      ]
-    }
+    "extend": { "traits": [ "CLAWS_ST", "EATPOISON", "EATDEAD", "BURROW", "MOUSE_EARS", "DEFORMED3" ] }
   },
   {
     "type": "scenario",
@@ -874,15 +817,7 @@
     "name": "Mutant - Troglobite Threshold",
     "description": "Start as a post-threshold Troglobite mutant.",
     "forced_traits": "THRESH_TROGLOBITE",
-    "extend": {
-      "traits": [
-        "INFRARED",
-        "REGEN",
-        "PAINRESIST_TROGLO",
-        "STOCKY_TROGLO",
-        "EATPOISON"
-      ]
-    }
+    "extend": { "traits": [ "INFRARED", "REGEN", "PAINRESIST_TROGLO", "STOCKY_TROGLO", "EATPOISON" ] }
   },
   {
     "type": "scenario",
@@ -907,7 +842,7 @@
         "LARGE_OK",
         "HUGE",
         "HUGE_OK",
-	"STR_UP_3",
+        "STR_UP_3",
         "STR_UP_4",
         "CARNIVORE_FAKE",
         "STRONGER_RESISTCHILL"
