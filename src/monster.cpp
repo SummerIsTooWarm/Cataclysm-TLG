@@ -2573,7 +2573,8 @@ bool monster::is_grabbing( bodypart_str_id bp )
 
 float monster::fall_damage_mod() const
 {
-    if( flies() ) {
+    // Can't use flies() here because that checks for whether you're airborne at all.
+    if( has_flag( mon_flag_FLIES ) && !has_effect_with_flag( json_flag_DISABLE_FLIGHT ) ) {
         return 0.0f;
     }
 
@@ -2827,6 +2828,36 @@ void monster::die( Creature *nkiller )
     }
     map &here = get_map();
     creature_tracker &creatures = get_creature_tracker();
+
+    if( has_effect_with_flag( json_flag_GRAB ) ) {
+        // The monster on monster stuff is pretty hacky, but has worked out so far.
+        const tripoint_range<tripoint_bub_ms> &surrounding = here.points_in_radius( pos_bub(), 1, 0 );
+        Creature *grabber = nullptr;
+        for( const effect &grab : get_effects_with_flag( json_flag_GRAB ) ) {
+            // Is our grabber around?
+            for( const tripoint_bub_ms loc : surrounding ) {
+                Creature *someone = creatures.creature_at( loc );
+                if( someone && someone->has_effect_with_flag( json_flag_GRAB_FILTER ) ) {
+                    add_msg_debug( debugmode::DF_MATTACK, "Grabber found: %s", someone->disp_name() );
+                    grabber = someone;
+                    break;
+                }
+            }
+            if( grabber == nullptr ) {
+                remove_effect( grab.get_id() );
+                add_msg_debug( debugmode::DF_MATTACK, "Orphan grab found and removed from dead monster" );
+                continue;
+            }
+            if( grabber && !grabber->is_monster() ) {
+                for( const effect &eff : grabber->get_effects_with_flag( json_flag_GRAB_FILTER ) ) {
+                    const efftype_id effid = eff.get_id();
+                    grabber->remove_effect( effid );
+                    grabber->as_character()->grab_1.clear();
+                }
+            }
+            remove_effect( grab.get_id() );
+        }
+    }
     if( has_effect_with_flag( json_flag_GRAB_FILTER ) ) {
         // Need to filter out which limb we were grabbing before death
         for( const tripoint &player_pos : here.points_in_radius( pos(), 1, 0 ) ) {
