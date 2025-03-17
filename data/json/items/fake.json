@@ -93,16 +93,9 @@
     "description": "A system of surgical-grade scalpels.  They allow you to make precise cuts on corpses.",
     "to_hit": 2,
     "techniques": [ "PRECISE" ],
-    "extend": { "flags": [ "TRADER_AVOID", "BIONIC_WEAPON", "UNBREAKABLE_MELEE", "SPEAR" ] },
+    "extend": { "flags": [ "TRADER_AVOID", "BIONIC_WEAPON", "UNBREAKABLE_MELEE", "CONDUCTIVE" ] },
     "qualities": [ [ "CUT", 2 ], [ "CUT_FINE", 5 ], [ "BUTCHER", 14 ] ],
     "melee_damage": { "stab": 8 }
-  },
-  {
-    "id": "fake_razor",
-    "copy-from": "fake_item",
-    "type": "TOOL",
-    "name": { "str": "bionic razor" },
-    "qualities": [ [ "BUTCHER", 8 ], [ "CUT", 1 ] ]
   },
   {
     "id": "fake_sharp_metal_wreckage",

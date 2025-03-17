@@ -585,7 +585,12 @@
   {
     "id": "POLEARM",
     "type": "json_flag",
-    "info": "As a weapon, this item needs considerable space to use properly and does 70% of its normal damage to adjacent enemies."
+    "info": "This weapon needs considerable space to wield and will have <bad>reduced damage and accuracy</bad> against adjacent targets."
+  },
+  {
+    "id": "WORN_WEAPON",
+    "type": "json_flag",
+    "info": "This weapon <info>must be worn</info> in order to make proper use of it."
   },
   {
     "id": "PREDATOR_FUN",
