@@ -26,7 +26,7 @@
     "batch_time_factors": [ 90, 1 ],
     "//": "Not having a flail slows this down considerably.",
     "autolearn": true,
-    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "club_wooden", -1 ], [ "cudgel", -1 ] ] ],
+    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "cudgel", -1 ] ] ],
     "byproducts": [ [ "straw_pile", 2 ] ],
     "components": [ [ [ "dry_wheat_stalks", 1 ] ] ]
   },
@@ -102,7 +102,7 @@
     "time": "15 m",
     "batch_time_factors": [ 90, 1 ],
     "autolearn": true,
-    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "club_wooden", -1 ], [ "cudgel", -1 ] ] ],
+    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "cudgel", -1 ] ] ],
     "byproducts": [ [ "straw_pile", 1 ] ],
     "components": [ [ [ "dry_oat_stalks", 1 ] ] ]
   },
@@ -174,7 +174,7 @@
     "time": "15 m",
     "batch_time_factors": [ 90, 1 ],
     "autolearn": true,
-    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "club_wooden", -1 ], [ "cudgel", -1 ] ] ],
+    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "cudgel", -1 ] ] ],
     "byproducts": [ [ "straw_pile", 2 ] ],
     "components": [ [ [ "dry_barley_stalks", 1 ] ] ]
   },
@@ -250,7 +250,7 @@
     "time": "8 m",
     "batch_time_factors": [ 90, 1 ],
     "autolearn": true,
-    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "club_wooden", -1 ], [ "cudgel", -1 ] ] ],
+    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "cudgel", -1 ] ] ],
     "byproducts": [ [ "straw_pile", 1 ] ],
     "components": [ [ [ "dry_lentil_stalks", 1 ] ] ]
   },
@@ -325,7 +325,7 @@
     "time": "8 m",
     "batch_time_factors": [ 90, 1 ],
     "autolearn": true,
-    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "club_wooden", -1 ], [ "cudgel", -1 ] ] ],
+    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "cudgel", -1 ] ] ],
     "byproducts": [ [ "straw_pile", 1 ] ],
     "components": [ [ [ "dry_wild_rice_stalks", 1 ] ] ]
   },
@@ -355,7 +355,7 @@
     "batch_time_factors": [ 90, 1 ],
     "//": "Not having a flail slows this down considerably.",
     "autolearn": true,
-    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "club_wooden", -1 ], [ "cudgel", -1 ] ] ],
+    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "cudgel", -1 ] ] ],
     "byproducts": [ [ "straw_pile", 1 ] ],
     "components": [ [ [ "dry_buckwheat_stalks", 1 ] ] ]
   },
@@ -431,7 +431,7 @@
     "batch_time_factors": [ 90, 1 ],
     "//": "Not having a flail slows this down considerably.",
     "autolearn": true,
-    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "club_wooden", -1 ], [ "cudgel", -1 ] ] ],
+    "tools": [ [ [ "stick", -1 ], [ "2x4", -1 ], [ "cudgel", -1 ] ] ],
     "byproducts": [ [ "straw_pile", 1 ] ],
     "components": [ [ [ "dry_canola_stalks", 1 ] ] ]
   },

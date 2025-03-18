@@ -202,9 +202,7 @@
             "distribution": [
               { "item": "cane", "prob": 40, "damage": [ 1, 4 ] },
               { "item": "umbrella", "prob": 30, "damage": [ 1, 4 ] },
-              { "item": "sinister_cane", "prob": 10, "damage": [ 1, 4 ] },
-              { "item": "wizard_cane", "prob": 5, "charges": [ 0, 100 ], "damage": [ 1, 4 ] },
-              { "item": "wizard_cane_cheap", "prob": 10, "charges": [ 0, 100 ], "damage": [ 1, 4 ] },
+              { "item": "cane_toy", "prob": 10, "damage": [ 1, 4 ] },
               { "item": "hollow_cane", "prob": 4, "damage": [ 1, 4 ] },
               { "item": "sword_cane", "container-item": "hollow_cane", "prob": 1, "damage": [ 1, 4 ] }
             ],
@@ -400,7 +398,7 @@
     "entries": [
       {
         "collection": [
-          { "item": "sinister_cane", "prob": 25, "damage": [ 1, 4 ] },
+          { "item": "cane_toy", "prob": 25, "damage": [ 1, 4 ] },
           { "group": "costume_masks", "prob": 10, "damage": [ 1, 4 ] },
           { "item": "vampire_fangs", "damage": [ 1, 4 ] },
           {
@@ -454,7 +452,7 @@
     "entries": [
       {
         "collection": [
-          { "item": "sinister_cane", "prob": 35, "damage": [ 1, 4 ] },
+          { "item": "cane_toy", "prob": 35, "damage": [ 1, 4 ] },
           { "group": "costume_masks", "prob": 10, "damage": [ 1, 4 ] },
           { "item": "vampire_fangs", "damage": [ 1, 4 ] },
           { "item": "cloak_costume", "damage": [ 1, 4 ] },
@@ -507,7 +505,6 @@
     "entries": [
       {
         "collection": [
-          { "item": "bokken_fake", "container-item": "scabbard", "prob": 5, "damage": [ 1, 4 ] },
           { "item": "gloves_black", "prob": 50, "damage": [ 1, 4 ] },
           { "item": "hood_ninja", "prob": 75, "damage": [ 1, 4 ] },
           { "group": "costume_masks", "prob": 25, "damage": [ 1, 4 ] },
@@ -564,7 +561,6 @@
     "entries": [
       {
         "collection": [
-          { "item": "bokken_fake", "container-item": "scabbard", "prob": 5, "damage": [ 1, 4 ] },
           { "item": "gloves_black", "prob": 50, "damage": [ 1, 4 ] },
           { "item": "hood_ninja", "prob": 75, "damage": [ 1, 4 ] },
           { "group": "costume_masks", "prob": 25, "damage": [ 1, 4 ] },
@@ -717,9 +713,7 @@
             "distribution": [
               { "item": "cane", "prob": 5, "damage": [ 1, 4 ] },
               { "item": "umbrella", "prob": 5, "damage": [ 1, 4 ] },
-              { "item": "sinister_cane", "prob": 25, "damage": [ 1, 4 ] },
-              { "item": "wizard_cane", "prob": 30, "charges": [ 0, 100 ], "damage": [ 1, 4 ] },
-              { "item": "wizard_cane_cheap", "prob": 35, "charges": [ 0, 100 ], "damage": [ 1, 4 ] }
+              { "item": "cane_toy", "prob": 25, "damage": [ 1, 4 ] }
             ],
             "prob": 65
           },
@@ -770,9 +764,7 @@
             "distribution": [
               { "item": "cane", "prob": 5, "damage": [ 1, 4 ] },
               { "item": "umbrella", "prob": 5, "damage": [ 1, 4 ] },
-              { "item": "sinister_cane", "prob": 25, "damage": [ 1, 4 ] },
-              { "item": "wizard_cane", "prob": 30, "charges": [ 0, 100 ], "damage": [ 1, 4 ] },
-              { "item": "wizard_cane_cheap", "prob": 35, "charges": [ 0, 100 ], "damage": [ 1, 4 ] }
+              { "item": "cane_toy", "prob": 25, "damage": [ 1, 4 ] }
             ],
             "prob": 65
           },

@@ -53,6 +53,7 @@
     "tools": [
       [
         [ "real_batons", 1, "LIST" ],
+        [ "real_bludgeons", 1, "LIST" ],
         [ "real_flails", 1, "LIST" ],
         [ "real_great_hammers", 1, "LIST" ],
         [ "real_maces", 1, "LIST" ],

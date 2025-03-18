@@ -192,6 +192,7 @@
     "id": "RAPID",
     "name": "Rapid Strike",
     "melee_allowed": true,
+    "weighting": -2,
     "skill_requirements": [ { "name": "melee", "level": 2 } ],
     "mult_bonuses": [
       { "stat": "movecost", "scale": 0.5 },
@@ -246,6 +247,7 @@
     "name": "Sweep Attack",
     "melee_allowed": true,
     "skill_requirements": [ { "name": "melee", "level": 3 } ],
+    "weighting": -2,
     "//condition": "Humanoids of similar size and no flying",
     "condition": {
       "and": [
@@ -310,6 +312,7 @@
     "name": "Disarm",
     "melee_allowed": true,
     "disarms": true,
+    "reach_ok": true,
     "messages": [ "You disarm %s using your whip!", "<npcname> disarms %s using their whip!" ],
     "description": "Unwield target's weapon",
     "tech_effects": [

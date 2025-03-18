@@ -99,9 +99,8 @@
     "entries": [
       { "item": "lug_wrench", "prob": 25 },
       { "item": "wrench_large", "prob": 25 },
-      { "item": "hd_pipe", "prob": 20 },
       { "item": "staff_pipe", "prob": 15 },
-      { "item": "mace_pipe_large", "prob": 15 }
+      { "item": "pipe", "prob": 15 }
     ]
   }
 ]

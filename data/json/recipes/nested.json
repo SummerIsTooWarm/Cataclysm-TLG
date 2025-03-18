@@ -54,12 +54,12 @@
     "skill_used": "fabrication",
     "nested_category_data": [
       "shock_staff",
+      "walking_stick",
       "q_staff",
       "bo_from long stick",
       "bo_from quarterstaff",
       "i_staff",
-      "i_staff_with sheet metal",
-      "nested_steelshod"
+      "i_staff_with sheet metal"
     ],
     "difficulty": 1
   },
@@ -843,14 +843,7 @@
     "name": "platemail armor suits",
     "description": "Recipes related to constructing suits of steel plate armor.",
     "skill_used": "fabrication",
-    "nested_category_data": [
-      "platemail_suit",
-      "platemail_suit_xl",
-      "platemail_suit_xs",
-      "platemail_half_suit",
-      "platemail_half_suit_xl",
-      "platemail_half_suit_xs"
-    ],
+    "nested_category_data": [ "platemail_suit", "platemail_suit_xl", "platemail_suit_xs" ],
     "difficulty": 1
   },
   {

@@ -45,13 +45,13 @@
     "material": [ "wood" ],
     "techniques": [ "WBLOCK_1" ],
     "flags": [ "TRADER_AVOID", "FIREWOOD" ],
-    "weapon_category": [ "BATONS" ],
+    "weapon_category": [ "BLUDGEONS" ],
     "weight": "1500 g",
     "volume": "2500 ml",
     "longest_side": "130 cm",
     "to_hit": { "grip": "solid", "length": "long", "surface": "any", "balance": "neutral" },
     "category": "spare_parts",
-    "melee_damage": { "bash": 14 }
+    "melee_damage": { "bash": 11 }
   },
   {
     "type": "GENERIC",
@@ -70,7 +70,7 @@
     "to_hit": { "grip": "solid", "length": "long", "surface": "any", "balance": "uneven" },
     "use_action": [ "BREAK_STICK" ],
     "category": "spare_parts",
-    "melee_damage": { "bash": 18 }
+    "melee_damage": { "bash": 17 }
   },
   {
     "type": "GENERIC",

@@ -188,5 +188,170 @@
     "id": "ammunition_box_carlgustav_hedp",
     "replace": "ammunition_box_carlgustav",
     "variant": "ammunition_box_carlgustav_hedp"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "2h_club_kanabo_spiked",
+    "replace": "kanabo_wood"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "2h_club_kanabo_studded",
+    "replace": "kanabo_wood"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "sinister_cane",
+    "replace": "cane_toy",
+    "variant": "cane_toy_sinister"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "wizard_cane_cheap",
+    "replace": "cane_toy",
+    "variant": "cane_toy_wizard"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "wizard_cane_cheap_on",
+    "replace": "cane_toy",
+    "variant": "cane_toy_wizard"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "wizard_cane",
+    "replace": "cane_toy",
+    "variant": "cane_toy_wizard"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "wizard_cane_on",
+    "replace": "cane_toy",
+    "variant": "cane_toy_wizard"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "makeshift_crutches",
+    "replace": "crutches_wooden"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "hammer_sledge_heavy",
+    "replace": "hammer_sledge"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "hammer_sledge_heavy",
+    "replace": "hammer_sledge"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "homewrecker",
+    "replace": "hammer_sledge"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "glass_macuahuitl",
+    "replace": "macuahuitl_glass"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "teeth_macuahuitl",
+    "replace": "macuahuitl_glass"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "aztec_sword_scrap",
+    "replace": "macuahuitl_glass"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "aztec_sword_stone",
+    "replace": "macuahuitl_glass"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "aztec_sword",
+    "replace": "macuahuitl_steel"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "steel_staff",
+    "replace": "i_staff"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "lucern_hammer",
+    "replace": "lucerne_hammer"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "lucern_hammerfake",
+    "replace": "lucerne_hammerfake"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "mace_pipe",
+    "replace": "pipe"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "mace_pipelarge",
+    "replace": "pipe"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "makeshift_sap",
+    "replace": "blackjack"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "PR24-extended",
+    "replace": "baton-extended"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "PR24-retracted",
+    "replace": "baton"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "shillelagh_fake",
+    "replace": "cane"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "ax_sheets_bolted",
+    "replace": "street_sign"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "ax_sheets_welded",
+    "replace": "street_sign"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "bokken_fake",
+    "replace": "bokken"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "bokken_inferior",
+    "replace": "bokken"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "aztec_spear_glass",
+    "replace": "spear_wood_simple"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "aztec_spear_scrap",
+    "replace": "spear_steel"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "aztec_spear_stone",
+    "replace": "spear_stone"
   }
 ]

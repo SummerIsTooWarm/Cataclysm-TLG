@@ -1315,6 +1315,11 @@
     "type": "json_flag"
   },
   {
+    "id": "WALKING_AID",
+    "type": "json_flag",
+    "//": "Placeholder, not yet implemented. Intended for single walking sticks, not paired crutches."
+  },
+  {
     "id": "CUSTOM_EXPLOSION",
     "type": "json_flag"
   },
