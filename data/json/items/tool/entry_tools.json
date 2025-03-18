@@ -18,7 +18,7 @@
     "techniques": [ "WBLOCK_1" ],
     "flags": [ "BELT_CLIP", "DURABLE_MELEE" ],
     "weapon_category": [ "BLUDGEONS", "HOOKING_WEAPONRY" ],
-    "melee_damage": { "bash": 23, "cut": 1 }
+    "melee_damage": { "bash": 24, "cut": 2 }
   },
   {
     "id": "emergency_lockpick",

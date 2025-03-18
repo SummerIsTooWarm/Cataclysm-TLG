@@ -843,11 +843,7 @@
     "name": "platemail armor suits",
     "description": "Recipes related to constructing suits of steel plate armor.",
     "skill_used": "fabrication",
-    "nested_category_data": [
-      "platemail_suit",
-      "platemail_suit_xl",
-      "platemail_suit_xs"
-    ],
+    "nested_category_data": [ "platemail_suit", "platemail_suit_xl", "platemail_suit_xs" ],
     "difficulty": 1
   },
   {

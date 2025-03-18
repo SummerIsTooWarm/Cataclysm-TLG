@@ -535,7 +535,7 @@
         "distribution": [
           { "item": "crowbar", "prob": 40, "damage": [ 1, 3 ] },
           { "item": "makeshift_crowbar", "prob": 30, "damage": [ 1, 3 ] },
-          { "item":  "claw_bar", "prob": 10, "damage": [ 0, 1 ] }
+          { "item": "claw_bar", "prob": 10, "damage": [ 0, 1 ] }
         ]
       }
     ]
