@@ -441,31 +441,64 @@
   {
     "type": "recipe",
     "activity_level": "LIGHT_EXERCISE",
-    "result": "makeshift_cane",
+    "result": "cane",
     "category": "CC_OTHER",
     "subcategory": "CSC_OTHER_MEDICAL",
     "skill_used": "fabrication",
-    "time": "5 m",
+    "difficulty": 2,
+    "skills_required": [ "firstaid", 1 ],
+    "time": "45 m",
     "autolearn": true,
-    "qualities": [ { "id": "CUT", "level": 2 } ],
-    "proficiencies": [ { "proficiency": "prof_carving" }, { "proficiency": "prof_carpentry_basic" } ],
-    "components": [ [ [ "stick", 1 ], [ "2x4", 1 ], [ "pool_cue", 1 ] ] ]
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "FILE", "level": 1 } ],
+    "proficiencies": [ { "proficiency": "prof_carving", "skill_penalty": 0 } ],
+    "components": [ [ [ "2x4", 1 ], [ "pool_cue", 1 ], [ "stick", 1 ] ] ]
   },
   {
     "type": "recipe",
     "activity_level": "LIGHT_EXERCISE",
-    "result": "makeshift_crutches",
+    "result": "crutch_wooden",
     "category": "CC_OTHER",
     "subcategory": "CSC_OTHER_MEDICAL",
     "skill_used": "fabrication",
-    "time": "30 m",
+    "difficulty": 2,
+    "skills_required": [ "firstaid", 2 ],
+    "time": "45 m",
     "autolearn": true,
-    "qualities": [ { "id": "SAW_W", "level": 1 }, { "id": "CUT", "level": 2 } ],
-    "proficiencies": [ { "proficiency": "prof_carving" }, { "proficiency": "prof_carpentry_basic" } ],
-    "components": [
-      [ [ "cotton_patchwork", 10 ], [ "medical_gauze", 4 ] ],
-      [ [ "cordage", 2, "LIST" ], [ "duct_tape", 100 ], [ "medical_tape", 50 ] ],
-      [ [ "stick", 2 ], [ "broom", 2 ], [ "2x4", 2 ], [ "pool_cue", 2 ] ]
-    ]
+    "qualities": [ { "id": "CUT", "level": 1 }, { "id": "FILE", "level": 1 } ],
+    "proficiencies": [ { "proficiency": "prof_carving", "skill_penalty": 0 } ],
+    "components": [ [ [ "2x4", 2 ], [ "stick", 2 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "result": "crutches_wooden",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_MEDICAL",
+    "skill_used": "fabrication",
+    "time": "1 s",
+    "autolearn": true,
+    "components": [ [ [ "crutch_wooden", 2 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "result": "crutches",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_MEDICAL",
+    "skill_used": "fabrication",
+    "time": "1 s",
+    "autolearn": true,
+    "components": [ [ [ "crutch", 2 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "result": "crutches_mismatched",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_MEDICAL",
+    "skill_used": "fabrication",
+    "time": "1 s",
+    "autolearn": true,
+    "components": [ [ [ "crutch", 1 ] ], [ [ "crutch_wooden", 1 ] ] ]
   }
 ]

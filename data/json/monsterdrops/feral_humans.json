@@ -34,7 +34,7 @@
         "distribution": [
           { "item": "crowbar", "prob": 40, "damage": [ 1, 3 ] },
           { "item": "makeshift_crowbar", "prob": 40, "damage": [ 1, 3 ] },
-          { "item": "heavy_crowbar", "prob": 10, "damage": [ 2, 4 ] }
+          { "item": "prybar", "prob": 10, "damage": [ 0, 1 ] }
         ]
       },
       { "group": "default_zombie_death_drops", "prob": 100, "damage": [ 1, 3 ] }
@@ -535,7 +535,7 @@
         "distribution": [
           { "item": "crowbar", "prob": 40, "damage": [ 1, 3 ] },
           { "item": "makeshift_crowbar", "prob": 40, "damage": [ 1, 3 ] },
-          { "item": "heavy_crowbar", "prob": 10, "damage": [ 2, 4 ] }
+          { "item": "prybar", "prob": 10, "damage": [ 0, 1 ] }
         ]
       }
     ]

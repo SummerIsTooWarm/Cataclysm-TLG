@@ -227,7 +227,7 @@
       }
     ],
     "techniques": [ "tec_barbaran_impale", "tec_barbaran_disarm" ],
-    "weapon_category": [ "FLAILS", "MACES", "LONG_SWORDS", "GREAT_SWORDS", "GREAT_HAMMERS", "GREAT_AXES" ]
+    "weapon_category": [ "FLAILS", "LONG_SWORDS", "GREAT_SWORDS", "GREAT_HAMMERS", "GREAT_AXES" ]
   },
   {
     "type": "martial_art",

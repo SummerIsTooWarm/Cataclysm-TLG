@@ -19,21 +19,30 @@
   },
   {
     "type": "weapon_category",
-    "id": "BATONS",
-    "name": "BATONS",
-    "proficiencies": [ "prof_batons_familiar", "prof_batons_pro", "prof_batons_master" ]
-  },
-  {
-    "type": "weapon_category",
     "id": "FLAILS",
     "name": "FLAILS",
     "proficiencies": [ "prof_flails_familiar", "prof_flails_pro", "prof_flails_master" ]
   },
   {
     "type": "weapon_category",
-    "id": "MACES",
-    "name": "MACES",
-    "proficiencies": [ "prof_maces_familiar", "prof_maces_pro", "prof_maces_master" ]
+    "id": "HAMMERS",
+    "//": "Hammers, maces, and other blunt weapons which concentrate force on a weighted head.",
+    "name": "HAMMERS",
+    "proficiencies": [ "prof_hammers_familiar", "prof_hammers_pro", "prof_hammers_master" ]
+  },
+  {
+    "type": "weapon_category",
+    "id": "BATONS",
+    "//": "Lightweight clubs that rely more on skill than brute force.",
+    "name": "BATONS",
+    "proficiencies": [ "prof_batons_familiar", "prof_batons_pro", "prof_batons_master" ]
+  },
+  {
+    "type": "weapon_category",
+    "id": "BLUDGEONS",
+    "//": "Sticks, bats, and other simple blunt weapons.",
+    "name": "BLUDGEONS",
+    "proficiencies": [ "prof_bludgeons_familiar", "prof_bludgeons_pro", "prof_bludgeons_master" ]
   },
   {
     "type": "weapon_category",
@@ -135,6 +144,7 @@
   {
     "type": "weapon_category",
     "id": "GREAT_HAMMERS",
+    "//": "Two handed hammers.",
     "name": "GREAT HAMMERS",
     "proficiencies": [ "prof_great_hammers_familiar", "prof_great_hammers_pro", "prof_great_hammers_master" ]
   },
