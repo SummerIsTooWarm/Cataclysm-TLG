@@ -881,76 +881,6 @@
   {
     "type": "recipe",
     "activity_level": "BRISK_EXERCISE",
-    "result": "hammer_sledge",
-    "id_suffix": "from_short_sledge",
-    "category": "CC_OTHER",
-    "subcategory": "CSC_OTHER_TOOLS",
-    "skill_used": "fabrication",
-    "difficulty": 2,
-    "time": "1 h",
-    "autolearn": true,
-    "byproducts": [ [ "splinter", 4 ] ],
-    "qualities": [ { "id": "CUT", "level": 2 }, { "id": "FILE", "level": 1 } ],
-    "proficiencies": [ { "proficiency": "prof_carving" } ],
-    "components": [ [ [ "2x4", 1 ] ], [ [ "hammer_sledge_short", 1 ] ] ]
-  },
-  {
-    "type": "recipe",
-    "activity_level": "BRISK_EXERCISE",
-    "result": "hammer_sledge_short",
-    "id_suffix": "forged",
-    "category": "CC_OTHER",
-    "subcategory": "CSC_OTHER_TOOLS",
-    "skill_used": "fabrication",
-    "difficulty": 6,
-    "time": "7 h 40 m",
-    "byproducts": [ [ "splinter", 14 ] ],
-    "book_learn": [ [ "manual_fabrication", 3 ], [ "textbook_fabrication", 4 ] ],
-    "using": [ [ "blacksmithing_standard", 32 ], [ "steel_standard", 8 ] ],
-    "proficiencies": [
-      { "proficiency": "prof_metalworking" },
-      { "proficiency": "prof_blacksmithing" },
-      { "proficiency": "prof_toolsmithing" }
-    ],
-    "components": [ [ [ "2x4", 1 ] ] ]
-  },
-  {
-    "type": "recipe",
-    "activity_level": "ACTIVE_EXERCISE",
-    "result": "hammer_sledge_short",
-    "id_suffix": "from_cutting",
-    "category": "CC_OTHER",
-    "subcategory": "CSC_OTHER_TOOLS",
-    "skill_used": "fabrication",
-    "difficulty": 1,
-    "time": "2 m",
-    "byproducts": [ [ "splinter", 1 ] ],
-    "autolearn": true,
-    "qualities": [ { "id": "CUT", "level": 2 } ],
-    "components": [ [ [ "hammer_sledge", 1 ] ] ]
-  },
-  {
-    "type": "recipe",
-    "activity_level": "BRISK_EXERCISE",
-    "result": "hammer_sledge_heavy",
-    "category": "CC_OTHER",
-    "subcategory": "CSC_OTHER_TOOLS",
-    "skill_used": "fabrication",
-    "difficulty": 6,
-    "time": "8 h 40 m",
-    "byproducts": [ [ "splinter", 13 ] ],
-    "book_learn": [ [ "manual_fabrication", 3 ], [ "textbook_fabrication", 4 ] ],
-    "using": [ [ "blacksmithing_standard", 80 ], [ "steel_standard", 20 ] ],
-    "proficiencies": [
-      { "proficiency": "prof_metalworking" },
-      { "proficiency": "prof_blacksmithing" },
-      { "proficiency": "prof_toolsmithing" }
-    ],
-    "components": [ [ [ "2x4", 1 ] ] ]
-  },
-  {
-    "type": "recipe",
-    "activity_level": "BRISK_EXERCISE",
     "result": "hammer_sledge_engineer",
     "category": "CC_OTHER",
     "subcategory": "CSC_OTHER_TOOLS",
@@ -1460,24 +1390,6 @@
     "time": "120 m",
     "autolearn": true,
     "using": [ [ "blacksmithing_standard", 8 ], [ "steel_standard", 2 ] ],
-    "proficiencies": [
-      { "proficiency": "prof_metalworking" },
-      { "proficiency": "prof_blacksmithing" },
-      { "proficiency": "prof_toolsmithing" }
-    ]
-  },
-  {
-    "result": "heavy_crowbar",
-    "type": "recipe",
-    "activity_level": "BRISK_EXERCISE",
-    "category": "CC_OTHER",
-    "subcategory": "CSC_OTHER_TOOLS",
-    "skill_used": "fabrication",
-    "difficulty": 6,
-    "time": "380 m",
-    "autolearn": true,
-    "book_learn": [ [ "textbook_fireman", 8 ] ],
-    "using": [ [ "blacksmithing_standard", 28 ], [ "steel_standard", 7 ] ],
     "proficiencies": [
       { "proficiency": "prof_metalworking" },
       { "proficiency": "prof_blacksmithing" },

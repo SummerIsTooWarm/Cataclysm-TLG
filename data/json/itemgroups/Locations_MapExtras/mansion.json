@@ -593,9 +593,7 @@
       { "item": "creepy_doll", "prob": 3, "charges": [ 0, 100 ] },
       { "item": "portable_game", "prob": 5, "charges": [ 0, 100 ] },
       [ "whistle", 3 ],
-      { "item": "wizard_cane_cheap", "prob": 5, "charges": [ 0, 100 ] },
-      { "item": "wizard_cane", "prob": 10, "charges": [ 50, 100 ] },
-      [ "sinister_cane", 10 ],
+      { "item": "cane_toy", "prob": 5 },
       [ "scythe_toy", 10 ],
       [ "aim_game", 10 ]
     ]
@@ -633,8 +631,7 @@
       [ "cloak_costume", 5 ],
       { "group": "costume_jewelry_dark", "prob": 20 },
       { "group": "costume_jewelry_vampire", "prob": 20 },
-      [ "sinister_cane", 5 ],
-      [ "wizard_cane", 4 ],
+      { "item": "cane_toy", "prob": 5 },
       [ "robe_wizard", 4 ],
       [ "grim_reaper_robe", 4 ],
       [ "scythe_toy", 4 ],
@@ -707,7 +704,7 @@
       [ "maid_dress_short", 25 ],
       { "item": "waist_apron_short", "prob": 15 },
       [ "apron_leather", 20 ],
-      [ "sinister_cane", 1 ]
+      { "item": "cane_toy", "prob": 1 }
     ]
   },
   {
@@ -1639,9 +1636,7 @@
     "items": [
       [ "knife_butcher", 35 ],
       [ "cane", 25 ],
-      [ "sinister_cane", 2 ],
-      [ "wizard_cane", 1 ],
-      [ "wizard_cane_cheap", 1 ],
+      { "item": "cane_toy", "prob": 1 },
       [ "hollow_cane", 1 ],
       [ "umbrella", 20 ],
       { "item": "heavy_flashlight", "prob": 15, "charges": [ 0, 300 ] },

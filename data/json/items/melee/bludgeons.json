@@ -451,7 +451,7 @@
     "longest_side": "65 cm",
     "to_hit": { "grip": "weapon", "length": "short", "surface": "any", "balance": "good" },
     "price": "10 USD",
-    "melee_damage": { "bash": 13 }
+    "melee_damage": { "bash": 14 }
   },
   {
     "type": "GENERIC",
@@ -573,7 +573,7 @@
     "type": "GENERIC",
     "id": "macuahuitl_steel",
     "name": { "str": "steel bladed macuahuitl" },
-    "description": "A modern reimagining of the close combat weapon affiliated with Aztec warriors, made of a flat wooden club inset with steel razor blades.",
+    "description": "A modern reimagining of the ancient Aztec weapon, made of a flat wooden club inset along its edges with steel razor blades.",
     "weight": "2000 g",
     "volume": "3800 ml",
     "price": "40 USD",
@@ -714,38 +714,6 @@
     "weight": "1000 g",
     "price": "100 USD",
     "price_postapoc": "10 USD"
-  },
-  {
-    "type": "GENERIC",
-    "id": "mace_simple",
-    "name": { "str": "simple mace" },
-    "copy-from": "mace_trench",
-    "description": "A stick with a circular lump of metal tied to it in a facsimile of a mace.  You could probably improve it by finding a way to pin the head to the handle.",
-    "price": "10 cent",
-    "price_postapoc": "75 cent",
-    "qualities": [ [ "HAMMER", 1 ] ],
-    "extend": { "flags": [ "FRAGILE_MELEE" ] }
-  },
-  {
-    "type": "GENERIC",
-    "id": "mace_trench",
-    "name": { "str": "trench mace" },
-    "description": "A mace made from a circular chunk of steel pinned to the end of a stick.  You can feel your inner Trench Raider come alive when you wield it.",
-    "weight": "1000 g",
-    "color": "dark_gray",
-    "symbol": "/",
-    "looks_like": "mace",
-    "material": [ "steel", "wood" ],
-    "techniques": [ "WBLOCK_1", "SWEEP" ],
-    "flags": [ "BELT_CLIP", "NONCONDUCTIVE" ],
-    "weapon_category": [ "HAMMERS" ],
-    "volume": "1250 ml",
-    "longest_side": "60 cm",
-    "to_hit": { "grip": "weapon", "length": "short", "surface": "line", "balance": "uneven" },
-    "price": "100 USD",
-    "price_postapoc": "4 USD",
-    "qualities": [ [ "HAMMER", 1 ] ],
-    "melee_damage": { "bash": 19 }
   },
   {
     "type": "GENERIC",
@@ -916,6 +884,26 @@
     "flags": [ "FRAGILE_MELEE", "SHEATH_SPEAR", "WALKING_AID" ],
     "melee_damage": { "bash": 8 },
     "//2": "Based on https://www.amazon.com/dp/B08183YH7Q"
+  },
+  {
+    "type": "GENERIC",
+    "id": "walking_stick",
+    "symbol": "/",
+    "color": "brown",
+    "name": { "str": "walking stick", "str_pl": "walking sticks" },
+    "description": "A long, thin stick carved smooth for an easy grip.  These are commonly used by hikers to help navigate steep slopes, and could serve as a fighting staff, though this one looks too thin to last for long.",
+    "price": "5 USD",
+    "material": [ "wood" ],
+    "techniques": [ "WBLOCK_2", "RAPID", "SWEEP" ],
+    "flags": [ "SHEATH_SPEAR", "ALWAYS_TWOHAND", "WALKING_AID", "FRAGILE_MELEE" ],
+    "weapon_category": [ "QUARTERSTAVES" ],
+    "weight": "1080 g",
+    "volume": "1100 ml",
+    "longest_side": "163 cm",
+    "category": "weapons",
+    "to_hit": { "grip": "weapon", "length": "long", "surface": "any", "balance": "good" },
+    "price_postapoc": "50 cent",
+    "melee_damage": { "bash": 16 }
   },
   {
     "type": "GENERIC",

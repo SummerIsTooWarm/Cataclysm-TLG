@@ -5,14 +5,14 @@
     "subtype": "distribution",
     "entries": [
       { "item": "hammer_sledge", "prob": 10 },
-      { "item": "hammer_sledge_short", "prob": 10 },
-      { "item": "spear_rebar", "prob": 20 },
+      { "item": "hammer_sledge_engineer", "prob": 3 },
+      { "item": "cudgel", "prob": 5 },
       { "item": "bat", "prob": 20 },
-      { "item": "crowbar", "prob": 20 },
+      { "item": "crowbar", "prob": 14 },
+      { "item": "claw_bar", "prob": 6 },
       { "item": "bwirebat", "prob": 20 },
       { "item": "bat_metal", "prob": 20 },
-      { "item": "q_staff", "prob": 5 },
-      { "item": "homewrecker", "prob": 5 }
+      { "item": "q_staff", "prob": 5 }
     ]
   }
 ]

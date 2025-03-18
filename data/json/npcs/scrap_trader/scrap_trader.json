@@ -130,7 +130,7 @@
     "type": "item_group",
     "id": "SCRAP_MERCHANT_weapon",
     "subtype": "collection",
-    "items": [ { "item": "heavy_crowbar" } ]
+    "items": [ { "item": "crowbar" } ]
   },
   {
     "type": "item_group",

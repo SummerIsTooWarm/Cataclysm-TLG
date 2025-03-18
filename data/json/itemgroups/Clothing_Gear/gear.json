@@ -176,11 +176,10 @@
       { "group": "cotton_ball_bag_used", "prob": 2 },
       { "group": "cotton_ball_bag_full", "prob": 1 },
       [ "crowbar", 15 ],
+      [ "claw_bar", 5 ],
       [ "entry_suit", 10 ],
-      [ "hammer_sledge", 5 ],
-      [ "hammer_sledge_short", 4 ],
+      [ "hammer_sledge", 6 ],
       [ "hammer_sledge_engineer", 5 ],
-      [ "hammer_sledge_heavy", 1 ],
       [ "shovel", 20 ],
       { "item": "cell_phone", "prob": 10, "charges": [ 0, 150 ] },
       { "item": "smart_phone", "prob": 10, "charges": [ 0, -1 ] },
@@ -225,7 +224,7 @@
       { "group": "tools_toolbox", "prob": 1 },
       { "item": "smoxygen_tank", "prob": 35, "charges": [ 4, -1 ] },
       { "item": "watercannon", "prob": 10, "charges": [ 0, -1 ] },
-      [ "solarpack", 2 ],
+      [ "solarpack", 1 ],
       [ "bag_body_bag", 5 ]
     ]
   },

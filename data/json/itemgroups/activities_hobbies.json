@@ -172,6 +172,7 @@
       { "group": "sports", "prob": 2290 },
       { "group": "camping", "prob": 1284 },
       { "item": "ski_jacket", "prob": 5 },
+      { "item": "walking_stick", "prob": 5 },
       { "item": "sports_drink", "prob": 20 },
       { "group": "book_mag_combat", "prob": 105 },
       { "group": "book_mag_surv", "prob": 50 },
@@ -235,6 +236,7 @@
     "items": [
       [ "daypack", 20 ],
       [ "rope_30", 35 ],
+      [ "walking_stick", 10 ],
       [ "hatchet", 10 ],
       [ "storage_line", 20 ],
       { "item": "misc_repairkit", "prob": 5 },
@@ -244,6 +246,7 @@
       [ "folded_inflatable_boat", 25 ],
       [ "hand_pump", 5 ],
       [ "pot_copper", 5 ],
+      [ "cane", 3 ],
       [ "teapot", 5 ],
       [ "pan", 20 ],
       [ "dutch_oven", 5 ],

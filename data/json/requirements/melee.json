@@ -59,14 +59,10 @@
         [ "makeshift_scythe_war", -1 ],
         [ "battleaxe_fake", -1 ],
         [ "battleaxe_inferior", -1 ],
-        [ "ax_sheets_welded", -1 ],
+        [ "street_sign", -1 ],
         [ "ax_sheets_bolted", -1 ],
         [ "hockey_stick", -1 ],
-        [ "lucern_hammerfake", -1 ],
-        [ "hammer_sledge", -1 ],
-        [ "hammer_sledge_short", -1 ],
-        [ "hammer_sledge_heavy", -1 ],
-        [ "hammer_sledge_engineer", -1 ]
+        [ "lucerne_hammerfake", -1 ]
       ]
     ]
   },
@@ -82,7 +78,7 @@
         [ "halberd", -1 ],
         [ "glaive", -1 ],
         [ "battleaxe", -1 ],
-        [ "lucern_hammer", -1 ],
+        [ "lucerne_hammer", -1 ],
         [ "warhammer", -1 ]
       ]
     ]
@@ -318,24 +314,7 @@
     "//": "Any basic, easy-to-use bashing weapons.  Like police batons, sticks, or baseball bats.",
     "tools": [
       [
-        [ "cudgel", -1 ],
-        [ "q_staff", -1 ],
-        [ "bat", -1 ],
-        [ "bat_metal", -1 ],
-        [ "bat_nerf", -1 ],
-        [ "baton-extended", -1 ],
-        [ "PR24-extended", -1 ],
-        [ "bowling_pin", -1 ],
-        [ "cane", -1 ],
-        [ "hollow_cane", -1 ],
-        [ "makeshift_cane", -1 ],
-        [ "club_wooden", -1 ],
-        [ "glass_macuahuitl", -1 ],
-        [ "club_wooden", -1 ],
-        [ "makeshift_sap", -1 ],
-        [ "shillelagh_fake", -1 ],
-        [ "pipe", -1 ],
-        [ "stick", -1 ]
+        [ "blackjack", -1 ], [ "cane", 1 ]
       ]
     ]
   },
@@ -346,10 +325,8 @@
     "tools": [
       [
         [ "blackjack", -1 ],
-        [ "bwirebat", -1 ],
-        [ "shillelagh", -1 ],
-        [ "shillelagh_weighted", -1 ],
         [ "shocktonfa_off", -1 ],
+        [ "baton-extended", -1 ],
         [ "tonfa", -1 ],
         [ "tonfa_wood", -1 ]
       ]
@@ -359,13 +336,13 @@
     "id": "basic_flails",
     "type": "requirement",
     "//": "Any basic thing that can be used as a flail.",
-    "tools": [ [ [ "2h_flail_wood", -1 ] ] ]
+    "tools": [ [ [ "2h_flail_wood", -1 ], [ "rock_sock", -1 ]  ] ]
   },
   {
     "id": "real_flails",
     "type": "requirement",
     "//": "Any real heavy-ended bashing weapons that feature a long pole with an independently-swinging baton.",
-    "tools": [ [ [ "2h_flail_steel", -1 ] ] ]
+    "tools": [ [ [ "2h_flail_steel", -1 ], [ "2h_flail_wood", -1 ] ] ]
   },
   {
     "id": "basic_great_hammers",
@@ -373,74 +350,78 @@
     "//": "Any basic thing that works like a great hammer; unga bunga.",
     "tools": [
       [
-        [ "club_wooden_large", -1 ],
-        [ "homewrecker", -1 ],
-        [ "glass_macuahuitl", -1 ],
-        [ "aztec_sword_stone", -1 ],
-        [ "aztec_sword_scrap", -1 ],
-        [ "hammer_sledge", -1 ],
-        [ "hammer_sledge_short", -1 ],
-        [ "hammer_sledge_heavy", -1 ],
-        [ "hammer_sledge_engineer", -1 ],
-        [ "lucern_hammerfake", -1 ],
-        [ "mace_pipe_large", -1 ]
+        [ "hammer_sledge", -1 ]
       ]
     ]
   },
   {
     "id": "real_great_hammers",
     "type": "requirement",
-    "//": "Any real great hammers.  It's got to have a big blunt end on a long pole, directly attached to it.",
+    "//": "Any real great hammers.  It's got to have a big blunt end on a haft, directly attached to it.",
     "tools": [
       [
-        [ "warhammer", -1 ],
-        [ "lucern_hammer", -1 ],
-        [ "2h_club_kanabo_studded", -1 ],
-        [ "2h_club_kanabo_spiked", -1 ],
-        [ "aztec_sword", -1 ]
+        [ "club_war", -1 ],
+        [ "club_war_stone", -1 ]
       ]
     ]
   },
   {
-    "id": "basic_maces",
+    "id": "basic_hammers",
     "type": "requirement",
     "//": "Any basic thing you can use as a mace.",
     "tools": [
       [
         [ "mace_inferior", -1 ],
         [ "mace_fake", -1 ],
-        [ "mace_trench", -1 ],
-        [ "mace_pipe", -1 ],
-        [ "mace_simple", -1 ],
         [ "morningstar_fake", -1 ],
         [ "morningstar_inferior", -1 ],
-        [ "club_wooden", -1 ],
-        [ "nailbat", -1 ],
-        [ "nailboard", -1 ],
-        [ "bwirebat", -1 ],
-        [ "bat", -1 ],
-        [ "bat_metal", -1 ],
-        [ "bat_nerf", -1 ]
+        [ "hammer", -1 ],
+        [ "hammer_sledge_engineer", -1 ],
+        [ "nailboard", -1 ]
       ]
     ]
   },
   {
     "id": "real_maces",
     "type": "requirement",
-    "//": "Any real, top-heavy bashing weapons with a pointy ball at the end that doesn't independantly swing (those are flails).",
-    "tools": [ [ [ "mace", -1 ], [ "mace_bronze", -1 ], [ "morningstar", -1 ] ] ]
+    "//": "Any real, top-heavy bashing weapons that don't independantly swing (those are flails).",
+    "tools": [ [ [ "mace", -1 ], [ "mace_bronze", -1 ], [ "morningstar", -1 ], [ "warhammer", -1 ] ] ]
+  },
+  {
+    "id": "basic_bludgeons",
+    "type": "requirement",
+    "//": "Any basic thing you can use as a bludgeon.",
+    "tools": [
+      [
+        [ "stick", -1 ],
+        [ "bat", -1 ],
+        [ "bat_metal", -1 ],
+        [ "bwirebat", -1 ],
+        [ "nailbat", -1 ],
+        [ "morningstar_inferior", -1 ],
+        [ "hammer", -1 ],
+        [ "hammer_sledge_engineer", -1 ],
+        [ "nailboard", -1 ]
+      ]
+    ]
+  },
+  {
+    "id": "real_bludgeons",
+    "type": "requirement",
+    "//": "Any real, top-heavy bashing weapons that don't independantly swing (those are flails).",
+    "tools": [ [ [ "kanabo_wood", -1 ], [ "shillelagh", -1 ], [ "shillelagh_weighted", -1 ] ] ]
   },
   {
     "id": "basic_quarterstaves",
     "type": "requirement",
     "//": "Any basic thing you can use like a quarterstaff.",
-    "tools": [ [ [ "staff_pipe", -1 ], [ "pool_cue", -1 ], [ "mop", -1 ] ] ]
+    "tools": [ [ [ "staff_pipe", -1 ], [ "pool_cue", -1 ], [ "mop", -1 ], [ "walking_stick", -1 ], [ "stick_long", -1 ], [ "crutch", -1 ], [ "crutch_wooden", -1 ] ] ]
   },
   {
     "id": "real_quarterstaves",
     "type": "requirement",
     "//": "Any real, pole-like weapons designed for bashing and smashing.  Reserved for quality items.",
-    "tools": [ [ [ "i_staff", -1 ], [ "steel_staff", -1 ], [ "q_staff", -1 ], [ "bo", -1 ], [ "shock_staff", -1 ] ] ]
+    "tools": [ [ [ "i_staff", -1 ], [ "q_staff", -1 ], [ "bo", -1 ], [ "shock_staff", -1 ] ] ]
   },
   {
     "id": "basic_polearms",
@@ -448,9 +429,6 @@
     "//": "Any basic weapon you can use as a cutting polearm.",
     "tools": [
       [
-        [ "aztec_spear_scrap", -1 ],
-        [ "aztec_spear_glass", -1 ],
-        [ "aztec_spear_stone", -1 ],
         [ "makeshift_halberd", -1 ],
         [ "halberd_fake", -1 ],
         [ "makeshift_glaive", -1 ],
@@ -460,7 +438,7 @@
         [ "naginata_inferior", -1 ],
         [ "makeshift_scythe_war", -1 ],
         [ "hockey_stick", -1 ],
-        [ "lucern_hammerfake", -1 ]
+        [ "lucerne_hammerfake", -1 ]
       ]
     ]
   },
@@ -477,7 +455,7 @@
         [ "naginata", -1 ],
         [ "scythe_war", -1 ],
         [ "poleaxe", -1 ],
-        [ "lucern_hammer", -1 ],
+        [ "lucerne_hammer", -1 ],
         [ "ji", -1 ]
       ]
     ]

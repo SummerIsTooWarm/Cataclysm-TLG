@@ -1,26 +1,5 @@
 [
   {
-    "id": "prybar",
-    "type": "TOOL",
-    "name": { "str": "prybar" },
-    "description": "Essentially a miniature crowbar.  It isn't as good at prying as the real thing, but it's a lot easier to carry around.",
-    "weight": "1030 g",
-    "volume": "346 ml",
-    "longest_side": "60 cm",
-    "price": "12 USD",
-    "price_postapoc": "3 USD",
-    "to_hit": { "grip": "solid", "length": "hand", "surface": "any", "balance": "neutral" },
-    "material": [ "steel" ],
-    "symbol": ";",
-    "color": "dark_gray",
-    "qualities": [ [ "PRY", 2 ], [ "HAMMER", 1 ], [ "PRYING_NAIL", 1 ] ],
-    "use_action": [ "CROWBAR" ],
-    "techniques": [ "WBLOCK_1" ],
-    "flags": [ "BELT_CLIP", "DURABLE_MELEE" ],
-    "weapon_category": [ "BLUDGEONS" ],
-    "melee_damage": { "bash": 10, "cut": 1 }
-  },
-  {
     "id": "crowbar",
     "type": "TOOL",
     "name": { "str": "crowbar" },

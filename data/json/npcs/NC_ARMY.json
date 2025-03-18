@@ -100,9 +100,11 @@
       { "item": "hammer", "prob": 20 },
       { "item": "wrench", "prob": 20 },
       { "item": "hammer_sledge", "prob": 20 },
+      { "item": "hammer_sledge_engineer", "prob": 10 },
       { "item": "pipe", "prob": 20 },
       { "item": "baton-extended", "prob": 20 },
-      { "item": "crowbar", "prob": 20 }
+      { "item": "crowbar", "prob": 20 },
+      { "item": "claw_bar", "prob": 10 }
     ]
   },
   {

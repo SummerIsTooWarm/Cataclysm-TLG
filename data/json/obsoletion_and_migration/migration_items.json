@@ -338,5 +338,20 @@
     "type": "MIGRATION",
     "id": "bokken_inferior",
     "replace": "bokken"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "aztec_spear_glass",
+    "replace": "spear_wood_simple"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "aztec_spear_scrap",
+    "replace": "spear_steel"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "aztec_spear_stone",
+    "replace": "spear_stone"
   }
 ]

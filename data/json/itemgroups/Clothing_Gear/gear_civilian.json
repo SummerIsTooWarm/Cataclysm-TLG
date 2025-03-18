@@ -20,10 +20,6 @@
       { "item": "permanent_marker", "prob": 10, "charges": [ 0, -1 ] },
       [ "dog_whistle", 5 ],
       [ "multitool", 1 ],
-      [ "cane", 25 ],
-      [ "sinister_cane", 1 ],
-      [ "wizard_cane_cheap", 1 ],
-      [ "wizard_cane", 1 ],
       [ "pom_poms", 5 ],
       [ "pocketwatch", 50 ],
       [ "pockknife", 50 ],
@@ -141,6 +137,7 @@
       [ "bat", 40 ],
       [ "bat_nerf", 20 ],
       [ "bat_metal", 20 ],
+      { "item": "cane_toy", "prob": 1 },
       [ "hockey_stick", 10 ],
       { "item": "mp3", "prob": 80, "charges": [ 0, 100 ] },
       { "item": "portable_game", "prob": 30, "charges": [ 0, 100 ] },
@@ -151,6 +148,7 @@
       [ "purse", 20 ],
       [ "slingpack", 19 ],
       [ "travelpack", 10 ],
+      [ "daypack", 3 ],
       [ "petpack", 1 ],
       [ "armrig", 3 ],
       [ "leg_small_bag", 3 ],
@@ -409,7 +407,7 @@
       [ "flint_steel", 5 ],
       [ "bottle_metal", 5 ],
       [ "wallet_travel", 10 ],
-      { "item": "teargas_sprayer", "prob": 5, "charges": 10 }
+      { "item": "teargas_sprayer", "prob": 5, "charges": [ 0, 10 ] }
     ]
   },
   {
