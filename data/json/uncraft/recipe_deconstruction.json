@@ -3182,6 +3182,30 @@
     "components": [ [ [ "amplifier", 2 ] ], [ [ "cable", 1030 ] ], [ [ "bearing", 10 ] ], [ [ "steel_lump", 5 ] ], [ [ "e_scrap", 5 ] ] ]
   },
   {
+    "result": "macuahuitl_glass",
+    "type": "uncraft",
+    "activity_level": "MODERATE_EXERCISE",
+    "time": "5 m",
+    "qualities": [ { "id": "HAMMER", "level": 1 } ],
+    "components": [ [ [ "splinter", 3 ] ] ]
+  },
+  {
+    "result": "macuahuitl_teeth",
+    "type": "uncraft",
+    "activity_level": "MODERATE_EXERCISE",
+    "time": "5 m",
+    "qualities": [ { "id": "HAMMER", "level": 1 } ],
+    "components": [ [ [ "splinter", 3 ], [ "nm_teeth", 10 ] ] ]
+  },
+  {
+    "result": "macuahuitl_steel",
+    "type": "uncraft",
+    "activity_level": "MODERATE_EXERCISE",
+    "time": "8 m",
+    "qualities": [ { "id": "HAMMER", "level": 1 } ],
+    "components": [ [ [ "splinter", 3 ], [ "scrap", 4 ] ] ]
+  },
+  {
     "result": "motor_large",
     "type": "uncraft",
     "activity_level": "MODERATE_EXERCISE",

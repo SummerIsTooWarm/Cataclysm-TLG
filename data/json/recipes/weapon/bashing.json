@@ -267,7 +267,7 @@
       { "proficiency": "prof_bladesmith" },
       { "proficiency": "prof_carving" }
     ],
-    "using": [ [ "blacksmithing_standard", 6 ], [ "steel_standard", 3 ] ],
+    "using": [ [ "blacksmithing_standard", 6 ], [ "steel_standard", 2 ] ],
     "tools": [ [ [ "hotcut_any", 1, "LIST" ] ] ],
     "qualities": [
       { "id": "CUT", "level": 2 },
