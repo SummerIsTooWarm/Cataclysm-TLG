@@ -244,7 +244,7 @@
     "longest_side": "96 cm",
     "to_hit": { "grip": "weapon", "length": "short", "surface": "any", "balance": "good" },
     "category": "weapons",
-    "weapon_category": [ "LONG_SWORDS" ],
+    "weapon_category": [ "LONG_SWORDS", "BLUDGEONS" ],
     "melee_damage": { "bash": 16 }
   },
   {
@@ -439,9 +439,9 @@
     "category": "weapons",
     "id": "cudgel",
     "name": { "str": "cudgel" },
-    "description": "Mankind's oldest weapon: a length of wood tapered slightly to maximize weight at the business end.",
+    "description": "Mankind's oldest weapon: a length of wood tapered slightly to maximize weight at the business end.  In other words, a club.",
     "weight": "800 g",
-    "price_postapoc": "50 cent",
+    "price_postapoc": "25 cent",
     "color": "brown",
     "symbol": "/",
     "material": [ "wood" ],
@@ -450,8 +450,27 @@
     "volume": "1100 ml",
     "longest_side": "65 cm",
     "to_hit": { "grip": "weapon", "length": "short", "surface": "any", "balance": "good" },
-    "price": "10 USD",
+    "price": "1 USD",
     "melee_damage": { "bash": 14 }
+  },
+  {
+    "type": "GENERIC",
+    "category": "weapons",
+    "id": "cudgel_spiked",
+    "name": { "str": "spiked cudgel" },
+    "description": "A length of wood with nails driven through the business end to creating a menacing, if inelegant, weapon.",
+    "weight": "808 g",
+    "price_postapoc": "25 cent",
+    "color": "brown",
+    "symbol": "/",
+    "material": [ { "type": "wood", "portion": 9 }, { "type": "steel", "portion": 1 } ],
+    "techniques": [ "WBLOCK_1", "PRECISE" ],
+    "weapon_category": [ "BLUDGEONS" ],
+    "volume": "1150 ml",
+    "longest_side": "65 cm",
+    "to_hit": { "grip": "weapon", "length": "short", "surface": "line", "balance": "good" },
+    "price": "1 USD",
+    "melee_damage": { "bash": 14, "stab": 4 }
   },
   {
     "type": "GENERIC",
@@ -464,13 +483,13 @@
     "price_postapoc": "50 cent",
     "material": [ "aluminum" ],
     "techniques": [ "WBLOCK_1" ],
-    "weapon_category": [ "BLUDGEONS" ],
+    "weapon_category": [ "HAMMERS" ],
     "weight": "300 g",
     "volume": "1 L",
     "longest_side": "110 cm",
     "to_hit": { "grip": "weapon", "length": "long", "surface": "any", "balance": "good" },
     "flags": [ "SHEATH_GOLF", "FRAGILE_MELEE" ],
-    "melee_damage": { "bash": 13 }
+    "melee_damage": { "bash": 16 }
   },
   {
     "type": "GENERIC",

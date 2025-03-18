@@ -17,7 +17,7 @@
     "use_action": [ "CROWBAR" ],
     "techniques": [ "WBLOCK_1" ],
     "flags": [ "BELT_CLIP", "DURABLE_MELEE" ],
-    "weapon_category": [ "BLUDGEONS" ],
+    "weapon_category": [ "BLUDGEONS", "HOOKING_WEAPONRY" ],
     "melee_damage": { "bash": 23, "cut": 1 }
   },
   {
@@ -68,7 +68,7 @@
     "qualities": [ [ "HAMMER", 2 ], [ "HAMMER_FINE", 1 ], [ "PRY", 1 ] ],
     "use_action": [ "CROWBAR" ],
     "flags": [ "DURABLE_MELEE", "BELT_CLIP", "SHEATH_AXE" ],
-    "weapon_category": [ "HAND_AXES" ],
+    "weapon_category": [ "HAND_AXES", "HOOKING_WEAPONRY" ],
     "melee_damage": { "bash": 4, "stab": 15 }
   },
   {

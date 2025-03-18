@@ -1,11 +1,5 @@
 [
   {
-    "id": "improvised_melee_weapons",
-    "type": "requirement",
-    "//": "Any objects you could use as improvised melee weapons.",
-    "tools": [ [ [ "stick", -1 ], [ "stick_long", -1 ], [ "2x4", -1 ], [ "pipe", -1 ] ] ]
-  },
-  {
     "id": "basic_shivs",
     "type": "requirement",
     "//": "Any basic shivs not explicity designed for combat, or low-quality things.",
@@ -62,6 +56,8 @@
         [ "street_sign", -1 ],
         [ "ax_sheets_bolted", -1 ],
         [ "hockey_stick", -1 ],
+        [ "crowbar", -1 ],
+        [ "claw_bar", -1 ],
         [ "lucerne_hammerfake", -1 ]
       ]
     ]
@@ -306,15 +302,15 @@
     "id": "real_great_axes",
     "type": "requirement",
     "//": "Any real, cutting weapons that can be used like an axe; large, heavy head with two sharp sides on a pole.",
-    "tools": [ [ [ "fire_ax", -1 ], [ "battleaxe", -1 ] ] ]
+    "tools": [ [ [ "fire_ax", -1 ], [ "battleaxe", -1 ], [ "street_sign", -1 ] ] ]
   },
   {
     "id": "basic_batons",
     "type": "requirement",
-    "//": "Any basic, easy-to-use bashing weapons.  Like police batons, sticks, or baseball bats.",
+    "//": "Small or especially light or technical blunt weapons which rely on speed and skill rather than power.",
     "tools": [
       [
-        [ "blackjack", -1 ], [ "cane", 1 ]
+        [ "cane", -1 ], [ "hollow_cane", -1 ], [ "candlestick", -1 ], [ "rolling_pin", -1 ]
       ]
     ]
   },
@@ -388,12 +384,15 @@
     "tools": [ [ [ "mace", -1 ], [ "mace_bronze", -1 ], [ "morningstar", -1 ], [ "warhammer", -1 ] ] ]
   },
   {
-    "id": "basic_bludgeons",
+    "id": "real_bludgeons",
     "type": "requirement",
     "//": "Any basic thing you can use as a bludgeon.",
     "tools": [
       [
+        [ "pipe", -1 ],
         [ "stick", -1 ],
+        [ "cudgel", -1 ],
+        [ "cudgel_spiked", -1 ],
         [ "bat", -1 ],
         [ "bat_metal", -1 ],
         [ "bwirebat", -1 ],
@@ -401,21 +400,19 @@
         [ "morningstar_inferior", -1 ],
         [ "hammer", -1 ],
         [ "hammer_sledge_engineer", -1 ],
-        [ "nailboard", -1 ]
+        [ "nailboard", -1 ],
+        [ "kanabo_wood", -1 ],
+        [ "shillelagh", -1 ],
+        [ "shillelagh_weighted", -1 ],
+        [ "bokken", -1 ]
       ]
     ]
-  },
-  {
-    "id": "real_bludgeons",
-    "type": "requirement",
-    "//": "Any real, top-heavy bashing weapons that don't independantly swing (those are flails).",
-    "tools": [ [ [ "kanabo_wood", -1 ], [ "shillelagh", -1 ], [ "shillelagh_weighted", -1 ] ] ]
   },
   {
     "id": "basic_quarterstaves",
     "type": "requirement",
     "//": "Any basic thing you can use like a quarterstaff.",
-    "tools": [ [ [ "staff_pipe", -1 ], [ "pool_cue", -1 ], [ "mop", -1 ], [ "walking_stick", -1 ], [ "stick_long", -1 ], [ "crutch", -1 ], [ "crutch_wooden", -1 ] ] ]
+    "tools": [ [ [ "staff_pipe", -1 ], [ "pool_cue", -1 ], [ "mop", -1 ], [ "walking_stick", -1 ], [ "crutch", -1 ], [ "crutch_wooden", -1 ] ] ]
   },
   {
     "id": "real_quarterstaves",
@@ -448,7 +445,6 @@
     "//": "Any real, top-heavy cutting weapons with a long pole and a blade on the end, designed to swing side-to-side.  Think like a sword with a really long handle.",
     "tools": [
       [
-        [ "aztec_spear", -1 ],
         [ "glaive", -1 ],
         [ "halberd", -1 ],
         [ "lajatang", -1 ],

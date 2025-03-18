@@ -1634,7 +1634,7 @@
       }
     ],
     "use_action": { "type": "holster", "holster_prompt": "Sheath sword", "holster_msg": "You sheath your %s" },
-    "extend": { "flags": [ "CRUTCHES" ] },
+    "extend": { "flags": [ "WALKING_AID" ] },
     "weapon_category": [ "BATONS" ],
     "techniques": [ "PRECISE", "RAPID", "WBLOCK_2" ],
     "melee_damage": { "bash": 3 }
