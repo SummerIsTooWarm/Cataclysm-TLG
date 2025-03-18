@@ -58,7 +58,11 @@
         [ "hockey_stick", -1 ],
         [ "crowbar", -1 ],
         [ "claw_bar", -1 ],
-        [ "lucerne_hammerfake", -1 ]
+        [ "lucerne_hammerfake", -1 ],
+        [ "fire_ax", -1 ],
+        [ "pike_pole", -1 ],
+        [ "EOD_hotstick", -1 ],
+        [ "ny_hook", -1 ]
       ]
     ]
   },
@@ -435,7 +439,9 @@
         [ "naginata_inferior", -1 ],
         [ "makeshift_scythe_war", -1 ],
         [ "hockey_stick", -1 ],
-        [ "lucerne_hammerfake", -1 ]
+        [ "lucerne_hammerfake", -1 ],
+        [ "pike_pole", -1 ],
+        [ "EOD_hotstick", -1 ]
       ]
     ]
   },
