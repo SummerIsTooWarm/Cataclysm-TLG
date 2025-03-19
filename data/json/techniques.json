@@ -224,6 +224,7 @@
     "id": "WRAP",
     "name": "Wrap Attack",
     "melee_allowed": true,
+    "weighting": -2,
     "skill_requirements": [ { "name": "melee", "level": 4 } ],
     "//condition": "Similar size, no wrapping tiny or very nonstandard targets",
     "condition": {
@@ -235,6 +236,34 @@
         { "not": { "npc_bodytype": "snake" } }
       ]
     },
+    "condition_desc": "* Only works on a target of <info>similar size</info> with limbs to catch",
+    "stun_dur": 2,
+    "messages": [ "You wrap up %s", "<npcname> wraps up %s!" ],
+    "description": "Stun 2 turns, min 4 melee",
+    "attack_vectors": [ "vector_null" ]
+  },
+  {
+    "type": "technique",
+    "id": "WRAP_HARMLESS",
+    "name": "Wrap Attack (Harmless)",
+    "melee_allowed": true,
+    "weighting": -2,
+    "skill_requirements": [ { "name": "melee", "level": 4 } ],
+    "//condition": "Similar size, no wrapping tiny or very nonstandard targets",
+    "condition": {
+      "and": [
+        { "math": [ "u_val('size') + 1", ">=", "n_val('size')" ] },
+        { "math": [ "n_val('size')", "!=", "1" ] },
+        { "not": { "npc_bodytype": "blob" } },
+        { "not": { "npc_bodytype": "fish" } },
+        { "not": { "npc_bodytype": "snake" } }
+      ]
+    },
+    "mult_bonuses": [
+      { "stat": "damage", "type": "bash", "scale": 0.2 },
+      { "stat": "damage", "type": "cut", "scale": 0.0 },
+      { "stat": "damage", "type": "stab", "scale": 0.0 }
+    ],
     "condition_desc": "* Only works on a target of <info>similar size</info> with limbs to catch",
     "stun_dur": 2,
     "messages": [ "You wrap up %s", "<npcname> wraps up %s!" ],
@@ -1633,23 +1662,23 @@
   },
   {
     "type": "technique",
-    "id": "tec_karate_staff",
-    "name": "Staff Strike",
-    "messages": [ "You strike %s with your staff", "<npcname> strikes %s with their staff!" ],
+    "id": "tec_karate_weapon",
+    "name": "Strike",
+    "messages": [ "You strike %s", "<npcname> strikes %s" ],
     "skill_requirements": [ { "name": "melee", "level": 3 } ],
     "melee_allowed": true,
-    "weapon_categories_allowed": "QUARTERSTAVES",
+    "weapon_categories_allowed": [ "QUARTERSTAVES", "KARATE_WEAPONS" ],
     "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 } ],
     "attack_vectors": [ "vector_null" ]
   },
   {
     "type": "technique",
-    "id": "tec_karate_staff_crit",
-    "name": "Heavy Staff Strike",
-    "messages": [ "You swing your staff hard at %s", "<npcname> swings their staff hard at %s!" ],
+    "id": "tec_karate_weapon_crit",
+    "name": "Heavy Strike",
+    "messages": [ "You swing hard at %s", "<npcname> swings hard at %s!" ],
     "skill_requirements": [ { "name": "melee", "level": 4 } ],
     "melee_allowed": true,
-    "weapon_categories_allowed": "QUARTERSTAVES",
+    "weapon_categories_allowed": [ "QUARTERSTAVES", "KARATE_WEAPONS" ],
     "crit_tec": true,
     "condition": {
       "and": [
@@ -2312,7 +2341,7 @@
     "skill_requirements": [ { "name": "melee", "level": 3 } ],
     "required_buffs_all": [ "buff_ninjutsu_onattack" ],
     "melee_allowed": true,
-    "weapon_categories_allowed": "QUARTERSTAVES",
+    "weapon_categories_allowed": [ "QUARTERSTAVES", "WHIPS" ],
     "crit_ok": true,
     "//condition": "Humanoids of similar size and no flying",
     "condition": {
@@ -3583,5 +3612,32 @@
       { "stat": "damage", "type": "stab", "scale": 0.0 }
     ],
     "attack_vectors": [ "vector_arm_grapple" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_kung_fu_rapid",
+    "name": "Quick Strike",
+    "messages": [ "You quickly strike %s", "<npcname> quickly strikes %s!" ],
+    "skill_requirements": [ { "name": "melee", "level": 2 } ],
+    "weighting": -2,
+    "melee_allowed": true,
+    "reach_tec": true,
+    "mult_bonuses": [
+      { "stat": "movecost", "scale": 0.75 },
+      { "stat": "damage", "type": "bash", "scale": 0.8 },
+      { "stat": "damage", "type": "cut", "scale": 0.8 },
+      { "stat": "damage", "type": "stab", "scale": 0.8 }
+    ],
+    "attack_vectors": [ "vector_null" ]
+  },
+  {
+    "type": "technique",
+    "id": "tec_kung_fu_feint",
+    "name": "Flourish",
+    "messages": [ "You miss %s, but recover with a dramatic flourish!", "<npcname> misses %s, but recovers with a dramatic flourish!" ],
+    "skill_requirements": [ { "name": "melee", "level": 4 } ],
+    "melee_allowed": true,
+    "defensive": true,
+    "miss_recovery": true
   }
 ]

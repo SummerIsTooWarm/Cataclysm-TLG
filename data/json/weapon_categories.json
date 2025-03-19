@@ -159,5 +159,25 @@
     "id": "HAND_AXES",
     "name": "HAND AXES",
     "proficiencies": [ "prof_hand_axes_familiar", "prof_hand_axes_pro", "prof_hand_axes_master" ]
+  },
+  {
+    "type": "weapon_category",
+    "id": "WHIPS",
+    "name": "WHIPS"
+  },
+  {
+    "type": "weapon_category",
+    "id": "KARATE_WEAPONS",
+    "name": "KARATE WEAPONS"
+  },
+  {
+    "type": "weapon_category",
+    "id": "NINJUTSU_WEAPONS",
+    "name": "NINJUTSU WEAPONS"
+  },
+  {
+    "type": "weapon_category",
+    "id": "KUNG_FU_WEAPONS",
+    "name": "KUNG FU WEAPONS"
   }
 ]

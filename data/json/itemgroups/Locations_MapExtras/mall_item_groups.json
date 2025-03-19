@@ -195,6 +195,7 @@
       [ "pants_leather", 30 ],
       [ "bikini_top_leather", 20 ],
       [ "horse_tack", 5 ],
+      [ "bullwhip", 2 ],
       [ "yoke_harness", 5 ],
       [ "reins_tackle", 5 ]
     ]

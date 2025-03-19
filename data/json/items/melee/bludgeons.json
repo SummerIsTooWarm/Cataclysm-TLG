@@ -44,7 +44,7 @@
     "type": "GENERIC",
     "category": "weapons",
     "name": { "str": "peasant flail" },
-    "description": "A stout pole with a wooden club attached to the end with a leather cord.  This farming tool was historically used to thresh wheat and occasionally people when the peasants got angry at their feudal lords.",
+    "description": "A stout pole with a wooden club attached to the end with a leather cord.  This farming tool was historically used to thresh grain, but was frequently pressed into service as a weapon.",
     "weight": "1700 g",
     "longest_side": "160 cm",
     "volume": "2250 ml",
@@ -56,7 +56,7 @@
     "color": "brown",
     "techniques": [ "WBLOCK_1" ],
     "flags": [ "REACH_ATTACK", "NONCONDUCTIVE", "SHEATH_SPEAR", "ALWAYS_TWOHAND", "POLEARM" ],
-    "weapon_category": [ "FLAILS" ],
+    "weapon_category": [ "FLAILS", "KARATE_WEAPONS", "KUNG_FU_WEAPONS" ],
     "melee_damage": { "bash": 35 }
   },
   {
@@ -64,7 +64,7 @@
     "type": "GENERIC",
     "category": "weapons",
     "name": { "str": "nunchaku" },
-    "description": "A weapon originating from Asia consisting of a pair of short sticks connected by a shorter rope or chain.  The design is a bit unwieldy, but fast and deadly in the right hands.",
+    "description": "A weapon originating from East Asia consisting of a pair of short sticks connected by a shorter rope or chain.  The design is a bit unwieldy, but fast and deadly in the right hands.",
     "weight": "800 g",
     "longest_side": "160 cm",
     "volume": "1030 ml",
@@ -76,8 +76,8 @@
     "color": "brown",
     "techniques": [ "RAPID", "PRECISE" ],
     "flags": [ "NONCONDUCTIVE" ],
-    "weapon_category": [ "FLAILS" ],
-    "melee_damage": { "bash": 15 }
+    "weapon_category": [ "FLAILS", "KARATE_WEAPONS", "KUNG_FU_WEAPONS" ],
+    "melee_damage": { "bash": 19 }
   },
   {
     "type": "GENERIC",
@@ -85,7 +85,7 @@
     "category": "weapons",
     "name": { "str": "chain whip" },
     "description": "A long spool of chain with a steel weight at one end.  What a terrible night it'll be for anyone who gets hit by this thing.",
-    "weight": "3400 g",
+    "weight": "1850 g",
     "color": "dark_gray",
     "symbol": "/",
     "material": [ "steel" ],
@@ -95,7 +95,8 @@
     "price": "30 USD",
     "flags": [ "ALWAYS_TWOHAND", "REACH_ATTACK", "WHIP", "DURABLE_MELEE" ],
     "price_postapoc": "75 cent",
-    "melee_damage": { "bash": 19 }
+    "weapon_category": [ "WHIPS", "NINJUTSU_WEAPONS", "KUNG_FU_WEAPONS" ],
+    "melee_damage": { "bash": 22 }
   },
   {
     "type": "GENERIC",
@@ -110,7 +111,7 @@
     "symbol": "/",
     "material": [ { "type": "wood", "portion": 9 }, { "type": "iron", "portion": 1 } ],
     "weapon_category": [ "BLUDGEONS" ],
-    "techniques": [ "WBLOCK_1", "WIDE", "BRUTAL", "SWEEP" ],
+    "techniques": [ "WBLOCK_2", "WIDE", "BRUTAL", "SWEEP" ],
     "qualities": [ [ "HAMMER", 1 ] ],
     "flags": [ "DURABLE_MELEE", "SHEATH_SPEAR", "ALWAYS_TWOHAND", "NONCONDUCTIVE" ],
     "volume": "2700 ml",
@@ -213,7 +214,7 @@
     "weapon_category": [ "BATONS" ],
     "use_action": { "menu_text": "Collapse", "type": "transform", "target": "baton", "msg": "You collapse your baton." },
     "price": "229 USD",
-    "melee_damage": { "bash": 12 }
+    "melee_damage": { "bash": 11 }
   },
   {
     "id": "battleaxe",
@@ -317,7 +318,7 @@
     "material": [ "wood" ],
     "techniques": [ "WBLOCK_1" ],
     "flags": [ "DURABLE_MELEE" ],
-    "weapon_category": [ "BLUDGEONS" ],
+    "weapon_category": [ "BATONS" ],
     "volume": "2250 ml",
     "longest_side": "40 cm",
     "to_hit": { "grip": "none", "length": "short", "surface": "any", "balance": "neutral" },
@@ -354,7 +355,7 @@
     "material": [ "wood" ],
     "techniques": [ "WBLOCK_1" ],
     "flags": [ "NONCONDUCTIVE", "WALKING_AID" ],
-    "weapon_category": [ "BLUDGEONS" ],
+    "weapon_category": [ "BATONS" ],
     "volume": "1 L",
     "longest_side": "80 cm",
     "to_hit": { "grip": "solid", "length": "short", "surface": "any", "balance": "good" },
@@ -504,7 +505,7 @@
     "symbol": "/",
     "material": [ "wood" ],
     "techniques": [ "WBLOCK_1", "PRECISE" ],
-    "weapon_category": [ "BLUDGEONS" ],
+    "weapon_category": [ "BLUDGEONS", "KARATE_WEAPONS" ],
     "volume": "1100 ml",
     "longest_side": "65 cm",
     "to_hit": { "grip": "weapon", "length": "short", "surface": "any", "balance": "good" },
@@ -727,7 +728,7 @@
     "qualities": [ [ "COOK", 1 ] ],
     "use_action": [ "HEAT_SOLID_ITEMS" ],
     "category": "weapons",
-    "melee_damage": { "bash": 44, "stab": 33 }
+    "melee_damage": { "bash": 42, "stab": 33 }
   },
   {
     "id": "lucerne_hammerfake",
@@ -763,7 +764,7 @@
     "price_postapoc": "60 USD",
     "qualities": [ [ "HAMMER", 1 ] ],
     "category": "weapons",
-    "melee_damage": { "bash": 38 }
+    "melee_damage": { "bash": 36 }
   },
   {
     "id": "mace_fake",
@@ -916,7 +917,7 @@
     "volume": "1800 ml",
     "longest_side": "86 cm",
     "to_hit": { "grip": "weapon", "length": "short", "surface": "any", "balance": "good" },
-    "flags": [ "BELT_CLIP", "NONCONDUCTIVE" ],
+    "flags": [ "BELT_CLIP", "NONCONDUCTIVE", "WALKING_AID" ],
     "price": "160 USD",
     "price_postapoc": "17 USD 50 cent",
     "melee_damage": { "bash": 22, "stab": 6 },
@@ -1033,7 +1034,7 @@
     "price": "10 USD",
     "price_postapoc": "10 cent",
     "material": [ "cotton", "stone" ],
-    "weapon_category": [ "FLAILS" ],
+    "weapon_category": [ "FLAILS", "KUNG_FU_WEAPONS" ],
     "weight": "1007 g",
     "volume": "500 ml",
     "longest_side": "10 cm",
@@ -1196,7 +1197,7 @@
     "techniques": [ "WBLOCK_2", "RAPID", "PRECISE" ],
     "use_action": [ "SHOCKTONFA_OFF" ],
     "flags": [ "DURABLE_MELEE", "NONCONDUCTIVE", "BELT_CLIP" ],
-    "weapon_category": [ "BATONS" ],
+    "weapon_category": [ "BATONS", "KARATE_WEAPONS", "KUNG_FU_WEAPONS" ],
     "pocket_data": [
       {
         "pocket_type": "MAGAZINE_WELL",
@@ -1218,7 +1219,7 @@
     "revert_to": "shocktonfa_off",
     "use_action": [ "SHOCKTONFA_ON" ],
     "flags": [ "LIGHT_450", "CHARGEDIM", "DURABLE_MELEE", "TRADER_AVOID", "NONCONDUCTIVE", "BELT_CLIP" ],
-    "weapon_category": [ "BATONS" ]
+    "weapon_category": [ "BATONS", "KARATE_WEAPONS" ]
   },
   {
     "type": "GENERIC",
@@ -1233,7 +1234,7 @@
     "material": [ "plastic" ],
     "techniques": [ "WBLOCK_2", "RAPID", "PRECISE" ],
     "flags": [ "DURABLE_MELEE", "BELT_CLIP" ],
-    "weapon_category": [ "BATONS" ],
+    "weapon_category": [ "BATONS", "KARATE_WEAPONS", "KUNG_FU_WEAPONS" ],
     "volume": "2 L",
     "to_hit": { "grip": "weapon", "length": "short", "surface": "any", "balance": "good" },
     "price": "195 USD",
@@ -1252,7 +1253,7 @@
     "material": [ "wood" ],
     "techniques": [ "WBLOCK_2", "RAPID", "PRECISE" ],
     "flags": [ "BELT_CLIP" ],
-    "weapon_category": [ "BATONS" ],
+    "weapon_category": [ "BATONS", "KARATE_WEAPONS", "KUNG_FU_WEAPONS" ],
     "volume": "2 L",
     "to_hit": { "grip": "weapon", "length": "short", "surface": "any", "balance": "good" },
     "price": "195 USD",

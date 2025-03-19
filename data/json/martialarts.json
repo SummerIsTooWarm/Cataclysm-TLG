@@ -423,7 +423,15 @@
         "flat_bonuses": [ { "stat": "hit", "scale": 1.0 }, { "stat": "dodge", "scale": 1.0 } ]
       }
     ],
-    "techniques": [ "tec_crane_feint", "tec_crane_break", "tec_crane_strike", "tec_crane_precise" ]
+    "techniques": [
+      "tec_crane_feint",
+      "tec_crane_break",
+      "tec_crane_strike",
+      "tec_crane_precise",
+      "tec_kung_fu_rapid",
+      "tec_kung_fu_feint"
+    ],
+    "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {
     "type": "martial_art",
@@ -493,7 +501,8 @@
         ]
       }
     ],
-    "techniques": [ "tec_dragon_claw", "tec_dragon_tail", "tec_dragon_strike" ]
+    "techniques": [ "tec_dragon_claw", "tec_dragon_tail", "tec_dragon_strike", "tec_kung_fu_rapid", "tec_kung_fu_feint" ],
+    "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {
     "type": "martial_art",
@@ -737,8 +746,8 @@
         "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 } ]
       }
     ],
-    "techniques": [ "tec_karate_rapid", "tec_karate_precise", "tec_karate_roundhouse", "tec_karate_staff", "tec_karate_staff_crit" ],
-    "weapon_category": [ "QUARTERSTAVES" ]
+    "techniques": [ "tec_karate_rapid", "tec_karate_precise", "tec_karate_roundhouse", "tec_karate_weapon", "tec_karate_weapon_crit" ],
+    "weapon_category": [ "QUARTERSTAVES", "KARATE_WEAPONS" ]
   },
   {
     "type": "martial_art",
@@ -848,7 +857,16 @@
         "flat_bonuses": [ { "stat": "dodge", "scale": 1.0 } ]
       }
     ],
-    "techniques": [ "tec_leopard_rapid", "tec_leopard_feint", "tec_leopard_claw", "tec_leopard_precise", "tec_leopard_pounce" ]
+    "techniques": [
+      "tec_leopard_rapid",
+      "tec_leopard_feint",
+      "tec_leopard_claw",
+      "tec_leopard_precise",
+      "tec_leopard_pounce",
+      "tec_kung_fu_rapid",
+      "tec_kung_fu_feint"
+    ],
+    "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {
     "type": "martial_art",
@@ -1029,7 +1047,7 @@
       "tec_ninjutsu_staffdown",
       "tec_ninjutsu_downkill"
     ],
-    "weapon_category": [ "MEDIUM_SWORDS", "LONG_SWORDS", "SHORT_SWORDS", "KNIVES", "QUARTERSTAVES", "CLAWS" ]
+    "weapon_category": [ "SHORT_SWORDS", "KNIVES", "QUARTERSTAVES", "CLAWS", "NINJUTSU_WEAPONS" ]
   },
   {
     "type": "martial_art",
@@ -1271,7 +1289,15 @@
         ]
       }
     ],
-    "techniques": [ "tec_snake_swift", "tec_snake_feint", "tec_snake_break", "tec_snake_precise" ]
+    "techniques": [
+      "tec_snake_swift",
+      "tec_snake_feint",
+      "tec_snake_break",
+      "tec_snake_precise",
+      "tec_kung_fu_rapid",
+      "tec_kung_fu_feint"
+    ],
+    "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {
     "type": "martial_art",
@@ -1436,7 +1462,16 @@
         ]
       }
     ],
-    "techniques": [ "tec_tiger_break", "tec_tiger_claw", "tec_tiger_palm", "tec_tiger_takedown", "tec_tiger_wide" ]
+    "techniques": [
+      "tec_tiger_break",
+      "tec_tiger_claw",
+      "tec_tiger_palm",
+      "tec_tiger_takedown",
+      "tec_tiger_wide",
+      "tec_kung_fu_rapid",
+      "tec_kung_fu_feint"
+    ],
+    "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {
     "type": "martial_art",
@@ -1495,7 +1530,7 @@
     "type": "martial_art",
     "id": "style_zui_quan",
     "name": { "str": "Zui Quan" },
-    "description": "AKA \"drunken boxing,\" Zui Quan imitates the movement of a drunk to confuse the enemy.  You gain a passive Dodging skill bonus based on Intelligence and dodge attempts.  Dodging increases your damage and accuracy based on Intelligence for a short time.  Moving gives you an additional dodging bonus.",
+    "description": "AKA \"drunken boxing,\" Zui Quan is a style of kung fu that mimics the unpredictable movements of a drunk.  You gain a passive Dodging skill bonus based on Intelligence and dodge attempts.  Dodging increases your damage and accuracy based on Intelligence for a short time.  Moving gives you an additional dodging bonus.",
     "initiate": [ "You begin to sway to and fro with a confident swagger.", "%s stumbles as if pretending to be drunk." ],
     "priority": 1,
     "learn_difficulty": 8,
@@ -1538,7 +1573,16 @@
         ]
       }
     ],
-    "techniques": [ "tec_zuiquan_feint", "tec_zuiquan_break", "tec_zuiquan_fist", "tec_zuiquan_spin", "tec_zuiquan_throw" ]
+    "techniques": [
+      "tec_zuiquan_feint",
+      "tec_zuiquan_break",
+      "tec_zuiquan_fist",
+      "tec_zuiquan_spin",
+      "tec_zuiquan_throw",
+      "tec_kung_fu_rapid",
+      "tec_kung_fu_feint"
+    ],
+    "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {
     "type": "martial_art",

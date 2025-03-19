@@ -335,6 +335,7 @@
       [ "bowhat", 10 ],
       [ "cowboy_hat", 10 ],
       [ "10gal_hat", 5 ],
+      [ "nunchaku", 5 ],
       [ "hat_chef", 5 ],
       [ "jacket_chef", 5 ],
       { "item": "smart_lamp", "prob": 5, "charges": [ 0, 100 ] },
