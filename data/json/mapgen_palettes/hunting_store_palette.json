@@ -45,13 +45,13 @@
     },
     "items": {
       "O": { "item": "clothing_hunting", "chance": 50 },
-      "o": { "item": "tools_hunting", "chance": 50 },
-      "r": { "item": "clothing_hunting", "chance": 50 },
-      "f": { "item": "fridgesnacks", "chance": 80, "repeat": [ 2, 3 ] },
+      "o": { "item": "tools_hunting", "chance": 30 },
+      "r": { "item": "clothing_hunting", "chance": 30 },
+      "f": { "item": "fridgesnacks", "chance": 30, "repeat": [ 0, 3 ] },
       "L": { "item": "jackets", "chance": 50 },
       "F": { "item": "office_supplies", "chance": 80, "repeat": [ 2, 4 ] },
-      "X": { "item": "ammo_hunting", "chance": 80, "repeat": [ 4, 6 ] },
-      "x": { "item": "mags_hunting", "chance": 80, "repeat": [ 4, 6 ] },
+      "X": { "item": "ammo_hunting", "chance": 60, "repeat": [ 0, 4 ] },
+      "x": { "item": "mags_hunting", "chance": 60, "repeat": [ 0, 4 ] },
       "Y": { "item": "trash_cart", "chance": 70, "repeat": [ 1, 2 ] },
       "I": { "item": "office_supplies", "chance": 50 },
       "m": { "item": "clothing_hunting", "chance": 80, "repeat": [ 2, 3 ] }

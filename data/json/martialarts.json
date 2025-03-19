@@ -423,7 +423,14 @@
         "flat_bonuses": [ { "stat": "hit", "scale": 1.0 }, { "stat": "dodge", "scale": 1.0 } ]
       }
     ],
-    "techniques": [ "tec_crane_feint", "tec_crane_break", "tec_crane_strike", "tec_crane_precise", "tec_kung_fu_rapid", "tec_kung_fu_feint" ],
+    "techniques": [
+      "tec_crane_feint",
+      "tec_crane_break",
+      "tec_crane_strike",
+      "tec_crane_precise",
+      "tec_kung_fu_rapid",
+      "tec_kung_fu_feint"
+    ],
     "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {
@@ -850,7 +857,15 @@
         "flat_bonuses": [ { "stat": "dodge", "scale": 1.0 } ]
       }
     ],
-    "techniques": [ "tec_leopard_rapid", "tec_leopard_feint", "tec_leopard_claw", "tec_leopard_precise", "tec_leopard_pounce", "tec_kung_fu_rapid", "tec_kung_fu_feint" ],
+    "techniques": [
+      "tec_leopard_rapid",
+      "tec_leopard_feint",
+      "tec_leopard_claw",
+      "tec_leopard_precise",
+      "tec_leopard_pounce",
+      "tec_kung_fu_rapid",
+      "tec_kung_fu_feint"
+    ],
     "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {
@@ -1274,7 +1289,14 @@
         ]
       }
     ],
-    "techniques": [ "tec_snake_swift", "tec_snake_feint", "tec_snake_break", "tec_snake_precise", "tec_kung_fu_rapid", "tec_kung_fu_feint" ],
+    "techniques": [
+      "tec_snake_swift",
+      "tec_snake_feint",
+      "tec_snake_break",
+      "tec_snake_precise",
+      "tec_kung_fu_rapid",
+      "tec_kung_fu_feint"
+    ],
     "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {
@@ -1440,7 +1462,15 @@
         ]
       }
     ],
-    "techniques": [ "tec_tiger_break", "tec_tiger_claw", "tec_tiger_palm", "tec_tiger_takedown", "tec_tiger_wide", "tec_kung_fu_rapid", "tec_kung_fu_feint" ],
+    "techniques": [
+      "tec_tiger_break",
+      "tec_tiger_claw",
+      "tec_tiger_palm",
+      "tec_tiger_takedown",
+      "tec_tiger_wide",
+      "tec_kung_fu_rapid",
+      "tec_kung_fu_feint"
+    ],
     "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {
@@ -1543,7 +1573,15 @@
         ]
       }
     ],
-    "techniques": [ "tec_zuiquan_feint", "tec_zuiquan_break", "tec_zuiquan_fist", "tec_zuiquan_spin", "tec_zuiquan_throw", "tec_kung_fu_rapid", "tec_kung_fu_feint" ],
+    "techniques": [
+      "tec_zuiquan_feint",
+      "tec_zuiquan_break",
+      "tec_zuiquan_fist",
+      "tec_zuiquan_spin",
+      "tec_zuiquan_throw",
+      "tec_kung_fu_rapid",
+      "tec_kung_fu_feint"
+    ],
     "weapon_category": [ "SHORT_SWORDS", "KNIVES", "POLEARMS", "QUARTERSTAVES", "BATONS", "KUNG_FU_WEAPONS" ]
   },
   {

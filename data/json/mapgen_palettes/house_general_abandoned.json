@@ -194,7 +194,7 @@
         { "item": "home_display_case", "chance": 30 },
         { "item": "harddrugs", "chance": 10, "repeat": [ 1, 2 ] },
         { "item": "maps", "chance": 2 },
-        { "item": "guns_pistol_common", "chance": 50, "ammo": 90, "magazine": 100 },
+        { "item": "guns_pistol_common", "chance": 20, "ammo": 10, "magazine": 40 },
         { "item": "gemstones", "chance": 30, "repeat": [ 1, 2 ] }
       ],
       "O": { "item": "SUS_oven", "chance": 2 },
@@ -213,9 +213,7 @@
     "nested": {
       "|": { "chunks": [ [ "bile_field", 1 ], [ "shelter_graffiti", 2 ], [ "general_graffiti", 10 ], [ "null", 75 ] ] },
       "#": { "chunks": [ [ "bile_field", 1 ], [ "shelter_graffiti", 2 ], [ "general_graffiti", 10 ], [ "null", 75 ] ] },
-      "v": {
-        "chunks": [ [ "looted_gunsafe_nested", 1 ], [ "jammed_gunsafe_nested", 10 ], [ "open_gunsafe_nested", 20 ], [ "null", 75 ] ]
-      },
+      "v": { "chunks": [ [ "null", 75 ] ] },
       "+": { "chunks": [ [ "destroyed_door_nested", 50 ], [ "null", 50 ] ] },
       "*": { "chunks": [ [ "destroyed_door_nested", 50 ], [ "null", 50 ] ] },
       "¶": { "chunks": [ [ "1x1_bash", 10 ], [ "null", 90 ] ] },

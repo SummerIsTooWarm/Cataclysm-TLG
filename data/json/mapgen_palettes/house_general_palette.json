@@ -253,7 +253,7 @@
         { "item": "home_display_case", "chance": 15 },
         { "item": "harddrugs", "chance": 2, "repeat": [ 1, 2 ] },
         { "item": "maps", "chance": 1 },
-        { "item": "guns_pistol_common", "chance": 25, "ammo": 60, "magazine": 100 },
+        { "item": "guns_pistol_common", "chance": 25, "ammo": 60, "magazine": 90 },
         { "item": "gemstones", "chance": 15, "repeat": [ 1, 2 ] }
       ],
       "w": [

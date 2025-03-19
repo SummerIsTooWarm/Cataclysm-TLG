@@ -1236,10 +1236,7 @@
     "time": "5 m",
     "reversible": true,
     "book_learn": [ [ "textbook_armschina", 1 ] ],
-    "components": [
-      [ [ "rope_30", 1 ], [ "rope_makeshift_30", 1 ] ],
-      [ [ "weighted_dart", 1 ] ]
-    ]
+    "components": [ [ [ "rope_30", 1 ], [ "rope_makeshift_30", 1 ] ], [ [ "weighted_dart", 1 ] ] ]
   },
   {
     "type": "recipe",
