@@ -4,7 +4,7 @@
     "type": "GENERIC",
     "category": "drugs",
     "name": { "str": "adhesive bandage" },
-    "description": "A small medical dressing made of a piece of sterile cloth and sticky tape, used for small injuries not serious enough to require a full-size bandage.",
+    "description": "A tiny bandage made of a piece of sterile cloth and sticky tape, usually used for quickly covering superficial wounds.",
     "weight": "2 g",
     "volume": "2 ml",
     "price": "5 cent",
@@ -76,7 +76,7 @@
     "volume": "16 ml",
     "price_postapoc": "3 cent",
     "flags": [ "SINGLE_USE", "TINDER" ],
-    "use_action": { "type": "heal", "bandages_power": 2, "bleed": 10, "move_cost": 6000 }
+    "use_action": { "type": "heal", "bandages_power": 1, "bleed": 10, "move_cost": 6000 }
   },
   {
     "id": "bandages_makeshift_bleached",
@@ -86,7 +86,7 @@
     "description": "A piece of cloth treated with a bleach solution to sterilize it for use as a bandage.",
     "price_postapoc": "15 cent",
     "flags": [ "SINGLE_USE", "TINDER" ],
-    "use_action": { "type": "heal", "bandages_power": 3, "bleed": 10, "move_cost": 6000 }
+    "use_action": { "type": "heal", "bandages_power": 2, "bleed": 10, "move_cost": 6000 }
   },
   {
     "id": "bandages_makeshift_boiled",
@@ -96,7 +96,7 @@
     "description": "A piece of cloth boiled in water to sterilize it for use as a bandage.",
     "price_postapoc": "15 cent",
     "flags": [ "SINGLE_USE", "TINDER" ],
-    "use_action": { "type": "heal", "bandages_power": 3, "bleed": 10, "move_cost": 6000 }
+    "use_action": { "type": "heal", "bandages_power": 2, "bleed": 10, "move_cost": 6000 }
   },
   {
     "id": "cotton_ball",
@@ -112,7 +112,7 @@
     "symbol": "*",
     "color": "white",
     "flags": [ "SINGLE_USE", "TINDER" ],
-    "use_action": { "type": "heal", "bandages_power": 2, "bleed": 3, "move_cost": 3000 }
+    "use_action": { "type": "heal", "bandages_power": 1, "bleed": 3, "move_cost": 3000 }
   },
   {
     "id": "inhaler",
@@ -144,8 +144,8 @@
     "id": "medical_gauze",
     "type": "GENERIC",
     "category": "drugs",
-    "name": { "str": "medical gauze" },
-    "description": "A decent-sized piece of cotton, sterilized and sealed.  It's designed for medical purposes.",
+    "name": { "str": "adhesive gauze" },
+    "description": "A palm-sized square of sterile fabric with adhesive tape along the edges, designed for easy application.",
     "weight": "90 g",
     "volume": "200 ml",
     "price": "3 USD 50 cent",
@@ -154,7 +154,7 @@
     "symbol": ",",
     "color": "white",
     "flags": [ "SINGLE_USE", "TINDER" ],
-    "use_action": { "type": "heal", "bandages_power": 4, "bleed": 5, "move_cost": 6000 }
+    "use_action": { "type": "heal", "bandages_power": 3, "bleed": 12, "move_cost": 2000 }
   },
   {
     "id": "liq_bandage_spray",
