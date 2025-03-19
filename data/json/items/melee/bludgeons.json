@@ -727,7 +727,7 @@
     "qualities": [ [ "COOK", 1 ] ],
     "use_action": [ "HEAT_SOLID_ITEMS" ],
     "category": "weapons",
-    "melee_damage": { "bash": 44, "stab": 33 }
+    "melee_damage": { "bash": 42, "stab": 33 }
   },
   {
     "id": "lucerne_hammerfake",
@@ -763,7 +763,7 @@
     "price_postapoc": "60 USD",
     "qualities": [ [ "HAMMER", 1 ] ],
     "category": "weapons",
-    "melee_damage": { "bash": 38 }
+    "melee_damage": { "bash": 36 }
   },
   {
     "id": "mace_fake",

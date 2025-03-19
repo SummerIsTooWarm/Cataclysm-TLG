@@ -224,6 +224,7 @@
     "id": "WRAP",
     "name": "Wrap Attack",
     "melee_allowed": true,
+    "weighting": -2,
     "skill_requirements": [ { "name": "melee", "level": 4 } ],
     "//condition": "Similar size, no wrapping tiny or very nonstandard targets",
     "condition": {
