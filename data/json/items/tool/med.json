@@ -28,7 +28,8 @@
     "symbol": ",",
     "color": "white",
     "flags": [ "SINGLE_USE", "IRREPLACEABLE_CONSUMABLE" ],
-    "use_action": { "type": "heal", "disinfectant_power": 2, "bite": 0.3, "move_cost": 500 }
+    "//": "Alcohol cleans the wound but damages tissue, resulting in high bite but low disinfectant_power.",
+    "use_action": { "type": "heal", "disinfectant_power": 2, "bite": 0.85, "move_cost": 500 }
   },
   {
     "id": "anesthetic_kit",
@@ -112,52 +113,6 @@
     "color": "white",
     "flags": [ "SINGLE_USE", "TINDER" ],
     "use_action": { "type": "heal", "bandages_power": 2, "bleed": 3, "move_cost": 3000 }
-  },
-  {
-    "id": "disinrag",
-    "type": "GENERIC",
-    "category": "drugs",
-    "name": { "str": "antiseptic soaked rag" },
-    "description": "A rag soaked in antiseptic.  Useful for light wounds, probably won't help with deep bites.",
-    "weight": "80 g",
-    "//": "Can't copy-from rag, it breaks the stacking for some reason!",
-    "volume": "250 ml",
-    "price": "2 USD 50 cent",
-    "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
-    "symbol": ",",
-    "color": "white",
-    "flags": [ "SINGLE_USE" ],
-    "use_action": {
-      "type": "heal",
-      "disinfectant_power": 2,
-      "bite": 0.5,
-      "move_cost": 6000,
-      "used_up_item": { "id": "cotton_patchwork", "quantity": 1, "flags": [ "FILTHY" ] }
-    }
-  },
-  {
-    "id": "disincotton_ball",
-    "type": "GENERIC",
-    "category": "drugs",
-    "name": { "str_sp": "antiseptic soaked cotton balls" },
-    "description": "Fluffy balls of clean white cotton.  Now that they've been soaked with antiseptic, they are somewhat useful to disinfect a wound.",
-    "weight": "25 g",
-    "//": "Can't copy-from cotton_ball, breaks volume",
-    "volume": "30 ml",
-    "price": "2 USD 50 cent",
-    "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
-    "symbol": "*",
-    "color": "white",
-    "flags": [ "SINGLE_USE", "TINDER" ],
-    "use_action": {
-      "type": "heal",
-      "disinfectant_power": 3,
-      "bite": 0.66,
-      "move_cost": 6000,
-      "used_up_item": { "id": "cotton_ball", "quantity": 1, "charges": 1, "flags": [ "FILTHY" ] }
-    }
   },
   {
     "id": "inhaler",

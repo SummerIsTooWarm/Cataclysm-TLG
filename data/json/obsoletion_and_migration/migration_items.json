@@ -353,5 +353,15 @@
     "type": "MIGRATION",
     "id": "aztec_spear_stone",
     "replace": "spear_stone"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "disinrag",
+    "replace": "cotton_patchwork"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "disincotton_ball",
+    "replace": "cotton_ball"
   }
 ]

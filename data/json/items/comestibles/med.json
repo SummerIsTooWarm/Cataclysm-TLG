@@ -318,7 +318,7 @@
     "type": "COMESTIBLE",
     "comestible_type": "MED",
     "name": { "str_sp": "hydrogen peroxide" },
-    "description": "Dilute hydrogen peroxide, for use as an antiseptic and for bleaching hair or textiles.  Foams a little when in contact with organic matter, but otherwise harmless.",
+    "description": "Dilute hydrogen peroxide, a liquid sold for household cleaning and first aid, though it's not the most effective antiseptic.  It foams a little when in contact with organic matter, but is otherwise harmless.",
     "weight": "28 g",
     "volume": "250 ml",
     "price": "1 USD",
@@ -329,7 +329,8 @@
     "phase": "liquid",
     "container": "bottle_plastic_small",
     "flags": [ "NO_INGEST", "WATER_DISSOLVE" ],
-    "use_action": { "type": "heal", "disinfectant_power": 4, "bite": 0.95, "move_cost": 2000 }
+    "//": "Works, but is bad as both a disinfectant and for debriding.",
+    "use_action": { "type": "heal", "disinfectant_power": 2, "bite": 0.75, "move_cost": 2000 }
   },
   {
     "id": "skunk_spray_neutralizing_solution",
@@ -930,7 +931,8 @@
     "copy-from": "disinfectant",
     "description": "Makeshift antiseptic made from ethanol.  Can be used to disinfect wounds.",
     "flags": [ "NO_INGEST", "WATER_DISSOLVE" ],
-    "use_action": { "type": "heal", "disinfectant_power": 3, "bite": 0.95, "move_cost": 3000 }
+    "//": "Alcohol cleans the wound but damages tissue, resulting in high bite but low disinfectant_power.",
+    "use_action": { "type": "heal", "disinfectant_power": 2, "bite": 0.85, "move_cost": 3000 }
   },
   {
     "id": "diazepam",
@@ -1333,7 +1335,7 @@
       "type": "heal",
       "disinfectant_power": 1,
       "bleed": 0,
-      "bite": 0.85,
+      "bite": 0.66,
       "move_cost": 2500,
       "effects": [ { "id": "pkill_wintergreen_oil", "duration": "1 h" } ]
     },
@@ -1697,7 +1699,8 @@
     "phase": "liquid",
     "spoils_in": "28 days",
     "flags": [ "NO_INGEST" ],
-    "use_action": { "type": "heal", "disinfectant_power": 3, "bite": 0.95, "move_cost": 3000 }
+    "//": "Herbal products are not especially effective.",
+    "use_action": { "type": "heal", "disinfectant_power": 1, "bite": 0.5, "move_cost": 3000 }
   },
   {
     "id": "tobacco",
@@ -2074,8 +2077,9 @@
     "flags": [ "NO_INGEST", "WATER_DISSOLVE" ],
     "use_action": {
       "type": "heal",
+      "//": "Herbal products are not especially effective.",
       "disinfectant_power": 1,
-      "bite": 0.75,
+      "bite": 0.5,
       "move_cost": 3000,
       "effects": [ { "id": "pkill1_generic", "duration": 720 } ]
     }
