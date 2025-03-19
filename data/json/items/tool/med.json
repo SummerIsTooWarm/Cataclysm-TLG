@@ -144,17 +144,17 @@
     "id": "medical_gauze",
     "type": "GENERIC",
     "category": "drugs",
-    "name": { "str": "adhesive gauze" },
+    "name": { "str": "adhesive gauze bandage" },
     "description": "A palm-sized square of sterile fabric with adhesive tape along the edges, designed for easy application.",
-    "weight": "90 g",
-    "volume": "200 ml",
+    "weight": "760 mg",
+    "volume": "4 ml",
     "price": "3 USD 50 cent",
     "price_postapoc": "2 USD",
     "material": [ "cotton" ],
     "symbol": ",",
     "color": "white",
     "flags": [ "SINGLE_USE", "TINDER" ],
-    "use_action": { "type": "heal", "bandages_power": 3, "bleed": 12, "move_cost": 2000 }
+    "use_action": { "type": "heal", "bandages_power": 3, "bleed": 12, "move_cost": 850 }
   },
   {
     "id": "liq_bandage_spray",
