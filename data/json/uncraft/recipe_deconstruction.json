@@ -3206,6 +3206,21 @@
     "components": [ [ [ "splinter", 3 ], [ "scrap", 4 ] ] ]
   },
   {
+    "result": "street_sign",
+    "type": "uncraft",
+    "activity_level": "MODERATE_EXERCISE",
+    "skill_used": "fabrication",
+    "difficulty": 6,
+    "time": "45 m",
+    "using": [ [ "soldering_standard", 50 ], [ "welding_standard", 5 ] ],
+    "qualities": [ { "id": "WRENCH", "level": 1 }, { "id": "SAW_M", "level": 1 } ],
+    "components": [
+      [ [ "pipe", 3 ] ],
+      [ [ "scrap", 10 ] ],
+      [ [ "nuts_and_bolts", 2 ] ]
+    ]
+  },
+  {
     "result": "motor_large",
     "type": "uncraft",
     "activity_level": "MODERATE_EXERCISE",

@@ -76,7 +76,7 @@
     "color": "brown",
     "techniques": [ "RAPID", "PRECISE" ],
     "flags": [ "NONCONDUCTIVE" ],
-    "weapon_category": [ "FLAILS" ],
+    "weapon_category": [ "FLAILS", "KARATE_WEAPONS" ],
     "melee_damage": { "bash": 19 }
   },
   {
@@ -1196,7 +1196,7 @@
     "techniques": [ "WBLOCK_2", "RAPID", "PRECISE" ],
     "use_action": [ "SHOCKTONFA_OFF" ],
     "flags": [ "DURABLE_MELEE", "NONCONDUCTIVE", "BELT_CLIP" ],
-    "weapon_category": [ "BATONS" ],
+    "weapon_category": [ "BATONS", "KARATE_WEAPONS" ],
     "pocket_data": [
       {
         "pocket_type": "MAGAZINE_WELL",
@@ -1218,7 +1218,7 @@
     "revert_to": "shocktonfa_off",
     "use_action": [ "SHOCKTONFA_ON" ],
     "flags": [ "LIGHT_450", "CHARGEDIM", "DURABLE_MELEE", "TRADER_AVOID", "NONCONDUCTIVE", "BELT_CLIP" ],
-    "weapon_category": [ "BATONS" ]
+    "weapon_category": [ "BATONS", "KARATE_WEAPONS" ]
   },
   {
     "type": "GENERIC",
@@ -1233,7 +1233,7 @@
     "material": [ "plastic" ],
     "techniques": [ "WBLOCK_2", "RAPID", "PRECISE" ],
     "flags": [ "DURABLE_MELEE", "BELT_CLIP" ],
-    "weapon_category": [ "BATONS" ],
+    "weapon_category": [ "BATONS", "KARATE_WEAPONS" ],
     "volume": "2 L",
     "to_hit": { "grip": "weapon", "length": "short", "surface": "any", "balance": "good" },
     "price": "195 USD",
@@ -1252,7 +1252,7 @@
     "material": [ "wood" ],
     "techniques": [ "WBLOCK_2", "RAPID", "PRECISE" ],
     "flags": [ "BELT_CLIP" ],
-    "weapon_category": [ "BATONS" ],
+    "weapon_category": [ "BATONS", "KARATE_WEAPONS" ],
     "volume": "2 L",
     "to_hit": { "grip": "weapon", "length": "short", "surface": "any", "balance": "good" },
     "price": "195 USD",

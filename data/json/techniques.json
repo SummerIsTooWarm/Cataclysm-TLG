@@ -1635,22 +1635,22 @@
   {
     "type": "technique",
     "id": "tec_karate_staff",
-    "name": "Staff Strike",
-    "messages": [ "You strike %s with your staff", "<npcname> strikes %s with their staff!" ],
+    "name": "Strike",
+    "messages": [ "You strike %s", "<npcname> strikes %s" ],
     "skill_requirements": [ { "name": "melee", "level": 3 } ],
     "melee_allowed": true,
-    "weapon_categories_allowed": "QUARTERSTAVES",
+    "weapon_categories_allowed": [ "QUARTERSTAVES", "KARATE_WEAPONS" ],
     "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 } ],
     "attack_vectors": [ "vector_null" ]
   },
   {
     "type": "technique",
     "id": "tec_karate_staff_crit",
-    "name": "Heavy Staff Strike",
-    "messages": [ "You swing your staff hard at %s", "<npcname> swings their staff hard at %s!" ],
+    "name": "Heavy Strike",
+    "messages": [ "You swing hard at %s", "<npcname> swings hard at %s!" ],
     "skill_requirements": [ { "name": "melee", "level": 4 } ],
     "melee_allowed": true,
-    "weapon_categories_allowed": "QUARTERSTAVES",
+    "weapon_categories_allowed": [ "QUARTERSTAVES", "KARATE_WEAPONS" ],
     "crit_tec": true,
     "condition": {
       "and": [

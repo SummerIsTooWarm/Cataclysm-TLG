@@ -159,5 +159,10 @@
     "id": "HAND_AXES",
     "name": "HAND AXES",
     "proficiencies": [ "prof_hand_axes_familiar", "prof_hand_axes_pro", "prof_hand_axes_master" ]
+  },
+  {
+    "type": "weapon_category",
+    "id": "KARATE_WEAPONS",
+    "name": "KARATE WEAPONS"
   }
 ]
