@@ -77,7 +77,7 @@
     "techniques": [ "RAPID", "PRECISE" ],
     "flags": [ "NONCONDUCTIVE" ],
     "weapon_category": [ "FLAILS" ],
-    "melee_damage": { "bash": 15 }
+    "melee_damage": { "bash": 19 }
   },
   {
     "type": "GENERIC",
@@ -85,7 +85,7 @@
     "category": "weapons",
     "name": { "str": "chain whip" },
     "description": "A long spool of chain with a steel weight at one end.  What a terrible night it'll be for anyone who gets hit by this thing.",
-    "weight": "3400 g",
+    "weight": "1850 g",
     "color": "dark_gray",
     "symbol": "/",
     "material": [ "steel" ],
@@ -95,7 +95,7 @@
     "price": "30 USD",
     "flags": [ "ALWAYS_TWOHAND", "REACH_ATTACK", "WHIP", "DURABLE_MELEE" ],
     "price_postapoc": "75 cent",
-    "melee_damage": { "bash": 19 }
+    "melee_damage": { "bash": 22 }
   },
   {
     "type": "GENERIC",
@@ -110,7 +110,7 @@
     "symbol": "/",
     "material": [ { "type": "wood", "portion": 9 }, { "type": "iron", "portion": 1 } ],
     "weapon_category": [ "BLUDGEONS" ],
-    "techniques": [ "WBLOCK_1", "WIDE", "BRUTAL", "SWEEP" ],
+    "techniques": [ "WBLOCK_2", "WIDE", "BRUTAL", "SWEEP" ],
     "qualities": [ [ "HAMMER", 1 ] ],
     "flags": [ "DURABLE_MELEE", "SHEATH_SPEAR", "ALWAYS_TWOHAND", "NONCONDUCTIVE" ],
     "volume": "2700 ml",
@@ -213,7 +213,7 @@
     "weapon_category": [ "BATONS" ],
     "use_action": { "menu_text": "Collapse", "type": "transform", "target": "baton", "msg": "You collapse your baton." },
     "price": "229 USD",
-    "melee_damage": { "bash": 12 }
+    "melee_damage": { "bash": 11 }
   },
   {
     "id": "battleaxe",

@@ -376,8 +376,8 @@
     "id": "chain",
     "category": "spare_parts",
     "name": { "str": "steel chain" },
-    "description": "A heavy steel chain.  Useful as a weapon, or for crafting.  It has a chance to wrap around your target, allowing for a bonus unarmed attack.",
-    "weight": "2400 g",
+    "description": "A length of steel chain.  Useful as a weapon, or for crafting.  It has a chance to wrap around your target, allowing for a bonus unarmed attack.",
+    "weight": "1400 g",
     "color": "dark_gray",
     "symbol": "/",
     "material": [ "steel" ],
@@ -388,7 +388,7 @@
     "price": "20 USD",
     "qualities": [ [ "ROPE", 2 ] ],
     "price_postapoc": "50 cent",
-    "melee_damage": { "bash": 16 }
+    "melee_damage": { "bash": 19 }
   },
   {
     "type": "GENERIC",
