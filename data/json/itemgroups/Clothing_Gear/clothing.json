@@ -926,6 +926,10 @@
       [ "martial_arts_belt", 120 ],
       [ "kimono", 2 ],
       [ "mouthpiece", 15 ],
+      [ "nunchaku", 4 ],
+      [ "bokken", 4 ],
+      [ "rope_dart", 2 ],
+      [ "jian", 1 ],
       [ "geta", 1 ],
       [ "haori", 1 ]
     ]
