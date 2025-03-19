@@ -1634,7 +1634,7 @@
   },
   {
     "type": "technique",
-    "id": "tec_karate_staff",
+    "id": "tec_karate_weapon",
     "name": "Strike",
     "messages": [ "You strike %s", "<npcname> strikes %s" ],
     "skill_requirements": [ { "name": "melee", "level": 3 } ],
@@ -1645,7 +1645,7 @@
   },
   {
     "type": "technique",
-    "id": "tec_karate_staff_crit",
+    "id": "tec_karate_weapon_crit",
     "name": "Heavy Strike",
     "messages": [ "You swing hard at %s", "<npcname> swings hard at %s!" ],
     "skill_requirements": [ { "name": "melee", "level": 4 } ],

@@ -737,8 +737,8 @@
         "mult_bonuses": [ { "stat": "movecost", "scale": 0.9 } ]
       }
     ],
-    "techniques": [ "tec_karate_rapid", "tec_karate_precise", "tec_karate_roundhouse", "tec_karate_staff", "tec_karate_staff_crit" ],
-    "weapon_category": [ "QUARTERSTAVES" ]
+    "techniques": [ "tec_karate_rapid", "tec_karate_precise", "tec_karate_roundhouse", "tec_karate_weapon", "tec_karate_weapon_crit" ],
+    "weapon_category": [ "QUARTERSTAVES", "KARATE_WEAPONS" ]
   },
   {
     "type": "martial_art",
