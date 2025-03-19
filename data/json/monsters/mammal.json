@@ -815,7 +815,6 @@
     "name": { "str": "attack dog", "str_pl": "attack dogs" },
     "description": "This average-sized dog has clearly had some training.  It is toned and attentive, and seems likely to respond with aggression.",
     "hp": 50,
-    "weight": "25 kg",
     "speed": 140,
     "aggression": 4,
     "morale": 20,
