@@ -162,7 +162,22 @@
   },
   {
     "type": "weapon_category",
+    "id": "WHIPS",
+    "name": "WHIPS"
+  },
+  {
+    "type": "weapon_category",
     "id": "KARATE_WEAPONS",
     "name": "KARATE WEAPONS"
+  },
+  {
+    "type": "weapon_category",
+    "id": "NINJUTSU_WEAPONS",
+    "name": "NINJUTSU WEAPONS"
+  },
+  {
+    "type": "weapon_category",
+    "id": "KUNG_FU_WEAPONS",
+    "name": "KUNG FU WEAPONS"
   }
 ]
