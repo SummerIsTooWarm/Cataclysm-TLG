@@ -3623,10 +3623,10 @@
     "melee_allowed": true,
     "reach_tec": true,
     "mult_bonuses": [
-      { "stat": "movecost", "scale": 0.5 },
-      { "stat": "damage", "type": "bash", "scale": 0.66 },
-      { "stat": "damage", "type": "cut", "scale": 0.66 },
-      { "stat": "damage", "type": "stab", "scale": 0.66 }
+      { "stat": "movecost", "scale": 0.75 },
+      { "stat": "damage", "type": "bash", "scale": 0.8 },
+      { "stat": "damage", "type": "cut", "scale": 0.8 },
+      { "stat": "damage", "type": "stab", "scale": 0.8 }
     ],
     "attack_vectors": [ "vector_null" ]
   },
