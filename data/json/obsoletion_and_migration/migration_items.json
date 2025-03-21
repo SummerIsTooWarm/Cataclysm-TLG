@@ -241,8 +241,8 @@
   },
   {
     "type": "MIGRATION",
-    "id": "hammer_sledge_short",
-    "replace": "hammer_sledge_engineer"
+    "id": "hammer_sledge_heavy",
+    "replace": "hammer_sledge"
   },
   {
     "type": "MIGRATION",
@@ -525,15 +525,5 @@
     "type": "MIGRATION",
     "id": "heavy_crowbar",
     "replace": "crowbar"
-  },
-  {
-    "type": "MIGRATION",
-    "id": "integrated_chitin3",
-    "replace": "integrated_chitin2"
-  },
-  {
-    "type": "MIGRATION",
-    "id": "integrated_chitin3_claws",
-    "replace": "integrated_claws"
   }
 ]
