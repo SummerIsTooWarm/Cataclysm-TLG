@@ -68,7 +68,7 @@
     "description": "You are wearing night vision goggles which allow you to see in the dark.",
     "condition": "ACTIVE",
     "has": "WORN",
-    "values": [ { "value": "NIGHT_VIS", "add": 14 } ]
+    "values": [ { "value": "NIGHT_VIS", "add": 13 } ]
   },
   {
     "type": "enchantment",

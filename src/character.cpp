@@ -2813,7 +2813,7 @@ float Character::get_vision_threshold( float light_level ) const
 
     // bionic night vision and other old night vision flagged items
     if( worn_with_flag( flag_GNV_EFFECT ) || has_flag( json_flag_NIGHT_VISION ) ) {
-        range += 14;
+        range += 15;
     } else {
         range = enchantment_cache->modify_value( enchant_vals::mod::NIGHT_VIS, range );
     }
