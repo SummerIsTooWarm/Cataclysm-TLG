@@ -520,5 +520,10 @@
     "id": "checkered_pants",
     "replace": "pants_costume",
     "variant": "checkered_pants"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "heavy_crowbar",
+    "replace": "crowbar"
   }
 ]
