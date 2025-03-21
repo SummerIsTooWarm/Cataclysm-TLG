@@ -628,19 +628,20 @@
       [ "bondage_suit", 5 ],
       { "item": "bodysuit_lycra", "variant": "bondage_suit", "prob": 5 },
       [ "vampire_fangs", 5 ],
-      [ "cloak_costume", 5 ],
+      { "item": "cape_costume", "variant": "vampire_cape", "prob": 2 },
+      { "item": "cloak", "prob": 2 },
       { "group": "costume_jewelry_dark", "prob": 20 },
       { "group": "costume_jewelry_vampire", "prob": 20 },
       { "item": "cane_toy", "prob": 5 },
-      [ "robe_wizard", 4 ],
+      { "item": "cloak_costume", "variant": "wizard_cloak", "prob": 2 },
       [ "grim_reaper_robe", 4 ],
       [ "scythe_toy", 4 ],
-      [ "witch_dress_long", 2 ],
-      [ "sinister_gown", 2 ],
-      [ "sinister_dress", 2 ],
+      { "item": "dress_costume", "variant": "sinister_dress", "prob": 2 },
+      { "item": "dress_costume_skimpy", "variant": "gothic_dress", "prob": 2 },
+      { "item": "dress_costume_skimpy", "variant": "nurse_dress", "prob": 1 },
+      { "item": "dress_costume_skimpy", "variant": "police_dress", "prob": 1 },
       [ "mask_skull", 2 ],
-      [ "mummy_dress", 2 ],
-      [ "mummy_jumpsuit", 2 ]
+      { "item": "jumpsuit_long", "variant": "mummy_suit", "prob": 2 }
     ]
   },
   {
@@ -699,9 +700,9 @@
       [ "santa_dress", 10 ],
       [ "santa_dress_short", 15 ],
       [ "cheerleader_dress", 5 ],
-      [ "sinister_dress_short", 5 ],
-      [ "witch_dress_short", 5 ],
-      [ "maid_dress_short", 25 ],
+      { "item": "dress_costume_skimpy", "variant": "gothic_dress", "prob": 5 },
+      { "item": "dress_costume_skimpy", "variant": "maid_dress", "prob": 25 },
+      { "item": "dress_costume_skimpy", "prob": 10 },
       { "item": "waist_apron_short", "prob": 15 },
       [ "apron_leather", 20 ],
       { "item": "cane_toy", "prob": 1 }
@@ -1329,7 +1330,7 @@
     "items": [
       [ "jeans", 90 ],
       [ "jeans_skinny", 30 ],
-      [ "pants_checkered", 5 ],
+      { "item": "pants_costume", "variant": "pants_checkered", "prob": 2 },
       [ "shorts", 70 ],
       [ "shorts_denim", 35 ],
       [ "pants", 75 ],
@@ -1415,9 +1416,8 @@
       [ "corset_waist", 10 ],
       [ "halter_top", 50 ],
       [ "santa_dress_long", 1 ],
-      [ "sinister_dress", 1 ],
-      [ "sinister_gown", 1 ],
-      [ "witch_dress_long", 1 ]
+      { "item": "dress_costume", "variant": "sinister_dress", "prob": 2 },
+      { "item": "dress_costume_skimpy", "variant": "gothic_dress", "prob": 2 }
     ]
   },
   {
@@ -1427,32 +1427,32 @@
     "items": [
       { "item": "jeans", "prob": 90, "damage": [ 1, 3 ] },
       { "item": "jeans_skinny", "prob": 30, "damage": [ 1, 3 ] },
-      [ "pants_checkered", 5 ],
+      { "item": "pants_costume", "variant": "pants_checkered", "prob": 2, "damage": [ 0, 1 ] },
       [ "shorts", 70 ],
-      { "item": "shorts_denim", "prob": 35, "damage": [ 1, 3 ] },
-      { "item": "pants_leather", "prob": 35, "damage": [ 1, 3 ] },
-      { "item": "pants_cargo", "prob": 70, "damage": [ 1, 3 ] },
-      { "item": "shorts_cargo", "prob": 50, "damage": [ 1, 3 ] },
+      { "item": "shorts_denim", "prob": 35, "damage": [ 0, 3 ] },
+      { "item": "pants_leather", "prob": 35, "damage": [ 0, 3 ] },
+      { "item": "pants_cargo", "prob": 70, "damage": [ 0, 3 ] },
+      { "item": "shorts_cargo", "prob": 50, "damage": [ 0, 3 ] },
       [ "skirt_leather", 10 ],
       [ "tshirt", 70 ],
       [ "tank_top", 50 ],
       [ "hoodie", 90 ],
       [ "jacket_light", 20 ],
       [ "jacket_varsity", 10 ],
-      { "item": "jacket_jean", "prob": 50, "damage": [ 1, 3 ] },
-      { "item": "vest_jean", "prob": 20, "damage": [ 1, 3 ] },
-      { "item": "jacket_leather", "prob": 50, "damage": [ 1, 3 ] },
-      { "item": "tacjacket", "prob": 75 },
+      { "item": "jacket_jean", "prob": 50, "damage": [ 0, 3 ] },
+      { "item": "vest_jean", "prob": 20, "damage": [ 0, 3 ] },
+      { "item": "jacket_leather", "prob": 50, "damage": [ 0, 3 ] },
+      { "item": "tacjacket", "prob": 75, "damage": [ 0, 3 ] },
       [ "bandana", 35 ],
       [ "hat_cotton", 45 ],
       [ "hat_knit", 25 ],
-      { "item": "tights", "prob": 30, "damage": [ 1, 3 ] },
-      { "item": "leggings", "prob": 30, "damage": [ 1, 3 ] },
-      { "item": "stockings", "prob": 30, "damage": [ 1, 3 ] },
-      { "item": "garter_belt", "prob": 15, "damage": [ 1, 3 ] },
+      { "item": "tights", "prob": 30, "damage": [ 0, 3 ] },
+      { "item": "leggings", "prob": 30, "damage": [ 0, 3 ] },
+      { "item": "stockings", "prob": 30, "damage": [ 0, 3 ] },
+      { "item": "garter_belt", "prob": 15, "damage": [ 0, 3 ] },
       [ "balaclava", 15 ],
       [ "union_suit", 20 ],
-      { "item": "sleeveless_longcoat", "prob": 30, "damage": [ 1, 3 ] },
+      { "item": "sleeveless_longcoat", "prob": 30, "damage": [ 0, 3 ] },
       [ "house_coat", 25 ],
       [ "jedi_cloak", 1 ],
       [ "apron_leather", 1 ],
@@ -1471,7 +1471,7 @@
       [ "halter_top", 50 ],
       [ "nanoskirt", 40 ],
       [ "ear_spool", 30 ],
-      { "item": "straw_fedora", "prob": 5, "damage": [ 1, 3 ] }
+      { "item": "straw_fedora", "prob": 5, "damage": [ 0, 3 ] }
     ]
   },
   {
@@ -1517,11 +1517,7 @@
       [ "coat_faux_fur", 4 ],
       [ "coat_fur", 4 ],
       [ "gloves_fur", 4 ],
-      [ "boots_fur", 4 ],
-      [ "santa_dress_long", 3 ],
-      [ "sinister_dress", 3 ],
-      [ "sinister_gown", 4 ],
-      [ "witch_dress_long", 2 ]
+      [ "boots_fur", 4 ]
     ]
   },
   {
@@ -1529,14 +1525,13 @@
     "type": "item_group",
     "subtype": "distribution",
     "items": [
-      [ "maid_dress", 70 ],
-      [ "maid_dress_short", 30 ],
+      { "item": "dress_costume_skimpy", "variant": "maid_dress", "prob": 65 },
       [ "maid_hat", 90 ],
       [ "suit", 80 ],
       [ "pocketwatch", 30 ],
       [ "jeans", 20 ],
       [ "jeans_skinny", 5 ],
-      [ "pants_checkered", 50 ],
+      { "item": "pants_costume", "variant": "pants_checkered", "prob": 20 },
       [ "hat_chef", 50 ],
       [ "jacket_chef", 50 ],
       [ "apron_cotton", 50 ],
@@ -1627,7 +1622,7 @@
     "id": "mansion_maid_dress",
     "type": "item_group",
     "subtype": "distribution",
-    "items": [ [ "maid_dress", 80 ], [ "maid_dress_short", 20 ] ]
+    "items": [ { "item": "dress_costume_skimpy", "variant": "maid_dress", "prob": 25 } ]
   },
   {
     "id": "gear_butler",

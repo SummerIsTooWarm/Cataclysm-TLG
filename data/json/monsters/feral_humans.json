@@ -713,7 +713,7 @@
     "special_attacks": [
       [ "PARROT", 200 ],
       [ "BLOW_WHISTLE", 25 ],
-      { "id": "feral_weapon_PR24" },
+      { "id": "feral_weapon_baton" },
       { "id": "feral_unarmed" },
       [ "BROWSE", 100 ],
       [ "EAT_FOOD", 100 ]

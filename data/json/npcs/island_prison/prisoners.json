@@ -67,8 +67,8 @@
     "entries": [
       { "group": "male_underwear" },
       { "distribution": [ { "group": "clothing_prisoner_shoes" }, { "group": "cop_shoes" } ] },
-      { "distribution": [ { "item": "striped_shirt" }, { "group": "cop_torso" } ] },
-      { "distribution": [ { "item": "striped_pants" }, { "group": "cop_pants" } ] },
+      { "distribution": [ { "item": "longshirt_costume", "variant": "shirt_striped" }, { "group": "cop_torso" } ] },
+      { "distribution": [ { "item": "pants_costume", "variant": "pants_striped" }, { "group": "cop_pants" } ] },
       { "distribution": [ { "item": "tacvest" }, { "item": "kevlar" } ], "prob": 15 },
       { "group": "socks_unisex" },
       { "group": "cop_gloves", "prob": 20 },
@@ -83,7 +83,6 @@
     "id": "NC_THUG_PRISONER_wield",
     "items": [
       [ "baton-extended", 50 ],
-      [ "PR24-retracted", 50 ],
       [ "knife_steak", 30 ],
       [ "knife_chef", 30 ],
       [ "knife_paring", 30 ],

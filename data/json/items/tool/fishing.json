@@ -126,7 +126,7 @@
     ],
     "symbol": "/",
     "color": "blue",
-    "looks_like": "PR24-extended",
+    "looks_like": "baton-extended",
     "flags": [ "SHEATH_SPEAR" ],
     "use_action": {
       "menu_text": "Assemble",

@@ -814,6 +814,36 @@
     "using": [ [ "sewing_standard", 30 ], [ "tailoring_cotton_patchwork", 30 ] ]
   },
   {
+    "result": "jumpsuit_long",
+    "type": "recipe",
+    "variant": "standard",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_ARMOR",
+    "subcategory": "CSC_ARMOR_SUIT",
+    "skill_used": "tailor",
+    "difficulty": 2,
+    "time": "60 m",
+    "reversible": { "time": "40 m" },
+    "book_learn": [ [ "textbook_tailor", 4 ], [ "manual_tailor", 5 ], [ "tailor_portfolio", 4 ] ],
+    "using": [ [ "sewing_standard", 24 ], [ "tailoring_cotton_patchwork", 26 ] ]
+  },
+  {
+    "result": "jumpsuit_long_xs",
+    "type": "recipe",
+    "variant": "standard",
+    "copy-from": "jumpsuit",
+    "time": "58 m",
+    "using": [ [ "sewing_standard", 17 ], [ "tailoring_cotton_patchwork", 20 ] ]
+  },
+  {
+    "result": "jumpsuit_long_xl",
+    "type": "recipe",
+    "variant": "standard",
+    "copy-from": "jumpsuit",
+    "time": "80 m",
+    "using": [ [ "sewing_standard", 36 ], [ "tailoring_cotton_patchwork", 34 ] ]
+  },
+  {
     "result": "technician_coveralls",
     "type": "recipe",
     "activity_level": "LIGHT_EXERCISE",

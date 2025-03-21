@@ -350,15 +350,15 @@
     "looks_like": "longshirt",
     "color": "white",
     "armor": [
-      { "covers": [ "torso" ], "coverage": 90, "encumbrance": [ 4, 5 ] },
-      { "covers": [ "arm_l", "arm_r" ], "coverage": 90, "encumbrance": [ 4, 4 ] }
+      { "covers": [ "torso" ], "coverage": 98, "encumbrance": [ 4, 5 ] },
+      { "covers": [ "arm_l", "arm_r" ], "coverage": 98, "encumbrance": [ 4, 4 ] }
     ],
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "350 ml",
-        "max_contains_weight": "2 kg",
-        "max_item_length": "9 cm",
+        "max_contains_volume": "450 ml",
+        "max_contains_weight": "1 kg",
+        "max_item_length": "12 cm",
         "moves": 80
       }
     ],
@@ -573,174 +573,22 @@
     "warmth": 5,
     "material_thickness": 0.1,
     "flags": [ "VARSIZE", "SKINTIGHT" ],
-    "armor": [ { "coverage": 90, "covers": [ "torso", "arm_l", "arm_r" ] } ]
+    "armor": [ { "coverage": 98, "covers": [ "torso", "arm_l", "arm_r" ] } ]
   },
   {
-    "id": "maid_dress",
+    "id": "longshirt_costume",
     "type": "ARMOR",
-    "name": { "str_sp": "maid uniform" },
-    "description": "A French maid dress, blue with a frilly white apron.",
-    "weight": "250 g",
-    "volume": "250 ml",
-    "price": "50 USD",
-    "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
-    "symbol": "[",
-    "looks_like": "dress",
-    "color": "blue",
-    "armor": [
-      { "covers": [ "torso" ], "coverage": 100, "encumbrance": [ 5, 7 ] },
-      { "covers": [ "leg_l", "leg_r" ], "coverage": 95, "encumbrance": [ 5, 5 ] },
-      { "covers": [ "arm_l", "arm_r" ], "coverage": 95, "encumbrance": [ 5, 5 ] }
-    ],
-    "pocket_data": [
+    "name": { "str_sp": "long-sleeved shirt" },
+    "description": "A long-sleeved cotton shirt.",
+    "copy-from": "longshirt",
+    "variant_type": "generic",
+    "variants": [
       {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "500 ml",
-        "max_contains_weight": "3 kg",
-        "max_item_length": "10 cm",
-        "moves": 80
-      },
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "200 ml",
-        "max_contains_weight": "1 kg",
-        "max_item_length": "15 cm",
-        "moves": 120,
-        "description": "Hidden pocket."
+        "id": "shirt_striped",
+        "name": { "str": "striped shirt" },
+        "description": "A long-sleeved shirt with horizontal black and white stripes.",
+        "color": "light_gray"
       }
-    ],
-    "warmth": 10,
-    "material_thickness": 0.1,
-    "flags": [ "VARSIZE" ]
-  },
-  {
-    "id": "maid_dress_short",
-    "type": "ARMOR",
-    "name": { "str_sp": "short French maid clothes" },
-    "description": "A French maid dress, black with a frilly white apron.  This version is much lighter and shorter than normal.",
-    "weight": "150 g",
-    "volume": "250 ml",
-    "price": "50 USD",
-    "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
-    "symbol": "[",
-    "looks_like": "maid_dress",
-    "color": "dark_gray",
-    "armor": [
-      { "covers": [ "torso" ], "specifically_covers": [ "torso_lower" ], "coverage": 100, "encumbrance": 4 },
-      { "covers": [ "torso" ], "specifically_covers": [ "torso_upper" ], "coverage": 20 },
-      {
-        "covers": [ "leg_l", "leg_r" ],
-        "specifically_covers": [ "leg_hip_l", "leg_hip_r" ],
-        "coverage": 100,
-        "encumbrance": 2
-      },
-      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 50 },
-      {
-        "covers": [ "arm_l", "arm_r" ],
-        "specifically_covers": [ "arm_shoulder_l", "arm_shoulder_r" ],
-        "coverage": 15,
-        "encumbrance": 2
-      }
-    ],
-    "pocket_data": [
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "200 ml",
-        "max_contains_weight": "1 kg",
-        "max_item_length": "15 cm",
-        "moves": 120,
-        "description": "Hidden pocket."
-      }
-    ],
-    "warmth": 2,
-    "material_thickness": 0.1,
-    "flags": [ "VARSIZE" ]
-  },
-  {
-    "id": "mummy_dress",
-    "type": "ARMOR",
-    "name": { "str": "mummy dress", "str_pl": "mummy dresses" },
-    "description": "A short off-white dress printed to look like the tattered wrappings of an ancient mummy.  Very easy to move in, but it doesn't offer any type of protection.",
-    "weight": "10 g",
-    "volume": "2000 ml",
-    "price": "50 USD",
-    "price_postapoc": "10 cent",
-    "material": [ "cotton" ],
-    "symbol": "[",
-    "looks_like": "dress",
-    "color": "white",
-    "armor": [
-      { "covers": [ "torso" ], "coverage": 90 },
-      { "covers": [ "arm_l", "arm_r" ], "coverage": 85 },
-      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_hip_l", "leg_hip_r" ], "coverage": 100 },
-      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 40 }
-    ],
-    "material_thickness": 0.1,
-    "flags": [ "VARSIZE", "SKINTIGHT", "FRAGILE" ]
-  },
-  {
-    "id": "ninja_dress",
-    "type": "ARMOR",
-    "name": { "str": "ninja dress", "str_pl": "ninja dresses" },
-    "description": {
-      "str": "A short black and red sleeved dress with oriental dragon motifs printed on it.  Perfect for the kunoichi that wants a little more style."
-    },
-    "weight": "440 g",
-    "volume": "2250 ml",
-    "price": "160 USD",
-    "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
-    "symbol": "[",
-    "looks_like": "sundress",
-    "color": "dark_gray",
-    "warmth": 5,
-    "material_thickness": 0.2,
-    "flags": [ "VARSIZE" ],
-    "armor": [
-      { "covers": [ "torso", "arm_l", "arm_r" ], "coverage": 85, "encumbrance": 4 },
-      {
-        "covers": [ "leg_l", "leg_r" ],
-        "specifically_covers": [ "leg_hip_l", "leg_hip_r" ],
-        "coverage": 100,
-        "encumbrance": 2
-      },
-      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 40 }
-    ]
-  },
-  {
-    "id": "ninja_dress_sleeveless",
-    "type": "ARMOR",
-    "name": { "str": "ninja sleeveless dress", "str_pl": "ninja sleeveless dresses" },
-    "description": {
-      "str": "A short black and red dress with oriental dragon motifs printed on it.  Perfect for the kunoichi that wants a little more style."
-    },
-    "weight": "408 g",
-    "volume": "2000 ml",
-    "price": "160 USD",
-    "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
-    "symbol": "[",
-    "looks_like": "sundress",
-    "color": "dark_gray",
-    "warmth": 5,
-    "material_thickness": 0.2,
-    "flags": [ "VARSIZE" ],
-    "armor": [
-      { "covers": [ "torso" ], "coverage": 85, "encumbrance": 4 },
-      {
-        "covers": [ "arm_l", "arm_r" ],
-        "specifically_covers": [ "arm_shoulder_l", "arm_shoulder_r" ],
-        "coverage": 80
-      },
-      {
-        "covers": [ "leg_l", "leg_r" ],
-        "specifically_covers": [ "leg_hip_l", "leg_hip_r" ],
-        "coverage": 100,
-        "encumbrance": 2
-      },
-      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 40 }
     ]
   },
   {
@@ -767,6 +615,15 @@
         "specifically_covers": [ "arm_shoulder_l", "arm_shoulder_r" ]
       },
       { "coverage": 50, "covers": [ "arm_l", "arm_r" ], "specifically_covers": [ "arm_upper_l", "arm_upper_r" ] }
+    ],
+    "pocket_data": [
+      {
+        "pocket_type": "CONTAINER",
+        "max_contains_volume": "450 ml",
+        "max_contains_weight": "1 kg",
+        "max_item_length": "12 cm",
+        "moves": 80
+      }
     ]
   },
   {
@@ -785,16 +642,16 @@
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "800 ml",
-        "max_contains_weight": "3 kg",
-        "max_item_length": "15 cm",
+        "max_contains_volume": "450 ml",
+        "max_contains_weight": "1 kg",
+        "max_item_length": "12 cm",
         "moves": 80
       },
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "800 ml",
-        "max_contains_weight": "3 kg",
-        "max_item_length": "15 cm",
+        "max_contains_volume": "450 ml",
+        "max_contains_weight": "1 kg",
+        "max_item_length": "12 cm",
         "moves": 80
       }
     ],
@@ -904,10 +761,10 @@
     ]
   },
   {
-    "id": "sheriffshirt",
+    "id": "shirt_western",
     "type": "ARMOR",
-    "name": { "str": "snap front shirt" },
-    "description": "A long-sleeved shirt with snap buttons down the front.",
+    "name": { "str": "western shirt" },
+    "description": "A long-sleeved shirt with snap buttons down the front, a style traditionally associated with the Old West.",
     "weight": "250 g",
     "volume": "750 ml",
     "price": "11 USD",
@@ -915,22 +772,29 @@
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "dress_shirt",
-    "color": "light_gray",
+    "color": "brown",
     "armor": [
-      { "covers": [ "torso" ], "coverage": 90, "encumbrance": [ 6, 8 ] },
-      { "covers": [ "arm_l", "arm_r" ], "coverage": 90, "encumbrance": [ 6, 6 ] }
+      { "covers": [ "torso" ], "coverage": 98, "encumbrance": [ 6, 8 ] },
+      { "covers": [ "arm_l", "arm_r" ], "coverage": 98, "encumbrance": [ 6, 6 ] }
     ],
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "650 ml",
-        "max_contains_weight": "3 kg",
-        "max_item_length": "15 cm",
+        "max_contains_volume": "450 ml",
+        "max_contains_weight": "1 kg",
+        "max_item_length": "12 cm",
+        "moves": 80
+      },
+      {
+        "pocket_type": "CONTAINER",
+        "max_contains_volume": "450 ml",
+        "max_contains_weight": "1 kg",
+        "max_item_length": "12 cm",
         "moves": 80
       }
     ],
     "warmth": 10,
-    "material_thickness": 0.2,
+    "material_thickness": 0.3,
     "flags": [ "VARSIZE" ]
   },
   {
@@ -960,40 +824,61 @@
     "flags": [ "VARSIZE" ]
   },
   {
-    "id": "sinister_dress",
+    "id": "dress_costume",
     "type": "ARMOR",
-    "name": { "str": "sinister dress", "str_pl": "sinister dresses" },
-    "description": { "str": "A long black and red dress with full sleeves, a collar, and embroidery reminiscent of a vampire duchess." },
+    "name": { "str": "costume dress", "str_pl": "costume dresses" },
+    "description": { "str": "A long-sleeved gown made of cheap costumey material." },
     "weight": "800 g",
     "volume": "3500 ml",
     "price": "180 USD",
     "price_postapoc": "60 cent",
-    "material": [ "cotton" ],
+    "material": [ "lycra" ],
     "symbol": "[",
     "looks_like": "dress",
     "color": "dark_gray",
     "warmth": 10,
     "material_thickness": 0.2,
-    "flags": [ "VARSIZE", "COLLAR" ],
+    "flags": [ "VARSIZE" ],
     "armor": [
-      { "covers": [ "torso", "arm_l", "arm_r" ], "coverage": 95, "encumbrance": 7 },
-      { "covers": [ "leg_l", "leg_r" ], "coverage": 100, "encumbrance": 7 }
+      { "covers": [ "torso" ], "coverage": 80, "encumbrance": 6 },
+      { "covers": [ "leg_l", "leg_r" ], "coverage": 90, "encumbrance": 8 }
+    ],
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "sinister_dress",
+        "name": { "str": "sinister gown" },
+        "description": "A sleeveless gown in a dramatic gothic style - part of a halloween costume, or maybe a piece of clubwear.",
+        "color": "dark_gray"
+      },
+      {
+        "id": "princess_dress",
+        "name": { "str": "princess dress" },
+        "description": "A pink and white dress made of gauzy tulle, a perfect costume for a princess.",
+        "color": "light_red"
+      },
+      {
+        "id": "elven_dress",
+        "name": { "str": "elven gown" },
+        "description": "This sleeveless gown is made of a plush green material, a costume imitation of velvet.",
+        "color": "green"
+      }
     ]
   },
   {
-    "id": "sinister_dress_short",
+    "id": "dress_costume_skimpy",
     "type": "ARMOR",
-    "name": { "str": "short sinister dress", "str_pl": "short sinister dresses" },
-    "description": { "str": "A short red dress made in gothic lolita fashion." },
+    "name": { "str": "skimpy costume dress", "str_pl": "skimpy costume dresses" },
+    "description": { "str": "A scandalously short dress, the sort of thing young women wear for halloween." },
     "weight": "600 g",
     "volume": "2000 ml",
     "price": "160 USD",
     "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
+    "material": [ "lycra" ],
     "symbol": "[",
     "looks_like": "sundress",
     "color": "red",
-    "warmth": 8,
+    "warmth": 4,
     "material_thickness": 0.2,
     "flags": [ "VARSIZE" ],
     "armor": [
@@ -1001,7 +886,7 @@
       {
         "covers": [ "arm_l", "arm_r" ],
         "specifically_covers": [ "arm_shoulder_l", "arm_shoulder_r" ],
-        "coverage": 100,
+        "coverage": 80,
         "encumbrance": 2
       },
       {
@@ -1010,48 +895,46 @@
         "coverage": 100,
         "encumbrance": 4
       },
-      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 80 }
+      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 40 }
+    ],
+    "variants": [
+      {
+        "id": "pirate_dress",
+        "name": { "str": "skimpy pirate dress" },
+        "description": "A teeny tiny little dress festooned with lace and frills.  It sort of looks like stereotypical pirate's garb.",
+        "color": "red"
+      },
+      {
+        "id": "police_dress",
+        "name": { "str": "sexy cop costume" },
+        "description": "This dangerously short dress is made to resemble a police uniform, though the badge is merely embroidered on.",
+        "color": "light_blue"
+      },
+      {
+        "id": "maid_dress",
+        "name": { "str": "French maid outfit" },
+        "description": "A kinky little number consisting of a black bodice and miniskirt fluffed up with white lace and tulle.  It's a lot sexier than what an actual housekeeper would wear.",
+        "color": "dark_gray"
+      },
+      {
+        "id": "nurse_dress",
+        "name": { "str": "nurse costume" },
+        "description": "This skimpy white dress looks like the sort of thing only a particularly naughty nurse might wear.  Normally nurses just wear scrubs.",
+        "color": "light_gray"
+      },
+      {
+        "id": "gothic_dress",
+        "name": { "str": "gothic dress" },
+        "description": "A lacy red and black mini dress in a cutesy gothic style.",
+        "color": "dark_gray"
+      },
+      {
+        "id": "bee_dress",
+        "name": { "str": "sexy bee dress" },
+        "description": "A skimpy dress striped in yellow and black to invoke the image of a honey bee.",
+        "color": "yellow"
+      }
     ]
-  },
-  {
-    "id": "sinister_gown",
-    "type": "ARMOR",
-    "name": { "str": "sinister gown" },
-    "description": "A red and black gown with full sleeves.  It has a gothic style and looks pretty luxurious.",
-    "weight": "2499 g",
-    "volume": "5 L",
-    "price": "210 USD",
-    "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
-    "symbol": "[",
-    "looks_like": "gown",
-    "color": "light_red",
-    "warmth": 12,
-    "material_thickness": 0.3,
-    "flags": [ "VARSIZE" ],
-    "armor": [
-      { "covers": [ "torso" ], "coverage": 85, "encumbrance": 8 },
-      { "covers": [ "arm_l", "arm_r" ], "coverage": 100, "encumbrance": 8 },
-      { "covers": [ "leg_l", "leg_r" ], "coverage": 100, "encumbrance": 14 }
-    ]
-  },
-  {
-    "id": "striped_shirt",
-    "type": "ARMOR",
-    "name": { "str": "striped shirt" },
-    "description": "A long-sleeved shirt with horizontal black and white stripes.",
-    "weight": "146 g",
-    "volume": "750 ml",
-    "price": "5 USD",
-    "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
-    "symbol": "[",
-    "looks_like": "longshirt",
-    "color": "white",
-    "warmth": 5,
-    "material_thickness": 0.2,
-    "flags": [ "VARSIZE" ],
-    "armor": [ { "encumbrance": 12, "coverage": 90, "covers": [ "torso", "arm_l", "arm_r" ] } ]
   },
   {
     "id": "sundress",
@@ -1268,99 +1151,6 @@
     "environmental_protection": 1,
     "flags": [ "VARSIZE", "POCKETS", "OUTER" ],
     "armor": [ { "encumbrance": [ 20, 22 ], "coverage": 95, "covers": [ "torso" ] } ]
-  },
-  {
-    "id": "witch_dress",
-    "type": "ARMOR",
-    "name": { "str": "witch dress", "str_pl": "witch dresses" },
-    "description": { "str": "A dress with full sleeves and pointed cuts at the edges.  Perfect for Halloween." },
-    "weight": "258 g",
-    "volume": "1500 ml",
-    "price": "140 USD",
-    "price_postapoc": "40 cent",
-    "material": [ "cotton" ],
-    "symbol": "[",
-    "looks_like": "dress",
-    "color": "dark_gray",
-    "warmth": 8,
-    "material_thickness": 0.2,
-    "flags": [ "VARSIZE" ],
-    "armor": [
-      { "covers": [ "torso" ], "coverage": 95, "encumbrance": 3 },
-      { "covers": [ "arm_l", "arm_r" ], "coverage": 80, "encumbrance": 3 },
-      {
-        "covers": [ "leg_l", "leg_r" ],
-        "specifically_covers": [ "leg_hip_l", "leg_hip_r" ],
-        "coverage": 100,
-        "encumbrance": 2
-      },
-      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 90 }
-    ]
-  },
-  {
-    "id": "witch_dress_long",
-    "type": "ARMOR",
-    "name": { "str": "long witch dress", "str_pl": "long witch dresses" },
-    "description": "A long dress with sleeves, typical of a witch.  It includes a pouch for storing potions and other magical items.",
-    "weight": "700 g",
-    "volume": "3750 ml",
-    "price": "180 USD",
-    "price_postapoc": "60 cent",
-    "material": [ "cotton" ],
-    "symbol": "[",
-    "looks_like": "dress",
-    "color": "dark_gray",
-    "warmth": 15,
-    "material_thickness": 0.2,
-    "flags": [ "VARSIZE" ],
-    "armor": [
-      { "covers": [ "torso" ], "coverage": 100, "encumbrance": [ 7, 7 ] },
-      { "covers": [ "arm_l", "arm_r" ], "coverage": 95, "encumbrance": [ 6, 6 ] },
-      { "covers": [ "leg_l", "leg_r" ], "coverage": 100, "encumbrance": [ 8, 10 ] }
-    ],
-    "pocket_data": [
-      {
-        "pocket_type": "CONTAINER",
-        "max_contains_volume": "1 L",
-        "max_contains_weight": "2 kg",
-        "max_item_length": "13 cm",
-        "moves": 100
-      }
-    ]
-  },
-  {
-    "id": "witch_dress_short",
-    "type": "ARMOR",
-    "name": { "str": "short witch dress", "str_pl": "short witch dresses" },
-    "description": { "str": "A short dress typically used by witches." },
-    "weight": "200 g",
-    "volume": "1500 ml",
-    "price": "120 USD",
-    "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
-    "symbol": "[",
-    "looks_like": "sundress",
-    "color": "dark_gray",
-    "warmth": 5,
-    "material_thickness": 0.2,
-    "flags": [ "VARSIZE" ],
-    "armor": [
-      { "covers": [ "torso" ], "coverage": 75, "encumbrance": 3 },
-      {
-        "covers": [ "arm_l", "arm_r" ],
-        "specifically_covers": [ "arm_shoulder_l", "arm_shoulder_r" ],
-        "coverage": 100,
-        "encumbrance": 1
-      },
-      { "coverage": 50, "covers": [ "arm_l", "arm_r" ], "specifically_covers": [ "arm_upper_l", "arm_upper_r" ] },
-      {
-        "covers": [ "leg_l", "leg_r" ],
-        "specifically_covers": [ "leg_hip_l", "leg_hip_r" ],
-        "coverage": 100,
-        "encumbrance": 4
-      },
-      { "covers": [ "leg_l", "leg_r" ], "specifically_covers": [ "leg_upper_l", "leg_upper_r" ], "coverage": 40 }
-    ]
   },
   {
     "id": "wool_hoodie",
