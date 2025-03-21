@@ -692,6 +692,7 @@
       [ "leg_sheath6", 10 ],
       { "item": "throwing_knife", "count": [ 1, 6 ], "entry-wrapper": "leg_sheath6", "prob": 5 },
       [ "throwing_axe", 4 ],
+      [ "organization_flag", 4 ],
       [ "duffelbag", 25 ],
       [ "backpack_tactical_large", 10 ],
       [ "binoculars", 20 ],

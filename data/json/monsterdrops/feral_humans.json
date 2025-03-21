@@ -615,6 +615,8 @@
       { "group": "mil_food", "prob": 8 },
       { "group": "mil_food_nodrugs", "prob": 8 },
       { "group": "shelter", "prob": 30 },
+      { "item": "protest_flag", "prob": 5 },
+      { "item": "organization_flag", "prob": 2 },
       { "group": "used_survival_kit", "prob": 30, "damage": [ 1, 4 ] },
       { "item": "stanag30", "prob": 25, "ammo-item": "223", "charges": [ 0, 10 ] },
       { "item": "stanag30ranger", "prob": 33, "ammo-item": "556", "charges": [ 0, 30 ] },

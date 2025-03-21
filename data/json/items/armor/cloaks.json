@@ -1573,12 +1573,6 @@
     "variant_type": "generic",
     "variants": [
       {
-        "id": "gadsden flag",
-        "name": { "str": "Gadsden flag" },
-        "description": "A large yellow flag depicting a coiled snake with its fangs bared.  Below it, the words \"DONT TREAD ON ME\".",
-        "weight": 10
-      },
-      {
         "id": "powmia flag",
         "name": { "str": "POW/MIA flag" },
         "description": "A large black flag decorated with the silhouette of a prisoner of war beneath a guard tower, surrounded by barbed wire.  Text above reads, \"POW*MIA\" and below, \"YOU ARE NOT FORGOTTEN\".",
@@ -1629,6 +1623,12 @@
     "color": "red",
     "variant_type": "generic",
     "variants": [
+      {
+        "id": "gadsden flag",
+        "name": { "str": "Gadsden flag" },
+        "description": "A large yellow flag depicting a coiled snake with its fangs bared.  Below it, the words \"DONT TREAD ON ME\".",
+        "weight": 10
+      },
       {
         "id": "ussr_flag",
         "name": { "str": "USSR flag" },
@@ -1686,7 +1686,7 @@
       },
       {
         "id": "gaydsden_flag",
-        "name": { "str": "rainbow gadsden flag" },
+        "name": { "str": "rainbow Gadsden flag" },
         "description": "A flag with six horizontal stripes depicting the colors of the rainbow.  Atop them sits a coiled snake with its fangs bared.  Below it, the words \"DONT TREAD ON ME\".",
         "weight": 3
       },
