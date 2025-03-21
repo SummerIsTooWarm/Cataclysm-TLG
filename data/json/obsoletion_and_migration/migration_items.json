@@ -534,6 +534,6 @@
   {
     "type": "MIGRATION",
     "id": "integrated_chitin3_claws",
-    "replace": "integrated_claws"
+    "replace": "gloves_claws"
   }
 ]
