@@ -2088,8 +2088,8 @@ void outfit::splash_attack( Character &guy, const spell &sp, Creature &caster, b
                             fire_data frd{ fire_intensity };
                             destroy = !armor.has_flag( flag_INTEGRATED ) && armor.burn( frd );
                             int fuel = roll_remainder( frd.fuel_produced );
-                            if( fuel > 0 ) {
-                                guy.add_effect( effect_onfire, time_duration::from_turns( fuel + 1 ), bp, false, 0, false,
+                            if( fuel > 0 && !guy.has_effect( effect_onfire, bp ) ) {
+                                guy.add_effect( effect_onfire, time_duration::from_turns( fuel * 5 ), bp, false, 0, false,
                                                 true );
                             }
                         }
