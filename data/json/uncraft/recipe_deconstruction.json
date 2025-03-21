@@ -6270,22 +6270,6 @@
     "components": [ [ [ "material_aluminium_ingot", 3 ] ] ]
   },
   {
-    "result": "PR24-extended",
-    "type": "uncraft",
-    "activity_level": "MODERATE_EXERCISE",
-    "time": "10 m",
-    "qualities": [ { "id": "HAMMER", "level": 2 }, { "id": "CUT", "level": 1 }, { "id": "SAW_M", "level": 2 } ],
-    "components": [ [ [ "scrap_aluminum", 10 ] ], [ [ "plastic_chunk", 3 ] ] ]
-  },
-  {
-    "result": "PR24-retracted",
-    "type": "uncraft",
-    "activity_level": "MODERATE_EXERCISE",
-    "time": "10 m",
-    "qualities": [ { "id": "HAMMER", "level": 2 }, { "id": "CUT", "level": 1 }, { "id": "SAW_M", "level": 2 } ],
-    "components": [ [ [ "scrap_aluminum", 10 ] ], [ [ "plastic_chunk", 3 ] ] ]
-  },
-  {
     "result": "sheet_cotton",
     "type": "uncraft",
     "activity_level": "NO_EXERCISE",

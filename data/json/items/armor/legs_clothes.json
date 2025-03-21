@@ -242,29 +242,29 @@
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "1250 ml",
-        "max_contains_weight": "4 kg",
+        "max_contains_volume": "750 ml",
+        "max_contains_weight": "3 kg",
         "max_item_length": "19 cm",
         "moves": 80
       },
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "1250 ml",
-        "max_contains_weight": "4 kg",
+        "max_contains_volume": "750 ml",
+        "max_contains_weight": "3 kg",
         "max_item_length": "19 cm",
         "moves": 80
       },
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "1080 ml",
-        "max_contains_weight": "4 kg",
+        "max_contains_volume": "600 ml",
+        "max_contains_weight": "3 kg",
         "max_item_length": "165 mm",
         "moves": 100
       },
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "1080 ml",
-        "max_contains_weight": "4 kg",
+        "max_contains_volume": "600 ml",
+        "max_contains_weight": "3 kg",
         "max_item_length": "165 mm",
         "moves": 100
       }
@@ -311,30 +311,30 @@
     "pocket_data": [
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "500 ml",
+        "max_contains_volume": "350 ml",
         "max_contains_weight": "900 g",
         "max_item_length": "10 cm",
         "moves": 60
       },
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "500 ml",
+        "max_contains_volume": "350 ml",
         "max_contains_weight": "900 g",
         "max_item_length": "10 cm",
         "moves": 60
       },
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "600 ml",
-        "max_contains_weight": "1 kg",
-        "max_item_length": "8 cm",
+        "max_contains_volume": "550 ml",
+        "max_contains_weight": "2 kg",
+        "max_item_length": "150 mm",
         "moves": 80
       },
       {
         "pocket_type": "CONTAINER",
-        "max_contains_volume": "600 ml",
-        "max_contains_weight": "1 kg",
-        "max_item_length": "8 cm",
+        "max_contains_volume": "550 ml",
+        "max_contains_weight": "2 kg",
+        "max_item_length": "150 mm",
         "moves": 80
       }
     ],
@@ -734,31 +734,32 @@
     ]
   },
   {
-    "id": "pants_checkered",
+    "id": "pants_costume",
     "type": "ARMOR",
-    "name": { "str_sp": "checkered pants" },
-    "description": "In a pinch, these pants can be used for an impromptu game of checkers.",
-    "copy-from": "pants"
-  },
-  {
-    "id": "striped_pants",
-    "type": "ARMOR",
-    "name": { "str_sp": "striped pants" },
-    "description": "A pair of pants with horizontal black and white stripes.",
-    "copy-from": "pants"
-  },
-  {
-    "id": "trousers_ninja",
-    "type": "ARMOR",
-    "name": { "str_sp": "ninja trousers" },
-    "description": "A pair of soft trousers with calf and waistband ties.",
-    "copy-from": "pants"
+    "name": { "str_sp": "pants" },
+    "description": "A pair of cotton pants.  Less durable than denim, but a little more comfortable.",
+    "copy-from": "pants",
+    "variant_type": "generic",
+    "variants": [
+      {
+        "id": "pants_checkered",
+        "name": { "str": "checkered pants" },
+        "description": "These pants are patterned with alternating black and white squares, like a checkerboard.",
+        "color": "light_gray"
+      },
+      {
+        "id": "pants_striped",
+        "name": { "str_sp": "striped pants" },
+        "description": "A pair of pants with black and white stripes.",
+        "color": "light_gray"
+      }
+    ]
   },
   {
     "id": "pants_army",
     "type": "ARMOR",
     "name": { "str_sp": "army pants" },
-    "description": "A tough pair of pants lined with pockets.  Favored by the military.",
+    "description": "A tough pair of camouflage pants, lined with pockets.",
     "weight": "720 g",
     "volume": "2500 ml",
     "price": "35 USD",

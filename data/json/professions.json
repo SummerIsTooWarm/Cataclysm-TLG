@@ -1905,8 +1905,8 @@
           { "item": "bra" },
           { "item": "stockings" },
           { "item": "garter_belt" },
-          { "item": "dress_shoes" },
-          { "item": "maid_dress" },
+          { "item": "heels" },
+          { "item": "dress_costume_skimpy", "variant": "maid_dress" },
           { "item": "maid_hat" },
           { "item": "corset_waist" },
           { "item": "fc_hairpin" }
@@ -3696,14 +3696,14 @@
   {
     "type": "profession",
     "id": "clown",
-    "name": { "male": "Clown", "female": "Clowness" },
+    "name": { "male": "Clown", "female": "Clown" },
     "description": "All you ever wanted was to make people laugh.  Dropping out of school and performing at kids' parties was a dream come true until the world ended.  There are precious few balloon animals in your future now.",
     "points": -1,
     "items": {
       "both": {
         "entries": [
           { "item": "clown_wig" },
-          { "item": "clown_suit" },
+          { "item": "jumpsuit_long", "variant": "clown_suit" },
           { "item": "clown_nose" },
           { "item": "socks" },
           { "item": "clownshoes" },
@@ -3761,9 +3761,7 @@
           { "item": "cane", "custom-flags": [ "auto_wield" ] }
         ]
       },
-      "male": {
-        "entries": [ { "item": "briefs" }, { "item": "dress_shirt" }, { "item": "pants_checkered" }, { "item": "pocketwatch" } ]
-      },
+      "male": { "entries": [ { "item": "briefs" }, { "item": "dress_shirt" }, { "item": "pants" }, { "item": "pocketwatch" } ] },
       "female": {
         "entries": [ { "item": "panties" }, { "item": "bra" }, { "item": "dress" }, { "item": "fanny" }, { "item": "gold_watch" } ]
       }
@@ -3866,7 +3864,7 @@
           { "item": "onyx_silver_ring" }
         ]
       },
-      "male": { "entries": [ { "item": "pants_cargo" }, { "item": "tank_top" }, { "item": "boxer_shorts" } ] },
+      "male": { "entries": [ { "item": "jeans_skinny" }, { "item": "tank_top" }, { "item": "briefs" } ] },
       "female": { "entries": [ { "item": "skirt" }, { "item": "corset" }, { "item": "panties" }, { "item": "stockings" } ] }
     }
   },
@@ -3876,12 +3874,7 @@
     "name": "Firefighter",
     "description": "As a first responder, you were a direct witness to the gut-wrenching horrors of the apocalypse.  Separated from most of your equipment and your unit while on call, you were forced to fight your way to safety with little more than your trusty iron and your bunker gear to protect you.",
     "points": 3,
-    "skills": [
-      { "level": 4, "name": "melee" },
-      { "level": 4, "name": "bashing" },
-      { "level": 4, "name": "firstaid" },
-      { "level": 3, "name": "swimming" }
-    ],
+    "skills": [ { "level": 2, "name": "bashing" }, { "level": 4, "name": "firstaid" }, { "level": 3, "name": "swimming" } ],
     "proficiencies": [ "prof_burn_care" ],
     "items": {
       "both": {
@@ -3976,7 +3969,15 @@
       { "level": 2, "name": "traps" }
     ],
     "items": {
-      "both": [ "striped_shirt", "striped_pants", "sneakers", "socks", "glass_shiv" ],
+      "both": {
+        "entries": [
+          { "item": "longshirt_costume", "variant": "shirt_striped" },
+          { "item": "pants_costume", "variant": "pants_striped" },
+          { "item": "sneakers" },
+          { "item": "socks" },
+          { "item": "glass_shiv" }
+        ]
+      },
       "male": { "entries": [ { "item": "briefs" } ] },
       "female": { "entries": [ { "item": "bra" }, { "item": "panties" } ] }
     }
@@ -3991,7 +3992,15 @@
     "skills": [ { "level": 3, "name": "melee" }, { "level": 3, "name": "stabbing" }, { "level": 2, "name": "unarmed" } ],
     "traits": [ "KILLER" ],
     "items": {
-      "both": [ "striped_shirt", "striped_pants", "sneakers", "socks", "glass_shiv" ],
+      "both": {
+        "entries": [
+          { "item": "longshirt_costume", "variant": "shirt_striped" },
+          { "item": "pants_costume", "variant": "pants_striped" },
+          { "item": "sneakers" },
+          { "item": "socks" },
+          { "item": "glass_shiv" }
+        ]
+      },
       "male": { "entries": [ { "item": "briefs" } ] },
       "female": { "entries": [ { "item": "bra" }, { "item": "panties" } ] }
     }
@@ -4013,8 +4022,8 @@
     "items": {
       "both": {
         "entries": [
-          { "item": "striped_shirt" },
-          { "item": "striped_pants" },
+          { "item": "longshirt_costume", "variant": "shirt_striped" },
+          { "item": "pants_costume", "variant": "pants_striped" },
           { "item": "sneakers" },
           { "item": "socks" },
           { "item": "knife_rm42", "container-item": "gartersheath1" },
@@ -4034,7 +4043,15 @@
     "points": 0,
     "skills": [ { "level": 4, "name": "speech" }, { "level": 3, "name": "computer" } ],
     "items": {
-      "both": [ "striped_shirt", "striped_pants", "sneakers", "socks", "rock_sock" ],
+      "both": {
+        "entries": [
+          { "item": "longshirt_costume", "variant": "shirt_striped" },
+          { "item": "pants_costume", "variant": "pants_striped" },
+          { "item": "sneakers" },
+          { "item": "socks" },
+          { "item": "rock_sock" }
+        ]
+      },
       "male": { "entries": [ { "item": "briefs" } ] },
       "female": { "entries": [ { "item": "bra" }, { "item": "panties" } ] }
     },
@@ -4050,8 +4067,8 @@
     "items": {
       "both": {
         "entries": [
-          { "item": "striped_shirt" },
-          { "item": "striped_pants" },
+          { "item": "longshirt_costume", "variant": "shirt_striped" },
+          { "item": "pants_costume", "variant": "pants_striped" },
           { "item": "sneakers" },
           { "item": "socks" },
           { "item": "adderall" },
@@ -4074,8 +4091,8 @@
     "items": {
       "both": {
         "entries": [
-          { "item": "striped_shirt" },
-          { "item": "striped_pants" },
+          { "item": "longshirt_costume", "variant": "shirt_striped" },
+          { "item": "pants_costume", "variant": "pants_striped" },
           { "item": "sneakers" },
           { "item": "socks" },
           { "item": "gum" },
@@ -4097,7 +4114,15 @@
     "traits": [ "ANIMALEMPATH" ],
     "pets": [ { "name": "mon_rat", "amount": 13 } ],
     "items": {
-      "both": [ "striped_shirt", "striped_pants", "sneakers", "socks", "fried_seeds" ],
+      "both": {
+        "entries": [
+          { "item": "longshirt_costume", "variant": "shirt_striped" },
+          { "item": "pants_costume", "variant": "pants_striped" },
+          { "item": "sneakers" },
+          { "item": "socks" },
+          { "item": "fried_seeds" }
+        ]
+      },
       "male": { "entries": [ { "item": "briefs" } ] },
       "female": { "entries": [ { "item": "bra" }, { "item": "panties" } ] }
     },
@@ -6543,9 +6568,21 @@
           { "item": "mask_dust" }
         ]
       },
-      "male": { "entries": [ { "item": "undershirt" }, { "item": "sneakers" }, { "item": "flag_jumpsuit" }, { "item": "briefs" } ] },
+      "male": {
+        "entries": [
+          { "item": "undershirt" },
+          { "item": "sneakers" },
+          { "item": "jumpsuit_long", "variant": "flag_suit" },
+          { "item": "briefs" }
+        ]
+      },
       "female": {
-        "entries": [ { "item": "flag_jumpsuit" }, { "item": "bikini_top" }, { "item": "bikini_bottom" }, { "item": "heels" } ]
+        "entries": [
+          { "item": "jumpsuit_long", "variant": "flag_suit" },
+          { "item": "bikini_top" },
+          { "item": "bikini_bottom" },
+          { "item": "heels" }
+        ]
       }
     }
   },

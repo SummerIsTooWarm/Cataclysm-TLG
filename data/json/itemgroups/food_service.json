@@ -1153,7 +1153,7 @@
       [ "apron_cotton", 30 ],
       [ "waist_apron_long", 20 ],
       [ "waist_apron_short", 20 ],
-      [ "pants_checkered", 28 ]
+      { "item": "pants_costume", "variant": "pants_checkered", "prob": 10 }
     ]
   },
   {

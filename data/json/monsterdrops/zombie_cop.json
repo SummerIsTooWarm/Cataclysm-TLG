@@ -140,8 +140,9 @@
     "id": "cop_torso",
     "type": "item_group",
     "items": [
-      [ "dress_shirt", 50 ],
-      [ "sheriffshirt", 45 ],
+      [ "dress_shirt", 20 ],
+      [ "shirt_western", 55 ],
+      [ "longshirt", 45 ],
       [ "jacket_light", 40 ],
       { "item": "leather_police_jacket", "prob": 40 }
     ]
@@ -149,7 +150,7 @@
   {
     "id": "cop_melee",
     "type": "item_group",
-    "items": [ [ "baton", 50 ], [ "PR24-retracted", 30 ] ]
+    "items": [ [ "baton", 60 ] ]
   },
   {
     "id": "cop_weapons",

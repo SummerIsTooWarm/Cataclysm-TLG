@@ -159,8 +159,7 @@
     "description": "You liked to make your own costumes and wear them to various conventions.  Now that everyone is dead or dying, maybe this will be useful for something else.",
     "points": 1,
     "skills": [ { "level": 1, "name": "tailor" } ],
-    "proficiencies": [ "prof_closures", "prof_leatherworking_basic" ],
-    "missions": [ "MISSION_COSPLAY" ]
+    "proficiencies": [ "prof_closures", "prof_leatherworking_basic" ]
   },
   {
     "type": "profession",

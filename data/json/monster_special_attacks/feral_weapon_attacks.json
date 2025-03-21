@@ -74,7 +74,7 @@
   {
     "type": "monster_attack",
     "attack_type": "melee",
-    "id": "feral_weapon_PR24",
+    "id": "feral_weapon_baton",
     "cooldown": 1,
     "move_cost": 108,
     "accuracy": 9,
