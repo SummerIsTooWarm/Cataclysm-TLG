@@ -49,7 +49,7 @@
     "entries": [
       { "item": "boxer_shorts" },
       { "item": "socks_wool" },
-      { "item": "dinosuit" },
+      { "item": "mascot_suit", "variant": "dino_costume" },
       { "item": "boots_winter" },
       { "item": "coat_winter" }
     ]

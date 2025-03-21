@@ -9,13 +9,21 @@
     "type": "item_group",
     "id": "NC_SURVIVOR_CHEF_pants_male",
     "subtype": "distribution",
-    "entries": [ { "item": "pants_checkered", "prob": 90 }, { "item": "pants", "prob": 10 } ]
+    "entries": [
+      { "item": "pants_costume", "variant": "pants_checkered", "prob": 30 },
+      { "item": "jeans_skinny", "prob": 5 },
+      { "item": "pants", "prob": 65 }
+    ]
   },
   {
     "type": "item_group",
     "id": "NC_SURVIVOR_CHEF_pants_female",
     "subtype": "distribution",
-    "entries": [ { "item": "pants_checkered", "prob": 90 }, { "item": "jeans", "prob": 10 } ]
+    "entries": [
+      { "item": "pants_costume", "variant": "pants_checkered", "prob": 30 },
+      { "item": "jeans_skinny", "prob": 25 },
+      { "item": "pants", "prob": 45 }
+    ]
   },
   {
     "type": "item_group",

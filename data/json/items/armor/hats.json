@@ -1050,7 +1050,7 @@
     "volume": "2 L",
     "price": "40 USD",
     "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
+    "material": [ "lycra" ],
     "symbol": "^",
     "color": "light_blue",
     "warmth": 8,
@@ -1064,30 +1064,26 @@
         "covers": [ "head" ],
         "specifically_covers": [ "head_crown", "head_forehead", "head_ear_r", "head_ear_l" ]
       }
-    ]
-  },
-  {
-    "id": "pointed_hat",
-    "type": "ARMOR",
-    "name": "witch hat",
-    "description": "A wide-brimmed hat with a pointy crown, an essential part of the stereotypical witch ensemble.",
-    "weight": "40 g",
-    "volume": "2 L",
-    "price": "30 USD",
-    "price_postapoc": "50 cent",
-    "material": [ "cotton" ],
-    "symbol": "^",
-    "color": "dark_gray",
-    "warmth": 5,
-    "material_thickness": 0.2,
-    "environmental_protection": 1,
-    "flags": [ "VARSIZE" ],
-    "armor": [
+    ],
+    "variant_type": "generic",
+    "variants": [
       {
-        "encumbrance_modifiers": [ "NONE" ],
-        "coverage": 80,
-        "covers": [ "head" ],
-        "specifically_covers": [ "head_crown", "head_forehead", "head_ear_r", "head_ear_l" ]
+        "id": "wizard_hat",
+        "name": { "str": "wizard hat" },
+        "description": "A pointed blue hat with stars stitched into it.",
+        "weight": 12
+      },
+      {
+        "id": "witch_hat",
+        "name": { "str": "witch hat" },
+        "description": "A pointed black hat with a broad brim.",
+        "weight": 12
+      },
+      {
+        "id": "pilgrim_hat",
+        "name": { "str": "pilgrim hat" },
+        "description": "A broad-brimmed black hat with a buckled belt around the crown.  It's a cheap replica of the kind ahistorically associated with the pilgrims who settled at Plymouth Rock.",
+        "weight": 4
       }
     ]
   }

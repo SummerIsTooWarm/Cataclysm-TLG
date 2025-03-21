@@ -1372,8 +1372,7 @@
         [ "pants", 1 ],
         [ "pants_cargo", 1 ],
         [ "pants_army", 1 ],
-        [ "pants_checkered", 1 ],
-        [ "striped_pants", 1 ],
+        [ "pants_costume", 1 ],
         [ "technician_pants_gray", 1 ],
         [ "jeans", 1 ]
       ]

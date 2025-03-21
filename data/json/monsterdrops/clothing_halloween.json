@@ -236,12 +236,7 @@
             ],
             "prob": 60
           },
-          {
-            "distribution": [
-              { "item": "maid_dress", "prob": 20, "damage": [ 1, 4 ] },
-              { "item": "maid_dress_short", "prob": 80, "damage": [ 1, 4 ] }
-            ]
-          },
+          { "distribution": [ { "item": "dress_costume_skimpy", "variant": "maid_dress", "damage": [ 1, 4 ] } ] },
           {
             "distribution": [ { "item": "dress_shoes", "prob": 40, "damage": [ 1, 4 ] }, { "item": "heels", "prob": 35, "damage": [ 1, 4 ] } ]
           },
@@ -417,9 +412,8 @@
           },
           {
             "distribution": [
-              { "item": "sinister_gown", "prob": 10, "damage": [ 1, 4 ] },
-              { "item": "sinister_dress", "prob": 60, "damage": [ 1, 4 ] },
-              { "item": "sinister_dress_short", "prob": 30, "damage": [ 1, 4 ] }
+              { "item": "dress_costume", "variant": "sinister_dress", "prob": 50, "damage": [ 1, 4 ] },
+              { "item": "dress_costume_skimpy", "variant": "gothic_dress", "prob": 50, "damage": [ 1, 4 ] }
             ]
           },
           {
@@ -508,12 +502,7 @@
           { "item": "gloves_black", "prob": 50, "damage": [ 1, 4 ] },
           { "item": "hood_ninja", "prob": 75, "damage": [ 1, 4 ] },
           { "group": "costume_masks", "prob": 25, "damage": [ 1, 4 ] },
-          {
-            "distribution": [
-              { "item": "ninja_dress", "prob": 60, "damage": [ 1, 4 ] },
-              { "item": "ninja_dress_sleeveless", "prob": 40, "damage": [ 1, 4 ] }
-            ]
-          },
+          { "distribution": [ { "item": "kimono", "damage": [ 1, 4 ] } ] },
           {
             "distribution": [
               {
@@ -685,13 +674,7 @@
       {
         "collection": [
           { "item": "gloves_black", "prob": 5, "damage": [ 1, 4 ] },
-          {
-            "distribution": [
-              { "item": "wizard_hat_costume", "prob": 10, "damage": [ 1, 4 ] },
-              { "item": "pointed_hat", "prob": 90, "damage": [ 1, 4 ] }
-            ],
-            "prob": 60
-          },
+          { "distribution": [ { "item": "wizard_hat_costume", "prob": 60, "damage": [ 1, 4 ] } ], "prob": 60 },
           {
             "distribution": [
               { "group": "costume_jewelry_vampire", "prob": 25, "damage": [ 1, 4 ] },
@@ -746,13 +729,7 @@
         "collection": [
           { "item": "gloves_black", "prob": 5, "damage": [ 1, 4 ] },
           { "item": "robe_wizard", "damage": [ 1, 4 ] },
-          {
-            "distribution": [
-              { "item": "wizard_hat_costume", "prob": 80, "damage": [ 1, 4 ] },
-              { "item": "pointed_hat", "prob": 20, "damage": [ 1, 4 ] }
-            ],
-            "prob": 60
-          },
+          { "distribution": [ { "item": "wizard_hat_costume", "prob": 80, "damage": [ 1, 4 ] } ], "prob": 60 },
           {
             "distribution": [
               { "group": "costume_jewelry_vampire", "prob": 25, "damage": [ 1, 4 ] },
@@ -808,7 +785,7 @@
       {
         "collection": [
           { "item": "gloves_black", "prob": 15, "damage": [ 1, 4 ] },
-          { "item": "bee_dress", "damage": [ 1, 4 ] },
+          { "item": "dress_costume_skimpy", "variant": "bee_dress", "damage": [ 1, 4 ] },
           { "group": "costume_masks", "prob": 10, "damage": [ 1, 4 ] },
           {
             "distribution": [ { "item": "dress_shoes", "prob": 40, "damage": [ 1, 4 ] }, { "item": "heels", "prob": 60, "damage": [ 1, 4 ] } ]
@@ -1105,7 +1082,7 @@
       {
         "collection": [
           { "item": "jacket_chef", "damage": [ 1, 4 ] },
-          { "item": "pants_checkered", "damage": [ 1, 4 ] },
+          { "item": "pants_costume", "variant": "pants_checkered", "damage": [ 1, 4 ] },
           { "item": "hat_chef", "prob": 70, "damage": [ 1, 4 ] },
           { "group": "shirts_unisex", "prob": 75, "damage": [ 1, 4 ] },
           { "group": "costume_masks", "prob": 10, "damage": [ 1, 4 ] },
@@ -1224,7 +1201,7 @@
           { "item": "cowboy_hat", "damage": [ 1, 4 ] },
           { "item": "sunglasses", "prob": 35, "damage": [ 1, 4 ] },
           { "item": "gloves_leather", "prob": 75, "damage": [ 1, 4 ] },
-          { "item": "dress_shirt", "damage": [ 1, 4 ] },
+          { "item": "shirt_western", "damage": [ 1, 4 ] },
           { "item": "chaps_leather", "prob": 60, "damage": [ 1, 4 ] },
           { "item": "leather_belt", "damage": [ 1, 4 ] },
           { "item": "rope_30", "prob": 30, "damage": [ 1, 4 ] },

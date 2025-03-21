@@ -366,6 +366,163 @@
   },
   {
     "type": "MIGRATION",
+    "id": "jedi_cloak",
+    "replace": "cloak_costume"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "pointed_hat",
+    "replace": "wizard_hat_costume"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "wolfsuit",
+    "replace": "fursuit",
+    "variant": "wolf_fursuit"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "dinosuit",
+    "replace": "mascot_suit",
+    "variant": "dino_costume"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "dragonsuit",
+    "replace": "mascot_suit",
+    "variant": "dragon_costume"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "sharksuit",
+    "replace": "mascot_suit",
+    "variant": "shark_costume"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "felinesuit",
+    "replace": "fursuit",
+    "variant": "tiger_suit"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "jumpsuit_skeleton",
+    "replace": "bodysuit_lycra",
+    "variant": "skeleton_suit"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "jumpsuit_skeleton_zipped",
+    "replace": "bodysuit_lycra",
+    "variant": "skeleton_suit"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "robofac_jumpsuit",
+    "replace": "jumpsuit",
+    "variant": "standard"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "mummy_jumpsuit",
+    "replace": "jumpsuit_long",
+    "variant": "mummy_suit"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "clown_suit",
+    "replace": "jumpsuit_long",
+    "variant": "clown_suit"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "sheriffshirt",
+    "replace": "shirt_western"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "sinister_dress",
+    "replace": "dress_costume",
+    "variant": "sinister_dress"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "sinister_dress_short",
+    "replace": "dress_costume_skimpy",
+    "variant": "gothic_dress"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "maid_dress",
+    "replace": "dress_costume_skimpy",
+    "variant": "maid_dress"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "maid_dress_short",
+    "replace": "dress_costume_skimpy",
+    "variant": "maid_dress"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "mummy_dress",
+    "replace": "dress_costume_skimpy",
+    "variant": "gothic_dress"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "ninja_dress",
+    "replace": "kimono"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "ninja_dress_short",
+    "replace": "dress_costume_skimpy",
+    "variant": "gothic_dress"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "witch_dress",
+    "replace": "dress_costume",
+    "variant": "sinister_dress"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "witch_dress_long",
+    "replace": "dress_costume",
+    "variant": "siniter_dress"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "witch_dress_short",
+    "replace": "dress_costume_skimpy",
+    "variant": "gothic_dress"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "trousers_ninja",
+    "replace": "sweatpants"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "striped_shirt",
+    "replace": "longshirt_costume",
+    "variant": "striped_shirt"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "striped_pants",
+    "replace": "pants_costume",
+    "variant": "striped_pants"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "checkered_pants",
+    "replace": "pants_costume",
+    "variant": "checkered_pants"
+  },
+  {
+    "type": "MIGRATION",
     "id": "heavy_crowbar",
     "replace": "crowbar"
   }
