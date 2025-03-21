@@ -2834,7 +2834,7 @@
       "pain_max_val": [ 35 ],
       "pain_chance": [ 2 ],
       "pain_min": [ 1 ],
-      "hurt_chance": [ 4 ],
+      "hurt_chance": [ 8 ],
       "hurt_min": [ 1 ]
     }
   },
