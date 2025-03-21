@@ -363,5 +363,10 @@
     "type": "MIGRATION",
     "id": "disincotton_ball",
     "replace": "cotton_ball"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "heavy_crowbar",
+    "replace": "crowbar"
   }
 ]
