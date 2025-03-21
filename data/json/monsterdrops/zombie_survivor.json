@@ -9,6 +9,8 @@
       { "group": "bugout_bag", "prob": 20 },
       { "group": "book_survival", "prob": 15 },
       { "group": "gear_survival", "prob": 20, "damage": [ 1, 4 ] },
+      { "item": "protest_flag", "prob": 2 },
+      { "item": "organization_flag", "prob": 1 },
       { "group": "survivor_knife", "damage": [ 1, 4 ], "prob": 50 },
       {
         "distribution": [
@@ -105,6 +107,8 @@
       { "group": "clothing_military", "damage": [ 1, 4 ] },
       { "item": "elbow_pads", "damage": [ 1, 4 ], "prob": 10 },
       { "item": "knee_pads", "damage": [ 1, 4 ], "prob": 85 },
+      { "item": "protest_flag", "prob": 5 },
+      { "item": "organization_flag", "prob": 2 },
       { "group": "operator_headgear", "damage": [ 1, 4 ], "prob": 80 },
       { "item": "gloves_tactical", "damage": [ 1, 4 ], "prob": 60 },
       { "group": "operator_armaments", "prob": 40 },

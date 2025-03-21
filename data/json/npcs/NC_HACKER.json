@@ -23,6 +23,7 @@
       { "item": "computer_science", "prob": 7 },
       { "item": "solar_cell", "prob": 5 },
       { "item": "SICP", "prob": 3 },
+      { "item": "protest_flag", "prob": 1 },
       { "item": "recipe_serum", "prob": 2 },
       { "item": "recipe_chimera", "prob": 1 },
       { "item": "recipe_labchem", "prob": 1 },

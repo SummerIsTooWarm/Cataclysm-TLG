@@ -316,8 +316,8 @@
     "flags": [ "SINGLE_USE" ],
     "melee_damage": { "cut": 12 }
   },
-{
- "id": "glass_shard_trap",
+  {
+    "id": "glass_shard_trap",
     "type": "GENERIC",
     "category": "deployables",
     "symbol": ",",
@@ -337,5 +337,5 @@
     },
     "flags": [ "HURT_WHEN_WIELDED", "TRADER_AVOID", "SINGLE_USE" ],
     "to_hit": -1
-    }
+  }
 ]

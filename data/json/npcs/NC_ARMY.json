@@ -191,6 +191,7 @@
       { "item": "grenade", "prob": 40 },
       { "item": "ref_lighter", "prob": 30 },
       { "item": "lighter", "prob": 30 },
+      { "item": "organization_flag", "prob": 1 },
       { "item": "matches", "prob": 30 }
     ]
   }
