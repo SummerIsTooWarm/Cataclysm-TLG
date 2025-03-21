@@ -2805,9 +2805,15 @@ float Character::get_vision_threshold( float light_level ) const
         range++;
     }
 
+    // Electronics override biological night vision.  Perception still helps you pick details out of the feed.
+    if( vision_mode_cache[NV_GOGGLES] ) {
+        range = get_per() / 9;
+    }
+
+
     // bionic night vision and other old night vision flagged items
     if( worn_with_flag( flag_GNV_EFFECT ) || has_flag( json_flag_NIGHT_VISION ) ) {
-        range += 10;
+        range += 15;
     } else {
         range = enchantment_cache->modify_value( enchant_vals::mod::NIGHT_VIS, range );
     }
