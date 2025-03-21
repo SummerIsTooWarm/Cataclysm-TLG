@@ -137,7 +137,7 @@ static void eff_fun_onfire( Character &u, effect &it )
 {
     const int intense = it.get_intensity();
     u.deal_damage( nullptr, it.get_bp(), damage_instance( STATIC( damage_type_id( "heat" ) ),
-                   rng( intense, intense * 2 ) ) );
+                   rng( 1, intense * 2 ) ) );
 }
 static void eff_fun_spores( Character &u, effect &it )
 {
