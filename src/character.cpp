@@ -13453,21 +13453,26 @@ void Character::pause()
             // TODO: Tools and skills
             total_left += eff.get_duration();
             // Being on the ground will smother the fire much faster because you can roll
-            const time_duration dur_removed = on_ground ? eff.get_duration() / 2 + 2_turns : 1_turns;
+            const time_duration dur_removed = on_ground ? 4_turns : 1_turns;
             eff.mod_duration( -dur_removed );
             total_removed += dur_removed;
         }
 
         // Don't drop on the ground when the ground is on fire
-        if( total_left > 1_minutes && !is_dangerous_fields( here.field_at( pos() ) ) ) {
+        if( total_left > 30_turns && !is_dangerous_fields( here.field_at( pos() ) ) ) {
             add_effect( effect_downed, 2_turns, false, 0, true );
             add_msg_player_or_npc( m_warning,
-                                   _( "You roll on the ground, trying to smother the fire!" ),
-                                   _( "<npcname> rolls on the ground!" ) );
+                                   _( "You drop and roll on the ground, trying to smother the fire!" ),
+                                   _( "<npcname> drops and rolls on the ground!" ) );
         } else if( total_removed > 0_turns ) {
+            if( on_ground ) {
+                _( "You roll on the ground, trying to smother the fire!" ),
+                _( "<npcname> rolls on the ground!" );
+            } else {
             add_msg_player_or_npc( m_warning,
                                    _( "You attempt to put out the fire on you!" ),
                                    _( "<npcname> attempts to put out the fire on them!" ) );
+            }
         }
     }
 
