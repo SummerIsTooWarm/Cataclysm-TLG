@@ -1033,9 +1033,9 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
             // Flames die quickly on water.
             cur.set_field_age( cur.get_field_age() + 4_minutes );
         }
-        if( one_in( 4000 ) ) {
+        if( one_in( 1000 ) ) {
             // Uncontained fires have a habit of randomly burning out.
-            cur.set_field_age( cur.get_field_age() + 30_minutes );
+            cur.set_field_age( cur.get_field_age() + 50_minutes );
         }
 
         // Consume the terrain we're on
