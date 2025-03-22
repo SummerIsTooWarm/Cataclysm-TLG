@@ -229,7 +229,7 @@
       [ "protest_flag", 1 ],
       [ "fuel_tin", 8 ],
       [ "spray_can", 50 ],
-      { "item": "liquid_rubber_spray", "prob": 1, "charges": [ 0, 10 ] },
+      { "item": "liquid_rubber_spray", "prob": 1, "charges": [ 0, 10 ], "container-item": "rubber_spray_can", "sealed": false },
       [ "jar_glass_sealed", 10 ],
       [ "jar_3l_glass_sealed", 8 ],
       [ "flyer", 10 ],

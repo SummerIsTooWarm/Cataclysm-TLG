@@ -106,7 +106,7 @@
       [ "hammer", 20 ],
       [ "screwdriver", 20 ],
       { "item": "lighter", "prob": 25, "charges": [ 0, 100 ] },
-      { "item": "liquid_rubber_spray", "prob": 5, "charges": 10 },
+      { "item": "liquid_rubber_spray", "prob": 5, "charges": 10, "container-item": "rubber_spray_can", "sealed": false },
       [ "pockknife", 15 ],
       [ "metal_file", 15 ],
       [ "pin_reamer", 10 ],
@@ -711,7 +711,7 @@
       [ "manual_shotgun", 6 ],
       [ "manual_rifle", 10 ],
       [ "manual_pistol", 4 ],
-      { "item": "liquid_rubber_spray", "prob": 5, "charges": 10 },
+      { "item": "liquid_rubber_spray", "prob": 5, "charges": 10, "container-item": "rubber_spray_can", "sealed": false },
       [ "manual_smg", 3 ],
       [ "manual_launcher", 2 ],
       [ "manual_fabrication", 12 ],
@@ -1207,7 +1207,7 @@
       { "item": "manual_mechanics", "prob": 35 },
       { "item": "manual_fabrication", "prob": 20 },
       { "item": "duct_tape", "prob": 70, "charges": [ 50, 200 ] },
-      { "item": "liquid_rubber_spray", "prob": 5, "charges": 10 },
+      { "item": "liquid_rubber_spray", "prob": 5, "charges": 10, "container-item": "rubber_spray_can", "sealed": false },
       { "item": "superglue", "prob": 25 },
       { "item": "misc_repairkit", "prob": 15 },
       { "group": "tools_toolbox", "prob": 2 }
@@ -1276,7 +1276,7 @@
           { "item": "socket_screwdriver_set", "prob": 20 },
           { "item": "duct_tape", "prob": 50 },
           { "item": "superglue", "prob": 10 },
-          { "item": "liquid_rubber_spray", "prob": 15, "charges": 10 },
+          { "item": "liquid_rubber_spray", "prob": 3, "charges": 10, "container-item": "rubber_spray_can", "sealed": false },
           { "item": "misc_repairkit", "prob": 25 },
           { "group": "tools_toolbox", "prob": 2 }
         ]
@@ -1518,7 +1518,7 @@
       { "item": "polisher", "prob": 15, "charges": [ 0, 100 ] },
       [ "solar_panel", 15 ],
       [ "spare_tire_carrier", 10 ],
-      { "item": "liquid_rubber_spray", "prob": 5, "charges": [ 0, 10 ] },
+      { "item": "liquid_rubber_spray", "prob": 5, "charges": [ 0, 10 ], "container-item": "rubber_spray_can", "sealed": false },
       [ "mounted_spare_tire", 10 ]
     ]
   },
@@ -1534,7 +1534,7 @@
       [ "jack_small", 30 ],
       { "item": "flashlight", "prob": 20, "charges": [ 0, 300 ] },
       { "item": "heavy_flashlight", "prob": 10, "charges": [ 0, 300 ] },
-      { "item": "liquid_rubber_spray", "prob": 5, "charges": 10 },
+      { "item": "liquid_rubber_spray", "prob": 2, "charges": 10, "container-item": "rubber_spray_can", "sealed": false },
       [ "jumper_cable", 20 ],
       [ "jumper_cable_heavy", 10 ],
       [ "pliers", 10 ],
@@ -1800,7 +1800,7 @@
       { "item": "soldering_iron_portable", "prob": 65, "charges": [ 0, 50 ] },
       [ "solder_wire", 50 ],
       [ "superglue", 55 ],
-      { "item": "liquid_rubber_spray", "prob": 5, "charges": 10 },
+      { "item": "liquid_rubber_spray", "prob": 5, "charges": 10, "container-item": "rubber_spray_can", "sealed": false },
       [ "screwdriver", 60 ],
       [ "motor_small", 30 ]
     ]
@@ -2164,7 +2164,7 @@
       { "group": "clothing_outdoor_torso", "prob": 7 },
       { "group": "clothing_outdoor_pants", "prob": 7 },
       { "group": "farming_tools", "prob": 5 },
-      { "item": "liquid_rubber_spray", "prob": 5, "charges": [ 0, 10 ] },
+      { "item": "liquid_rubber_spray", "prob": 2, "charges": [ 0, 10 ], "container-item": "rubber_spray_can", "sealed": false },
       { "group": "farming_seeds", "prob": 20 },
       { "item": "rock", "prob": 5 },
       { "group": "wallets", "prob": 2 },
