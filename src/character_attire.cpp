@@ -1946,7 +1946,7 @@ void outfit::absorb_damage( Character &guy, damage_unit &elem, bodypart_id bp,
         // Even though it doesn't cause direct physical damage to it
         // FIXME: Hardcoded damage type
         if( outermost && elem.type == STATIC( damage_type_id( "heat" ) ) && elem.amount >= 1.0f ) {
-            int fire_intensity = std::clamp( static_cast<int>( std::round(elem.amount / 4 ) ), 1, 3 );
+            int fire_intensity = std::clamp( static_cast<int>( std::round( elem.amount / 4 ) ), 1, 3 );
             fire_data frd{ fire_intensity };
             destroy = !armor.has_flag( flag_INTEGRATED ) && armor.burn( frd );
             int fuel = roll_remainder( frd.fuel_produced );

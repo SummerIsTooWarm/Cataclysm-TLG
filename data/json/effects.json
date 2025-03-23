@@ -736,6 +736,7 @@
     "rating": "bad",
     "max_intensity": 3,
     "int_dur_factor": "100 s",
+    "show_in_info": true,
     "base_mods": { "pain_min": [ 1 ], "pain_chance": [ -50 ], "pain_chance_bot": [ 1000 ] },
     "scaling_mods": { "pain_max_val": [ 5 ], "pain_chance": [ 150 ] },
     "limb_score_mods": [ { "limb_score": "reaction", "modifier": 0.9, "scaling": -0.2 } ],

@@ -3380,6 +3380,9 @@ void map::make_rubble( const tripoint_bub_ms &p, const furn_id &rubble_type, con
     if( overwrite ) {
         ter_set( p, floor_type );
         furn_set( p, rubble_type );
+        if( has_field_at( p.raw(), fd_fire ) ) {
+            mod_field_intensity( p.raw(), fd_fire, -3 );
+        }
     } else {
         // First see if there is existing furniture to destroy
         if( is_bashable_furn( p ) ) {
@@ -5560,7 +5563,8 @@ item &map::add_item( const tripoint &p, item new_item, int copies )
     }
 
     if( new_item.has_flag( flag_ACT_IN_FIRE ) && get_field( p, fd_fire ) != nullptr ) {
-        if( new_item.has_flag( flag_BOMB ) && !new_item.has_flag( flag_FIRE_SAFE_EXPLOSIVE ) && new_item.is_transformable() ) {
+        if( new_item.has_flag( flag_BOMB ) && !new_item.has_flag( flag_FIRE_SAFE_EXPLOSIVE ) &&
+            new_item.is_transformable() ) {
             //Convert a bomb item into its transformable version, e.g. incendiary grenade -> active incendiary grenade
             new_item.convert( dynamic_cast<const iuse_transform *>
                               ( new_item.type->get_use( "transform" )->get_actor_ptr() )->target );

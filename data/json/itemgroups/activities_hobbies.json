@@ -159,7 +159,13 @@
       { "item": "10l_methanol_tank", "prob": 1 },
       { "item": "28l_methanol_tank", "prob": 1 },
       { "item": "60l_methanol_tank", "prob": 1 },
-      { "item": "liquid_rubber_spray", "prob": 3, "charges": [ 0, 10 ], "container-item": "rubber_spray_can", "sealed": false }
+      {
+        "item": "liquid_rubber_spray",
+        "prob": 3,
+        "charges": [ 0, 10 ],
+        "container-item": "rubber_spray_can",
+        "sealed": false
+      }
     ]
   },
   {
@@ -252,7 +258,13 @@
       [ "dutch_oven", 5 ],
       [ "waffleiron", 25 ],
       [ "binoculars", 20 ],
-      { "item": "liquid_rubber_spray", "prob": 3, "charges": [ 0, 10 ], "container-item": "rubber_spray_can", "sealed": false },
+      {
+        "item": "liquid_rubber_spray",
+        "prob": 3,
+        "charges": [ 0, 10 ],
+        "container-item": "rubber_spray_can",
+        "sealed": false
+      },
       [ "firecracker_pack", 5 ],
       [ "folding_solar_panel", 3 ],
       { "item": "hotplate", "prob": 10 },
