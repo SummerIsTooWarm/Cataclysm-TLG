@@ -506,7 +506,10 @@ void sounds::process_sounds()
                     const int felt_volume = raw_volume - dist;
                     const bool is_sound_deafening = felt_volume >= 150;
                     if( is_sound_deafening ) {
-                        const time_duration deafness_duration = time_duration::from_turns( felt_volume - 130 ) / 4;
+                        // Reduced deafness for monsters (zombies adapt, animals have better ears, etc)
+                        // TODO: volume_multiplier by species/flag/etc.
+                        const time_duration deafness_duration = std::min( 3_minutes,
+                                                                time_duration::from_turns( felt_volume - 130 ) / 6 );
                         critter.add_effect( effect_deaf, deafness_duration );
                     }
                 }
