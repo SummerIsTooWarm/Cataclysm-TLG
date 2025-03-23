@@ -402,7 +402,7 @@
     "type": "MIGRATION",
     "id": "felinesuit",
     "replace": "fursuit",
-    "variant": "tiger_suit"
+    "variant": "tiger_fursuit"
   },
   {
     "type": "MIGRATION",
