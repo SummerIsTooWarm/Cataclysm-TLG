@@ -965,29 +965,18 @@ bool mattack::shockstorm( monster *z )
     std::vector<tripoint> bolt = line_to( z->pos(), tarp, 0, 0 );
     // Fill the LOS with electricity
     for( tripoint &i : bolt ) {
-        if( !one_in( 4 ) ) {
+        if( !one_in( 4 ) && ( !here.has_field_at( i, fd_electricity ) ) ) {
             here.add_field( i, fd_electricity, rng( 1, 3 ) );
         }
     }
 
     // 3x3 cloud of electricity at the square hit
     for( const tripoint &dest : here.points_in_radius( tarp, 1 ) ) {
-        if( one_in( 3 ) ) {
+        if( one_in( 3 ) && ( !here.has_field_at( dest, fd_electricity ) ) ) {
             here.add_field( dest, fd_electricity, rng( 4, 10 ) );
         }
     }
 
-    return true;
-}
-
-bool mattack::shocking_reveal( monster *z )
-{
-    shockstorm( z );
-    const translation WHAT_A_SCOOP = SNIPPET.random_from_category( "clickbait" ).value_or(
-                                         translation() );
-    sounds::sound( z->pos(), 10, sounds::sound_t::alert,
-                   string_format( _( "the %s obnoxiously yelling \"%s!!!\"" ),
-                                  z->name(), WHAT_A_SCOOP ) );
     return true;
 }
 

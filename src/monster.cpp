@@ -171,6 +171,7 @@ static const morale_type morale_killer_need_to_kill( "morale_killer_need_to_kill
 static const species_id species_AMPHIBIAN( "AMPHIBIAN" );
 static const species_id species_CYBORG( "CYBORG" );
 static const species_id species_FISH( "FISH" );
+static const species_id species_SLIME( "SLIME" );
 static const species_id species_FUNGUS( "FUNGUS" );
 static const species_id species_HORROR( "HORROR" );
 static const species_id species_MAMMAL( "MAMMAL" );
@@ -178,8 +179,9 @@ static const species_id species_MIGO( "MIGO" );
 static const species_id species_MOLLUSK( "MOLLUSK" );
 static const species_id species_NETHER( "NETHER" );
 static const species_id species_PLANT( "PLANT" );
-static const species_id species_PSI_NULL( "PSI_NULL" );
 static const species_id species_ROBOT( "ROBOT" );
+static const species_id species_ROBOT_FLYING( "ROBOT_FLYING" );
+static const species_id species_PSI_NULL( "PSI_NULL" );
 static const species_id species_ZOMBIE( "ZOMBIE" );
 static const species_id species_nether_player_hate( "nether_player_hate" );
 
@@ -1823,6 +1825,12 @@ bool monster::is_immune_effect( const efftype_id &effect ) const
 
     if( effect == effect_corroding ) {
         return has_flag( mon_flag_ACIDPROOF );
+    }
+
+    if( effect == effect_deaf ) {
+        return type->in_species( species_ROBOT ) || type->in_species( species_PLANT ) ||
+               type->in_species( species_CYBORG ) || type->in_species( species_ROBOT_FLYING ) ||
+               type->in_species( species_SLIME );
     }
 
     if( effect == effect_downed ) {
@@ -3499,19 +3507,20 @@ void monster::add_item( const item &it )
     inv.push_back( it );
 }
 
-bool monster::is_hallucination() const
-{
-    return hallucination;
-}
-
 bool monster::is_electrical() const
 {
-    return in_species( species_ROBOT ) || has_flag( mon_flag_ELECTRIC ) || in_species( species_CYBORG );
+    return in_species( species_ROBOT ) || in_species( species_ROBOT_FLYING ) ||
+           has_flag( mon_flag_ELECTRIC ) || in_species( species_CYBORG );
 }
 
 bool monster::is_fae() const
 {
     return has_flag( mon_flag_FAE_CREATURE );
+}
+
+bool monster::is_hallucination() const
+{
+    return hallucination;
 }
 
 bool monster::is_nether() const
@@ -3820,13 +3829,13 @@ void monster::hear_sound( const tripoint &source, const int vol, const int dist,
 
     int max_error = 0;
     if( volume < 2 ) {
-        max_error = 10;
+        max_error = 12;
     } else if( volume < 5 ) {
-        max_error = 5;
+        max_error = 10;
     } else if( volume < 10 ) {
-        max_error = 3;
+        max_error = 8;
     } else if( volume < 20 ) {
-        max_error = 1;
+        max_error = 5;
     }
 
     tripoint_abs_ms target = get_map().getglobal( source ) + point( rng( -max_error, max_error ),

@@ -93,7 +93,13 @@ static const json_character_flag json_flag_HEATSINK( "HEATSINK" );
 static const material_id material_iflesh( "iflesh" );
 static const material_id material_veggy( "veggy" );
 
+static const species_id species_CYBORG( "CYBORG" );
+static const species_id species_FERAL( "FERAL" );
 static const species_id species_FUNGUS( "FUNGUS" );
+static const species_id species_INSECT( "INSECT" );
+static const species_id species_INSECT_FLYING( "INSECT_FLYING" );
+static const species_id species_CENTIPEDE( "CENTIPEDE" );
+static const species_id species_SPIDER( "SPIDER" );
 
 static const ter_str_id ter_t_dirt( "t_dirt" );
 static const ter_str_id ter_t_open_air( "t_open_air" );
@@ -650,7 +656,7 @@ static void field_processor_fd_electricity( const tripoint &p, field_entry &cur,
         return;
     }
 
-    const int spread_intensity_cap = 3 + std::max( ( current_intensity - 3 ) / 2, 0 );
+    const int spread_intensity_cap = 3 + std::max( ( current_intensity - 2 ) / 2, 0 );
 
     std::vector<tripoint> grounded_tiles;
     std::vector<tripoint> tiles_with_creatures;
@@ -735,6 +741,7 @@ static void field_processor_fd_electricity( const tripoint &p, field_entry &cur,
         if( field_entry *target_field = pd.here.get_field( target_point, field_type ) ) {
             int target_field_intensity = target_field->get_field_intensity();
             target_field->set_field_intensity( ++target_field_intensity );
+            //cur.set_field_intensity( --current_intensity );
             if( target_field_intensity >= spread_intensity_cap ) {
                 target_vector->erase( target_it );
             }
@@ -744,9 +751,16 @@ static void field_processor_fd_electricity( const tripoint &p, field_entry &cur,
 
         cur.set_field_intensity( --current_intensity );
 
-        if( one_in( current_intensity * 2 ) ) {
+        if( one_in( current_intensity ) ) {
             // Weaker fields have a harder time spreading
-            break;
+            cur.set_field_intensity( --current_intensity );
+        }
+        // Half-life is not sufficient to clean up fields.
+        if( cur.get_field_age() > 1_turns ) {
+            cur.set_field_intensity( --current_intensity );
+        }
+        if( cur.get_field_age() > 2_turns ) {
+            cur.set_field_intensity( --current_intensity );
         }
     }
 }
@@ -936,11 +950,15 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
     maptile &map_tile = pd.map_tile;
     const oter_id om_ter = pd.om_ter;
 
-    cur.set_field_age( std::max( -24_hours, cur.get_field_age() ) );
+    // Cap raging fires at one hour. They can refuel or be fed by neighbors, so this is mostly a failsafe.
+    cur.set_field_age( std::max( -360_minutes, cur.get_field_age() ) );
     // Entire objects for ter/frn for flags
     bool sheltered = g->is_sheltered( p );
     weather_manager &weather = get_weather();
     int winddirection = weather.winddirection;
+    int precipitation = static_cast<int>( weather.weather_id->precip );
+    w_point weatherpoint = *weather.weather_precise;
+    int humidity = get_local_humidity( weatherpoint.humidity, get_weather().weather_id );
     int windpower = get_local_windpower( weather.windspeed, om_ter, tripoint_abs_ms( p ), winddirection,
                                          sheltered );
     const ter_t &ter = map_tile.get_ter_t();
@@ -1029,39 +1047,61 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
     }
     if( can_burn ) {
         if( ter.has_flag( ter_furn_flag::TFLAG_SWIMMABLE ) ) {
-            // Flames die quickly on water
+            // Flames die quickly on water.
             cur.set_field_age( cur.get_field_age() + 4_minutes );
+        }
+        if( one_in( 180 ) ) {
+            // Uncontained fires have a habit of randomly burning out.
+            // This is not from wind, but lack of oxygen, etc.
+            if( cur.get_field_intensity() > 1 ) {
+                cur.set_field_age( cur.get_field_age() + ( 180_minutes * cur.get_field_intensity() ) );
+            } else {
+                cur.set_field_age( cur.get_field_age() + 18_minutes );
+            }
+        }
+        if( !sheltered ) {
+            // Humidity is alway high whenever precip is, so it's OK that humidity seems to
+            // matter more than precipitation - they're additive.
+            if( precipitation > 0 && one_in( 15 - precipitation ) ) {
+                cur.set_field_age( cur.get_field_age() + 1_turns * precipitation );
+            }
+        }
+        // Humidity automatically adjusts for inside/outside, so no need to check.
+        if( humidity > 70 && one_in( 102 - humidity ) ) {
+            cur.set_field_age( cur.get_field_age() + 1_turns );
         }
 
         // Consume the terrain we're on
         if( ter_furn_has_flag( ter, frn, ter_furn_flag::TFLAG_FLAMMABLE ) ) {
             // The fire feeds on the ground itself until max intensity.
-            time_added += 1_turns * ( 5 - cur.get_field_intensity() );
-            smoke += 2;
+            time_added += 1_turns * ( 4 - cur.get_field_intensity() );
+            smoke += cur.get_field_intensity();
             smoke += static_cast<int>( windpower / 5 );
             if( cur.get_field_intensity() > 1 &&
-                one_in( 200 - cur.get_field_intensity() * 50 ) ) {
+                one_in( 175 - cur.get_field_intensity() * 50 ) ) {
+                here.furn_set( p, furn_str_id::NULL_ID() );
                 here.destroy( p, false );
             }
 
         } else if( ter_furn_has_flag( ter, frn, ter_furn_flag::TFLAG_FLAMMABLE_HARD ) &&
                    one_in( 3 ) ) {
             // The fire feeds on the ground itself until max intensity.
-            time_added += 1_turns * ( 4 - cur.get_field_intensity() );
-            smoke += 2;
+            time_added += 1_turns * ( 3 - cur.get_field_intensity() );
+            smoke += cur.get_field_intensity();
             smoke += static_cast<int>( windpower / 5 );
             if( cur.get_field_intensity() > 1 &&
                 one_in( 200 - cur.get_field_intensity() * 50 ) ) {
+                here.furn_set( p, furn_str_id::NULL_ID() );
                 here.destroy( p, false );
             }
 
         } else if( ter.has_flag( ter_furn_flag::TFLAG_FLAMMABLE_ASH ) ) {
             // The fire feeds on the ground itself until max intensity.
-            time_added += 1_turns * ( 5 - cur.get_field_intensity() );
-            smoke += 2;
+            time_added += 1_turns * ( 6 - cur.get_field_intensity() );
+            smoke += cur.get_field_intensity();
             smoke += static_cast<int>( windpower / 5 );
             if( cur.get_field_intensity() > 1 &&
-                one_in( 200 - cur.get_field_intensity() * 50 ) ) {
+                one_in( 160 - cur.get_field_intensity() * 50 ) ) {
                 here.spawn_item( p, "ash", 1, rng( 10, 1000 ) );
                 if( p.z > 0 ) {
                     // We're in the air. Need to invalidate the furniture otherwise it'll cause problems
@@ -1069,6 +1109,7 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
                     here.ter_set( p, ter_t_open_air );
                 } else if( p.z < -1 ) {
                     // We're deep underground, in bedrock. Whatever terrain was here is burned to the ground, leaving only the carved out rock (including ceiling)
+                    here.furn_set( p, furn_str_id::NULL_ID() );
                     here.ter_set( p, ter_t_rock_floor );
                 } else {
                     // Need to invalidate the furniture otherwise it'll cause problems when supporting terrain collapses
@@ -1078,12 +1119,13 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
             }
 
         } else if( frn.has_flag( ter_furn_flag::TFLAG_FLAMMABLE_ASH ) ) {
-            // The fire feeds on the ground itself until max intensity.
-            time_added += 1_turns * ( 5 - cur.get_field_intensity() );
-            smoke += 2;
+            // The fire feeds on the furniture until max intensity.
+            time_added += 1_turns * ( 6 - cur.get_field_intensity() );
+            // Some stuff just really wants to burn.
+            smoke += cur.get_field_intensity();
             smoke += static_cast<int>( windpower / 5 );
-            if( cur.get_field_intensity() > 1 &&
-                one_in( 200 - cur.get_field_intensity() * 50 ) ) {
+            if( ( cur.get_field_intensity() > 1 && one_in( 160 - cur.get_field_intensity() * 50 ) ) ||
+                ( cur.get_field_intensity() == 1 && one_in( 600 ) ) ) {
                 here.furn_set( p, furn_f_ash );
                 here.add_item_or_charges( p, item( "ash" ) );
             }
@@ -1109,10 +1151,14 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
                     }
                     // A raging fire below us can support us for a while
                     // Otherwise decay and decay fast
-                    if( fire_there->get_field_intensity() < 3 || one_in( 10 ) ) {
+                    if( fire_there->get_field_intensity() < 3 || one_in( 3 ) ) {
                         cur.set_field_intensity( cur.get_field_intensity() - 1 );
                     }
                     fire_there->set_field_intensity( new_intensity );
+                }
+                // Some stuff really wants to burn.
+                if( frn.has_flag( ter_furn_flag::TFLAG_TINDER ) ) {
+                    time_added += 3_turns;
                 }
                 return;
             }
@@ -1159,7 +1205,7 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
 
     // If the flames are big, they contribute to adjacent flames
     if( can_spread ) {
-        if( cur.get_field_intensity() > 1 && one_in( 3 ) ) {
+        if( cur.get_field_intensity() > 1 && one_in( 72 / cur.get_field_intensity() ) ) {
             // Basically: Scan around for a spot,
             // if there is more fire there, make it bigger and give it some fuel.
             // This is how big fires spend their excess age:
@@ -1173,8 +1219,7 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
                     field_entry *dstfld = dst.find_field( fd_fire );
                     // If the fire exists and is weaker than ours, boost it
                     if( dstfld &&
-                        ( dstfld->get_field_intensity() <= cur.get_field_intensity() ||
-                          dstfld->get_field_age() > cur.get_field_age() ) &&
+                        ( dstfld->get_field_age() > cur.get_field_age() ) &&
                         ( in_pit == ( dst.get_ter() == ter_t_pit ) ) ) {
                         if( dstfld->get_field_intensity() < 2 ) {
                             // HACK: ignoring all map field caches, since field already exists
@@ -1226,10 +1271,10 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
             int maximum_intensity = 1;
 
             // The following logic looks a bit complex due to optimization concerns, so here are the semantics:
-            // 1. Calculate maximum field intensity based on fuel, -50 minutes is 2(medium), -500 minutes is 3(raging)
+            // 1. Calculate maximum field intensity based on fuel, -50 minutes is 2(medium), -300 minutes is 3(raging)
             // 2. Calculate maximum field intensity based on neighbors, 3 neighbors is 2(medium), 7 or more neighbors is 3(raging)
             // 3. Pick the higher maximum between 1. and 2.
-            if( cur.get_field_age() < -500_minutes ) {
+            if( cur.get_field_age() < -300_minutes ) {
                 maximum_intensity = 3;
             } else {
                 for( auto &neigh : neighs ) {
@@ -1299,7 +1344,7 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
             }
 
             field_entry *nearwebfld = dst.find_field( fd_web );
-            int spread_chance = 25 * ( cur.get_field_intensity() - 1 );
+            int spread_chance = std::max( 0, 25 * ( cur.get_field_intensity() - 1 ) );
             if( nearwebfld ) {
                 spread_chance = 50 + spread_chance / 2;
             }
@@ -1308,11 +1353,11 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
             const furn_t &dsfrn = dst.get_furn_t();
             // Allow weaker fires to spread occasionally
             const int power = cur.get_field_intensity() + one_in( 5 );
-            if( can_spread && rng( 1, 100 ) < spread_chance &&
+            if( can_spread && rng( 0, 100 ) <= spread_chance &&
                 ( in_pit == ( dster.id.id() == ter_t_pit ) ) &&
                 (
                     ( power >= 2 && ( ter_furn_has_flag( dster, dsfrn, ter_furn_flag::TFLAG_FLAMMABLE ) &&
-                                      one_in( 2 ) ) ) ||
+                                      one_in( 3 ) ) ) ||
                     ( power >= 2 && ( ter_furn_has_flag( dster, dsfrn, ter_furn_flag::TFLAG_FLAMMABLE_ASH ) &&
                                       one_in( 2 ) ) ) ||
                     ( power >= 3 && ( ter_furn_has_flag( dster, dsfrn, ter_furn_flag::TFLAG_FLAMMABLE_HARD ) &&
@@ -1372,7 +1417,7 @@ void field_processor_fd_fire( const tripoint &p, field_entry &cur, field_proc_da
                 ( in_pit == ( dster.id.id() == ter_t_pit ) ) &&
                 (
                     ( power >= 2 && ( ter_furn_has_flag( dster, dsfrn, ter_furn_flag::TFLAG_FLAMMABLE ) &&
-                                      one_in( 2 ) ) ) ||
+                                      one_in( 3 ) ) ) ||
                     ( power >= 2 && ( ter_furn_has_flag( dster, dsfrn, ter_furn_flag::TFLAG_FLAMMABLE_ASH ) &&
                                       one_in( 2 ) ) ) ||
                     ( power >= 3 && ( ter_furn_has_flag( dster, dsfrn, ter_furn_flag::TFLAG_FLAMMABLE_HARD ) &&
@@ -1490,6 +1535,7 @@ void map::player_in_field( Character &you )
         }
         if( ft == fd_fire ) {
             // Heatsink or suit prevents ALL fire damage.
+            // TODO: Why would a heatsink stop open flames from cooking your skin?
             if( !you.has_flag( json_flag_HEATSINK ) && !you.is_wearing( itype_rm13_armor_on ) ) {
 
                 // To modify power of a field based on... whatever is relevant for the effect.
@@ -1527,7 +1573,7 @@ void map::player_in_field( Character &you )
                         }
                     };
 
-                    const int burn_min = adjusted_intensity;
+                    const int burn_min = std::min( 1, adjusted_intensity );
                     const int burn_max = 3 * adjusted_intensity + 3;
                     std::list<bodypart_id> parts_burned;
                     int msg_num = adjusted_intensity - 1;
@@ -1556,10 +1602,15 @@ void map::player_in_field( Character &you )
                     }
 
                     int total_damage = 0;
+                    int total_parts_burned = 0;
+                    int total_parts_to_burn = rng( adjusted_intensity, parts_burned.size() );
                     for( const bodypart_id &part_burned : parts_burned ) {
-                        const dealt_damage_instance dealt = you.deal_damage( nullptr, part_burned,
-                                                            damage_instance( damage_heat, rng( burn_min, burn_max ) ) );
-                        total_damage += dealt.type_damage( damage_heat );
+                        if( total_parts_burned < total_parts_to_burn ) {
+                            const dealt_damage_instance dealt = you.deal_damage( nullptr, part_burned,
+                                                                damage_instance( damage_heat, rng( burn_min, burn_max ) ) );
+                            total_damage += dealt.type_damage( damage_heat );
+                            total_parts_burned += 1;
+                        }
                     }
                     if( total_damage > 0 ) {
                         you.add_msg_player_or_npc( m_bad, _( player_burn_msg[msg_num] ), _( npc_burn_msg[msg_num] ) );
@@ -1576,9 +1627,10 @@ void map::player_in_field( Character &you )
             if( ( cur.get_field_intensity() > 1 || !one_in( 3 ) ) && ( !inside || one_in( 3 ) ) ) {
                 you.add_env_effect( effect_teargas, bodypart_id( "mouth" ), 5, 20_seconds );
             }
-            if( cur.get_field_intensity() > 1 && ( !inside || one_in( 3 ) ) ) {
-                you.add_env_effect( effect_blind, bodypart_id( "eyes" ), cur.get_field_intensity() * 2,
-                                    10_seconds );
+            // Prevent stacking ridiculous amounts of blindness.
+            if( cur.get_field_intensity() > 1 && ( !inside || one_in( 3 ) ) &&
+                ( !you.has_effect( effect_blind ) || you.get_effect_dur( effect_blind ) < 30_seconds ) ) {
+                you.add_env_effect( effect_blind, bodypart_id( "eyes" ), 1, cur.get_field_intensity() * 2_seconds );
             }
         }
         if( ft == fd_fungal_haze ) {
@@ -1606,6 +1658,7 @@ void map::player_in_field( Character &you )
             if( !inside ) {
                 // Fireballs can't touch you inside a car.
                 // Heatsink or suit stops fire.
+                // TODO: Heatsink shouldn't do this.
                 if( !you.has_flag( json_flag_HEATSINK ) &&
                     !you.is_wearing( itype_rm13_armor_on ) ) {
                     you.add_msg_player_or_npc( m_bad, _( "You're torched by flames!" ),
@@ -1621,10 +1674,11 @@ void map::player_in_field( Character &you )
             }
         }
         if( ft == fd_electricity ) {
-            // Small universal damage based on intensity, only if not electroproofed and not in vehicle.
+            // Chance to apply damage to each body part, only if not electroproofed and not in vehicle.
             if( cur.get_field_intensity() > 0 && !you.is_elec_immune() && !you.in_vehicle ) {
                 const bodypart_id &main_part = bodypart_id( "torso" );
                 const int dmg = std::max( 1, rng( cur.get_field_intensity() / 2, cur.get_field_intensity() ) );
+                const int current_intensity = cur.get_field_intensity();
                 const int main_part_damage = you.deal_damage( nullptr, main_part,
                                              damage_instance( damage_electric, dmg ) ).total_damage();
 
@@ -1634,13 +1688,16 @@ void map::player_in_field( Character &you )
                         if( bp == main_part ) {
                             continue;
                         }
-
-                        you.apply_damage( nullptr, bp, dmg, true );
+                        // Electricity is weird and does not uniformly damage the body.
+                        if( rng( 0, 3 ) < 3 ) {
+                            you.apply_damage( nullptr, bp, dmg, true );
+                        }
                     }
                 } else {
                     you.add_msg_player_or_npc( _( "The electric cloud doesn't affect you." ),
                                                _( "The electric cloud doesn't seem to affect <npcname>." ) );
                 }
+                cur.set_field_intensity( current_intensity - 2 );
             }
         }
         if( ft == fd_fatigue ) {
@@ -1880,15 +1937,28 @@ void map::monster_in_field( monster &z )
         }
         if( cur_field_type == fd_tear_gas ) {
             if( z.made_of_any( Creature::cmat_fleshnveg ) && !z.has_flag( mon_flag_NO_BREATHE ) ) {
-                if( cur.get_field_intensity() == 3 ) {
-                    z.add_effect( effect_stunned, rng( 1_minutes, 2_minutes ) );
-                } else if( cur.get_field_intensity() == 2 ) {
-                    z.add_effect( effect_stunned, rng( 5_turns, 10_turns ) );
-                } else {
-                    z.add_effect( effect_stunned, rng( 1_turns, 5_turns ) );
+                // Ferals can power through it, but even they have limits.
+                if( !z.has_effect( effect_stunned ) && ( !z.in_species( species_FERAL ) || one_in( 3 ) ) ) {
+                    z.add_effect( effect_stunned, rng( cur.get_field_intensity() * 1_turns,
+                                                       cur.get_field_intensity() * 5_turns ) );
+                    if( z.type->has_fear_trigger( mon_trigger::HURT ) ) {
+                        z.morale -= ( 2 * cur.get_field_intensity() );
+                    }
+                    if( z.type->has_anger_trigger( mon_trigger::HURT ) ) {
+                        z.anger += ( 2 * cur.get_field_intensity() );
+                    }
                 }
-                if( z.has_flag( mon_flag_SEES ) ) {
-                    z.add_effect( effect_blind, cur.get_field_intensity() * 8_turns );
+                if( z.has_flag( mon_flag_SEES ) && !z.in_species( species_INSECT ) &&
+                    !z.in_species( species_INSECT_FLYING ) && !z.in_species( species_CENTIPEDE ) &&
+                    !z.in_species( species_SPIDER ) && !z.in_species( species_CYBORG ) &&
+                    !z.has_effect( effect_blind ) ) {
+                    z.add_effect( effect_blind, cur.get_field_intensity() * 5_turns );
+                    if( z.type->has_fear_trigger( mon_trigger::HURT ) ) {
+                        z.morale -= ( 2 * cur.get_field_intensity() );
+                    }
+                    if( z.type->has_anger_trigger( mon_trigger::HURT ) ) {
+                        z.anger += ( 2 * cur.get_field_intensity() );
+                    }
                 }
             }
 

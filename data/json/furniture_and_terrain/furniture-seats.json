@@ -45,7 +45,7 @@
     "deconstruct": { "items": [ { "item": "armchair", "count": 1 } ] },
     "flags": [
       "TRANSPARENT",
-      "FLAMMABLE_ASH",
+      "FLAMMABLE",
       "ORGANIC",
       "MOUNTABLE",
       "EASY_DECONSTRUCT",

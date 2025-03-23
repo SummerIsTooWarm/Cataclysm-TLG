@@ -27,6 +27,7 @@
 #include "map_iterator.h"
 #include "messages.h"
 #include "monster.h"
+#include "mtype.h"
 #include "music.h"
 #include "npc.h"
 #include "output.h"
@@ -480,10 +481,8 @@ void sounds::process_sounds()
     std::vector<centroid> sound_clusters = cluster_sounds( recent_sounds );
     const int weather_vol = get_weather().weather_id->sound_attn;
     for( const centroid &this_centroid : sound_clusters ) {
-        // Since monsters don't go deaf ATM we can just use the weather modified volume
-        // If they later get physical effects from loud noises we'll have to change this
-        // to use the unmodified volume for those effects.
         const int vol = this_centroid.volume - weather_vol;
+        const int raw_volume = this_centroid.volume + weather_vol;
         const tripoint source = tripoint( this_centroid.x, this_centroid.y, this_centroid.z );
         // --- Monster sound handling here ---
         // Alert all hordes
@@ -500,9 +499,20 @@ void sounds::process_sounds()
         for( monster &critter : g->all_monsters() ) {
             // TODO: Generalize this to Creature::hear_sound
             const int dist = sound_distance( source, critter.pos() );
-            if( vol * 2 > dist ) {
+            if( vol * 2 > dist && critter.has_flag( mon_flag_HEARS ) && !critter.has_effect( effect_deaf ) ) {
                 // Exclude monsters that certainly won't hear the sound
                 critter.hear_sound( source, vol, dist, this_centroid.provocative );
+                if( raw_volume >= 150 && !critter.is_immune_effect( effect_deaf ) ) {
+                    const int felt_volume = raw_volume - dist;
+                    const bool is_sound_deafening = felt_volume >= 150;
+                    if( is_sound_deafening ) {
+                        // Reduced deafness for monsters (zombies adapt, animals have better ears, etc)
+                        // TODO: volume_multiplier by species/flag/etc.
+                        const time_duration deafness_duration = std::min( 3_minutes,
+                                                                time_duration::from_turns( felt_volume - 130 ) / 6 );
+                        critter.add_effect( effect_deaf, deafness_duration );
+                    }
+                }
             }
         }
         // Trigger sound-triggered traps and ensure they are still valid

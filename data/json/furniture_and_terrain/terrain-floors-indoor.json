@@ -551,7 +551,7 @@
     "move_cost": 2,
     "roof": "t_log_sod_roof",
     "connect_groups": "INDOORFLOOR",
-    "flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT" ],
+    "flags": [ "TRANSPARENT", "FLAMMABLE", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT" ],
     "bash": {
       "sound": "SMASH!",
       "ter_set": "t_null",
@@ -618,7 +618,7 @@
     "connects_to": "DIRT",
     "move_cost": 2,
     "roof": "t_shingle_flat_roof",
-    "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "DIGGABLE" ],
+    "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "DIGGABLE" ],
     "bash": {
       "sound": "SMASH!",
       "ter_set": "t_null",
@@ -640,7 +640,7 @@
     "connects_to": "DIRT",
     "move_cost": 2,
     "roof": "t_thatch_roof",
-    "flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "DIGGABLE" ],
+    "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "DIGGABLE" ],
     "bash": {
       "sound": "SMASH!",
       "ter_set": "t_null",
@@ -914,7 +914,7 @@
     "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "SUPPORTS_ROOF", "COLLAPSES", "INDOORS", "FLAT", "RUG", "EASY_DECONSTRUCT" ],
     "bash": {
-      "sound": "SMASH!",
+      "sound": "rrrip!",
       "ter_set": "t_thconc_floor",
       "str_min": 5,
       "str_max": 15,

@@ -1460,7 +1460,7 @@
     "comfort": 1,
     "floor_bedding_warmth": 100,
     "deconstruct": { "items": [ { "item": "straw_pile", "count": [ 55, 60 ] } ], "ter_set": "t_pit_shallow" },
-    "flags": [ "TRANSPARENT", "FLAMMABLE", "ORGANIC", "MOUNTABLE", "SHORT", "EASY_DECONSTRUCT" ],
+    "flags": [ "TRANSPARENT", "FLAMMABLE", "ORGANIC", "FLAMMABLE_ASH", "TINDER", "MOUNTABLE", "SHORT", "EASY_DECONSTRUCT" ],
     "bash": {
       "str_min": 6,
       "str_max": 20,
@@ -1492,8 +1492,11 @@
       "INDOORS",
       "MOUNTABLE",
       "HIDE_PLACE",
-      "EASY_DECONSTRUCT"
-    ],
+      "EASY_DECONSTRUCT",
+      "FIRE_CONTAINER",
+      "PLACE_ITEM"
+      ],
+    "examine_action": "fireplace",
     "bash": {
       "str_min": 4,
       "str_max": 60,
@@ -1522,6 +1525,8 @@
       "THIN_OBSTACLE",
       "REDUCE_SCENT",
       "INDOORS",
+      "FLAMMABLE_ASH",
+      "TINDER",
       "MOUNTABLE",
       "HIDE_PLACE",
       "EASY_DECONSTRUCT"
@@ -1560,7 +1565,20 @@
       ]
     },
     "connect_groups": "INDOORFLOOR",
-    "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "THIN_OBSTACLE", "REDUCE_SCENT", "INDOORS", "MOUNTABLE" ]
+    "flags": [
+      "TRANSPARENT",
+      "CONTAINER",
+      "FLAMMABLE_ASH",
+      "THIN_OBSTACLE",
+      "REDUCE_SCENT",
+      "INDOORS",
+      "MOUNTABLE",
+      "HIDE_PLACE",
+      "EASY_DECONSTRUCT",
+      "FIRE_CONTAINER",
+      "PLACE_ITEM"
+      ],
+    "examine_action": "fireplace"
   },
   {
     "id": "t_tarptent",
@@ -1583,7 +1601,20 @@
       "ter_set": "t_dirt",
       "items": [ { "item": "pointy_stick", "count": 4 }, { "item": "string_6", "count": 4 }, { "item": "tarp", "count": 1 } ]
     },
-    "flags": [ "TRANSPARENT", "FLAMMABLE", "THIN_OBSTACLE", "INDOORS", "MOUNTABLE", "EASY_DECONSTRUCT" ]
+    "flags": [
+      "TRANSPARENT",
+      "CONTAINER",
+      "FLAMMABLE",
+      "THIN_OBSTACLE",
+      "REDUCE_SCENT",
+      "INDOORS",
+      "MOUNTABLE",
+      "HIDE_PLACE",
+      "EASY_DECONSTRUCT",
+      "FIRE_CONTAINER",
+      "PLACE_ITEM"
+      ],
+    "examine_action": "fireplace"
   },
   {
     "id": "t_plastic_sheettent",
@@ -1610,7 +1641,20 @@
       "ter_set": "t_dirt",
       "items": [ { "item": "pointy_stick", "count": 4 }, { "item": "string_6", "count": 4 }, { "item": "plastic_sheet", "count": 1 } ]
     },
-    "flags": [ "TRANSPARENT", "FLAMMABLE", "THIN_OBSTACLE", "INDOORS", "MOUNTABLE", "EASY_DECONSTRUCT" ]
+    "flags": [
+      "TRANSPARENT",
+      "CONTAINER",
+      "FLAMMABLE",
+      "THIN_OBSTACLE",
+      "REDUCE_SCENT",
+      "INDOORS",
+      "MOUNTABLE",
+      "HIDE_PLACE",
+      "EASY_DECONSTRUCT",
+      "FIRE_CONTAINER",
+      "PLACE_ITEM"
+      ],
+    "examine_action": "fireplace"
   },
   {
     "id": "t_gum_blankettent",
@@ -1638,7 +1682,20 @@
       "items": [ { "item": "pointy_stick", "count": 4 }, { "item": "string_6", "count": 4 }, { "item": "gum_blanket", "count": 1 } ]
     },
     "connect_groups": "INDOORFLOOR",
-    "flags": [ "TRANSPARENT", "FLAMMABLE", "THIN_OBSTACLE", "INDOORS", "MOUNTABLE", "EASY_DECONSTRUCT" ]
+    "flags": [
+      "TRANSPARENT",
+      "CONTAINER",
+      "FLAMMABLE",
+      "THIN_OBSTACLE",
+      "REDUCE_SCENT",
+      "INDOORS",
+      "MOUNTABLE",
+      "HIDE_PLACE",
+      "EASY_DECONSTRUCT",
+      "FIRE_CONTAINER",
+      "PLACE_ITEM"
+      ],
+    "examine_action": "fireplace"
   },
   {
     "type": "terrain",
