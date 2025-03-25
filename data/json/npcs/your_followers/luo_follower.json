@@ -173,6 +173,19 @@
       { "text": "Let's talk about your current activity.", "topic": "TALK_ACTIVITIES" },
       { "text": "Let's talk about the camp.", "topic": "TALK_CAMP" },
       { "text": "Change your martial arts style.", "topic": "TALK_DONE", "effect": "pick_style" },
+      {
+        "text": "You should take over for now.",
+        "condition": { "not": { "npc_has_trait": "HALLUCINATION" } },
+        "topic": "TALK_DONE",
+        "effect": "switch_to",
+        "switch": true
+      },
+      {
+        "text": "You should take over for now.",
+        "condition": { "npc_has_trait": "HALLUCINATION" },
+        "topic": "TALK_DONE",
+        "switch": true
+      },
       { "text": "Let's go.", "topic": "TALK_DONE" }
     ]
   },
