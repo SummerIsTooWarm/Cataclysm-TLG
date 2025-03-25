@@ -18,7 +18,9 @@
     "condition": {
       "and": [
         { "u_has_bionics": "bio_trip" },
-        { "not": { "or": [ { "u_has_effect": "visuals" }, { "u_has_effect": "narcosis" } ] } }
+        {
+          "not": { "or": [ { "u_has_effect": "visuals" }, { "u_has_effect": "narcosis" }, { "u_has_effect": "sleep" } ] }
+        }
       ]
     },
     "deactivate_condition": { "not": { "u_has_bionics": "bio_trip" } },
@@ -35,7 +37,9 @@
     "condition": {
       "and": [
         { "u_has_bionics": "bio_spasm" },
-        { "not": { "or": [ { "u_has_effect": "downed" }, { "u_has_effect": "narcosis" } ] } }
+        {
+          "not": { "or": [ { "u_has_effect": "downed" }, { "u_has_effect": "narcosis" }, { "u_has_effect": "sleep" } ] }
+        }
       ]
     },
     "deactivate_condition": { "not": { "u_has_bionics": "bio_spasm" } },
@@ -108,7 +112,7 @@
     "type": "effect_on_condition",
     "id": "bio_noise",
     "recurrence": [ "30 minutes", "1 hours 30 minutes" ],
-    "condition": { "and": [ { "u_has_bionics": "bio_noise" }, { "not": { "u_has_effect": "narcosis" } } ] },
+    "condition": { "and": [ { "u_has_bionics": "bio_noise" } ] },
     "deactivate_condition": { "not": { "u_has_bionics": "bio_noise" } },
     "effect": [
       { "u_make_sound": "Crackle!", "volume": 40, "type": "movement" },
