@@ -6,6 +6,8 @@
     "//": "Protective clothing for motorbike riding.",
     "items": [
       { "item": "helmet_motor" },
+      { "item": "neck_gaiter", "prob": 4 },
+      { "item": "neck_gaiter_kevlar", "prob": 3 },
       { "item": "motorbike_boots", "prob": 80 },
       {
         "distribution": [
@@ -100,6 +102,8 @@
       { "item": "gloves_wool", "prob": 50 },
       { "item": "gloves_wool_fingerless", "prob": 25 },
       { "item": "knit_scarf", "prob": 50 },
+      { "item": "neck_gaiter", "prob": 50 },
+      { "item": "neck_gaiter_kevlar", "prob": 10 },
       { "item": "pants_cargo", "prob": 75 },
       { "item": "tacjacket", "prob": 75 },
       { "item": "socks_wool", "prob": 50 },
@@ -136,6 +140,8 @@
       { "item": "hat_hunting", "prob": 15 },
       { "item": "knit_scarf", "prob": 25 },
       { "item": "long_knit_scarf", "prob": 25 },
+      { "item": "neck_gaiter", "prob": 10 },
+      { "item": "neck_gaiter_kevlar", "prob": 2 },
       { "item": "longshirt", "prob": 50 },
       { "item": "jacket_flannel", "prob": 50 },
       { "item": "coat_winter", "prob": 25 },
@@ -213,6 +219,7 @@
     "items": [
       { "group": "clothing_soldier_shirt" },
       { "distribution": [ { "item": "jacket_army_modern", "prob": 50 }, { "item": "combat_shirt", "prob": 50 } ] },
+      { "distribution": [ { "item": "neck_gaiter", "prob": 6 }, { "item": "neck_gaiter_kevlar", "prob": 2 } ] },
       { "item": "pants_army" },
       { "group": "loaded_webbing_belt" },
       { "distribution": [ { "item": "socks", "prob": 95 }, { "item": "socks_wool", "prob": 5 } ] },
@@ -233,6 +240,7 @@
     "items": [
       { "group": "clothing_soldier_shirt" },
       { "distribution": [ { "item": "jacket_army_modern", "prob": 50 }, { "item": "combat_shirt", "prob": 50 } ] },
+      { "distribution": [ { "item": "neck_gaiter", "prob": 6 }, { "item": "neck_gaiter_kevlar", "prob": 2 } ] },
       { "item": "pants_army" },
       { "group": "loaded_webbing_belt" },
       { "distribution": [ { "item": "socks", "prob": 95 }, { "item": "socks_wool", "prob": 5 } ] },
@@ -252,6 +260,7 @@
     "//": "Winter set of clothes worn by soldiers and paramilitary forces.",
     "items": [
       { "group": "clothing_soldier_shirt" },
+      { "distribution": [ { "item": "neck_gaiter", "prob": 8 }, { "item": "neck_gaiter_kevlar", "prob": 4 } ] },
       { "item": "winter_jacket_army" },
       { "item": "winter_pants_army" },
       { "group": "loaded_webbing_belt" },
@@ -279,7 +288,7 @@
       { "item": "elbow_pads", "prob": 10 },
       { "item": "knee_pads", "prob": 85 },
       {
-        "distribution": [ { "group": "army_helmet_nvg", "prob": 15 }, { "item": "helmet_army", "prob": 85 } ],
+        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 99 } ],
         "prob": 80
       },
       { "item": "gloves_tactical", "prob": 60 },
@@ -303,7 +312,7 @@
       { "item": "elbow_pads", "prob": 10 },
       { "item": "knee_pads", "prob": 85 },
       {
-        "distribution": [ { "group": "army_helmet_nvg", "prob": 20 }, { "item": "helmet_army", "prob": 80 } ],
+        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 99 } ],
         "prob": 80
       },
       { "item": "gloves_tactical", "prob": 60 },
@@ -326,7 +335,7 @@
       { "item": "elbow_pads", "prob": 10 },
       { "item": "knee_pads", "prob": 85 },
       {
-        "distribution": [ { "group": "army_helmet_nvg", "prob": 10 }, { "item": "helmet_army", "prob": 90 } ],
+        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 99 } ],
         "prob": 80
       },
       { "item": "gloves_tactical", "prob": 60 },
@@ -350,7 +359,7 @@
       { "item": "elbow_pads", "prob": 10 },
       { "item": "knee_pads", "prob": 85 },
       {
-        "distribution": [ { "group": "army_helmet_nvg", "prob": 20 }, { "item": "helmet_army", "prob": 80 } ],
+        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 99 } ],
         "prob": 80
       },
       { "item": "gloves_tactical", "prob": 60 },
@@ -375,7 +384,7 @@
       { "item": "knee_pads", "prob": 85 },
       {
         "collection": [
-          { "distribution": [ { "group": "army_helmet_nvg", "prob": 15 }, { "item": "helmet_army", "prob": 85 } ] },
+          { "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 99 } ] },
           { "item": "helmet_liner" }
         ],
         "prob": 80
@@ -400,6 +409,8 @@
       { "item": "chestrig", "prob": 40 },
       { "item": "flight_helmet", "ammo-item": "light_plus_battery_cell", "charges": [ 0, 150 ] },
       { "item": "mil_flight_suit", "prob": 80 },
+      { "item": "neck_gaiter", "prob": 8 },
+      { "item": "neck_gaiter_kevlar", "prob": 2 },
       { "item": "nomex_gloves" },
       { "group": "loaded_webbing_belt" },
       { "distribution": [ { "item": "socks", "prob": 30 }, { "item": "nomex_socks", "prob": 70 } ] },
@@ -744,6 +755,8 @@
         "prob": 60
       },
       { "item": "tool_belt", "prob": 25 },
+      { "item": "neck_gaiter", "prob": 4 },
+      { "item": "neck_gaiter_kevlar", "prob": 1 },
       {
         "distribution": [
           { "collection": [ { "group": "clothing_work_pants" }, { "group": "clothing_work_torso" } ], "prob": 80 },
@@ -761,6 +774,8 @@
     "items": [
       [ "boots_steel", 40 ],
       [ "sneakers_steel", 28 ],
+      { "item": "neck_gaiter", "prob": 10 },
+      { "item": "neck_gaiter_kevlar", "prob": 4 },
       [ "hat_hard", 40 ],
       [ "mesh_nape_protector", 10 ],
       [ "nape_protector", 10 ],
@@ -794,6 +809,8 @@
     "//2": "Not intended to be a set of clothing for NPCs or monsters",
     "items": [
       [ "tool_belt", 200 ],
+      { "item": "neck_gaiter", "prob": 4 },
+      { "item": "neck_gaiter_kevlar", "prob": 2 },
       [ "knee_pads", 70 ],
       [ "gloves_leather", 70 ],
       [ "gloves_rubber", 50 ],
@@ -1808,6 +1825,8 @@
       [ "ski_jacket", 40 ],
       [ "greatcoat", 15 ],
       [ "gloves_light", 35 ],
+      { "item": "neck_gaiter", "prob": 4 },
+      { "item": "neck_gaiter_kevlar", "prob": 1 },
       [ "mittens", 30 ],
       [ "gloves_wool", 33 ],
       [ "gloves_wool_fingerless", 15 ],
@@ -2732,9 +2751,6 @@
       [ "duffelbag", 15 ],
       { "item": "goggles_nv", "prob": 1, "charges": [ 0, 100 ] },
       { "item": "goggles_ir", "prob": 1, "charges": [ 0, 100 ] },
-      { "item": "military_nvg", "prob": 1, "charges": [ 0, 100 ] },
-      { "item": "advanced_gpnvg", "prob": 1, "charges": [ 0, 100 ] },
-      { "item": "enhanced_nvg", "prob": 1, "charges": [ 0, 100 ] },
       [ "optical_cloak", 1 ],
       { "item": "holo_cloak", "prob": 1, "charges": [ 0, 1000 ] },
       { "item": "mess_kit", "prob": 9 },

@@ -507,19 +507,19 @@
     "type": "MIGRATION",
     "id": "striped_shirt",
     "replace": "longshirt_costume",
-    "variant": "striped_shirt"
+    "variant": "shirt_striped"
   },
   {
     "type": "MIGRATION",
     "id": "striped_pants",
     "replace": "pants_costume",
-    "variant": "striped_pants"
+    "variant": "pants_striped"
   },
   {
     "type": "MIGRATION",
-    "id": "checkered_pants",
+    "id": "pants_checkered",
     "replace": "pants_costume",
-    "variant": "checkered_pants"
+    "variant": "pants_checkered"
   },
   {
     "type": "MIGRATION",
@@ -535,5 +535,11 @@
     "type": "MIGRATION",
     "id": "integrated_chitin3_claws",
     "replace": "gloves_claws"
+  },
+  {
+    "type": "MIGRATION",
+    "id": "bee_dress",
+    "replace": "dress_costume_skimpy",
+    "variant": "bee_dress"
   }
 ]
