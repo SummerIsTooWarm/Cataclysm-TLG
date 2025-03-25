@@ -93,7 +93,8 @@
           "x": [ 5, 11 ],
           "y": [ 8, 12 ]
         }
-      ]
+      ],
+      "place_monster": [ { "group": "GROUP_ROOF_ANIMAL", "x": [ 10, 12 ], "y": [ 10, 12 ], "repeat": [ 1, 2 ], "chance": 8 } ]
     }
   },
   {
@@ -185,7 +186,8 @@
           "x": [ 3, 15 ],
           "y": [ 4, 14 ]
         }
-      ]
+      ],
+      "place_monster": [ { "group": "GROUP_ROOF_ANIMAL", "x": [ 10, 12 ], "y": [ 10, 12 ], "repeat": [ 1, 2 ], "chance": 8 } ]
     }
   },
   {
