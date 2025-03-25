@@ -153,15 +153,15 @@
         "h": "f_butcher_rack",
         "y": [ "f_indoor_plant_y", "f_indoor_plant" ]
       },
-      "item": { "C": [ { "item": "bullwhip", "chance": 100 } ] },
+      "item": { "C": [ { "item": "bullwhip", "chance": 80 } ] },
       "items": {
         "C": [
-          { "item": "SUS_tailoring_materials", "chance": 80, "repeat": [ 3, 6 ] },
-          { "item": "leather_shop_repair", "chance": 40, "repeat": [ 2, 4 ] }
+          { "item": "SUS_tailoring_materials", "chance": 80, "repeat": [ 2, 4 ] },
+          { "item": "leather_shop_repair", "chance": 40, "repeat": [ 1, 3 ] }
         ],
         "c": [
-          { "item": "pants", "chance": 100 },
-          { "item": "shirts", "chance": 100 },
+          { "item": "pants", "chance": 80 },
+          { "item": "shirts", "chance": 80 },
           { "item": "leather_shop_accessories", "chance": 10 }
         ]
       },
@@ -211,13 +211,13 @@
       },
       "item": {
         "C": [
-          { "item": "straw_doll", "chance": 80, "repeat": [ 6, 14 ] },
-          { "item": "bag_body_bag", "chance": 40, "repeat": [ 2, 4 ] }
+          { "item": "straw_doll", "chance": 80, "repeat": [ 3, 8 ] },
+          { "item": "bag_body_bag", "chance": 40, "repeat": [ 1, 3 ] }
         ],
         "B": [
-          { "item": "coke", "chance": 60, "repeat": [ 13, 126 ] },
+          { "item": "coke", "chance": 60, "repeat": [ 5, 60 ] },
           { "item": "funnel", "chance": 60, "repeat": [ 0, 1 ] },
-          { "item": "bag_plastic", "chance": 90, "repeat": [ 20, 60 ] }
+          { "item": "bag_zipper", "chance": 90, "repeat": [ 10, 50 ] }
         ]
       }
     }
