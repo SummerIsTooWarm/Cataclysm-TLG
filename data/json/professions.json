@@ -1895,6 +1895,7 @@
           { "item": "socks" },
           { "item": "dress_shoes" },
           { "item": "tux" },
+          { "item": "waist_apron_long" },
           { "item": "glasses_monocle" },
           { "item": "collarpin" }
         ]
@@ -1908,6 +1909,7 @@
           { "item": "heels" },
           { "item": "dress_costume_skimpy", "variant": "maid_dress" },
           { "item": "maid_hat" },
+          { "item": "waist_apron_short" },
           { "item": "corset_waist" },
           { "item": "fc_hairpin" }
         ]
