@@ -751,7 +751,8 @@
         { "not": { "u_has_effect": "took_xanax" } },
         { "not": { "u_has_effect": "drunk" } },
         { "not": { "u_has_effect": "narcosis" } },
-        { "not": { "u_has_effect": "sleep" } }
+        { "not": { "u_has_effect": "sleep" } },
+        { "not": { "u_has_effect": "social_dissatisfied", "intensity": 3 } }
       ]
     },
     "effect": [
@@ -811,7 +812,8 @@
         { "not": { "u_has_effect": "drunk" } },
         { "math": [ "u_characters_nearby('radius': 30)", ">", "0" ] },
         { "not": { "u_has_effect": "narcosis" } },
-        { "not": { "u_has_effect": "sleep" } }
+        { "not": { "u_has_effect": "sleep" } },
+        { "not": { "u_has_effect": "asocial_dissatisfied", "intensity": 3 } }
       ]
     },
     "effect": [
