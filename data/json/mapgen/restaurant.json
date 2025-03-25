@@ -266,7 +266,8 @@
           "y": [ 14, 15 ]
         },
         { "chunks": [ [ "roof_16x16_help", 5 ], [ "null", 95 ] ], "x": 2, "y": 7 }
-      ]
+      ],
+      "place_monster": [ { "group": "GROUP_ROOF_ANIMAL", "x": [ 10, 12 ], "y": [ 10, 12 ], "repeat": [ 1, 2 ], "chance": 8 } ]
     }
   },
   {
@@ -499,7 +500,8 @@
           "y": [ 6, 11 ]
         },
         { "chunks": [ [ "roof_4x4_utility_1", 30 ], [ "roof_6x6_utility", 30 ], [ "null", 80 ] ], "x": 8, "y": 14 }
-      ]
+      ],
+      "place_monster": [ { "group": "GROUP_ROOF_ANIMAL", "x": [ 10, 12 ], "y": [ 10, 12 ], "repeat": [ 1, 2 ], "chance": 8 } ]
     }
   },
   {
@@ -657,7 +659,8 @@
           "x": [ 3, 15 ],
           "y": 9
         }
-      ]
+      ],
+      "place_monster": [ { "group": "GROUP_ROOF_ANIMAL", "x": [ 10, 12 ], "y": [ 10, 12 ], "repeat": [ 1, 2 ], "chance": 8 } ]
     }
   }
 ]

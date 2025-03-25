@@ -3,10 +3,13 @@
     "type": "monstergroup",
     "name": "GROUP_ZOMBIE_NUCLEAR_INDUSTRY",
     "monsters": [
-      { "monster": "mon_zombie_technician", "weight": 450, "cost_multiplier": 3 },
-      { "monster": "mon_zombie_hazmat", "weight": 250, "cost_multiplier": 3 },
+      { "monster": "mon_zombie_technician", "weight": 150, "cost_multiplier": 3 },
+      { "monster": "mon_zombie_hazmat", "weight": 150, "cost_multiplier": 3 },
       { "monster": "mon_zombie_electric", "weight": 100, "cost_multiplier": 5 },
-      { "monster": "mon_skitterbot", "weight": 100, "cost_multiplier": 5 },
+      { "monster": "mon_skitterbot", "weight": 50, "cost_multiplier": 5 },
+      { "monster": "mon_feral_labsecurity_9mm", "weight": 100, "cost_multiplier": 8 },
+      { "monster": "mon_feral_labsecurity_flashlight", "weight": 100, "cost_multiplier": 5 },
+      { "monster": "mon_secubot", "weight": 50, "cost_multiplier": 10 },
       { "monster": "mon_zombie_cop", "weight": 100, "cost_multiplier": 5 }
     ]
   },
@@ -30,7 +33,7 @@
     "items": [
       { "prob": 50, "group": "iodine_bottle_plastic_pill_supplement_10" },
       { "prob": 75, "group": "prussian_blue_bottle_plastic_pill_supplement_10" },
-      { "group": "full_1st_aid", "prob": 50 },
+      { "group": "full_1st_aid", "prob": 30 },
       { "item": "gloves_medical", "prob": 20 },
       { "item": "cotton_patchwork", "prob": 30, "custom-flags": [ "FILTHY" ] },
       { "group": "drugs_emergency", "prob": 30 },
@@ -43,12 +46,12 @@
     "type": "item_group",
     "subtype": "collection",
     "items": [
-      { "group": "tools_common", "prob": 50 },
-      { "group": "tools_electronics", "prob": 50 },
+      { "group": "tools_common", "prob": 30 },
+      { "group": "tools_electronics", "prob": 30 },
       { "group": "tools_lighting_industrial", "prob": 20 },
-      { "group": "supplies_electronics", "prob": 50 },
-      { "group": "hardware", "prob": 75 },
-      { "group": "hardware_plumbing", "prob": 75 }
+      { "group": "supplies_electronics", "prob": 30 },
+      { "group": "hardware", "prob": 65 },
+      { "group": "hardware_plumbing", "prob": 65 }
     ]
   },
   {
@@ -70,13 +73,13 @@
     "id": "packaging",
     "subtype": "collection",
     "items": [
-      { "item": "bag_plastic", "prob": 90 },
-      { "item": "bubblewrap", "prob": 60 },
-      { "item": "bag_canvas", "prob": 50 },
-      { "item": "bag_canvas_small", "prob": 50 },
-      { "item": "box_small", "prob": 40 },
-      { "item": "wrapper", "prob": 60 },
-      { "item": "paper", "prob": 10, "count": [ 5, 10 ] },
+      { "item": "bag_plastic", "prob": 70 },
+      { "item": "bubblewrap", "prob": 50 },
+      { "item": "bag_canvas", "prob": 30 },
+      { "item": "bag_canvas_small", "prob": 30 },
+      { "item": "box_small", "prob": 30 },
+      { "item": "wrapper", "prob": 50 },
+      { "item": "paper", "prob": 10, "count": [ 1, 5 ] },
       { "item": "cup_plastic", "prob": 10 },
       { "item": "styrofoam_cup", "prob": 10 }
     ]
@@ -287,42 +290,42 @@
       "toilets": { "?": {  } },
       "vendingmachines": { "V": { "item_group": "vending_drink" }, "F": { "item_group": "vending_food" } },
       "items": {
-        "S": { "item": "clothing_outdoor_set", "chance": 50 },
-        "c": { "item": "repair_storage", "chance": 80 },
-        "j": { "item": "cleaning", "chance": 80, "repeat": [ 1, 3 ] },
-        "]": { "item": "file_room", "chance": 80 },
-        "q": { "item": "supplies_electronics", "chance": 70, "repeat": [ 1, 4 ] },
-        "K": { "item": "pre_irradiated_food", "chance": 20, "repeat": [ 1, 4 ] },
-        "[": { "item": "pre_irradiated_food", "chance": 10, "repeat": [ 1, 4 ] },
-        "J": { "item": "irradiated_food", "chance": 20, "repeat": [ 1, 4 ] },
-        "A": { "item": "radiation_equipment", "chance": 20, "repeat": [ 1, 2 ] },
-        "W": { "item": "packaging", "chance": 80, "repeat": [ 1, 15 ] },
-        "#": { "item": "office_breakroom", "chance": 20 },
-        "o": { "item": "office_breakroom", "chance": 20 },
-        "a": { "item": "office_breakroom", "chance": 60 },
-        "d": { "item": "cubical_office", "chance": 60 },
-        ".": { "item": "coffee_shop", "chance": 50 },
-        "B": { "item": "radiation_meds", "chance": 50 },
+        "S": { "item": "clothing_outdoor_set", "chance": 40 },
+        "c": { "item": "repair_storage", "chance": 60 },
+        "j": { "item": "cleaning", "chance": 70, "repeat": [ 1, 3 ] },
+        "]": { "item": "file_room", "chance": 60 },
+        "q": { "item": "supplies_electronics", "chance": 60, "repeat": [ 1, 4 ] },
+        "K": { "item": "pre_irradiated_food", "chance": 10, "repeat": [ 1, 4 ] },
+        "[": { "item": "pre_irradiated_food", "chance": 5, "repeat": [ 1, 4 ] },
+        "J": { "item": "irradiated_food", "chance": 10, "repeat": [ 1, 4 ] },
+        "A": { "item": "radiation_equipment", "chance": 15, "repeat": [ 1, 2 ] },
+        "W": { "item": "packaging", "chance": 60, "repeat": [ 1, 15 ] },
+        "#": { "item": "office_breakroom", "chance": 15 },
+        "o": { "item": "office_breakroom", "chance": 15 },
+        "a": { "item": "office_breakroom", "chance": 40 },
+        "d": { "item": "cubical_office", "chance": 50 },
+        ".": { "item": "coffee_shop", "chance": 30 },
+        "B": { "item": "radiation_meds", "chance": 30 },
         "{": { "item": "decontamination", "chance": 15 },
-        "%": { "item": "decontamination", "chance": 15 },
-        "g": { "item": "decontamination", "chance": 15 }
+        "%": { "item": "decontamination", "chance": 12 },
+        "g": { "item": "decontamination", "chance": 10 }
       },
       "place_loot": [
-        { "group": "guns_pistol_common", "x": 34, "y": 26, "chance": 100, "ammo": 0, "magazine": 100, "repeat": [ 1, 2 ] },
-        { "group": "ammo_pistol_common", "x": 39, "y": 26, "chance": 100, "repeat": [ 1, 5 ] },
+        { "group": "guns_pistol_common", "x": 34, "y": 26, "chance": 50, "ammo": 0, "magazine": 100 },
+        { "group": "ammo_pistol_common", "x": 39, "y": 26, "chance": 60, "repeat": [ 1, 5 ] },
         { "group": "prison_armor", "x": 39, "y": 26, "chance": 50, "repeat": [ 1, 2 ] }
       ],
       "liquids": { "T": { "liquid": "water_clean", "amount": [ 200, 600 ] } },
       "fields": { "U": { "field": "fd_nuke_gas", "intensity": 3, "age": 990 }, "/": { "field": "fd_shock_vent" } },
-      "monster": { "!": { "monster": "mon_hazmatbot", "chance": 5 } },
-      "monsters": {
-        "h": { "monster": "GROUP_ZOMBIE", "chance": 50 },
-        "o": { "monster": "GROUP_ZOMBIE", "chance": 50 },
-        "#": { "monster": "GROUP_ZOMBIE", "chance": 50 },
-        "_": { "monster": "GROUP_ZOMBIE", "chance": 99 },
-        " ": { "monster": "GROUP_ZOMBIE_NUCLEAR_INDUSTRY", "chance": 50 },
-        "%": { "monster": "GROUP_ZOMBIE_NUCLEAR_INDUSTRY", "chance": 50 },
-        "g": { "monster": "GROUP_ZOMBIE_NUCLEAR_INDUSTRY", "chance": 50 }
+      "monster": {
+        "!": { "monster": "mon_hazmatbot", "chance": 2 },
+        "h": { "group": "GROUP_ZOMBIE", "chance": 1 },
+        "o": { "group": "GROUP_ZOMBIE", "chance": 1 },
+        "#": { "group": "GROUP_ZOMBIE", "chance": 1 },
+        "_": { "group": "GROUP_ZOMBIE", "chance": 1 },
+        " ": { "group": "GROUP_ZOMBIE_NUCLEAR_INDUSTRY", "chance": 2 },
+        "%": { "group": "GROUP_ZOMBIE_NUCLEAR_INDUSTRY", "chance": 2 },
+        "g": { "group": "GROUP_ZOMBIE_NUCLEAR_INDUSTRY", "chance": 2 }
       },
       "place_item": [ { "item": "cobalt_60", "x": [ 57, 61 ], "y": [ 6, 7 ], "amount": [ 1, 5 ], "chance": 50, "repeat": [ 1, 15 ] } ],
       "place_graffiti": [
@@ -420,10 +423,10 @@
         "    -..................................................RR..........-    ",
         "    -..................................................RR..........-    ",
         "    -..............................................................-    ",
-        "    -...::.......MMMMM.MMMMM.MMMMM.MMMMM...........X........X......-    ",
-        "    -...::.......MMMMM.MMMMM.MMMMM.MMMMM...........................-    ",
+        "    -...::................MM.MM....................X........X......-    ",
+        "    -...::................MM.MM....................................-    ",
         "    5..............................................................5    ",
-        "    ----------------------------------------------------------------    ",
+        "    ------------------------------- --------------------------------    ",
         "                                                                        ",
         "                                                                        ",
         "                                                                        ",
@@ -460,6 +463,10 @@
           "y": [ 5, 18 ]
         },
         { "chunks": [ [ "null", 75 ], [ "roof_16x16_help", 25 ] ], "x": [ 24, 32 ], "y": [ 5, 8 ] }
+      ],
+      "place_monster": [
+        { "group": "GROUP_ROOF_ANIMAL", "x": 18, "y": 6, "chance": 60 },
+        { "group": "GROUP_ROOF_ANIMAL", "x": 36, "y": 48, "chance": 60 }
       ]
     }
   }
