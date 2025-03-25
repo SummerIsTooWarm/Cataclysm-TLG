@@ -42,9 +42,9 @@
       ],
       "palettes": [ "farm_house" ],
       "place_monsters": [
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 1 },
         { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 4 }
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 3 }
       ]
     }
   },
@@ -82,9 +82,9 @@
       ],
       "palettes": [ "farm_house" ],
       "place_monsters": [
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 1 },
         { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 4 }
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 3 }
       ]
     }
   },
@@ -122,9 +122,9 @@
       ],
       "palettes": [ "farm_house" ],
       "place_monsters": [
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 1 },
         { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 }
       ]
     }
   },
@@ -162,9 +162,9 @@
       ],
       "palettes": [ "farm_house" ],
       "place_monsters": [
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 1 },
         { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 4 }
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 0, 22 ], "chance": 3 }
       ]
     }
   },
@@ -202,9 +202,9 @@
       ],
       "palettes": [ "farm_house" ],
       "place_monsters": [
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 1 },
         { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 }
       ]
     }
   },
@@ -248,9 +248,9 @@
       ],
       "palettes": [ "farm_house" ],
       "place_monsters": [
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 1 },
         { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 },
-        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 4 }
+        { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 }
       ]
     }
   },
@@ -973,7 +973,7 @@
       ],
       "palettes": [ "paddock" ],
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
-      "place_monsters": [ { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 } ]
+      "place_monsters": [ { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 } ]
     }
   },
   {
@@ -1011,7 +1011,7 @@
       ],
       "palettes": [ "paddock" ],
       "flags": [ "ERASE_ALL_BEFORE_PLACING_TERRAIN" ],
-      "place_monsters": [ { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 3 } ]
+      "place_monsters": [ { "monster": "GROUP_FARM_PESTS", "x": [ 2, 22 ], "y": [ 2, 22 ], "chance": 2 } ]
     }
   },
   {
