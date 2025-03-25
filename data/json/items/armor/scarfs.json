@@ -847,6 +847,7 @@
     "to_hit": -1,
     "material": [ "kevlar" ],
     "material_thickness": 1.5,
+    "environmental_protection": 2,
     "symbol": "[",
     "color": "yellow",
     "warmth": 8,
