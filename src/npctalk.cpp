@@ -6521,6 +6521,7 @@ void talk_effect_t::parse_string_effect( const std::string &effect_id, const Jso
             WRAP( npc_thankful ),
             WRAP( clear_overrides ),
             WRAP( pick_style ),
+            WRAP( switch_to ),
             WRAP( do_disassembly ),
             WRAP( nothing )
 #undef WRAP

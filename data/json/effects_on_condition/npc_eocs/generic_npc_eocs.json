@@ -109,14 +109,6 @@
               "effect": { "offer_mission": "MISSION_LEARN_ABOUT_CATTAIL_JELLY" }
             },
             1
-          ],
-          [
-            {
-              "id": "give_MISSION_PYROMANIAC",
-              "condition": { "u_has_trait": "GETS_RANDOM_MISSION" },
-              "effect": { "offer_mission": "MISSION_PYROMANIAC" }
-            },
-            1
           ]
         ]
       },

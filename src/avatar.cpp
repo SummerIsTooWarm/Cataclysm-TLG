@@ -95,6 +95,7 @@ static const efftype_id effect_boomered( "boomered" );
 static const efftype_id effect_depressants( "depressants" );
 static const efftype_id effect_happy( "happy" );
 static const efftype_id effect_irradiated( "irradiated" );
+static const efftype_id effect_narcosis( "narcosis" );
 static const efftype_id effect_onfire( "onfire" );
 static const efftype_id effect_pkill( "pkill" );
 static const efftype_id effect_psi_stunned( "psi_stunned" );
@@ -183,6 +184,13 @@ void avatar::control_npc( npc &np, const bool debug )
         debugmsg( "control_npc() called on non-allied npc %s", np.name );
         return;
     }
+    // Switching to sleeping NPCs causes problems. We want to wake them up,
+    // but not if they're sedated.
+    if( np.has_effect( effect_narcosis ) ) {
+        debugmsg( "control_npc() called on sedated npc %s.", np.name );
+        return;
+    }
+    np.wake_up();
     character_id new_character = np.getID();
     const std::function<void( npc & )> update_npc = [new_character]( npc & guy ) {
         guy.update_missions_target( get_avatar().getID(), new_character );
@@ -219,9 +227,14 @@ void avatar::control_npc_menu( const bool debug )
     int charnum = 0;
     for( const character_id &elem : g->get_follower_list() ) {
         shared_ptr_fast<npc> follower = overmap_buffer.find_npc( elem );
-        if( follower ) {
+        if( follower && !follower->has_effect( effect_narcosis ) ) {
             followers.emplace_back( follower );
             charmenu.addentry( charnum++, true, MENU_AUTOASSIGN, follower->get_name() );
+        }
+        if( follower && follower->has_effect( effect_narcosis ) ) {
+            followers.emplace_back( follower );
+            std::string reason = _( " (unavailable)" );
+            charmenu.addentry( charnum++, false, MENU_AUTOASSIGN, follower->get_name() + reason );
         }
     }
     if( followers.empty() ) {

@@ -358,98 +358,95 @@ static std::string mission_ui_activity_of( const mission_id &miss_id )
             return _( "Obsolete mission" );
 
         case Camp_Distribute_Food:
-            return _( "Distribute Food" );
+            return _( "Distribute food" );
 
         case Camp_Determine_Leadership:
-            return _( "Choose New Leader" );
+            return _( "Switch to follower" );
 
         case Camp_Have_Meal:
-            return _( "Have A Meal" );
+            return _( "Have a meal" );
 
         case Camp_Hide_Mission:
-            return _( "Hide Mission(s)" );
+            return _( "Hide mission(s)" );
 
         case Camp_Reveal_Mission:
-            return _( "Reveal Hidden Mission(s)" );
+            return _( "Reveal hidden mission(s)" );
 
         case Camp_Assign_Jobs:
-            return _( "Assign Jobs" );
+            return _( "Assign jobs" );
 
         case Camp_Assign_Workers:
-            return _( "Assign Workers" );
+            return _( "Assign workers" );
 
         case Camp_Abandon:
-            return _( "Abandon Camp" );
+            return _( "Abandon camp" );
 
         case Camp_Upgrade:
-            return dir_abbr + _( " Upgrade Camp " );
+            return dir_abbr + _( " Upgrade camp " );
 
         case Camp_Crafting:
             return dir_abbr + _( " Crafting" );
 
         case Camp_Gather_Materials:
-            return dir_abbr + _( " Gather Materials" );
+            return dir_abbr + _( " Gather materials" );
 
         case Camp_Collect_Firewood:
-            return dir_abbr + _( " Collect Firewood" );
+            return dir_abbr + _( " Collect firewood" );
 
         case Camp_Menial:
-            return dir_abbr + _( " Menial Labor" );
+            return dir_abbr + _( " Menial labor" );
 
         case Camp_Survey_Field:
-            return _( "Survey terrain and try to convert it to Field" );
+            return _( "Survey terrain and try to convert it to field" );
 
         case Camp_Survey_Expansion:
-            return _( "Expand Base" );
+            return _( "Expand base" );
 
         case Camp_Cut_Logs:
-            return dir_abbr + _( " Cut Logs" );
+            return dir_abbr + _( " Cut logs" );
 
         case Camp_Clearcut:
             return dir_abbr + _( " Clear a forest" );
 
         case Camp_Setup_Hide_Site:
-            return dir_abbr + _( " Setup Hide Site" );
+            return dir_abbr + _( " Setup hide site" );
 
         case Camp_Relay_Hide_Site:
-            return dir_abbr + _( " Relay Hide Site" );
+            return dir_abbr + _( " Relay hide site" );
 
         case Camp_Foraging:
             return dir_abbr + _( " Forage for plants" );
 
         case Camp_Trapping:
-            return dir_abbr + _( " Trap Small Game" );
+            return dir_abbr + _( " Trap small game" );
 
         case Camp_Hunting:
-            return dir_abbr + _( " Hunt Large Animals" );
+            return dir_abbr + _( " Hunt large animals" );
 
         case Camp_OM_Fortifications:
             if( miss_id.parameters == camp_om_fortifications_trench_parameter ) {
-                return dir_abbr + _( " Construct Map Fortifications" );
+                return dir_abbr + _( " Construct map fortifications" );
             } else {
-                return dir_abbr + _( " Construct Spiked Trench" );
+                return dir_abbr + _( " Construct spiked trench" );
             }
 
         case Camp_Recruiting:
-            return dir_abbr + _( " Recruit Companions" );
+            return dir_abbr + _( " Recruit companions" );
 
         case Camp_Scouting:
-            return dir_abbr + _( " Scout Mission" );
+            return dir_abbr + _( " Scout mission" );
 
         case Camp_Combat_Patrol:
-            return dir_abbr + _( " Combat Patrol" );
+            return dir_abbr + _( " Combat patrol" );
 
         case Camp_Plow:
-            return dir_abbr + _( " Plow Fields" );
+            return dir_abbr + _( " Plow fields" );
 
         case Camp_Plant:
-            return dir_abbr + _( " Plant Fields" );
+            return dir_abbr + _( " Plant fields" );
 
         case Camp_Harvest:
-            return dir_abbr + _( " Harvest Fields" );
-
-        case Camp_Chop_Shop:  //  Obsolete removed during 0.E
-            return _( " Chop Shop.  Obsolete.  Can only be recalled" );
+            return dir_abbr + _( " Harvest fields" );
 
         //  Actions that won't be used here
         case Scavenging_Patrol_Job:
@@ -1208,17 +1205,6 @@ void basecamp::get_available_missions_by_dir( mission_data &mission_key, const p
         }
     }
 
-    if( has_provides( "dismantling",
-                      dir ) ) {  //  Obsolete (during 0.E), but we still have to be able to process existing missions.
-        const mission_id miss_id = { Camp_Chop_Shop, "", {}, dir };
-        comp_list npc_list = get_mission_workers( miss_id );
-        if( !npc_list.empty() ) {
-            entry = action_of( miss_id.id );
-            bool avail = update_time_left( entry, npc_list );
-            mission_key.add_return( miss_id,
-                                    dir_abbr + _( " (Finish) Chop Shop" ), entry, avail );
-        }
-    }
     std::map<recipe_id, translation> craft_recipes = recipe_deck( dir );
     {
         mission_id miss_id = { Camp_Crafting, "", {}, dir };
@@ -1512,8 +1498,8 @@ void basecamp::get_available_missions( mission_data &mission_key, map &here )
         {
             const mission_id miss_id = { Camp_Determine_Leadership, "", {}, base_dir };
             entry = string_format( _( "Notes:\n"
-                                      "Choose a new leader for your faction.\n"
-                                      "<color_yellow>You will switch to playing as the new leader.</color>\n"
+                                      "Switch to follower.\n"
+                                      "<color_yellow>You will switch to playing as one of your faction members.</color>\n"
                                       "Difficulty: N/A\n"
                                       "Risk: None\n" ) );
             mission_key.add( { miss_id, false }, name_display_of( miss_id ),
@@ -1593,105 +1579,6 @@ void basecamp::get_available_missions( mission_data &mission_key, map &here )
     }
 }
 
-void basecamp::choose_new_leader()
-{
-    // This is ugly, but dialogue vars are stored as strings, even if they hold data for times.
-    time_point last_succession_time = time_point::from_turn( std::stof(
-                                          get_player_character().get_value( var_timer_time_of_last_succession ) ) );
-    time_duration succession_cooldown = time_duration::from_turns( std::stof(
-                                            get_globals().get_global_value(
-                                                    var_time_between_succession ) ) );
-    time_point next_succession_chance = last_succession_time + succession_cooldown;
-    int current_time_int = to_seconds<int>( calendar::turn - calendar::turn_zero );
-    if( next_succession_chance >= calendar::turn ) {
-        popup( _( "It's too early for that.  A new leader can be chosen in %s." ),
-               to_string( next_succession_chance - calendar::turn ) );
-        return;
-    }
-    std::vector<std::string> choices;
-    int choice = 0;
-    choices.emplace_back _( "autocratic" );
-    choices.emplace_back _( "sortition" );
-    choices.emplace_back _( "democratic" );
-
-    choice = uilist( _( "Choose how the new leader will be determined." ), choices );
-
-    if( choice < 0 || static_cast<size_t>( choice ) >= choices.size() ) {
-        popup( _( "You choose to wait…" ) );
-        return;
-    }
-
-    // Autocratic
-    if( choice == 0 ) {
-        if( !query_yn(
-                _( "As an experienced leader, only you know what will be required of future leaders.  You will choose.\n\nIs this acceptable?" ) ) ) {
-            return;
-        }
-        get_avatar().control_npc_menu( false );
-        // Possible to exit menu and not choose a *new* leader. However this doesn't reset global timer. 100% on purpose, since you are "choosing" yourself.
-        get_player_character().set_value( var_timer_time_of_last_succession,
-                                          std::to_string( current_time_int ) );
-    }
-
-    // Vector of pairs containing a pointer to an NPC and their modified social score
-    std::vector<std::pair<shared_ptr_fast<npc>, int>> followers;
-    // You is still a nullptr! We never want to actually call the first value, this will crash.
-    shared_ptr_fast<npc> you;
-    followers.emplace_back( you, rng( 0, 5 ) +
-                            rng( 0, get_avatar().get_skill_level( skill_speech ) * 2 ) );
-    int charnum = 0;
-    for( const character_id &elem : g->get_follower_list() ) {
-        shared_ptr_fast<npc> follower = overmap_buffer.find_npc( elem );
-        if( follower ) {
-            // Yes this is a very barren representation of who gets elected in a democracy. Too bad!
-            int popularity = rng( 0, 5 ) + rng( 0, follower->get_skill_level( skill_speech ) * 2 );
-            followers.emplace_back( follower, popularity );
-            charnum++;
-        }
-    }
-    // Sortition
-    if( choice == 1 ) {
-        if( !query_yn(
-                _( "You will allow fate to choose the next leader.  Whether it's by dice, drawing straws, or picking names out of a hat, it will be purely random.\n\nIs this acceptable?" ) ) ) {
-            return;
-        }
-        int selected = rng( 0, charnum );
-        // Vector starts at 0, we inserted 'you' first, 0 will always be 'you' pre-sort (that's why we don't sort unless democracy is called)
-        if( selected == 0 ) {
-            popup( _( "Fate calls for you to remain in your role as leader… for now." ) );
-            get_player_character().set_value( var_timer_time_of_last_succession,
-                                              std::to_string( current_time_int ) );
-            return;
-        }
-        npc_ptr chosen = followers.at( selected ).first;
-        popup( _( "Fate chooses %s to lead your faction." ), chosen->get_name() );
-        get_avatar().control_npc( *chosen, false );
-        return;
-    }
-
-    // Democratic
-    if( choice == 2 ) {
-        if( !query_yn(
-                _( "A leader can only lead those willing to follow.  Everyone must get a say in choosing the new leader.\n\nIs this acceptable?" ) ) ) {
-            return;
-        }
-        std::sort( followers.begin(), followers.end(), []( const auto & x, const auto & y ) {
-            return x.second > y.second;
-        } );
-        npc_ptr elected = followers.at( 0 ).first;
-        // you == nullptr
-        if( elected == nullptr ) {
-            popup( _( "You win the election!" ) );
-            get_player_character().set_value( var_timer_time_of_last_succession,
-                                              std::to_string( current_time_int ) );
-            return;
-        }
-        popup( _( "%1$s wins the election with a popularity of %2$s!  The runner-up had a popularity of %3$s." ),
-               elected->get_name(), followers.at( 0 ).second, followers.at( 1 ).second );
-        get_avatar().control_npc( *elected, false );
-    }
-}
-
 void basecamp::player_eats_meal()
 {
     int kcal_to_eat = 3000;
@@ -1717,7 +1604,7 @@ bool basecamp::handle_mission( const ui_mission_id &miss_id )
     if( miss_id.id.id == No_Mission ) {
         return true;
     }
-
+    avatar &player_character = get_avatar();
     const point &miss_dir = miss_id.id.dir.value();
     //  All missions should supply dir. Bug if they don't, so blow up during testing.
 
@@ -1729,7 +1616,7 @@ bool basecamp::handle_mission( const ui_mission_id &miss_id )
             break;
 
         case Camp_Determine_Leadership:
-            choose_new_leader();
+            player_character.control_npc_menu( false );
             break;
 
         case Camp_Have_Meal:
@@ -1936,10 +1823,6 @@ bool basecamp::handle_mission( const ui_mission_id &miss_id )
             } else {
                 start_combat_mission( miss_id.id, BRISK_EXERCISE );
             }
-            break;
-
-        case Camp_Chop_Shop:  //  Removed during 0.E
-            debugmsg( "Obsolete Function.  Use Vehicle Deconstruct zone instead.  Recover your companion with Emergency Recall." );
             break;
 
         case Camp_Plow:
@@ -5780,7 +5663,6 @@ std::string basecamp::name_display_of( const mission_id &miss_id )
         case Camp_Recruiting:
         case Camp_Scouting:
         case Camp_Combat_Patrol:
-        case Camp_Chop_Shop:
         case Camp_Plow:
         case Camp_Plant:
         case Camp_Harvest:
