@@ -1495,7 +1495,7 @@
       "EASY_DECONSTRUCT",
       "FIRE_CONTAINER",
       "PLACE_ITEM"
-      ],
+    ],
     "examine_action": "fireplace",
     "bash": {
       "str_min": 4,
@@ -1577,7 +1577,7 @@
       "EASY_DECONSTRUCT",
       "FIRE_CONTAINER",
       "PLACE_ITEM"
-      ],
+    ],
     "examine_action": "fireplace"
   },
   {
@@ -1613,7 +1613,7 @@
       "EASY_DECONSTRUCT",
       "FIRE_CONTAINER",
       "PLACE_ITEM"
-      ],
+    ],
     "examine_action": "fireplace"
   },
   {
@@ -1653,7 +1653,7 @@
       "EASY_DECONSTRUCT",
       "FIRE_CONTAINER",
       "PLACE_ITEM"
-      ],
+    ],
     "examine_action": "fireplace"
   },
   {
@@ -1694,7 +1694,7 @@
       "EASY_DECONSTRUCT",
       "FIRE_CONTAINER",
       "PLACE_ITEM"
-      ],
+    ],
     "examine_action": "fireplace"
   },
   {

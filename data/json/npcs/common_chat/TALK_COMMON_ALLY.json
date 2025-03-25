@@ -5,27 +5,52 @@
     "dynamic_line": {
       "npc_has_effect": "sleep",
       "yes": {
-        "npc_need": "fatigue",
-        "level": "EXHAUSTED",
+        "npc_has_effect": "narcosis",
+        "yes": "...",
         "no": {
-          "npc_need": "fatigue",
-          "level": "DEAD_TIRED",
+          "npc_has_bionics": "bio_sleep_shutdown",
+          "yes": "...",
           "no": {
             "npc_need": "fatigue",
-            "level": "TIRED",
-            "no": "Just few minutes more…",
-            "yes": "Make it quick, I want to go back to sleep."
-          },
-          "yes": "Just let me sleep, <name_b>!"
-        },
-        "yes": "No, just <swear> no…"
+            "level": "EXHAUSTED",
+            "no": {
+              "npc_need": "fatigue",
+              "level": "DEAD_TIRED",
+              "no": {
+                "npc_need": "fatigue",
+                "level": "TIRED",
+                "no": "Just few minutes more…",
+                "yes": "Make it quick, I want to go back to sleep."
+              },
+              "yes": "Just let me sleep, <name_b>!"
+            },
+            "yes": "No, just <swear> no…"
+          }
+        }
       },
       "no": "Anything to do before I go to sleep?"
     },
     "responses": [
-      { "text": "Wake up!", "topic": "TALK_NONE", "effect": "wake_up" },
-      { "text": "Go back to sleep.", "topic": "TALK_DONE" }
+      {
+        "text": "Wake up!",
+        "condition": { "or": [ { "npc_has_effect": "narcosis" }, { "npc_has_bionics": "bio_sleep_shutdown" } ] },
+        "topic": "TALK_WAKE_UP_NARCOSIS_FAILED",
+        "effect": "wake_up"
+      },
+      {
+        "text": "Wake up!",
+        "topic": "TALK_NONE",
+        "effect": "wake_up",
+        "condition": { "and": [ { "not": { "npc_has_effect": "narcosis" } }, { "not": { "npc_has_bionics": "bio_sleep_shutdown" } } ] }
+      },
+      { "text": "I'll let you sleep.", "topic": "TALK_DONE" }
     ]
+  },
+  {
+    "id": "TALK_WAKE_UP_NARCOSIS_FAILED",
+    "type": "talk_topic",
+    "dynamic_line": "...",
+    "responses": [ { "text": "I guess you're not getting up.", "topic": "TALK_DONE" } ]
   },
   {
     "id": "TALK_REBOOT",
@@ -231,6 +256,19 @@
       { "text": "Let's talk about your current activity.", "topic": "TALK_ACTIVITIES" },
       { "text": "Let's talk about the camp.", "topic": "TALK_CAMP" },
       { "text": "Change your martial arts style.", "topic": "TALK_DONE", "effect": "pick_style" },
+      {
+        "text": "You should take over for now.",
+        "condition": { "not": { "npc_has_trait": "HALLUCINATION" } },
+        "topic": "TALK_DONE",
+        "effect": "switch_to",
+        "switch": true
+      },
+      {
+        "text": "You should take over for now.",
+        "condition": { "npc_has_trait": "HALLUCINATION" },
+        "topic": "TALK_DONE",
+        "switch": true
+      },
       { "text": "Let's go.", "topic": "TALK_DONE" }
     ]
   },

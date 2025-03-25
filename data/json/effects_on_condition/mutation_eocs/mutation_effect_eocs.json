@@ -6,7 +6,9 @@
     "condition": {
       "and": [
         { "u_has_trait": "EYESTALKS1" },
-        { "not": { "or": [ { "u_has_effect": "visuals" }, { "u_has_effect": "narcosis" } ] } }
+        {
+          "not": { "or": [ { "u_has_effect": "visuals" }, { "u_has_effect": "narcosis" }, { "u_has_effect": "sleep" } ] }
+        }
       ]
     },
     "deactivate_condition": { "not": { "u_has_trait": "EYESTALKS1" } },
@@ -281,6 +283,7 @@
       "and": [
         { "u_has_effect": "hay_fever" },
         { "not": { "u_has_effect": "took_antihistamine" } },
+        { "not": { "u_has_effect": "sleep" } },
         { "not": { "u_has_effect": "narcosis" } }
       ]
     },
@@ -706,6 +709,7 @@
         { "u_has_flag": "SOCIAL1" },
         { "not": { "u_has_effect": "took_prozac" } },
         { "math": [ "u_characters_nearby('radius': 30)", ">", "0" ] },
+        { "not": { "u_has_effect": "sleep" } },
         { "not": { "u_has_effect": "narcosis" } }
       ]
     },
@@ -724,7 +728,8 @@
         { "u_has_flag": "SOCIAL2" },
         { "not": { "u_has_effect": "took_prozac" } },
         { "math": [ "u_characters_nearby('radius': 30, 'attitude': 'allies')", ">", "0" ] },
-        { "not": { "u_has_effect": "narcosis" } }
+        { "not": { "u_has_effect": "narcosis" } },
+        { "not": { "u_has_effect": "sleep" } }
       ]
     },
     "effect": [
@@ -736,7 +741,7 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_social2_penalty",
-    "recurrence": [ "30 minutes", "90 minutes" ],
+    "recurrence": [ "1 hour", "5 hours" ],
     "condition": {
       "and": [
         { "u_has_flag": "SOCIAL2" },
@@ -745,7 +750,9 @@
         { "not": { "u_has_effect": "valium" } },
         { "not": { "u_has_effect": "took_xanax" } },
         { "not": { "u_has_effect": "drunk" } },
-        { "not": { "u_has_effect": "narcosis" } }
+        { "not": { "u_has_effect": "narcosis" } },
+        { "not": { "u_has_effect": "sleep" } },
+        { "not": { "u_has_effect": "social_dissatisfied", "intensity": 3 } }
       ]
     },
     "effect": [
@@ -767,7 +774,8 @@
         { "u_has_flag": "ASOCIAL1" },
         { "not": { "u_has_effect": "took_prozac" } },
         { "math": [ "u_characters_nearby('radius': 30)", "==", "0" ] },
-        { "not": { "u_has_effect": "narcosis" } }
+        { "not": { "u_has_effect": "narcosis" } },
+        { "not": { "u_has_effect": "sleep" } }
       ]
     },
     "effect": [
@@ -785,7 +793,8 @@
         { "u_has_flag": "ASOCIAL2" },
         { "math": [ "u_characters_nearby('radius': 30)", "==", "0" ] },
         { "not": { "u_has_effect": "took_prozac" } },
-        { "not": { "u_has_effect": "narcosis" } }
+        { "not": { "u_has_effect": "narcosis" } },
+        { "not": { "u_has_effect": "sleep" } }
       ]
     },
     "effect": [ { "u_lose_effect": "asocial_dissatisfied" }, { "u_add_effect": "asocial_satisfied", "duration": "6 hours" } ]
@@ -793,7 +802,7 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_asocial2_penalty",
-    "recurrence": [ "30 minutes", "90 minutes" ],
+    "recurrence": [ "1 hours", "5 hours" ],
     "condition": {
       "and": [
         { "u_has_flag": "ASOCIAL2" },
@@ -802,7 +811,9 @@
         { "not": { "u_has_effect": "took_xanax" } },
         { "not": { "u_has_effect": "drunk" } },
         { "math": [ "u_characters_nearby('radius': 30)", ">", "0" ] },
-        { "not": { "u_has_effect": "narcosis" } }
+        { "not": { "u_has_effect": "narcosis" } },
+        { "not": { "u_has_effect": "sleep" } },
+        { "not": { "u_has_effect": "asocial_dissatisfied", "intensity": 3 } }
       ]
     },
     "effect": [

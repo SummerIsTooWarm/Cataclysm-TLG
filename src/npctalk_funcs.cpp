@@ -1288,3 +1288,8 @@ void talk_function::pick_style( npc &p )
 {
     p.martial_arts_data->pick_style( p );
 }
+
+void talk_function::switch_to( npc &p )
+{
+    get_avatar().control_npc( p, false );
+}

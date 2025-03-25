@@ -1266,7 +1266,7 @@ ret_val<void> Character::can_try_doge( bool ignore_dodges_left ) const
     //If we're asleep or busy we can't dodge
     if( in_sleep_state() || has_effect( effect_narcosis ) ||
         has_effect( effect_winded ) || has_effect( effect_fearparalyze ) || is_driving() ) {
-        add_msg_debug( debugmode::DF_MELEE, "Unable to dodge (sleeping, winded, or driving)" );
+        add_msg_debug( debugmode::DF_MELEE, "Unable to dodge (sleeping, winded, paralyzed, or driving)" );
         return ret_val<void>::make_failure();
     }
     //If stamina is too low we can't dodge
@@ -11271,7 +11271,7 @@ void Character::process_effects()
     // return is intentionally discarded, sets cramped if appropriate
     can_move_to_vehicle_tile( get_map().getglobal( pos() ), cramped );
     if( cramped ) {
-        if( is_npc() && !has_effect( effect_narcosis ) ) {
+        if( is_npc() && !has_effect( effect_narcosis ) && !in_sleep_state() ) {
             npc &as_npc = dynamic_cast<npc &>( *this );
             as_npc.complain_about( "cramped_vehicle", 30_minutes, "<cramped_vehicle>", false );
         }
@@ -12900,7 +12900,7 @@ int Character::impact( const int force, const tripoint &p )
 
 bool Character::can_fly()
 {
-    if( has_effect( effect_stunned ) || has_effect( effect_narcosis ) ||
+    if( has_effect( effect_stunned ) || has_effect( effect_narcosis ) || in_sleep_state() ||
         ( has_effect( effect_grabbed ) && !try_remove_grab() ) || movement_mode_is( move_mode_prone ) ||
         has_effect( effect_downed ) ) {
         return false;
