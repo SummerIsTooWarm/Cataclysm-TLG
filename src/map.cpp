@@ -5389,6 +5389,9 @@ item &map::add_item_or_charges( const tripoint &pos, item obj, int &copies_remai
     return add_item_or_charges( tripoint_bub_ms( pos ), std::move( obj ), copies_remaining, overflow );
 }
 
+// clang-tidy is confused and thinks obj can be made into a const reference, but it can't
+// on_drop is not a const function
+// NOLINTNEXTLINE(performance-unnecessary-value-param)
 std::pair<item *, tripoint_bub_ms> map::_add_item_or_charges( const tripoint_bub_ms &pos, item obj,
         int &copies_remaining, bool overflow )
 {
