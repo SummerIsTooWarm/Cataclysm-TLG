@@ -35,6 +35,7 @@ static const morale_type morale_perm_hoarder( "morale_perm_hoarder" );
 static const morale_type morale_perm_noface( "morale_perm_noface" );
 static const morale_type morale_perm_nomad( "morale_perm_nomad" );
 
+static const trait_id trait_CENOBITE( "CENOBITE" );
 static const trait_id trait_HOARDER( "HOARDER" );
 static const trait_id trait_NOMAD( "NOMAD" );
 static const trait_id trait_NOMAD2( "NOMAD2" );
@@ -210,3 +211,22 @@ void Character::check_and_recover_morale()
     }
 }
 
+void Character::disp_morale()
+{
+    int equilibrium = calc_focus_equilibrium();
+
+    int fatigue_penalty = 0;
+    const int fatigue_cap = focus_equilibrium_fatigue_cap( equilibrium );
+
+    if( fatigue_cap < equilibrium ) {
+        fatigue_penalty = equilibrium - fatigue_cap;
+        equilibrium = fatigue_cap;
+    }
+
+    int pain_penalty = 0;
+    if( get_perceived_pain() && !has_trait( trait_CENOBITE ) ) {
+        pain_penalty = calc_focus_equilibrium( true ) - equilibrium - fatigue_penalty;
+    }
+
+    morale->display( equilibrium, pain_penalty, fatigue_penalty );
+}

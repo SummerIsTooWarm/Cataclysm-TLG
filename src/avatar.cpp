@@ -54,7 +54,6 @@
 #include "martialarts.h"
 #include "messages.h"
 #include "mission.h"
-#include "morale.h"
 #include "move_mode.h"
 #include "mutation.h"
 #include "npc.h"
@@ -84,8 +83,6 @@
 #include "veh_type.h"
 #include "vehicle.h"
 #include "vpart_position.h"
-
-class monfaction;
 
 static const bionic_id bio_cloak( "bio_cloak" );
 static const bionic_id bio_sleep_shutdown( "bio_sleep_shutdown" );
@@ -139,7 +136,6 @@ static const ter_str_id ter_t_pit_shallow( "t_pit_shallow" );
 
 static const trait_id trait_ARACHNID_ARMS( "ARACHNID_ARMS" );
 static const trait_id trait_ARACHNID_ARMS_OK( "ARACHNID_ARMS_OK" );
-static const trait_id trait_CENOBITE( "CENOBITE" );
 static const trait_id trait_CHITIN2( "CHITIN2" );
 static const trait_id trait_CHITIN3( "CHITIN3" );
 static const trait_id trait_CHITIN_FUR3( "CHITIN_FUR3" );
@@ -959,26 +955,6 @@ mfaction_id avatar::get_monster_faction() const
     return monfaction_player.id();
 }
 
-void avatar::disp_morale()
-{
-    int equilibrium = calc_focus_equilibrium();
-
-    int fatigue_penalty = 0;
-    const int fatigue_cap = focus_equilibrium_fatigue_cap( equilibrium );
-
-    if( fatigue_cap < equilibrium ) {
-        fatigue_penalty = equilibrium - fatigue_cap;
-        equilibrium = fatigue_cap;
-    }
-
-    int pain_penalty = 0;
-    if( get_perceived_pain() && !has_trait( trait_CENOBITE ) ) {
-        pain_penalty = calc_focus_equilibrium( true ) - equilibrium - fatigue_penalty;
-    }
-
-    morale->display( equilibrium, pain_penalty, fatigue_penalty );
-}
-
 void avatar::reset_stats()
 {
     const int current_stim = get_stim();
@@ -987,7 +963,7 @@ void avatar::reset_stats()
     if( has_trait( trait_THICK_SCALES ) ) {
         add_miss_reason( _( "Your thick scales get in the way." ), 2 );
     }
-    if( has_trait( trait_CHITIN2 ) || has_trait( trait_CHITIN3 ) || has_trait( trait_CHITIN_FUR3 ) ) {
+    if( has_trait( trait_CHITIN2 ) ) {
         add_miss_reason( _( "Your chitin gets in the way." ), 1 );
     }
     if( has_trait( trait_COMPOUND_EYES ) && !wearing_something_on( bodypart_id( "eyes" ) ) ) {
