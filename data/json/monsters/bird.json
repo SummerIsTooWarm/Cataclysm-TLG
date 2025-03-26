@@ -471,7 +471,20 @@
     "special_attacks": [ [ "SHRIEK", 100 ], [ "EAT_CARRION", 40 ], [ "EAT_FOOD", 120 ] ],
     "biosignature": { "biosig_item": "feces_bird", "biosig_timer": 8 },
     "upgrades": { "half_life": 21, "into_group": "GROUP_CROW_MUTANT" },
-    "flags": [ "SEES", "HEARS", "SMELLS", "PATH_AVOID_DANGER", "WARM", "FLIES", "EATS", "SMALL_HIDER", "HIT_AND_RUN", "CORNERED_FIGHTER", "SWARMS" ]
+    "flags": [
+      "SEES",
+      "HEARS",
+      "SMELLS",
+      "PATH_AVOID_DANGER",
+      "PATH_AVOID_FIRE",
+      "WARM",
+      "FLIES",
+      "EATS",
+      "SMALL_HIDER",
+      "HIT_AND_RUN",
+      "CORNERED_FIGHTER",
+      "SWARMS"
+    ]
   },
   {
     "id": "mon_crow_mutant",
@@ -510,7 +523,7 @@
       [ "EAT_CARRION", 40 ],
       [ "EAT_FOOD", 120 ]
     ],
-    "flags": [ "SEES", "HEARS", "SMELLS", "PATH_AVOID_DANGER", "STUMBLES", "WARM", "EATS", "CORNERED_FIGHTER" ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "PATH_AVOID_DANGER", "PATH_AVOID_FIRE", "STUMBLES", "WARM", "EATS", "CORNERED_FIGHTER" ]
   },
   {
     "id": "mon_pigeon",

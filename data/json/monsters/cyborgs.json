@@ -69,7 +69,7 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 1 } ],
     "dodge": 2,
     "vision_day": 50,
-    "path_settings": { "avoid_traps": true, "avoid_sharp": true },
+    "path_settings": { "avoid_traps": true, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "revert_to_itype": "bot_prototype_cyborg",
     "special_attacks": [ [ "PARROT", 100 ] ],
     "weakpoint_sets": [ "wps_cyborg_body" ],

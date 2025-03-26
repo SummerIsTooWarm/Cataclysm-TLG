@@ -282,7 +282,7 @@ bool monster::can_reach_to( const tripoint &p ) const
 
 bool monster::can_move_to( const tripoint &p ) const
 {
-    return can_reach_to( p ) && will_move_to( p );
+    return can_reach_to( p ) && will_move_to( p ) && know_danger_at( p );
 }
 
 float monster::rate_target( Creature &c, float best, bool smart ) const

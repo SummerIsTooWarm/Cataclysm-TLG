@@ -2,7 +2,7 @@
   {
     "id": "mon_chud",
     "type": "MONSTER",
-    "name": { "str": "CHUD" },
+    "name": { "str": "chud" },
     "description": "This was once a person, but they've undergone some hideous transformation.  Their pallid skin is clammy and wet, and their face is dominated by unnaturally large, reflective eyes that no longer hold the spark of intelligence.",
     "copy-from": "mon_feral_human_pipe",
     "looks_like": "mon_zombie_runner",
@@ -11,9 +11,13 @@
     "melee_skill": 6,
     "melee_dice": 2,
     "melee_dice_sides": 4,
+    "aggression": 35,
+    "morale": 40,
     "melee_damage": [ { "damage_type": "cut", "amount": 3 } ],
     "weakpoint_sets": [ "wps_humanoid_body" ],
     "families": [ "prof_intro_biology", "prof_physiology" ],
+    "fear_triggers": [ "BRIGHT_LIGHT", "FIRE", "HURT" ],
+    "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
     "dodge": 4,
     "vision_night": 15,
     "special_attacks": [
@@ -23,6 +27,7 @@
       [ "EAT_FOOD", 100 ],
       [ "EAT_CARRION", 250 ]
     ],
+    "path_settings": { "max_dist": 15, "avoid_sharp": true, "avoid_traps": true, "avoid_dangerous_fields": true },
     "death_drops": "default_zombie_death_drops",
     "dissect": "dissect_troglobite_sample_small",
     "zombify_into": "mon_zombie_shady",
@@ -69,7 +74,7 @@
       [ "EAT_FOOD", 120 ],
       [ "BROWSE", 120 ]
     ],
-    "path_settings": { "max_dist": 50, "avoid_traps": true, "avoid_sharp": true },
+    "path_settings": { "max_dist": 20, "avoid_sharp": true, "avoid_traps": true, "avoid_dangerous_fields": true },
     "anger_triggers": [ "PLAYER_WEAK", "PLAYER_CLOSE", "HOSTILE_SEEN", "SOUND" ],
     "fear_triggers": [ "HURT", "FIRE" ],
     "stomach_size": 1300,
@@ -106,6 +111,7 @@
     "vision_night": 15,
     "dissect": "dissect_ursine_sample_large",
     "stomach_size": 1800,
+    "path_settings": { "max_dist": 20, "avoid_sharp": true, "avoid_traps": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       { "id": "scratch", "move_cost": 110, "cooldown": 4, "min_mul": 1.5, "max_mul": 3.5 },
       { "id": "smash", "move_cost": 110, "cooldown": 8, "min_mul": 0.8, "throw_strength": 50 },
@@ -156,7 +162,7 @@
     "vision_day": 25,
     "vision_night": 8,
     "stomach_size": 1500,
-    "path_settings": { "max_dist": 50, "avoid_traps": true, "avoid_sharp": true },
+    "path_settings": { "max_dist": 20, "avoid_sharp": true, "avoid_traps": true, "avoid_dangerous_fields": true },
     "families": [ "prof_intro_biology", "prof_physiology" ],
     "harvest": "mutant_human",
     "dissect": "dissect_cattle_sample_large",
@@ -221,6 +227,7 @@
     "dissect": "dissect_spider_sample_large",
     "emit_fields": [ { "emit_id": "emit_web_small", "delay": "5 s" } ],
     "death_drops": "mon_mutant_evolved_death_drops",
+    "path_settings": { "max_dist": 20, "avoid_sharp": true, "avoid_traps": true, "avoid_dangerous_fields": true },
     "extend": { "flags": [ "CLIMBS", "SMELLS", "KEENNOSE", "WEBWALK" ], "anger_triggers": [ "PLAYER_WEAK", "HURT" ] },
     "delete": { "flags": [ "HIT_AND_RUN", "WARM" ] },
     "armor": { "electric": 2, "bash": 11, "cut": 18, "stab": 12, "bullet": 12 }
@@ -259,6 +266,7 @@
     "vision_night": 15,
     "harvest": "mutant_human",
     "dissect": "dissect_chimera_sample_large",
+    "path_settings": { "max_dist": 20, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "extend": { "flags": [ "CAMOUFLAGE", "CLIMBS", "SMELLS", "KEENNOSE", "HARDTOSHOOT" ] },
     "delete": { "flags": [ "HAS_MIND" ] },
     "armor": { "bash": 10, "cut": 11, "stab": 8, "bullet": 5, "electric": 1 }
@@ -279,6 +287,7 @@
     "aggression": 40,
     "morale": 40,
     "melee_skill": 7,
+    "path_settings": { "max_dist": 20, "avoid_sharp": true, "avoid_traps": true, "avoid_dangerous_fields": true },
     "melee_dice_sides": 4,
     "special_attacks": [
       {
@@ -309,6 +318,7 @@
     "melee_skill": 5,
     "death_drops": "mon_mutant_alpha_boss_death_drops",
     "tracking_distance": 5,
+    "path_settings": { "max_dist": 20, "avoid_sharp": true, "avoid_traps": true, "avoid_dangerous_fields": true },
     "death_function": {
       "message": "The child's eyes widen, and they try to say something before falling to the ground.",
       "effect": { "id": "death_guilt", "hit_self": true }
@@ -324,7 +334,7 @@
     "description": "An enormous mutant hidden beneath a gray segmented shell, crawling on a carpet of innumerable tentacles covered with suckers.  They hold three thicker, branching limbs high on their front end, each dotted with dozens of unblinking eyeballs.",
     "copy-from": "mon_mutant_antler",
     "color": "dark_gray",
-    "bodytype": "snake",
+    "bodytype": "blob",
     "volume": "375 L",
     "weight": "400 kg",
     "hp": 320,
@@ -333,11 +343,12 @@
     "aggression": 30,
     "morale": 80,
     "melee_dice_sides": 4,
+    "path_settings": { "max_dist": 20, "avoid_sharp": true, "avoid_traps": true },
     "melee_damage": [ { "damage_type": "bash", "amount": 4 } ],
     "grab_strength": 75,
     "special_attacks": [
       { "id": "grab", "cooldown": 15 },
-      { "id": "grab_2", "cooldown": 15 },
+      { "id": "grab_2", "cooldown": 18 },
       { "id": "ranged_pull", "range": 4, "cooldown": 10 },
       { "id": "tentacle", "move_cost": 60, "range": 4, "no_adjacent": true },
       { "id": "grab_drag", "cooldown": 15, "grab_data": { "drag_deviation": 1, "drag_movecost_mod": 0.2 } },
@@ -352,7 +363,7 @@
     "dissect": "dissect_gastropod_sample_large",
     "zombify_into": "mon_meat_cocoon_large",
     "delete": { "flags": [ "HIT_AND_RUN" ], "fear_triggers": [ "FIRE" ] },
-    "extend": { "flags": [ "SMALLSLUDGETRAIL", "SLUDGEPROOF", "NOHEAD", "STUN_IMMUNE", "FIREPROOF" ] },
-    "armor": { "bash": 22, "cut": 45, "stab": 30, "heat": 50, "bullet": 70, "electric": 6 }
+    "extend": { "flags": [ "SMALLSLUDGETRAIL", "SLUDGEPROOF", "NOHEAD", "STUN_IMMUNE", "PATH_AVOID_FIRE" ] },
+    "armor": { "bash": 22, "cut": 45, "stab": 30, "heat": 30, "bullet": 70, "electric": 6 }
   }
 ]

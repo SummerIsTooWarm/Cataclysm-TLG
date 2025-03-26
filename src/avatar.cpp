@@ -232,7 +232,8 @@ void avatar::control_npc_menu( const bool debug )
             followers.emplace_back( follower );
             charmenu.addentry( charnum++, true, MENU_AUTOASSIGN, follower->get_name() );
         }
-        if( follower && ( follower->has_effect( effect_narcosis ) || ( follower->in_sleep_state() && follower->has_bionic( bio_sleep_shutdown ) ) ) ) {
+        if( follower && ( follower->has_effect( effect_narcosis ) || ( follower->in_sleep_state() &&
+                          follower->has_bionic( bio_sleep_shutdown ) ) ) ) {
             followers.emplace_back( follower );
             std::string reason = _( " (unavailable)" );
             charmenu.addentry( charnum++, false, MENU_AUTOASSIGN, follower->get_name() + reason );
