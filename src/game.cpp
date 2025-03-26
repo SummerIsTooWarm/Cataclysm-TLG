@@ -307,7 +307,7 @@ static const json_character_flag json_flag_WEB_RAPPEL( "WEB_RAPPEL" );
 static const material_id material_glass( "glass" );
 
 static const mod_id MOD_INFORMATION_Graphical_Overmap( "Graphical_Overmap" );
-static const mod_id MOD_INFORMATION_dda( "tlg" );
+static const mod_id MOD_INFORMATION_tlg( "tlg" );
 
 static const mongroup_id GROUP_BLACK_ROAD( "GROUP_BLACK_ROAD" );
 
