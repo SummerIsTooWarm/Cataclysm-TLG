@@ -22,6 +22,7 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 0 } ],
     "weakpoint_sets": [ "wps_arthropod" ],
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "vision_day": 10,
     "vision_night": 3,
     "harvest": "arachnid",
@@ -65,7 +66,18 @@
     "dissect": "dissect_troglobite_sample_small",
     "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
     "fear_triggers": [ "FIRE" ],
-    "flags": [ "SMELLS", "HEARS", "GOODHEARING", "BASHES", "BORES", "POISON", "SUNDEATH", "ACIDPROOF", "ACIDTRAIL" ],
+    "flags": [
+      "SMELLS",
+      "HEARS",
+      "GOODHEARING",
+      "BASHES",
+      "BORES",
+      "POISON",
+      "SUNDEATH",
+      "PATH_AVOID_FIRE",
+      "ACIDPROOF",
+      "ACIDTRAIL"
+    ],
     "armor": { "bash": 6, "cut": 8, "bullet": 6, "electric": 3 }
   },
   {
@@ -100,6 +112,7 @@
       "effect": { "id": "death_halfworm", "hit_self": true },
       "corpse_type": "NO_CORPSE"
     },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "flags": [ "DIGS", "HEARS", "POISON", "GOODHEARING", "BASHES", "DESTROYS", "ATTACK_LOWER" ],
     "armor": { "bash": 12, "cut": 8, "bullet": 6, "electric": 2 }
   },
@@ -157,6 +170,7 @@
     "dissect": "dissect_troglobite_sample_small",
     "reproduction": { "baby_egg": "egg_worm", "baby_count": 1, "baby_timer": 30 },
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "death_function": {
       "message": "The %s splits in two!",
       "effect": { "id": "death_halfworm", "hit_self": true },
@@ -245,6 +259,7 @@
     "upgrades": { "age_grow": 42, "into": "mon_plague_vector" },
     "anger_triggers": [ "FRIEND_ATTACKED", "PLAYER_WEAK", "HURT", "PLAYER_CLOSE" ],
     "fear_triggers": [ "BRIGHT_LIGHT" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [ [ "EAT_FOOD", 60 ], [ "EAT_CARRION", 60 ] ],
     "flags": [ "SEES", "HEARS", "SMELLS", "EATS", "CLIMBS", "STUMBLES", "PATH_AVOID_FIRE", "CORNERED_FIGHTER" ],
     "armor": { "bash": 5, "cut": 7, "bullet": 6 }
@@ -264,6 +279,7 @@
     "stomach_size": 15,
     "dodge": 3,
     "harvest": "arachnid_tainted",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_skittering_plague" },
     "fear_triggers": [ "BRIGHT_LIGHT" ],
     "extend": { "flags": [ "EATS" ] },
@@ -294,6 +310,7 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 7 } ],
     "dodge": 1,
     "weakpoint_sets": [ "wps_arthropod" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug" ],
     "vision_day": 5,
     "vision_night": 5,
@@ -335,6 +352,7 @@
     "vision_night": 5,
     "harvest": "arachnid",
     "dissect": "dissect_insect_sample_single",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "reproduction": { "baby_egg": "egg_roach", "baby_count": 1, "baby_timer": 7 },
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
     "biosignature": { "biosig_item": "feces_roach", "biosig_timer": 3 },
@@ -355,6 +373,7 @@
     "stomach_size": 80,
     "fear_triggers": [ "BRIGHT_LIGHT" ],
     "upgrades": { "age_grow": 30, "into": "mon_giant_cockroach" },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "extend": { "flags": [ "EATS" ] },
     "special_attacks": [ [ "EAT_FOOD", 120 ], [ "EAT_CARRION", 120 ] ]
   },
@@ -368,6 +387,7 @@
     "stomach_size": 300,
     "anger_triggers": [ "HURT", "PLAYER_CLOSE" ],
     "fear_triggers": [ "BRIGHT_LIGHT" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "reproduction": { "baby_egg": "egg_roach", "baby_count": 3, "baby_timer": 7 },
     "death_function": { "effect": { "id": "death_preg_roach", "hit_self": true } },
     "delete": { "flags": [ "SMALL_HIDER" ] },
@@ -383,6 +403,7 @@
     "attack_effs": [ { "id": "venom_weaken", "duration": 75 } ],
     "volume": "15 L",
     "weight": "20 kg",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "fungalize_into": "mon_bee_small_fungus",
     "upgrades": { "age_grow": 30, "into": "mon_bee" }
   },
@@ -408,6 +429,7 @@
     "melee_skill": 4,
     "melee_dice": 2,
     "melee_dice_sides": 6,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "melee_damage": [ { "damage_type": "cut", "amount": 4 } ],
     "attack_effs": [ { "id": "venom_weaken", "duration": 150 } ],
     "//": "21 hits to max intensity, 25 hits to max duration",
@@ -439,6 +461,7 @@
     "dissect": "dissect_insect_sample_small",
     "special_attacks": [ { "id": "impale" } ],
     "fungalize_into": "mon_bee_mega_fungus",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "extend": { "flags": [ "DESTROYS", "PUSH_MON", "PUSH_VEH" ] },
     "armor": { "bash": 4, "cut": 6, "bullet": 5, "electric": 1 }
   },
@@ -460,6 +483,7 @@
     "aggro_character": false,
     "melee_skill": 5,
     "melee_dice_sides": 3,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       {
         "type": "bite",
@@ -506,6 +530,7 @@
     "melee_dice_sides": 6,
     "melee_damage": [ { "damage_type": "cut", "amount": 5 } ],
     "grab_strength": 35,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       { "id": "grab", "cooldown": 5, "condition": { "not": { "u_has_effect": "maimed_leg" } } },
       {
@@ -559,6 +584,7 @@
     "vision_day": 7,
     "vision_night": 5,
     "harvest": "arachnid_centipede",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "dissect": "dissect_insect_sample_single",
     "upgrades": { "age_grow": 30, "into": "mon_centipede_giant" },
     "special_attacks": [
@@ -595,6 +621,7 @@
     "melee_skill": 3,
     "melee_dice_sides": 5,
     "grab_strength": 25,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       { "id": "grab", "cooldown": 8, "condition": { "not": { "u_has_effect": "maimed_leg" } } },
       {
@@ -649,6 +676,7 @@
     "melee_skill": 6,
     "melee_dice": 3,
     "melee_dice_sides": 6,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "melee_damage": [ { "damage_type": "stab", "amount": 15, "armor_penetration": 18 } ],
     "grab_strength": 75,
     "special_attacks": [
@@ -703,6 +731,7 @@
     "color": "light_gray",
     "default_faction": "aquatic_predator",
     "aggression": 10,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "melee_skill": 5,
     "melee_dice": 1,
     "melee_dice_sides": 6,
@@ -747,6 +776,7 @@
     "hp": 50,
     "speed": 150,
     "attack_cost": 150,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "material": [ "iflesh" ],
     "symbol": "y",
     "color": "light_green",
@@ -800,6 +830,7 @@
     "species": [ "INSECT" ],
     "hp": 1100,
     "speed": 100,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "material": [ "iflesh" ],
     "symbol": "Y",
     "color": "light_green",
@@ -868,6 +899,7 @@
     "symbol": "y",
     "color": "yellow",
     "dissect": "dissect_insect_sample_single",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_firefly" },
     "armor": { "bash": 1, "cut": 2, "stab": 1 },
     "extend": { "flags": [ "EATS" ] }
@@ -881,6 +913,7 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "15 L",
     "weight": "20 kg",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_fly" },
     "stomach_size": 100,
     "extend": { "flags": [ "NO_BREED" ] }
@@ -905,6 +938,7 @@
     "melee_skill": 3,
     "melee_dice": 1,
     "melee_dice_sides": 3,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "melee_damage": [ { "damage_type": "cut", "amount": 0 } ],
     "dodge": 5,
     "weakpoint_sets": [ "wps_arthropod", "wps_arthropod_flying" ],
@@ -934,6 +968,7 @@
     "speed": 15,
     "stomach_size": 150,
     "color": "light_green",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [ [ "EAT_CARRION", 100 ] ],
     "dissect": "dissect_insect_sample_single",
     "extend": { "flags": [ "EATS" ] },
@@ -952,6 +987,7 @@
     "melee_dice": 2,
     "dodge": 2,
     "stomach_size": 3000,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "dissect": "dissect_insect_sample_small",
     "special_attacks": [
       {
@@ -974,6 +1010,7 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "15 L",
     "weight": "20 kg",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_mosquito_giant" },
     "extend": { "flags": [ "NO_BREED" ] }
   },
@@ -1004,6 +1041,7 @@
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug", "prof_wp_flying" ],
     "vision_day": 12,
     "vision_night": 12,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "harvest": "arachnid_flying",
     "dissect": "dissect_insect_sample_single",
     "reproduction": { "baby_egg": "egg_mosquito", "baby_count": 3, "baby_timer": 15 },
@@ -1024,6 +1062,7 @@
     "symbol": "y",
     "color": "brown",
     "vision_day": 15,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_mosquito_giant" },
     "fear_triggers": [ "HURT", "PLAYER_CLOSE", "SOUND" ],
     "extend": { "flags": [ "SWIMS", "AQUATIC", "WATER_CAMOUFLAGE" ] }
@@ -1040,6 +1079,7 @@
     "melee_dice": 2,
     "dodge": 2,
     "dissect": "dissect_insect_sample_small",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [ { "id": "impale" } ],
     "extend": { "flags": [ "DESTROYS", "PUSH_MON", "PUSH_VEH" ] }
   },
@@ -1057,6 +1097,7 @@
     "extend": { "fear_triggers": [ "PLAYER_CLOSE" ], "flags": [ "NO_BREED" ] },
     "vision_day": 8,
     "vision_night": 8,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "dissect": "dissect_spider_sample_single",
     "upgrades": { "age_grow": 14, "into_group": "GROUP_SPIDER_CELLAR" },
     "delete": {
@@ -1110,7 +1151,7 @@
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
     "fear_triggers": [ "FIRE", "HURT" ],
     "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
-    "path_settings": { "max_dist": 50, "avoid_sharp": true },
+    "path_settings": { "max_dist": 18, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "fungalize_into": "mon_spider_fungus",
     "upgrades": { "age_grow": 14, "into_group": "GROUP_SPIDER_CELLAR_GIANT" },
     "flags": [ "SEES", "SMELLS", "HEARS", "GRABS", "WEBWALK", "CLIMBS", "HARDTOSHOOT", "PATH_AVOID_DANGER" ],
@@ -1132,6 +1173,7 @@
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug", "prof_wp_spider" ],
     "vision_day": 5,
     "vision_night": 5,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_spider_cellar_giant" },
     "extend": { "flags": [ "WEBWALK" ] }
   },
@@ -1144,6 +1186,7 @@
     "speed": 85,
     "aggression": -15,
     "morale": 10,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [ { "id": "grab", "cooldown": 25, "condition": { "not": { "u_has_effect": "maimed_leg" } } } ],
     "death_function": { "message": "The spiderlings fall to the ground!", "effect": { "id": "death_spider_cellar_mom", "hit_self": true } },
     "delete": { "flags": [ "HARDTOSHOOT" ], "anger_triggers": [ "PLAYER_WEAK" ] },
@@ -1160,6 +1203,7 @@
     "melee_dice": 3,
     "melee_skill": 7,
     "grab_strength": 75,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       { "id": "grab", "cooldown": 5, "condition": { "not": { "u_has_effect": "maimed_leg" } } },
       {
@@ -1285,6 +1329,7 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "15 L",
     "weight": "20 kg",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_spider_jumping_giant" },
     "extend": { "flags": [ "NO_BREED" ] }
   },
@@ -1310,6 +1355,7 @@
     "melee_skill": 5,
     "melee_dice": 1,
     "melee_dice_sides": 1,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "melee_damage": [ { "damage_type": "cut", "amount": 4 } ],
     "attack_effs": [ { "id": "venom_weaken", "duration": 250 } ],
     "//": "13 hits to max intensity, 17 hits to max duration",
@@ -1349,6 +1395,7 @@
     "speed": 90,
     "symbol": "s",
     "color": "white",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "weakpoint_sets": [ "wps_arthropod", "wps_arthropod_spider" ],
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug", "prof_wp_spider" ],
     "vision_day": 5,
@@ -1365,6 +1412,7 @@
     "volume": "625 L",
     "weight": "815 kg",
     "melee_dice": 2,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "death_function": {
       "effect": { "id": "death_explosion_mon_spider_jumping_mega", "hit_self": true },
       "corpse_type": "NO_CORPSE",
@@ -1382,6 +1430,7 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "30 L",
     "weight": "40 kg",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_spider_trapdoor_giant" },
     "extend": { "flags": [ "NO_BREED" ] }
   },
@@ -1415,6 +1464,7 @@
     "vision_day": 5,
     "vision_night": 5,
     "harvest": "arachnid",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "dissect": "dissect_spider_sample_single",
     "reproduction": { "baby_egg": "egg_spider_trapdoor", "baby_count": 3, "baby_timer": 15 },
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
@@ -1439,6 +1489,7 @@
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug", "prof_wp_spider" ],
     "vision_day": 5,
     "vision_night": 5,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_spider_trapdoor_giant" },
     "extend": { "flags": [ "CAN_DIG", "WEBWALK" ] }
   },
@@ -1452,6 +1503,7 @@
     "volume": "625 L",
     "weight": "815 kg",
     "melee_dice": 2,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "dissect": "dissect_spider_sample_small",
     "grab_strength": 75,
     "extend": { "flags": [ "DESTROYS", "PUSH_MON", "PUSH_VEH" ] }
@@ -1465,6 +1517,7 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "30 L",
     "weight": "40 kg",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_spider_web" },
     "extend": { "flags": [ "NO_BREED" ] },
     "trap_avoids": [ "tr_sinkhole" ]
@@ -1500,6 +1553,7 @@
     "vision_day": 5,
     "vision_night": 5,
     "harvest": "arachnid",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "dissect": "dissect_spider_sample_single",
     "reproduction": { "baby_egg": "egg_spider_web", "baby_count": 3, "baby_timer": 15 },
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
@@ -1522,6 +1576,7 @@
     "melee_dice": 2,
     "dissect": "dissect_spider_sample_small",
     "grab_strength": 75,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [ { "id": "grab", "cooldown": 5, "condition": { "not": { "u_has_effect": "maimed_leg" } } } ],
     "extend": { "flags": [ "DESTROYS", "PUSH_MON", "PUSH_VEH" ] },
     "armor": { "bash": 2, "cut": 6, "bullet": 5, "electric": 1 }
@@ -1542,6 +1597,7 @@
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug", "prof_wp_spider" ],
     "vision_day": 5,
     "vision_night": 5,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_spider_web" },
     "extend": { "flags": [ "WEBWALK", "SMALL_HIDER" ] },
     "armor": { "bash": 2, "cut": 6, "bullet": 5 }
@@ -1555,6 +1611,7 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "15 L",
     "weight": "20 kg",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_spider_widow_giant" },
     "extend": { "flags": [ "NO_BREED" ] }
   },
@@ -1588,6 +1645,7 @@
     "vision_night": 5,
     "harvest": "arachnid",
     "dissect": "dissect_spider_sample_single",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "reproduction": { "baby_egg": "egg_spider_widow", "baby_count": 3, "baby_timer": 15 },
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
     "anger_triggers": [ "PLAYER_WEAK", "PLAYER_CLOSE" ],
@@ -1608,6 +1666,7 @@
     "melee_dice": 3,
     "dissect": "dissect_spider_sample_large",
     "grab_strength": 75,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [ { "id": "grab", "cooldown": 5, "condition": { "not": { "u_has_effect": "maimed_leg" } } } ],
     "extend": { "flags": [ "DESTROYS", "PUSH_MON", "PUSH_VEH" ] }
   },
@@ -1629,6 +1688,7 @@
     "vision_night": 5,
     "upgrades": { "age_grow": 30, "into": "mon_spider_widow_giant" },
     "extend": { "flags": [ "WEBWALK" ] },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 2, "cut": 4, "bullet": 3 }
   },
   {
@@ -1641,6 +1701,7 @@
     "volume": "30 L",
     "weight": "40 kg",
     "upgrades": { "age_grow": 30, "into": "mon_spider_wolf_giant" },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "extend": { "flags": [ "NO_BREED" ] }
   },
   {
@@ -1681,6 +1742,7 @@
     "fungalize_into": "mon_spider_fungus",
     "upgrades": { "age_grow": 42, "into": "mon_spider_wolf_mega" },
     "flags": [ "SEES", "SMELLS", "HEARS", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 4, "cut": 8, "bullet": 6 }
   },
   {
@@ -1699,6 +1761,7 @@
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug", "prof_wp_spider" ],
     "vision_day": 5,
     "vision_night": 5,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_spider_wolf_giant" }
   },
   {
@@ -1713,6 +1776,7 @@
     "melee_dice": 2,
     "dissect": "dissect_spider_sample_large",
     "special_attacks": [ [ "HOWL", 10 ] ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "extend": { "flags": [ "DESTROYS", "PUSH_MON", "PUSH_VEH" ] }
   },
   {
@@ -1730,6 +1794,7 @@
     "hp": 35,
     "upgrades": { "age_grow": 26, "into": "mon_wasp_pupa" },
     "//": "30 days of development from egg to adult.",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "flags": [ "IMMOBILE" ]
   },
   {
@@ -1751,6 +1816,7 @@
     "harvest": "arachnid_wasp",
     "dissect": "dissect_insect_sample_single",
     "upgrades": { "age_grow": 50, "into_group": "GROUP_WASP_PUPA" },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "flags": [ "IMMOBILE" ]
   },
   {
@@ -1820,6 +1886,7 @@
       "EATS",
       "SMALL_HIDER"
     ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 1, "cut": 6, "stab": 4 }
   },
   {
@@ -1833,6 +1900,7 @@
     "stomach_size": 180,
     "extend": { "anger_triggers": [ "HURT", "FIRE", "STALK" ] },
     "delete": { "fear_triggers": [ "HURT", "FIRE" ] },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_wasp_guard" },
     "fungalize_into": "mon_wasp_small_guard_fungus"
   },
@@ -1848,6 +1916,7 @@
     "reproduction": { "baby_egg": "egg_wasp", "baby_count": 2, "baby_timer": 5 },
     "upgrades": { "age_grow": 30, "into": "mon_wasp_mega" },
     "fungalize_into": "mon_wasp_queen_fungus",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 5, "cut": 14, "stab": 12, "bullet": 12, "electric": 3 }
   },
   {
@@ -1905,6 +1974,7 @@
     "harvest": "arachnid_wasp",
     "dissect": "dissect_insect_sample_single",
     "anger_triggers": [ "FRIEND_ATTACKED", "PLAYER_CLOSE", "PLAYER_WEAK", "HOSTILE_SEEN" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "fear_triggers": [ "HURT", "FIRE" ],
     "fungalize_into": "mon_wasp_fungus",
     "flags": [ "SEES", "SMELLS", "HEARS", "FLIES", "SWARMS", "GROUP_MORALE", "CANPLAY", "HARDTOSHOOT", "PATH_AVOID_FIRE", "EATS" ],
@@ -1923,6 +1993,7 @@
     "extend": { "anger_triggers": [ "HURT", "FIRE" ], "flags": [ "BASHES" ] },
     "delete": { "fear_triggers": [ "HURT", "FIRE" ] },
     "fungalize_into": "mon_wasp_guard_fungus",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 5, "cut": 14, "stab": 12, "bullet": 12, "electric": 2 }
   },
   {
@@ -1971,6 +2042,7 @@
     "extend": { "flags": [ "PUSH_MON" ] },
     "fungalize_into": "mon_wasp_mega_fungus",
     "delete": { "flags": [ "HARDTOSHOOT", "FLIES" ] },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 8, "cut": 30, "stab": 18, "bullet": 22, "electric": 4 }
   },
   {
@@ -1991,6 +2063,7 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 1 } ],
     "dodge": 1,
     "upgrades": { "age_grow": 61, "into": "mon_dermatik" },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "extend": { "flags": [ "CAN_DIG" ] }
   },
   {
@@ -2027,6 +2100,7 @@
     "anger_triggers": [ "FRIEND_ATTACKED", "PLAYER_WEAK" ],
     "fear_triggers": [ "HURT", "FIRE" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "FLIES", "PATH_AVOID_FIRE", "CANPLAY" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 2, "cut": 5 }
   },
   {
@@ -2044,6 +2118,7 @@
     "weakpoint_sets": [ "wps_arthropod", "wps_arthropod_hymenoptera" ],
     "weakpoints": [ { "id": "abdomen", "name": "the abdomen", "coverage": 30 } ],
     "vision_night": 8,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "delete": { "weakpoints": [ { "id": "stinger" } ], "flags": [ "FLIES" ], "special_attacks": [ "DERMATIK" ] }
   },
   {
@@ -2112,6 +2187,7 @@
     "volume": "30 L",
     "weight": "40 kg",
     "stomach_size": 300,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_ant" }
   },
   {
@@ -2150,6 +2226,7 @@
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_WEAK" ],
     "special_attacks": [ [ "EAT_FOOD", 30 ], [ "BROWSE", 90 ], [ "EAT_CARRION", 90 ] ],
     "fungalize_into": "mon_ant_fungus",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "flags": [ "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS" ],
     "armor": { "bash": 5, "cut": 10, "bullet": 8, "electric": 1 }
   },
@@ -2223,6 +2300,7 @@
       [ "EAT_CARRION", 90 ]
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true },
     "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
     "harvest": "arachnid_acid",
     "dissect": "dissect_insect_sample_single",
@@ -2250,7 +2328,7 @@
     "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
     "harvest": "arachnid_acid",
     "dissect": "dissect_insect_sample_single",
-    "flags": [ "ACIDPROOF", "POISON", "SMELLS" ]
+    "flags": [ "ACIDPROOF", "POISON", "SMELLS", "PATH_AVOID_FIRE" ]
   },
   {
     "id": "mon_ant_acid_queen",
@@ -2282,6 +2360,7 @@
     "reproduction": { "baby_egg": "ant_egg_acid", "baby_count": 3, "baby_timer": 1 },
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
     "fungalize_into": "mon_ant_fungus",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true },
     "flags": [ "ACIDPROOF", "CLIMBS", "HEARS", "QUEEN", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "BASHES" ],
     "armor": { "bash": 8, "cut": 10, "bullet": 8, "electric": 1 }
   },
@@ -2316,6 +2395,7 @@
     "vision_day": 10,
     "stomach_size": 500,
     "vision_night": 5,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true },
     "special_attacks": [
       {
         "type": "spell",
@@ -2349,6 +2429,7 @@
     "melee_dice": 2,
     "bleed_rate": 60,
     "grab_strength": 100,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true },
     "special_attacks": [
       {
         "type": "spell",
@@ -2417,6 +2498,7 @@
     "melee_dice": 3,
     "melee_dice_sides": 4,
     "melee_damage": [ { "damage_type": "cut", "amount": 8 } ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "weakpoint_sets": [ "wps_arthropod", "wps_arthropod_hymenoptera" ],
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug", "prof_wp_hymenoptera" ],
     "weakpoints": [ { "id": "abdomen", "name": "the abdomen", "coverage": 50, "armor_mult": { "all": 0.25 } } ],
@@ -2449,6 +2531,7 @@
     "melee_skill": 7,
     "melee_dice": 1,
     "melee_dice_sides": 8,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "melee_damage": [ { "damage_type": "cut", "amount": 6 } ],
     "grab_strength": 35,
     "stomach_size": 600,
@@ -2483,6 +2566,7 @@
     "bleed_rate": 60,
     "grab_strength": 75,
     "stomach_size": 800,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       { "id": "smash", "throw_strength": 48, "cooldown": 30 },
       { "id": "leg_sweep" },
@@ -2520,6 +2604,7 @@
     "volume": "15 L",
     "weight": "20 kg",
     "stomach_size": 200,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_locust" }
   },
   {
@@ -2550,6 +2635,7 @@
     "vision_day": 10,
     "harvest": "arachnid_flying",
     "dissect": "dissect_insect_sample_single",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "reproduction": { "baby_egg": "egg_locust", "baby_count": 5, "baby_timer": 10 },
     "baby_flags": [ "AUTUMN" ],
     "biosignature": { "biosig_item": "feces_roach", "biosig_timer": 3 },
@@ -2582,6 +2668,7 @@
     "weight": "815 kg",
     "stomach_size": 18000,
     "melee_dice": 2,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "dissect": "dissect_insect_sample_large",
     "special_attacks": [
       {
@@ -2610,6 +2697,7 @@
     "species": [ "INSECT_FLYING" ],
     "symbol": "g",
     "color": "brown",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_locust" },
     "special_attacks": [
       {
@@ -2636,6 +2724,7 @@
     "stomach_size": 50,
     "special_attacks": [ [ "EAT_CROP", 80 ], [ "GRAZE", 800 ] ],
     "extend": { "flags": [ "NO_BREED" ] },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "biosignature": { "biosig_item": "honeydew", "biosig_timer": 7000 },
     "upgrades": { "age_grow": 30, "into": "mon_aphid" }
   },
@@ -2674,6 +2763,7 @@
     "special_attacks": [ [ "EAT_CROP", 80 ], [ "GRAZE", 800 ] ],
     "reproduction": { "baby_monster": "mon_aphid_small", "baby_count": 1, "baby_timer": 20 },
     "baby_flags": [ "SPRING", "SUMMER" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "biosignature": { "biosig_item": "honeydew", "biosig_timer": 600 },
     "flags": [ "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "SWARMS", "SMALL_HIDER" ],
     "armor": { "bash": 2, "cut": 5, "bullet": 3 }
@@ -2690,6 +2780,7 @@
     "melee_damage": [ { "damage_type": "cut", "amount": 8 } ],
     "dissect": "dissect_insect_sample_single",
     "extend": { "flags": [ "NO_BREED" ] },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 42, "into": "mon_mantis_giant" },
     "armor": { "bash": 10, "cut": 16, "bullet": 13, "electric": 1 }
   },
@@ -2725,6 +2816,7 @@
     "fear_triggers": [ "FIRE", "HURT" ],
     "reproduction": { "baby_egg": "egg_mantis", "baby_count": 1, "baby_timer": 30 },
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "//grab": "Good at pulling, grabbing, chewing your face off afterwards",
     "grab_strength": 35,
     "special_attacks": [
@@ -2774,6 +2866,7 @@
       }
     ],
     "anger_triggers": [ "PLAYER_CLOSE" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 1, "cut": 2, "bullet": 1 }
   },
   {
@@ -2803,6 +2896,7 @@
       { "id": "ranged_pull", "move_cost": 50, "cooldown": 10, "grab_data": { "pull_weight_ratio": 1.0 } }
     ],
     "extend": { "flags": [ "DESTROYS", "PUSH_MON", "PUSH_VEH" ] },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 10, "cut": 16, "bullet": 13, "electric": 3 }
   },
   {
@@ -2835,6 +2929,7 @@
     "dissect": "dissect_subterranean_insect_large",
     "reproduction": { "baby_egg": "egg_mole_cricket", "baby_count": 1, "baby_timer": 20 },
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       {
         "type": "bite",
@@ -2895,6 +2990,7 @@
     "vision_day": 20,
     "vision_night": 5,
     "harvest": "arachnid",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "dissect": "dissect_insect_sample_single",
     "anger_triggers": [ "PLAYER_CLOSE", "HURT" ],
     "special_attacks": [
@@ -2941,6 +3037,7 @@
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
     "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK" ],
     "fear_triggers": [ "HURT" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       {
         "type": "bite",
@@ -2974,6 +3071,7 @@
     "dodge": 3,
     "melee_damage": [ { "damage_type": "cut", "amount": 3 } ],
     "dissect": "dissect_insect_sample_single",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_lady_bug_giant" },
     "armor": { "bash": 1, "cut": 2, "stab": 2 }
   },
@@ -2987,6 +3085,7 @@
     "volume": "750 ml",
     "weight": "1 kg",
     "stomach_size": 30,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 35, "into": "mon_grasshopper_giant" },
     "extend": { "flags": [ "SMALL_HIDER", "NO_BREED" ] }
   },
@@ -3023,6 +3122,7 @@
     "reproduction": { "baby_egg": "egg_grasshopper", "baby_count": 3, "baby_timer": 15 },
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
     "fear_triggers": [ "FIRE", "PLAYER_CLOSE" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       [ "EAT_CROP", 80 ],
       [ "GRAZE", 300 ],
@@ -3047,6 +3147,7 @@
     "symbol": "g",
     "color": "light_green",
     "upgrades": { "age_grow": 30, "into": "mon_grasshopper_giant" },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       {
         "type": "leap",
@@ -3087,6 +3188,7 @@
     "fear_triggers": [ "FIRE", "HURT" ],
     "upgrades": { "age_grow": 288, "into": "mon_stag_beetle_small" },
     "flags": [ "PATH_AVOID_FIRE", "PET_WONT_FOLLOW", "EATS" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 5, "cut": 6, "acid": 6, "bullet": 3 }
   },
   {
@@ -3111,6 +3213,7 @@
     "upgrades": { "age_grow": 60, "into": "mon_stag_beetle_giant" },
     "extend": { "flags": [ "NO_BREED" ] },
     "delete": { "flags": [ "DESTROYS", "PUSH_VEH" ] },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 24, "cut": 32, "acid": 8, "heat": 2, "bullet": 20 }
   },
   {
@@ -3151,6 +3254,7 @@
     "dissect": "dissect_insect_sample_large",
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT" ],
     "fear_triggers": [ "FIRE" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [
       {
         "id": "stag_smash",
@@ -3209,6 +3313,7 @@
     "dissect": "dissect_insect_sample_huge",
     "reproduction": { "baby_egg": "egg_stag_beetle", "baby_count": 1, "baby_timer": 364 },
     "upgrades": false,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "acid": 18, "heat": 8, "bash": 86, "cut": 100, "bullet": 75 }
   },
   {
@@ -3287,6 +3392,7 @@
         "condition": { "not": { "u_has_effect": "maimed_mandible" } }
       }
     ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "flags": [ "SEES", "SMELLS", "IMMOBILE", "DIGS", "RANGED_ATTACKER", "ATTACK_LOWER" ],
     "armor": { "bash": 4, "cut": 10, "bullet": 10 }
   },
@@ -3322,7 +3428,7 @@
     "baby_flags": [ "SPRING", "SUMMER", "AUTUMN" ],
     "anger_triggers": [ "HURT" ],
     "fear_triggers": [ "PLAYER_CLOSE", "FIRE" ],
-    "flags": [ "SEES", "SMELLS", "FLIES", "HEARS", "HIT_AND_RUN", "PATH_AVOID_FIRE" ],
+    "flags": [ "SEES", "SMELLS", "FLIES", "HEARS", "HIT_AND_RUN", "PATH_AVOID_DANGER", "PATH_AVOID_FIRE" ],
     "armor": { "cut": 4 }
   },
   {
@@ -3336,6 +3442,7 @@
     "weight": "4 kg",
     "melee_damage": [ { "damage_type": "cut", "amount": 1 } ],
     "extend": { "flags": [ "NO_BREED" ] },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 40, "into": "mon_strider_giant" }
   },
   {
@@ -3373,6 +3480,7 @@
     "anger_triggers": [ "PLAYER_WEAK" ],
     "fear_triggers": [ "FIRE", "PLAYER_CLOSE" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "SWIMS", "SMALL_HIDER" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 1, "cut": 3, "bullet": 2 }
   },
   {
@@ -3385,6 +3493,7 @@
     "symbol": "s",
     "color": "light_gray",
     "upgrades": { "age_grow": 30, "into": "mon_strider_giant" },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "extend": { "flags": [ "SWIMS" ] }
   },
   {
@@ -3409,6 +3518,7 @@
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug", "prof_wp_flying" ],
     "upgrades": { "age_grow": 30, "into": "mon_butterfly_giant" },
     "fear_triggers": [ "HURT", "FIRE" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "flags": [ "SEES", "HEARS", "FLIES", "STUMBLES" ]
   },
   {
@@ -3436,6 +3546,7 @@
     "reproduction": { "baby_egg": "egg_butterfly", "baby_count": 1, "baby_timer": 15 },
     "baby_flags": [ "SPRING", "SUMMER" ],
     "fear_triggers": [ "HURT", "FIRE" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "flags": [ "SEES", "HEARS", "FLIES", "STUMBLES" ]
   },
   {
@@ -3449,6 +3560,7 @@
     "symbol": "L",
     "color": "yellow",
     "volume": "120 L",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "weight": "75 kg"
   },
   {
@@ -3473,6 +3585,7 @@
     "families": [ "prof_intro_biology", "prof_physiology", "prof_wp_basic_bug", "prof_wp_flying" ],
     "upgrades": { "age_grow": 30, "into": "mon_moth_giant" },
     "fear_triggers": [ "HURT", "FIRE" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "flags": [ "SEES", "HEARS", "FLIES", "STUMBLES" ]
   },
   {
@@ -3500,6 +3613,7 @@
     "reproduction": { "baby_egg": "egg_moth", "baby_count": 1, "baby_timer": 15 },
     "baby_flags": [ "SPRING", "SUMMER" ],
     "fear_triggers": [ "HURT", "FIRE" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "flags": [ "SEES", "HEARS", "FLIES", "STUMBLES" ]
   },
   {
@@ -3531,6 +3645,7 @@
     "dissect": "dissect_insect_sample_large",
     "upgrades": { "age_grow": 20, "into": "mon_butterfly_cocoon" },
     "stomach_size": 600,
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "special_attacks": [ [ "EAT_CROP", 100 ], [ "GRAZE", 1000 ] ],
     "extend": { "flags": [ "EATS" ] }
   },
@@ -3571,6 +3686,7 @@
     "stomach_size": 600,
     "dissect": "dissect_insect_sample_large",
     "special_attacks": [ [ "EAT_CROP", 100 ], [ "GRAZE", 1000 ] ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 30, "into": "mon_moth_cocoon" },
     "extend": { "flags": [ "EATS" ] }
   },
@@ -3619,6 +3735,7 @@
     "anger_triggers": [ "HURT", "PLAYER_CLOSE" ],
     "fear_triggers": [ "FIRE" ],
     "extend": { "flags": [ "BORES" ] },
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 1, "cut": 3, "bullet": 2, "electric": 2 }
   },
   {
@@ -3654,6 +3771,7 @@
     "anger_triggers": [ "HURT" ],
     "fear_triggers": [ "FIRE", "HURT" ],
     "flags": [ "SEES", "FLIES", "HEARS", "KEENNOSE", "PATH_AVOID_DANGER", "SMELLS" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 1, "cut": 3, "bullet": 2, "electric": 2 }
   },
   {
@@ -3682,6 +3800,7 @@
     "fear_triggers": [ "FIRE", "HURT" ],
     "special_attacks": [ [ "GRAZE", 100 ] ],
     "flags": [ "SEES", "HEARS", "KEENNOSE", "PATH_AVOID_DANGER", "SMELLS", "EATS" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 15, "cut": 18, "bullet": 20, "electric": 2 }
   },
   {
@@ -3694,6 +3813,7 @@
     "stomach_size": 60,
     "color": "white",
     "harvest": "mutant_shellfish",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 21, "into": "mon_woodlouse" }
   },
   {
@@ -3725,6 +3845,7 @@
     "anger_triggers": [ "PLAYER_CLOSE" ],
     "fear_triggers": [ "HURT" ],
     "flags": [ "AQUATIC", "SEES", "WATER_CAMOUFLAGE" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "upgrades": { "age_grow": 21, "into": "mon_diving_beetle_small" }
   },
   {
@@ -3759,6 +3880,7 @@
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT" ],
     "fear_triggers": [ "FIRE" ],
     "flags": [ "SEES", "HEARS", "GOODHEARING", "SWIMS", "WATER_CAMOUFLAGE" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 7, "cut": 9, "bullet": 10, "electric": 2 }
   },
   {
@@ -3794,6 +3916,7 @@
     "anger_triggers": [ "PLAYER_WEAK", "PLAYER_CLOSE" ],
     "fear_triggers": [ "HURT" ],
     "flags": [ "SEES", "HEARS", "SMELLS", "SWIMS", "AQUATIC" ],
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "armor": { "bash": 1, "cut": 3, "bullet": 2 }
   },
   {
@@ -3805,6 +3928,7 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "symbol": "w",
     "volume": "10 L",
+    "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "weight": "15 kg",
     "upgrades": { "age_grow": 14, "into": "mon_water_scorpion" }
   }
