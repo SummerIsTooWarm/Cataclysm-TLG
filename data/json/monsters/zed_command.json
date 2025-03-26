@@ -48,7 +48,7 @@
       "PRIORITIZE_TARGETS",
       "NO_FUNG_DMG",
       "FILTHY",
-      "PATH_AVOID_DANGER_1"
+      "PATH_AVOID_DANGER"
     ],
     "armor": { "cut": 15, "stab": 30, "acid": 3, "bullet": 24, "electric": 3 }
   },
@@ -97,7 +97,7 @@
       "POISON",
       "NO_BREATHE",
       "REVIVES",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER",
       "CAN_OPEN_DOORS",
       "PRIORITIZE_TARGETS",
       "NO_FUNG_DMG",
