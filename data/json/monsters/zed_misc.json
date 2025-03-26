@@ -1074,7 +1074,7 @@
       "PRIORITIZE_TARGETS",
       "NO_FUNG_DMG",
       "FILTHY",
-      "PATH_AVOID_DANGER_1"
+      "PATH_AVOID_DANGER"
     ],
     "armor": { "bash": 2, "cut": 2, "bullet": 2, "electric": 3 }
   },
@@ -1124,7 +1124,7 @@
       "POISON",
       "NO_BREATHE",
       "REVIVES",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER",
       "CAN_OPEN_DOORS",
       "PRIORITIZE_TARGETS",
       "NO_FUNG_DMG",

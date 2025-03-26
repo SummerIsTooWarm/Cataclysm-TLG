@@ -1138,8 +1138,7 @@ Used to describe monster characteristics and set their properties and abilities.
 - ```PACIFIST``` Monster will never do melee attacks.  Useful for having them use grab without attacking the player.
 - ```PARALYZEVENOM``` This monster can apply `paralyzepoison` effect for 10 minutes.
 - ```PARALYZE``` Attack may paralyze the player with venom.
-- ```PATH_AVOID_DANGER_1``` This monster will path around some dangers instead of through them.
-- ```PATH_AVOID_DANGER_2``` This monster will path around most dangers instead of through them.
+- ```PATH_AVOID_DANGER``` This monster will path around some dangers instead of through them.
 - ```PATH_AVOID_FALL``` This monster will path around cliffs instead of off of them.
 - ```PATH_AVOID_FIRE``` This monster will path around heat-related dangers instead of through them.
 - ```PAY_BOT``` Creature can be turned into a pet for a limited time in exchange of e-money.
@@ -1326,7 +1325,7 @@ See [Character](#character)
 - ```BLIND_HARD``` Possible to craft with little to no light, but difficult.
 - ```FULL_MAGAZINE``` Crafted or deconstructed items from this recipe will have fully-charged magazines.
 - ```NEED_FULL_MAGAZINE``` If this recipe requires magazines, it needs one that is full.
-- ```NO_RESIZE``` This clothes you crafted spawn unfitted 
+- ```NO_RESIZE``` This clothes you crafted spawn unfitted
 - ```SECRET``` Not automatically learned at character creation time based on high skill levels.
 - ```AFFECTED_BY_PAIN``` 1 unit of pain decreases the speed of craft for 1%. Recommended to not use in vanilla recipes
 - ```NO_MANIP``` Manipulation score do not affect crafting this recipe

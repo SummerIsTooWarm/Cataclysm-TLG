@@ -86,7 +86,7 @@
       "WARM",
       "STUMBLES",
       "HUMAN",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER",
       "PRIORITIZE_TARGETS"
     ],
     "armor": { "bash": 10, "cut": 6, "bullet": 5 }

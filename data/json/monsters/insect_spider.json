@@ -684,7 +684,7 @@
     "anger_triggers": [ "HOSTILE_SEEN", "PLAYER_WEAK", "HURT" ],
     "harvest": "arachnid_centipede_mega",
     "dissect": "dissect_insect_sample_large",
-    "flags": [ "SEES", "SMELLS", "KEENNOSE", "HEARS", "GOODHEARING", "PATH_AVOID_DANGER_1", "DESTROYS", "PUSH_MON", "PUSH_VEH" ],
+    "flags": [ "SEES", "SMELLS", "KEENNOSE", "HEARS", "GOODHEARING", "PATH_AVOID_DANGER", "DESTROYS", "PUSH_MON", "PUSH_VEH" ],
     "armor": { "bash": 25, "cut": 35, "stab": 15, "bullet": 45, "electric": 3 }
   },
   {
@@ -974,7 +974,6 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "15 L",
     "weight": "20 kg",
-    "zombify_into": "mon_meat_cocoon_tiny",
     "upgrades": { "age_grow": 30, "into": "mon_mosquito_giant" },
     "extend": { "flags": [ "NO_BREED" ] }
   },
@@ -1114,7 +1113,7 @@
     "path_settings": { "max_dist": 50, "avoid_sharp": true },
     "fungalize_into": "mon_spider_fungus",
     "upgrades": { "age_grow": 14, "into_group": "GROUP_SPIDER_CELLAR_GIANT" },
-    "flags": [ "SEES", "SMELLS", "HEARS", "GRABS", "WEBWALK", "CLIMBS", "HARDTOSHOOT", "PATH_AVOID_DANGER_1" ],
+    "flags": [ "SEES", "SMELLS", "HEARS", "GRABS", "WEBWALK", "CLIMBS", "HARDTOSHOOT", "PATH_AVOID_DANGER" ],
     "armor": { "bash": 1, "cut": 5, "acid": 3, "bullet": 2 }
   },
   {
@@ -1286,7 +1285,6 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "15 L",
     "weight": "20 kg",
-    "zombify_into": "mon_meat_cocoon_tiny",
     "upgrades": { "age_grow": 30, "into": "mon_spider_jumping_giant" },
     "extend": { "flags": [ "NO_BREED" ] }
   },
@@ -1336,7 +1334,7 @@
     "anger_triggers": [ "PLAYER_CLOSE" ],
     "fungalize_into": "mon_spider_fungus",
     "upgrades": { "age_grow": 42, "into": "mon_spider_jumping_mega" },
-    "flags": [ "SEES", "SMELLS", "HEARS", "HIT_AND_RUN", "CLIMBS", "PATH_AVOID_DANGER_1" ],
+    "flags": [ "SEES", "SMELLS", "HEARS", "HIT_AND_RUN", "CLIMBS", "PATH_AVOID_DANGER" ],
     "armor": { "cut": 3, "bullet": 2 }
   },
   {
@@ -1384,7 +1382,6 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "30 L",
     "weight": "40 kg",
-    "zombify_into": "mon_meat_cocoon_small",
     "upgrades": { "age_grow": 30, "into": "mon_spider_trapdoor_giant" },
     "extend": { "flags": [ "NO_BREED" ] }
   },
@@ -1468,7 +1465,6 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "30 L",
     "weight": "40 kg",
-    "zombify_into": "mon_meat_cocoon_small",
     "upgrades": { "age_grow": 30, "into": "mon_spider_web" },
     "extend": { "flags": [ "NO_BREED" ] },
     "trap_avoids": [ "tr_sinkhole" ]
@@ -1559,7 +1555,6 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "15 L",
     "weight": "20 kg",
-    "zombify_into": "mon_meat_cocoon_tiny",
     "upgrades": { "age_grow": 30, "into": "mon_spider_widow_giant" },
     "extend": { "flags": [ "NO_BREED" ] }
   },
@@ -1645,7 +1640,6 @@
     "proportional": { "hp": 0.5, "speed": 1.1, "morale": 0.67, "melee_dice_sides": 0.67 },
     "volume": "30 L",
     "weight": "40 kg",
-    "zombify_into": "mon_meat_cocoon_small",
     "upgrades": { "age_grow": 30, "into": "mon_spider_wolf_giant" },
     "extend": { "flags": [ "NO_BREED" ] }
   },
@@ -2340,7 +2334,6 @@
     "dissect": "dissect_insect_sample_single",
     "upgrades": { "age_grow": 42, "into": "mon_ant_acid_soldier_mega" },
     "name": { "str": "oversized acidic soldier ant" },
-    "zombify_into": "mon_meat_cocoon_small",
     "flags": [ "ACIDPROOF", "SHORTACIDTRAIL", "CLIMBS", "HEARS", "POISON", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL" ],
     "armor": { "bash": 12, "cut": 14, "bullet": 11, "electric": 1 }
   },
@@ -2698,7 +2691,6 @@
     "dissect": "dissect_insect_sample_single",
     "extend": { "flags": [ "NO_BREED" ] },
     "upgrades": { "age_grow": 42, "into": "mon_mantis_giant" },
-    "zombify_into": "mon_meat_cocoon_small",
     "armor": { "bash": 10, "cut": 16, "bullet": 13, "electric": 1 }
   },
   {
@@ -2856,7 +2848,7 @@
     ],
     "anger_triggers": [ "HURT", "PLAYER_CLOSE" ],
     "fear_triggers": [ "FIRE" ],
-    "flags": [ "SEES", "CAN_DIG", "BORES", "PUSH_VEH", "HEARS", "KEENNOSE", "PATH_AVOID_DANGER_1", "SMELLS" ],
+    "flags": [ "SEES", "CAN_DIG", "BORES", "PUSH_VEH", "HEARS", "KEENNOSE", "PATH_AVOID_DANGER", "SMELLS" ],
     "armor": { "bash": 15, "cut": 18, "bullet": 20, "electric": 2 }
   },
   {
@@ -3183,7 +3175,7 @@
       "GOODHEARING",
       "BASHES",
       "DESTROYS",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER",
       "PUSH_MON",
       "PUSH_VEH",
       "PET_WONT_FOLLOW",
@@ -3661,7 +3653,7 @@
     "special_attacks": [ [ "SHRIEK_STUN", 5 ] ],
     "anger_triggers": [ "HURT" ],
     "fear_triggers": [ "FIRE", "HURT" ],
-    "flags": [ "SEES", "FLIES", "HEARS", "KEENNOSE", "PATH_AVOID_DANGER_1", "SMELLS" ],
+    "flags": [ "SEES", "FLIES", "HEARS", "KEENNOSE", "PATH_AVOID_DANGER", "SMELLS" ],
     "armor": { "bash": 1, "cut": 3, "bullet": 2, "electric": 2 }
   },
   {
@@ -3689,7 +3681,7 @@
     "reproduction": { "baby_monster": "mon_woodlouse_manca", "baby_count": 5, "baby_timer": 210 },
     "fear_triggers": [ "FIRE", "HURT" ],
     "special_attacks": [ [ "GRAZE", 100 ] ],
-    "flags": [ "SEES", "HEARS", "KEENNOSE", "PATH_AVOID_DANGER_1", "SMELLS", "EATS" ],
+    "flags": [ "SEES", "HEARS", "KEENNOSE", "PATH_AVOID_DANGER", "SMELLS", "EATS" ],
     "armor": { "bash": 15, "cut": 18, "bullet": 20, "electric": 2 }
   },
   {
