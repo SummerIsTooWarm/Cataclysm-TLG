@@ -182,7 +182,7 @@ else ()
                 "${CMAKE_SOURCE_DIR}/src/prefix.h.in"
                 "${CMAKE_SOURCE_DIR}/src/prefix.h"
                 @ONLY)
-            add_definitions(-TLGTA_DIR_PREFIX)
+            add_definitions(-DDATA_DIR_PREFIX)
         endif ()
     else()
         set(CMAKE_INSTALL_DATADIR   data)
