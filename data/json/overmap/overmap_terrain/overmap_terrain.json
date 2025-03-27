@@ -1048,6 +1048,6 @@
     "name": "gun show",
     "sym": "G",
     "color": "red",
-    "see_cost": 3
+    "see_cost": 5
   }
 ]
