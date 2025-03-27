@@ -1543,7 +1543,7 @@ static const mutation_variant *variant_trait_selection_menu( const trait_id &cur
 
     menu.title = _( "Which trait?" );
     menu.desc_enabled = true;
-    menu.allow_cancel = false;
+    menu.allow_cancel = true;
     int idx;
     do {
         menu.entries.clear();
@@ -1559,12 +1559,11 @@ static const mutation_variant *variant_trait_selection_menu( const trait_id &cur
                                 var->alt_description.translated() );
             ++idx;
         }
-        menu.addentry_desc( idx, true, 'q', _( "Done" ), _( "Exit menu." ) );
         menu.query();
-        if( menu.ret == 0 ) {
-            ret = nullptr;
-        } else if( menu.ret < idx ) {
-            ret = variants[menu.ret - 1];
+        if( menu.ret <= 0 ) {
+            return ret = nullptr;
+        } else if( menu.ret > 0 ) {
+            return ret = variants[menu.ret - 1];
         }
     } while( menu.ret != idx );
     return ret;
