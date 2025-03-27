@@ -52,8 +52,8 @@ def parse_dynamic_line(json, origin, comment=[]):
                 *comment,
                 "You don't need to translate genders that "
                 "aren't in your language",
-                "Check: https://github.com/CleverRaven/"
-                "Cataclysm-DDA/blob/master/doc/"
+                "Check: https://github.com/Cataclysm-TLG/"
+                "Cataclysm-TLG/blob/master/doc/"
                 "TRANSLATING.md#grammatical-gender"]
             for context_list in itertools.product(*options):
                 context = " ".join(context_list)

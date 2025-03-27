@@ -96,7 +96,7 @@ int main( int argc, char *argv[] )
 
 #if defined(__ANDROID__)
     // Start the standard output logging redirector
-    start_logger( "cdda" );
+    start_logger( "ctlg" );
 
     // On Android first launch, we copy all data files from the APK into the app's writeable folder so std::io stuff works.
     // Use the external storage so it's publicly modifiable data (so users can mess with installed data, save games etc.)
@@ -145,7 +145,7 @@ int main( int argc, char *argv[] )
     app.processEvents();
 
     QSettings settings( QSettings::IniFormat, QSettings::UserScope,
-                        "CleverRaven", "Cataclysm - DDA" );
+                        "CataclysmTLG", "Cataclysm - TLG" );
 
     cli_opts cli;
 
@@ -175,7 +175,7 @@ int main( int argc, char *argv[] )
     world_generator->init();
 
     std::vector<mod_id> mods;
-    mods.push_back( mod_id( "dda" ) );
+    mods.push_back( mod_id( "tlg" ) );
     if( settings.contains( "mods/include" ) ) {
         QStringList modlist = settings.value( "mods/include" ).value<QStringList>();
         for( const QString &i : modlist ) {

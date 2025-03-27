@@ -110,7 +110,7 @@ def write_mutations(mutations: list[Mutation], filename: Path) -> None:
             fd.write("\n\n")
 
 
-def extract_mutations(file: Path, mod: str = "dda") -> list[Mutation]:
+def extract_mutations(file: Path, mod: str = "tlg") -> list[Mutation]:
     """Extract mutations from :file:."""
 
     with open(file, "rb") as fd:
@@ -177,7 +177,7 @@ class Mod:
     "--outfile",
     type=click.Path(resolve_path=True, path_type=Path, dir_okay=False),
     default="mutations.md",
-    help="""Specify the filepath to write the documentation for DDA to.
+    help="""Specify the filepath to write the documentation for TLG to.
     If mods are included, their documentation will be written to the same
     directory.""",
     show_default=True,
@@ -203,9 +203,9 @@ def cli(paths, outfile, include_mods) -> None:
         write_mutations(mutations, outfile)
         click.echo(f"Mutations written to {outfile}")
     else:
-        dda = Mod("dda", [], [])
-        mod_stack: list[tuple[Mod, str]] = [(dda, "PLACEHOLDER")]
-        mods: dict[str, Mod] = {"dda": dda}
+        tlg = Mod("tlg", [], [])
+        mod_stack: list[tuple[Mod, str]] = [(tlg, "PLACEHOLDER")]
+        mods: dict[str, Mod] = {"tlg": tlg}
 
         def move_stack(
             file, mod_stack: list[tuple[Mod, str]]
@@ -225,8 +225,8 @@ def cli(paths, outfile, include_mods) -> None:
                     extract_mutations(file, mod_stack[-1][0].id_)
                 )
 
-            elif os.path.split(os.path.split(file)[0])[1] == "dda":
-                # Skip DDA
+            elif os.path.split(os.path.split(file)[0])[1] == "tlg":
+                # Skip TLG
                 continue
             else:
                 # Add a new mod to the stack.
@@ -285,7 +285,7 @@ def cli(paths, outfile, include_mods) -> None:
             except AttributeError:
                 breakpoint()
 
-            if mod.id_ == "dda":
+            if mod.id_ == "tlg":
                 writepath = outfile
             else:
                 writepath = outfile.parent.joinpath(mod.id_ + ".md")

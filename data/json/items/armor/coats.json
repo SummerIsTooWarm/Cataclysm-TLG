@@ -1534,7 +1534,6 @@
     "volume": "3 L",
     "price": "50 USD",
     "price_postapoc": "50 cent",
-    "to_hit": -5,
     "material": [ "cotton" ],
     "symbol": "[",
     "looks_like": "kimono",

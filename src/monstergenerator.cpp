@@ -739,7 +739,7 @@ void mon_effect_data::load( const JsonObject &jo )
 
 void mtype::load( const JsonObject &jo, const std::string &src )
 {
-    bool strict = src == "dda";
+    bool strict = src == "tlg";
 
     MonsterGenerator &gen = MonsterGenerator::generator();
 
@@ -1619,7 +1619,7 @@ void mtype::remove_regeneration_modifiers( const JsonObject &jo, const std::stri
 void MonsterGenerator::check_monster_definitions() const
 {
     for( const mtype &mon : mon_templates->get_all() ) {
-        if( !mon.src.empty() && mon.src.back().second.str() == "dda" ) {
+        if( !mon.src.empty() && mon.src.back().second.str() == "tlg" ) {
             std::string mon_id = mon.id.str();
             std::string suffix_id = mon_id.substr( 0, mon_id.find( '_' ) );
             if( suffix_id != "mon" && suffix_id != "pseudo" ) {
