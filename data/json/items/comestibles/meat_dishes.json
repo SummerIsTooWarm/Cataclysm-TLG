@@ -549,7 +549,7 @@
   {
     "type": "COMESTIBLE",
     "id": "stuffed_clams",
-    "name": { "str_sp": "stuffed clam" },
+    "name": { "str_sp": "stuffed clams" },
     "copy-from": "fish_fried",
     "weight": "150 g",
     "calories": 115,
