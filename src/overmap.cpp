@@ -436,7 +436,7 @@ std::string overmap_land_use_code::get_symbol() const
 
 void overmap_land_use_code::load( const JsonObject &jo, const std::string &src )
 {
-    const bool strict = src == "dda";
+    const bool strict = src == "tlg";
     assign( jo, "land_use_code", land_use_code, strict );
     assign( jo, "name", name, strict );
     assign( jo, "detailed_definition", detailed_definition, strict );
@@ -763,7 +763,7 @@ std::string enum_to_string<oter_travel_cost_type>( oter_travel_cost_type data )
 
 void oter_type_t::load( const JsonObject &jo, const std::string &src )
 {
-    const bool strict = src == "dda";
+    const bool strict = src == "tlg";
 
     optional( jo, was_loaded, "sym", symbol, unicode_codepoint_from_symbol_reader, NULL_UNICODE );
 
@@ -2783,7 +2783,7 @@ mapgen_arguments overmap_special::get_args( const mapgendata &md ) const
 
 void overmap_special::load( const JsonObject &jo, const std::string &src )
 {
-    const bool strict = src == "dda";
+    const bool strict = src == "tlg";
     // city_building is just an alias of overmap_special
     // TODO: This comparison is a hack. Separate them properly.
     const bool is_special = jo.get_string( "type", "" ) == "overmap_special";

@@ -65,7 +65,7 @@ void TranslationManager::Impl::ScanTranslationDocuments()
     if( dir_exist( locale_dir() ) ) {
         DebugLog( D_INFO, DC_ALL ) << "[i18n] Scanning core translations from " << locale_dir();
         for( const std::string &dir : get_files_from_path( "LC_MESSAGES", locale_dir(), true ) ) {
-            mo_dirs.emplace_back( dir, "cataclysm-dda.mo" );
+            mo_dirs.emplace_back( dir, "cataclysm-tlg.mo" );
         }
     }
     for( const std::pair<std::string, std::string> &entry : mo_dirs ) {

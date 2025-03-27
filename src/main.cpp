@@ -90,7 +90,7 @@ class ui_adaptor;
 
 static int pfd[2];
 static pthread_t thr;
-static const char *tag = "cdda";
+static const char *tag = "ctlg";
 
 static void *thread_func( void * )
 {
@@ -310,7 +310,7 @@ cli_opts parse_commandline( int argc, const char **argv )
             },
             {
                 "--jsonverify", {},
-                "Checks the CDDA json files and exits",
+                "Checks the CTLG json files and exits",
                 section_default,
                 0,
                 [&result]( int, const char ** ) -> int {
@@ -320,7 +320,7 @@ cli_opts parse_commandline( int argc, const char **argv )
             },
             {
                 "--check-mods", "[mod…]",
-                "Checks the json files belonging to given CDDA mod and exits",
+                "Checks the json files belonging to given CTLG mod and exits",
                 section_default,
                 1,
                 [&result]( int n, const char **params ) -> int {
@@ -584,8 +584,8 @@ bool assure_essential_dirs_exist()
 #if defined(EMSCRIPTEN)
 EM_ASYNC_JS( void, mount_idbfs, (), {
     console.log( "Mounting IDBFS for persistence..." );
-    FS.mkdir( '/home/web_user/.cataclysm-dda' );
-    FS.mount( IDBFS, {}, '/home/web_user/.cataclysm-dda' );
+    FS.mkdir( '/home/web_user/.cataclysm-tlg' );
+    FS.mount( IDBFS, {}, '/home/web_user/.cataclysm-tlg' );
     await new Promise( function( resolve, reject )
     {
         FS.syncfs( true, function( err ) {
@@ -665,7 +665,7 @@ int main( int argc, const char *argv[] )
 #endif
 #if defined(__ANDROID__)
     // Start the standard output logging redirector
-    start_logger( "cdda" );
+    start_logger( "ctlg" );
 
     // On Android first launch, we copy all data files from the APK into the app's writeable folder so std::io stuff works.
     // Use the external storage so it's publicly modifiable data (so users can mess with installed data, save games etc.)
