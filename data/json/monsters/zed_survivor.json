@@ -31,7 +31,7 @@
     "burn_into": "mon_zombie_scorched",
     "fungalize_into": "mon_zombie_fungus",
     "flags": [ "SEES", "HEARS", "WARM", "GRABS", "BASHES", "GROUP_BASH", "POISON", "NO_BREATHE", "REVIVES", "PUSH_MON", "FILTHY" ],
-    "armor": { "bash": 7, "cut": 7, "stab": 5, "acid": 4, "bullet": 6, "electric": 2 }
+    "armor": { "bash": 7, "cut": 7, "stab": 5, "acid": 4, "bullet": 6, "electric": 2, "heat": 2 }
   },
   {
     "id": "mon_zombie_paramilitary",
@@ -40,7 +40,7 @@
     "description": "Wearing military surplus gear including an armored vest with patches of local militias, cartoon women, obscene statements, or local political groups.  This person definitely thought they were ready for the apocalypse.",
     "copy-from": "mon_zombie_survivor",
     "looks_like": "mon_zombie_survivor",
-    "armor": { "bash": 12, "cut": 25, "bullet": 20, "electric": 3 },
+    "armor": { "bash": 12, "cut": 25, "bullet": 20, "electric": 3, "heat": 2 },
     "weakpoint_sets": [ "wps_humanoid_body", "wps_humanoid_body_armor", "wps_humanoid_open_helmet" ],
     "death_drops": "mon_zombie_paramilitary_death_drops"
   },
@@ -59,6 +59,6 @@
     "weakpoint_sets": [ "wps_humanoid_body", "wps_humanoid_body_armor", "wps_humanoid_full_helmet" ],
     "vision_night": 6,
     "death_drops": "mon_zombie_survivor_elite_death_drops",
-    "armor": { "acid": 4, "bash": 15, "cut": 25, "stab": 18, "bullet": 20, "electric": 4 }
+    "armor": { "acid": 4, "bash": 15, "cut": 25, "stab": 18, "bullet": 20, "electric": 4, "heat": 3 }
   }
 ]

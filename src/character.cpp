@@ -6049,17 +6049,6 @@ bool Character::is_immune_field( const field_type_id &fid ) const
     if( ft.has_fire ) {
         return has_flag( json_flag_HEATSINK ) || is_wearing( itype_rm13_armor_on );
     }
-    if( ft.has_acid ) {
-        return !is_on_ground() && get_env_resist( body_part_foot_l ) >= 15 &&
-               get_env_resist( body_part_foot_r ) >= 15 &&
-               get_env_resist( body_part_leg_l ) >= 15 &&
-               get_env_resist( body_part_leg_r ) >= 15 &&
-               // FIXME: Hardcoded damage type
-               get_armor_type( damage_acid, body_part_foot_l ) >= 5 &&
-               get_armor_type( damage_acid, body_part_foot_r ) >= 5 &&
-               get_armor_type( damage_acid, body_part_leg_l ) >= 5 &&
-               get_armor_type( damage_acid, body_part_leg_r ) >= 5;
-    }
     // If we haven't found immunity yet fall up to the next level
     return Creature::is_immune_field( fid );
 }

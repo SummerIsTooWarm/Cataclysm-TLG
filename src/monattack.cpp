@@ -194,8 +194,6 @@ static const mtype_id mon_blob( "mon_blob" );
 static const mtype_id mon_blob_brain( "mon_blob_brain" );
 static const mtype_id mon_blob_large( "mon_blob_large" );
 static const mtype_id mon_blob_small( "mon_blob_small" );
-static const mtype_id mon_breather( "mon_breather" );
-static const mtype_id mon_breather_hub( "mon_breather_hub" );
 static const mtype_id mon_creeper_hub( "mon_creeper_hub" );
 static const mtype_id mon_creeper_vine( "mon_creeper_vine" );
 static const mtype_id mon_dermatik( "mon_dermatik" );
@@ -211,10 +209,8 @@ static const mtype_id mon_nursebot_defective( "mon_nursebot_defective" );
 static const mtype_id mon_shadow( "mon_shadow" );
 static const mtype_id mon_triffid( "mon_triffid" );
 static const mtype_id mon_turret_searchlight( "mon_turret_searchlight" );
-static const mtype_id mon_zombie_dancer( "mon_zombie_dancer" );
 static const mtype_id mon_zombie_gasbag_crawler( "mon_zombie_gasbag_crawler" );
 static const mtype_id mon_zombie_gasbag_impaler( "mon_zombie_gasbag_impaler" );
-static const mtype_id mon_zombie_jackson( "mon_zombie_jackson" );
 static const mtype_id mon_zombie_skeltal_minion( "mon_zombie_skeltal_minion" );
 
 static const skill_id skill_gun( "gun" );
@@ -2639,85 +2635,6 @@ bool mattack::callblobs( monster *z )
     return true;
 }
 
-bool mattack::jackson( monster *z )
-{
-    // Jackson draws nearby zombies into the dance.
-    const std::vector<tripoint_abs_ms> nearby_points = closest_points_first( z->get_location(), 3 );
-    std::list<monster *> allies;
-    for( monster &candidate : g->all_monsters() ) {
-        if( candidate.type->in_species( species_ZOMBIE ) && candidate.type->id != mon_zombie_jackson ) {
-            // Just give the allies consistent assignments.
-            // Don't worry about trying to make the orders optimal.
-            allies.push_back( &candidate );
-        }
-    }
-    const int num_dancers = std::min( allies.size(), nearby_points.size() );
-    int dancers = 0;
-    bool converted = false;
-    for( auto ally = allies.begin(); ally != allies.end(); ++ally, ++dancers ) {
-        tripoint_abs_ms post = z->get_location();
-        if( dancers < num_dancers ) {
-            // Each dancer is assigned a spot in the nearby_points vector based on their order.
-            int assigned_spot = ( nearby_points.size() * dancers ) / num_dancers;
-            post = nearby_points[ assigned_spot ];
-        }
-        if( ( *ally )->type->id != mon_zombie_dancer ) {
-            ( *ally )->poly( mon_zombie_dancer );
-            converted = true;
-        }
-        ( *ally )->set_dest( post );
-        if( !( *ally )->has_effect( effect_controlled ) ) {
-            ( *ally )->add_effect( effect_controlled, 1_turns, true );
-        }
-    }
-    // Did we convert anybody?
-    if( converted ) {
-        add_msg_if_player_sees( *z, m_warning, _( "The %s lets out a high-pitched cry!" ), z->name() );
-    }
-    // This is telepathy, doesn't take any moves.
-    return true;
-}
-
-bool mattack::dance( monster *z )
-{
-    if( get_player_view().sees( *z ) ) {
-        switch( rng( 1, 10 ) ) {
-            case 1:
-                add_msg( m_neutral, _( "The %s swings its arms from side to side!" ), z->name() );
-                break;
-            case 2:
-                add_msg( m_neutral, _( "The %s does some fancy footwork!" ), z->name() );
-                break;
-            case 3:
-                add_msg( m_neutral, _( "The %s shrugs its shoulders!" ), z->name() );
-                break;
-            case 4:
-                add_msg( m_neutral, _( "The %s spins in place!" ), z->name() );
-                break;
-            case 5:
-                add_msg( m_neutral, _( "The %s crouches on the ground!" ), z->name() );
-                break;
-            case 6:
-                add_msg( m_neutral, _( "The %s looks left and right!" ), z->name() );
-                break;
-            case 7:
-                add_msg( m_neutral, _( "The %s jumps back and forth!" ), z->name() );
-                break;
-            case 8:
-                add_msg( m_neutral, _( "The %s raises its arms in the air!" ), z->name() );
-                break;
-            case 9:
-                add_msg( m_neutral, _( "The %s swings its hips!" ), z->name() );
-                break;
-            case 10:
-                add_msg( m_neutral, _( "The %s claps!" ), z->name() );
-                break;
-        }
-    }
-
-    return true;
-}
-
 bool mattack::dogthing( monster *z )
 {
     if( z == nullptr ) {
@@ -3977,50 +3894,6 @@ bool mattack::upgrade( monster *z )
             add_msg( m_warning, _( "A %s appears!" ), target->name() );
         }
     }
-
-    return true;
-}
-
-bool mattack::breathe( monster *z )
-{
-    // It takes a while
-    z->mod_moves( -to_moves<int>( 1_seconds ) );
-
-    bool able = z->type->id == mon_breather_hub;
-    creature_tracker &creatures = get_creature_tracker();
-    if( !able ) {
-        for( const tripoint &dest : get_map().points_in_radius( z->pos(), 3 ) ) {
-            monster *const mon = creatures.creature_at<monster>( dest );
-            if( mon && mon->type->id == mon_breather_hub ) {
-                able = true;
-                break;
-            }
-        }
-    }
-    if( !able ) {
-        return true;
-    }
-
-    if( monster *const spawned = g->place_critter_around( mon_breather, z->pos(), 1 ) ) {
-        spawned->reset_special( "BREATHE" );
-        spawned->make_ally( *z );
-    }
-
-    return true;
-}
-
-bool mattack::brandish( monster *z )
-{
-    if( z->friendly ) {
-        // TODO: handle friendly monsters
-        return false;
-    }
-    // Only brandish if we can see you!
-    if( !z->sees( get_player_character() ) ) {
-        return false;
-    }
-    add_msg( m_warning, _( "He's brandishing a knife!" ) );
-    add_msg( _( "Quiet, quiet" ) );
 
     return true;
 }

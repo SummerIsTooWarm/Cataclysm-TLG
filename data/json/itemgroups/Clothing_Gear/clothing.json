@@ -188,7 +188,10 @@
       {
         "distribution": [
           { "collection": [ { "item": "sports_bra" }, { "item": "boy_shorts" } ], "prob": 20 },
-          { "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ], "prob": 80 }
+          {
+            "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ],
+            "prob": 80
+          }
         ]
       }
     ]
@@ -206,7 +209,10 @@
       {
         "distribution": [
           { "collection": [ { "item": "sports_bra" }, { "item": "boy_shorts" } ], "prob": 20 },
-          { "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ], "prob": 80 }
+          {
+            "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ],
+            "prob": 80
+          }
         ]
       }
     ]
@@ -219,7 +225,10 @@
     "items": [
       { "group": "clothing_soldier_shirt" },
       { "distribution": [ { "item": "jacket_army_modern", "prob": 50 }, { "item": "combat_shirt", "prob": 50 } ] },
-      { "distribution": [ { "item": "neck_gaiter", "prob": 80 }, { "item": "neck_gaiter_kevlar", "prob": 20 } ], "prob": 8 },
+      {
+        "distribution": [ { "item": "neck_gaiter", "prob": 80 }, { "item": "neck_gaiter_kevlar", "prob": 20 } ],
+        "prob": 8
+      },
       { "item": "pants_army" },
       { "group": "loaded_webbing_belt", "prob": 80 },
       { "distribution": [ { "item": "socks", "prob": 95 }, { "item": "socks_wool", "prob": 5 } ] },
@@ -227,7 +236,10 @@
       {
         "distribution": [
           { "collection": [ { "item": "sports_bra" }, { "item": "boy_shorts" } ], "prob": 20 },
-          { "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ], "prob": 80 }
+          {
+            "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ],
+            "prob": 80
+          }
         ]
       }
     ]
@@ -240,7 +252,10 @@
     "items": [
       { "group": "clothing_soldier_shirt" },
       { "distribution": [ { "item": "jacket_army_modern", "prob": 50 }, { "item": "combat_shirt", "prob": 50 } ] },
-      { "distribution": [ { "item": "neck_gaiter", "prob": 6 }, { "item": "neck_gaiter_kevlar", "prob": 2 } ], "prob": 8 },
+      {
+        "distribution": [ { "item": "neck_gaiter", "prob": 6 }, { "item": "neck_gaiter_kevlar", "prob": 2 } ],
+        "prob": 8
+      },
       { "item": "pants_army" },
       { "group": "loaded_webbing_belt", "prob": 80 },
       { "distribution": [ { "item": "socks", "prob": 95 }, { "item": "socks_wool", "prob": 5 } ] },
@@ -248,7 +263,10 @@
       {
         "distribution": [
           { "collection": [ { "item": "sports_bra" }, { "item": "boy_shorts" } ], "prob": 20 },
-          { "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ], "prob": 80 }
+          {
+            "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ],
+            "prob": 80
+          }
         ]
       }
     ]
@@ -260,7 +278,10 @@
     "//": "Winter set of clothes worn by soldiers and paramilitary forces.",
     "items": [
       { "group": "clothing_soldier_shirt" },
-      { "distribution": [ { "item": "neck_gaiter", "prob": 8 }, { "item": "neck_gaiter_kevlar", "prob": 4 } ], "prob": 10 },
+      {
+        "distribution": [ { "item": "neck_gaiter", "prob": 8 }, { "item": "neck_gaiter_kevlar", "prob": 4 } ],
+        "prob": 10
+      },
       { "item": "winter_jacket_army", "prob": 90 },
       { "item": "winter_pants_army" },
       { "group": "loaded_webbing_belt", "prob": 90 },
@@ -273,7 +294,10 @@
       {
         "distribution": [
           { "collection": [ { "item": "sports_bra" }, { "item": "boy_shorts" } ], "prob": 20 },
-          { "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ], "prob": 80 }
+          {
+            "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ],
+            "prob": 80
+          }
         ]
       }
     ]
@@ -419,7 +443,10 @@
       {
         "distribution": [
           { "collection": [ { "item": "sports_bra" }, { "item": "boy_shorts" } ], "prob": 20 },
-          { "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ], "prob": 80 }
+          {
+            "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ],
+            "prob": 80
+          }
         ]
       },
       { "group": "clothing_watch", "prob": 85 },
@@ -443,7 +470,10 @@
       {
         "distribution": [
           { "collection": [ { "item": "sports_bra" }, { "item": "boy_shorts" } ], "prob": 20 },
-          { "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ], "prob": 80 }
+          {
+            "distribution": [ { "item": "briefs" }, { "item": "boxer_briefs" }, { "item": "boxer_shorts" } ],
+            "prob": 80
+          }
         ]
       },
       { "group": "clothing_watch", "prob": 85 },

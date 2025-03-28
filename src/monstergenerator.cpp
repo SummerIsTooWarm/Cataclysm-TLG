@@ -624,8 +624,6 @@ void MonsterGenerator::init_attack()
     add_hardcoded_attack( "DEPART", mattack::depart );
     add_hardcoded_attack( "FORMBLOB", mattack::formblob );
     add_hardcoded_attack( "CALLBLOBS", mattack::callblobs );
-    add_hardcoded_attack( "JACKSON", mattack::jackson );
-    add_hardcoded_attack( "DANCE", mattack::dance );
     add_hardcoded_attack( "DOGTHING", mattack::dogthing );
     add_hardcoded_attack( "GENE_STING", mattack::gene_sting );
     add_hardcoded_attack( "PARA_STING", mattack::para_sting );
@@ -641,8 +639,6 @@ void MonsterGenerator::init_attack()
     add_hardcoded_attack( "RATKING", mattack::ratking );
     add_hardcoded_attack( "GENERATOR", mattack::generator );
     add_hardcoded_attack( "UPGRADE", mattack::upgrade );
-    add_hardcoded_attack( "BREATHE", mattack::breathe );
-    add_hardcoded_attack( "BRANDISH", mattack::brandish );
     add_hardcoded_attack( "FLESH_GOLEM", mattack::flesh_golem );
     add_hardcoded_attack( "ABSORB_MEAT", mattack::absorb_meat );
     add_hardcoded_attack( "LUNGE", mattack::lunge );

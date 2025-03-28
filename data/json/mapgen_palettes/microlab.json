@@ -173,7 +173,7 @@
       "N": { "item": "fireman_cabinet", "chance": 100 }
     },
     "monster": {
-      " ": [ { "monster": "mon_zombie_living_wall", "chance": 3 }, { "monster": "mon_breather_hub", "chance": 1 } ],
+      " ": { "monster": "mon_zombie_living_wall", "chance": 3 },
       "c": { "monster": "mon_zombie_living_wall", "chance": 3 },
       "@": { "monster": "mon_zombie_living_wall", "chance": 80 }
     },
