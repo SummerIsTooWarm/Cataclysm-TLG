@@ -653,6 +653,7 @@ static void damage_targets( const spell &sp, Creature &caster,
             for( damage_unit &val : atk.proj.impact.damage_units ) {
                 val.amount *= damage_mitigation_multiplier;
             }
+            // If the target is a characteer:
             if( cr->as_character() != nullptr && ( liquid_damage_target || !liquid ) ) {
                 int multishot = sp.get_amount_of_projectiles( caster );
                 std::vector<bodypart_id> target_bdpts = cr->get_all_body_parts( get_body_part_flags::only_main );
@@ -693,8 +694,8 @@ static void damage_targets( const spell &sp, Creature &caster,
                     cr->deal_projectile_attack( &caster, atk, true );
                 }
             }
-
-            if( cr->as_monster() != nullptr ) {
+            // If the target is a monster:
+            if( cr->as_monster() != nullptr && ( liquid_damage_target || !liquid ) ) {
                 for( damage_unit &val : atk.proj.impact.damage_units ) {
                     if( sp.has_flag( spell_flag::PERCENTAGE_DAMAGE ) ) {
                         val.amount = cr->get_hp() * sp.damage( caster ) / 100.0;

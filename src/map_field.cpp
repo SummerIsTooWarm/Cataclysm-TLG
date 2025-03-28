@@ -74,7 +74,6 @@ static const damage_type_id damage_heat( "heat" );
 
 static const efftype_id effect_badpoison( "badpoison" );
 static const efftype_id effect_blind( "blind" );
-static const efftype_id effect_corroding( "corroding" );
 static const efftype_id effect_fungus( "fungus" );
 static const efftype_id effect_onfire( "onfire" );
 static const efftype_id effect_poison( "poison" );
@@ -150,23 +149,6 @@ void map::create_burnproducts( const tripoint &p, const item &fuel, const units:
     }
 }
 
-// Use a helper for a bit less boilerplate
-int map::burn_body_part( Character &you, field_entry &cur, const bodypart_id &bp, const int scale )
-{
-    int total_damage = 0;
-    const int intensity = cur.get_field_intensity();
-    const int damage = rng( 1, ( scale + intensity ) / 2 );
-    // A bit ugly, but better than being annoyed by acid when in hazmat
-    if( you.get_armor_type( damage_acid, bp ) < damage ) {
-        const dealt_damage_instance ddi = you.deal_damage( nullptr, bp, damage_instance( damage_acid,
-                                          damage ) );
-        total_damage += ddi.total_damage();
-    }
-    // Represents acid seeping in rather than being splashed on
-    you.add_env_effect( effect_corroding, bp, 2 + intensity, time_duration::from_turns( rng( 2,
-                        1 + intensity ) ), bp, false, 0 );
-    return total_damage;
-}
 
 void map::process_fields()
 {
@@ -1484,7 +1466,7 @@ static void field_processor_fd_last_known( const tripoint &p, field_entry &cur,
 
 /*
 Function: step_in_field
-Triggers any active abilities a field effect would have. Fire burns you, acid melts you, etc.
+Triggers any active abilities a field effect would have. Fire burns you, etc.
 If you add a field effect that interacts with the player place a case statement in the switch here.
 If you wish for a field effect to do something over time (propagate, interact with terrain, etc) place it in process_subfields
 */
