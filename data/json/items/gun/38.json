@@ -222,7 +222,7 @@
         "allowed_speedloaders": [ "38_speedloader5" ]
       }
     ],
-    "melee_damage": { "bash": 8 }
+    "melee_damage": { "bash": 6 }
   },
   {
     "id": "sw_619",
@@ -266,8 +266,6 @@
       }
     ],
     "melee_damage": { "bash": 9 }
-<<<<<<< Updated upstream
-=======
   },
   {
     "id": "chiappa_rhino",
@@ -316,7 +314,7 @@
         "name": { "str": "Chiappa Rhino revolver" },
         "description": "An innovative, futuristic looking revolver designed by Emilio Ghisoni after developing the Mateba, its most distinctive feature is its barrel, aligned with the bottom chamber of its hexagonal cylinder to alleviate muzzle flip.  This positions the bore lower relative to the sights, effectively making the gun easier to shoot but harder to aim."
       }
-    ]
->>>>>>> Stashed changes
+    ],
+    "melee_damage": { "bash": 8 }
   }
 ]
