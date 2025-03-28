@@ -544,8 +544,7 @@
       ],
       "terrain": { "#": "t_rock", "@": [ [ "t_rock", 4 ], [ "t_rock_floor", 1 ] ] },
       "furniture": { " ": [ [ "f_null", 5 ], "f_rubble_rock" ] },
-      "items": { " ": { "item": "mine_equipment", "chance": 3 }, "o": { "item": "microlab_artifacts", "chance": 100 } },
-      "monster": { "o": { "monster": "mon_breather_hub" } }
+      "items": { " ": { "item": "mine_equipment", "chance": 3 }, "o": { "item": "microlab_artifacts", "chance": 100 } }
     }
   }
 ]

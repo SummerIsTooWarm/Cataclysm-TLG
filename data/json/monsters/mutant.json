@@ -364,6 +364,6 @@
     "zombify_into": "mon_meat_cocoon_large",
     "delete": { "flags": [ "HIT_AND_RUN" ], "fear_triggers": [ "FIRE" ] },
     "extend": { "flags": [ "SMALLSLUDGETRAIL", "SLUDGEPROOF", "NOHEAD", "STUN_IMMUNE", "PATH_AVOID_FIRE" ] },
-    "armor": { "bash": 22, "cut": 45, "stab": 30, "heat": 30, "bullet": 70, "electric": 6 }
+    "armor": { "bash": 22, "cut": 45, "stab": 30, "heat": 20, "bullet": 70, "electric": 6 }
   }
 ]

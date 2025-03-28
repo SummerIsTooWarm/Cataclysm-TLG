@@ -52,8 +52,6 @@ bool disappear( monster *z );
 bool depart( monster *z );
 bool formblob( monster *z );
 bool callblobs( monster *z );
-bool jackson( monster *z );
-bool dance( monster *z );
 bool dogthing( monster *z );
 bool vortex( monster *z );
 bool gene_sting( monster *z );
@@ -75,8 +73,6 @@ bool multi_robot( monster *z );       // Tazer, flame, M4, MGL, or 120mm!
 bool ratking( monster *z );
 bool generator( monster *z );
 bool upgrade( monster *z );
-bool breathe( monster *z );
-bool brandish( monster *z );
 bool flesh_golem( monster *z );
 bool absorb_meat( monster *z );
 bool lunge( monster *z );

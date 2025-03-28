@@ -3231,9 +3231,9 @@ void monster::process_one_effect( effect &it, bool is_new )
     } else if( id == effect_onfire ) {
         int dam = 0;
         if( made_of( material_veggy ) ) {
-            dam = rng( 10, 20 );
+            dam = rng( 2, 12 );
         } else if( made_of( material_flesh ) || made_of( material_iflesh ) ) {
-            dam = rng( 5, 10 );
+            dam = rng( 1, 8 );
         }
 
         dam -= get_armor_type( damage_heat, bodypart_id( "torso" ) );

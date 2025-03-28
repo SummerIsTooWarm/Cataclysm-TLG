@@ -93,13 +93,16 @@ static const json_character_flag json_flag_HEATSINK( "HEATSINK" );
 static const material_id material_iflesh( "iflesh" );
 static const material_id material_veggy( "veggy" );
 
+static const species_id species_CENTIPEDE( "CENTIPEDE" );
 static const species_id species_CYBORG( "CYBORG" );
 static const species_id species_FERAL( "FERAL" );
 static const species_id species_FUNGUS( "FUNGUS" );
 static const species_id species_INSECT( "INSECT" );
 static const species_id species_INSECT_FLYING( "INSECT_FLYING" );
-static const species_id species_CENTIPEDE( "CENTIPEDE" );
+static const species_id species_ROBOT( "ROBOT" );
+static const species_id species_ROBOT_FLYING( "ROBOT_FLYING" );
 static const species_id species_SPIDER( "SPIDER" );
+static const species_id species_ZOMBIE( "ZOMBIE" );
 
 static const ter_str_id ter_t_dirt( "t_dirt" );
 static const ter_str_id ter_t_open_air( "t_open_air" );
@@ -1674,8 +1677,8 @@ void map::player_in_field( Character &you )
             }
         }
         if( ft == fd_electricity ) {
-            // Chance to apply damage to each body part, only if not electroproofed and not in vehicle.
-            if( cur.get_field_intensity() > 0 && !you.is_elec_immune() && !you.in_vehicle ) {
+            // Chance to apply damage to each body part, only if not electroproofed and not inside a vehicle.
+            if( cur.get_field_intensity() > 0 && !you.is_elec_immune() && ( !inside ) ) {
                 const bodypart_id &main_part = bodypart_id( "torso" );
                 const int dmg = std::max( 1, rng( cur.get_field_intensity() / 2, cur.get_field_intensity() ) );
                 const int current_intensity = cur.get_field_intensity();
@@ -1887,10 +1890,10 @@ void map::monster_in_field( monster &z )
             }
             // TODO: Replace the section below with proper json values
             if( z.made_of_any( Creature::cmat_flesh ) ) {
-                dam += 3;
+                dam += 2;
             }
             if( z.made_of( material_veggy ) ) {
-                dam += 12;
+                dam += 3;
             }
             if( z.made_of( phase_id::LIQUID ) || z.made_of_any( Creature::cmat_flammable ) ) {
                 dam += 20;
@@ -1904,22 +1907,24 @@ void map::monster_in_field( monster &z )
             dam -= z.get_armor_type( damage_heat, bodypart_id( "torso" ) );
 
             if( cur.get_field_intensity() == 1 ) {
-                dam += rng( 2, 6 );
+                dam += rng( 0, 3 );
             } else if( cur.get_field_intensity() == 2 ) {
-                dam += rng( 6, 12 );
-                if( !z.flies() ) {
+                dam += rng( 1, 6 );
+                if( !z.flies() && !z.in_species( species_ZOMBIE ) && !z.in_species( species_ROBOT ) &&
+                    !z.in_species( species_ROBOT_FLYING ) ) {
                     z.mod_moves( -to_moves<int>( 1_seconds ) * 0.2 );
-                    if( dam > 0 ) {
-                        z.add_effect( effect_onfire, 1_turns * rng( dam / 2, dam * 2 ) );
-                    }
+                }
+                if( dam > 0 && one_in( 4 ) ) {
+                    z.add_effect( effect_onfire, 1_turns * rng( dam / 2, dam * 2 ) );
                 }
             } else if( cur.get_field_intensity() == 3 ) {
-                dam += rng( 10, 20 );
-                if( !z.flies() || one_in( 3 ) ) {
+                dam += rng( 1, 12 );
+                if( !z.flies() && !z.in_species( species_ZOMBIE ) && !z.in_species( species_ROBOT ) &&
+                    !z.in_species( species_ROBOT_FLYING ) ) {
                     z.mod_moves( -to_moves<int>( 1_seconds ) * 0.4 );
-                    if( dam > 0 ) {
-                        z.add_effect( effect_onfire, 1_turns * rng( dam / 2, dam * 2 ) );
-                    }
+                }
+                if( dam > 0 && one_in( 3 ) ) {
+                    z.add_effect( effect_onfire, 1_turns * rng( dam / 2, dam * 2 ) );
                 }
             }
         }
@@ -2040,11 +2045,8 @@ void map::monster_in_field( monster &z )
             if( z.has_flag( mon_flag_FIREPROOF ) || z.has_flag( mon_flag_FIREY ) ) {
                 return;
             }
-            if( z.made_of_any( Creature::cmat_flesh ) ) {
-                dam += 3;
-            }
             if( z.made_of( material_veggy ) ) {
-                dam += 12;
+                dam += 3;
             }
             if( z.made_of( phase_id::LIQUID ) || z.made_of_any( Creature::cmat_flammable ) ) {
                 dam += 20;
@@ -2054,18 +2056,24 @@ void map::monster_in_field( monster &z )
             }
 
             if( cur.get_field_intensity() == 1 ) {
-                dam += rng( 2, 6 );
+                dam += rng( 0, 3 );
             } else if( cur.get_field_intensity() == 2 ) {
-                dam += rng( 6, 12 );
-                z.mod_moves( -to_moves<int>( 1_seconds ) * 0.2 );
-                if( !z.made_of( phase_id::LIQUID ) && !z.made_of_any( Creature::cmat_flameres ) ) {
-                    z.add_effect( effect_onfire, rng( 8_turns, 12_turns ) );
+                dam += rng( 1, 9 );
+                if( !z.in_species( species_ZOMBIE ) && !z.in_species( species_ROBOT ) &&
+                    !z.in_species( species_ROBOT_FLYING ) ) {
+                    z.mod_moves( -to_moves<int>( 1_seconds ) * 0.2 );
+                }
+                if( !z.made_of( phase_id::LIQUID ) && !z.made_of_any( Creature::cmat_flameres ) && one_in( 4 ) ) {
+                    z.add_effect( effect_onfire, rng( 1_turns, 6_turns ) );
                 }
             } else if( cur.get_field_intensity() == 3 ) {
-                dam += rng( 10, 20 );
-                z.mod_moves( -to_moves<int>( 1_seconds ) * 0.4 );
-                if( !z.made_of( phase_id::LIQUID ) && !z.made_of_any( Creature::cmat_flameres ) ) {
-                    z.add_effect( effect_onfire, rng( 12_turns, 16_turns ) );
+                dam += rng( 1, 15 );
+                if( !z.in_species( species_ZOMBIE ) && !z.in_species( species_ROBOT ) &&
+                    !z.in_species( species_ROBOT_FLYING ) ) {
+                    z.mod_moves( -to_moves<int>( 1_seconds ) * 0.4 );
+                }
+                if( !z.made_of( phase_id::LIQUID ) && !z.made_of_any( Creature::cmat_flameres ) && one_in( 3 ) ) {
+                    z.add_effect( effect_onfire, rng( 6_turns, 12_turns ) );
                 }
             }
         }

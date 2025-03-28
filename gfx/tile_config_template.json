@@ -367,8 +367,6 @@
     { "id": "mon_blank", "fg": -1, "bg": -1, "rotates": false, "multitile": false },
     { "id": "mon_gozu", "fg": -1, "bg": -1, "rotates": false, "multitile": false },
     { "id": "mon_shadow", "fg": -1, "bg": -1, "rotates": false, "multitile": false },
-    { "id": "mon_breather_hub", "fg": -1, "bg": -1, "rotates": false, "multitile": false },
-    { "id": "mon_breather", "fg": -1, "bg": -1, "rotates": false, "multitile": false },
     { "id": "mon_shadow_snake", "fg": -1, "bg": -1, "rotates": false, "multitile": false },
     { "id": "mon_dementia", "fg": -1, "bg": -1, "rotates": false, "multitile": false },
     { "id": "mon_homunculus", "fg": -1, "bg": -1, "rotates": false, "multitile": false },
