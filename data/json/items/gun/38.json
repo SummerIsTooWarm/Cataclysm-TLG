@@ -283,7 +283,9 @@
     "volume": "700 ml",
     "longest_side": "267 mm",
     "barrel_length": "152 mm",
-    "dispersion": 340,
+    "dispersion": 300,
+    "sight_dispersion": 80,
+    "handling": 13,
     "durability": 10,
     "blackpowder_tolerance": 56,
     "valid_mod_locations": [
@@ -310,7 +312,7 @@
       {
         "id": "chiappa_rhino",
         "name": { "str": "Chiappa Rhino revolver" },
-        "description": "An innovative, futuristic looking revolver designed by Emilio Ghisoni after developing the Mateba, its most distinctive feature is its barrel, aligned with the bottom chamber of its hexagonal cylinder to alleviate muzzle flip."
+        "description": "An innovative, futuristic looking revolver designed by Emilio Ghisoni after developing the Mateba, its most distinctive feature is its barrel, aligned with the bottom chamber of its hexagonal cylinder to alleviate muzzle flip.  This positions the bore lower relative to the sights, effectively making the gun easier to shoot but harder to aim."
       }
     ]
   }
