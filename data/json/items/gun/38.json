@@ -285,7 +285,7 @@
     "barrel_length": "152 mm",
     "dispersion": 300,
     "sight_dispersion": 80,
-    "handling": 13,
+    "handling": 12,
     "durability": 10,
     "blackpowder_tolerance": 56,
     "valid_mod_locations": [
