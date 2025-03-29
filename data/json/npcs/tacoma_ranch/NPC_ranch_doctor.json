@@ -40,17 +40,33 @@
         ]
       },
       {
-        "text": "I couldn't find any crutches, but I made these.  Will they work?",
+        "text": "I couldn't find any crutches, but I've got these handmade ones.  Will they work?",
         "topic": "TALK_RANCH_DOCTOR",
         "condition": {
           "and": [
-            { "u_has_items": { "item": "makeshift_crutches", "count": 1 } },
+            { "u_has_items": { "item": "crutches_wooden", "count": 1 } },
             { "u_has_mission": "MISSION_RANCH_DOCTOR_CRUTCHES" }
           ]
         },
         "effect": [
-          { "u_consume_item": "makeshift_crutches", "count": 1 },
+          { "u_consume_item": "crutches_wooden", "count": 1 },
           { "u_message": "These will have to do…", "type": "good", "popup": true },
+          "mission_success",
+          "clear_mission"
+        ]
+      },
+      {
+        "text": "I could only find one real crutch, but if you match it with this wooden one, that's just as good, right?.",
+        "topic": "TALK_RANCH_DOCTOR",
+        "condition": {
+          "and": [
+            { "u_has_items": { "item": "crutches_mismatched", "count": 1 } },
+            { "u_has_mission": "MISSION_RANCH_DOCTOR_CRUTCHES" }
+          ]
+        },
+        "effect": [
+          { "u_consume_item": "crutches_mismatched", "count": 1 },
+          { "u_message": "…I…you know what?  Fine, yeah.  Great.  Thanks.", "type": "good", "popup": true },
           "mission_success",
           "clear_mission"
         ]
@@ -219,7 +235,7 @@
       "offer": "One of the laborers injured their foot pretty badly and I don't want them walking on it for a few days at least.  Do you think you could find a pair of crutches?",
       "accepted": "I'm counting on you.",
       "rejected": "Come back when you get a chance.  We need skilled survivors.",
-      "advice": "You might be able to find some in hospitals, but some makeshift crutches would be better than nothing.",
+      "advice": "You might be able to find some in hospitals, but wooden crutches would be better than nothing, and please remember that we need a pair, not just one.",
       "inquire": "Do you have the crutches?",
       "success": "Thank you for your assistance.",
       "success_lie": "What good does this do us?",
