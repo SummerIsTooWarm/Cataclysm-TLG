@@ -2920,7 +2920,7 @@ static void CheckMessages()
                         }
 
                         // Check for actions that work on nearby tiles and own tile
-                        if( can_interact_at( ACTION_PICKUP, bub_pos ) ) {
+                        if( can_interact_at( ACTION_PICKUP, tripoint_bub_ms( pos ) ) ) {
                             actions.insert( ACTION_PICKUP );
                         }
                     }
