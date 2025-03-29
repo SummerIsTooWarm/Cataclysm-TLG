@@ -167,7 +167,7 @@ jobs:
       - name: Get soundpack
         if: matrix.sound == 1
         run: |
-          git clone --depth=1 --shallow-submodules --recurse-submodules https://github.com/Cataclysm-TLG/CTLG-Soundpacks '${{ github.workspace }}/Ctlg-Soundpacks'
+          git clone --depth=1 --shallow-submodules --recurse-submodules https://github.com/Cataclysm-TLG/CTLG-Soundpacks '${{ github.workspace }}/CTLG-Soundpacks'
           mv '${{ github.workspace }}/CTLG-Soundpacks/sound/CC-Sounds' '${{ github.workspace }}/data/sound'
       - name: Install dependencies (windows msvc) (0/4)
         if: runner.os == 'Windows'
