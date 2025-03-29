@@ -4717,31 +4717,6 @@ talk_effect_fun_t::func f_set_condition( const JsonObject &jo, std::string_view 
     };
 }
 
-talk_effect_fun_t::func f_set_item_category_spawn_rates( const JsonObject &jo,
-        std::string_view member, const std::string_view )
-{
-    if( jo.has_array( member ) ) {
-        std::set<std::pair<item_category_id, float>> rates;
-        for( const JsonObject joi : jo.get_array( member ) ) {
-            item_category_id cat( joi.get_string( "id" ) );
-            float spawn_rate = joi.get_float( "spawn_rate" );
-            rates.insert( std::make_pair( cat, spawn_rate ) );
-        }
-        return [rates]( dialogue const &/* d */ ) {
-            for( const std::pair<item_category_id, float> &rate : rates ) {
-                rate.first.obj().set_spawn_rate( rate.second );
-            }
-        };
-    } else {
-        JsonObject joi = jo.get_member( member );
-        item_category_id cat( joi.get_string( "id" ) );
-        float spawn_rate = joi.get_float( "spawn_rate" );
-        return [cat, spawn_rate]( dialogue const &/* d */ ) {
-            cat.obj().set_spawn_rate( spawn_rate );
-        };
-    }
-}
-
 talk_effect_fun_t::func f_assign_mission( const JsonObject &jo, std::string_view member,
         const std::string_view )
 {
@@ -5371,54 +5346,6 @@ talk_effect_fun_t::func f_run_npc_eocs( const JsonObject &jo,
         };
     }
 }
-
-talk_effect_fun_t::func f_run_monster_eocs( const JsonObject &jo,
-        std::string_view member, const std::string_view src, bool is_npc )
-{
-    std::vector<effect_on_condition_id> eocs = load_eoc_vector( jo, member, src );
-    std::vector<str_or_var> mtype_ids;
-    for( JsonValue jv : jo.get_array( "mtype_ids" ) ) {
-        mtype_ids.emplace_back( get_str_or_var( jv, "mtype_ids" ) );
-    }
-    std::optional<int> monster_range;
-    if( jo.has_int( "monster_range" ) ) {
-        monster_range = jo.get_int( "monster_range" );
-    }
-    bool monster_must_see = jo.get_bool( "monster_must_see", false );
-    return [eocs, mtype_ids, monster_must_see, monster_range, is_npc]( dialogue const & d ) {
-        std::vector<mtype_id> ids;
-        ids.reserve( mtype_ids.size() );
-        for( const str_or_var &id : mtype_ids ) {
-            ids.emplace_back( id.evaluate( d ) );
-        }
-        tripoint actor_pos = d.actor( is_npc )->pos();
-        const std::vector<Creature *> available = g->get_creatures_if( [ ids, monster_must_see,
-             monster_range, actor_pos ]( const Creature & critter ) {
-            bool id_valid = ids.empty();
-            bool creature_is_monster = critter.is_monster();
-            if( creature_is_monster ) {
-                for( const mtype_id &id : ids ) {
-                    if( id == critter.as_monster()->type->id ) {
-                        id_valid = true;
-                        break;
-                    }
-                }
-            }
-            return creature_is_monster && id_valid && ( !monster_range.has_value() ||
-                    actor_pos.z == critter.posz() ) &&
-                   ( !monster_must_see ||
-                     critter.sees( actor_pos ) ) &&
-                   ( !monster_range.has_value() || rl_dist( actor_pos, critter.pos() ) <= monster_range.value() );
-        } );
-        for( Creature *target : available ) {
-            for( const effect_on_condition_id &eoc : eocs ) {
-                dialogue newDialog( get_talker_for( target ), nullptr, d.get_conditionals(), d.get_context() );
-                eoc->activate( newDialog );
-            }
-        }
-    };
-}
-
 
 talk_effect_fun_t::func f_run_inv_eocs( const JsonObject &jo,
                                         std::string_view member, const std::string_view src, bool is_npc )
