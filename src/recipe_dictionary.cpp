@@ -359,7 +359,8 @@ std::vector<const recipe *> recipe_subset::recipes_that_produce( const itype_id 
     return res;
 }
 
-bool recipe_subset::empty_category( const std::string &cat, const std::string &subcat ) const
+bool recipe_subset::empty_category( const crafting_category_id &cat,
+                                    const std::string &subcat ) const
 {
     if( subcat == "CSC_*_FAVORITE" ) {
         return uistate.favorite_recipes.empty();
@@ -367,7 +368,7 @@ bool recipe_subset::empty_category( const std::string &cat, const std::string &s
         return uistate.recent_recipes.empty();
     } else if( subcat == "CSC_*_HIDDEN" ) {
         return uistate.hidden_recipes.empty();
-    } else if( cat == "CC_*" ) {
+    } else if( cat->is_wildcard ) {
         //any other category in CC_* is populated
         return false;
     }
@@ -387,7 +388,7 @@ bool recipe_subset::empty_category( const std::string &cat, const std::string &s
     return true;
 }
 
-std::vector<const recipe *> recipe_subset::in_category( const std::string &cat,
+std::vector<const recipe *> recipe_subset::in_category( const crafting_category_id &cat,
         const std::string &subcat ) const
 {
     std::vector<const recipe *> res;
@@ -694,7 +695,7 @@ void recipe_dictionary::check_consistency()
     for( const auto &e : recipe_dict.recipes ) {
         const recipe &r = e.second;
 
-        if( r.category.empty() ) {
+        if( r.category.str().empty() ) {
             if( !r.subcategory.empty() ) {
                 debugmsg( "recipe %s has subcategory but no category", r.ident().str() );
             }
@@ -702,18 +703,19 @@ void recipe_dictionary::check_consistency()
             continue;
         }
 
-        const std::vector<std::string> *subcategories = subcategories_for_category( r.category );
-        if( !subcategories ) {
-            debugmsg( "recipe %s has invalid category %s", r.ident().str(), r.category );
+        if( !r.category.is_valid() ) {
+            debugmsg( "recipe %s has invalid category %s", r.ident().str(), r.category.str() );
             continue;
         }
 
+        const std::vector<std::string> &subcategories = r.category->subcategories;
+
         if( !r.subcategory.empty() ) {
-            auto it = std::find( subcategories->begin(), subcategories->end(), r.subcategory );
-            if( it == subcategories->end() ) {
+            auto it = std::find( subcategories.begin(), subcategories.end(), r.subcategory );
+            if( it == subcategories.end() ) {
                 debugmsg(
                     "recipe %s has subcategory %s which is invalid or doesn't match category %s",
-                    r.ident().str(), r.subcategory, r.category );
+                    r.ident().str(), r.subcategory, r.category.str() );
             }
         }
     }
