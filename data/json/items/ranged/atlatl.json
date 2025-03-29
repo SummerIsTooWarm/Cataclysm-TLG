@@ -97,7 +97,7 @@
     "dispersion": 200,
     "loudness": 0,
     "critical_multiplier": 8,
-    "recovery_chance": 6,
+    "recovery_chance": 83,
     "melee_damage": { "stab": 5 }
   }
 ]

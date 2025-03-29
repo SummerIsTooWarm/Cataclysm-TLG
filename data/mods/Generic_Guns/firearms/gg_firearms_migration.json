@@ -71,7 +71,7 @@
     "replace": "pistol_magnum_pipe"
   },
   {
-    "id": [ "sw_619", "mr73", "sw629", "bfr", "sw_500", "raging_bull", "raging_judge", "chiappa_rhino" ],
+    "id": [ "sw_619", "mr73", "sw629", "bfr", "sw_500", "raging_bull", "raging_judge", "chiappa_rhino", "colt_python" ],
     "type": "MIGRATION",
     "replace": "pistol_magnum_revolver"
   },
@@ -196,7 +196,7 @@
     "replace": "pistol_smg"
   },
   {
-    "id": [ "american_180", "ruger_1022", "ruger_1022_auto", "ruger_charger_auto" ],
+    "id": [ "american_180", "ruger_1022", "ruger_1022_auto", "ruger_charger_auto", "rossi_gallery" ],
     "type": "MIGRATION",
     "replace": "pistol_tiny_rifle"
   },
@@ -426,6 +426,8 @@
       "saiga_12",
       "afs_raketa_shotgun",
       "tavor_12",
+      "dp_12",
+      "srm_1216",
       "aa_12",
       "benelli_tsa",
       "bigun",

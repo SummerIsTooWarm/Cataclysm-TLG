@@ -1879,14 +1879,6 @@
     "components": [ [ [ "copper_wire", 1 ] ] ]
   },
   {
-    "result": "copper_wire",
-    "type": "uncraft",
-    "time": "1 s",
-    "//": "I made this a near instant conversion.  Raw copper wire is essentially just copper and imo should be freely converted without a huge time investment or tool requirement, they are effectively identical items.",
-    "activity_level": "LIGHT_EXERCISE",
-    "components": [ [ [ "copper", 1 ] ] ]
-  },
-  {
     "result": "camera",
     "type": "uncraft",
     "activity_level": "LIGHT_EXERCISE",
@@ -6042,14 +6034,6 @@
     "qualities": [ { "id": "CUT", "level": 2 } ]
   },
   {
-    "result": "sneakers",
-    "type": "uncraft",
-    "activity_level": "LIGHT_EXERCISE",
-    "time": "3 m",
-    "components": [ [ [ "sole_rubber", 1 ] ], [ [ "cotton_patchwork", 8 ] ] ],
-    "qualities": [ { "id": "CUT", "level": 2 } ]
-  },
-  {
     "result": "hat_boonie",
     "type": "uncraft",
     "activity_level": "LIGHT_EXERCISE",
@@ -6228,14 +6212,6 @@
     "time": "25 m",
     "qualities": [ { "id": "FABRIC_CUT", "level": 1 }, { "id": "CUT", "level": 2 } ],
     "components": [ [ [ "sheet_nylon", 15 ] ], [ [ "zipper_long_plastic", 2 ] ] ]
-  },
-  {
-    "result": "blazer",
-    "type": "uncraft",
-    "activity_level": "LIGHT_EXERCISE",
-    "time": "10 m",
-    "components": [ [ [ "felt_patch", 150 ] ], [ [ "button_plastic", 2 ] ] ],
-    "qualities": [ { "id": "CUT", "level": 1 } ]
   },
   {
     "result": "office_holepunch",
