@@ -43,10 +43,7 @@
         "text": "I couldn't find any crutches, but I've got these handmade ones.  Will they work?",
         "topic": "TALK_RANCH_DOCTOR",
         "condition": {
-          "and": [
-            { "u_has_items": { "item": "crutches_wooden", "count": 1 } },
-            { "u_has_mission": "MISSION_RANCH_DOCTOR_CRUTCHES" }
-          ]
+          "and": [ { "u_has_items": { "item": "crutches_wooden", "count": 1 } }, { "u_has_mission": "MISSION_RANCH_DOCTOR_CRUTCHES" } ]
         },
         "effect": [
           { "u_consume_item": "crutches_wooden", "count": 1 },

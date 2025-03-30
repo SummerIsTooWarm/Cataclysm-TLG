@@ -6143,8 +6143,9 @@ int Character::throw_range( const item &it ) const
                                    tmp.weight() / 15_gram ) );
     ret -= tmp.volume() / 1_liter;
     if( has_active_bionic( bio_railgun ) && tmp.made_of_any( ferric ) ) {
-        ret *= 2;
+        ret *= 1.5;
     }
+    ret = static_cast<int>( std::sqrt( ret * 8 ) );
     if( ret < 1 ) {
         return 1;
     }
@@ -6152,10 +6153,13 @@ int Character::throw_range( const item &it ) const
     /** @EFFECT_STR caps throwing range */
 
     /** @EFFECT_THROW caps throwing range */
-    if( ret > round( str * 3 + get_skill_level( skill_throw ) ) ) {
-        return round( str * 3 + get_skill_level( skill_throw ) );
-    }
 
+    int cap = round( str + get_skill_level( skill_throw ) );
+    if( has_active_bionic( bio_railgun ) && tmp.made_of_any( ferric ) ) {
+        cap *= 1.5;
+    }
+    cap = static_cast<int>( std::sqrt( cap * 8 ) );
+    return std::min( ret, cap );
     return ret;
 }
 
