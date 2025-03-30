@@ -1899,9 +1899,21 @@
     "id": "bio_pitch_perfect",
     "type": "bionic",
     "name": { "str": "Throwing Assist" },
-    "description": "Taken from a world that embraced cybernetics in their sports, this CBM links the eyes to a series of nerve stimulators along the arms and hands.  The result is a significant increase to throwing accuracy, and it turns out it works great with fragmentation grenades.",
-    "occupied_bodyparts": [ [ "eyes", 1 ], [ "arm_l", 2 ], [ "arm_r", 2 ], [ "hand_l", 2 ], [ "hand_r", 2 ] ],
+    "description": "An implant that works on simple physics rather than electronics, this CBM replaces the ulnar collateral ligaments with assistive biocompatible tethers that automatically constrict and relax to improve the user's throwing distance and accuracy.",
+    "occupied_bodyparts": [ [ "arm_l", 1 ], [ "arm_r", 1 ] ],
     "flags": [ "BIONIC_NPC_USABLE", "BIONIC_SHOCKPROOF" ],
-    "enchantments": [ { "condition": "ALWAYS", "skills": [ { "value": "throw", "add": 5 } ] } ]
+    "enchantments": [ { "condition": "ALWAYS", "skills": [ { "value": "throw", "add": 3 } ] } ]
+  },
+  {
+    "id": "bio_railgun",
+    "type": "bionic",
+    "name": { "str": "Magnetic Repulsor" },
+    "description": "A powerful electromagnetic system housed in the palms which, when powered up, will expend power to greatly increasing the force of thrown magnetic objects.",
+    "occupied_bodyparts": [ [ "hand_l", 1 ], [ "hand_r", 1 ] ],
+    "flags": [ "BIONIC_TOGGLED" ],
+    "act_cost": "2 J",
+    "react_cost": "1 J",
+    "trigger_cost": "8 kJ",
+    "time": "1 s"
   }
 ]

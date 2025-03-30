@@ -16,6 +16,7 @@
 #include "action.h"
 #include "activity_actor_definitions.h"
 #include "avatar.h"
+#include "bionics.h"
 #include "body_part_set.h"
 #include "calendar.h"
 #include "character.h"
@@ -61,6 +62,11 @@
 #include "vehicle.h"
 #include "vpart_position.h"
 
+static const bionic_id bio_railgun( "bio_railgun" );
+
+static const character_modifier_id
+character_modifier_melee_stamina_cost_mod( "melee_stamina_cost_mod" );
+
 static const efftype_id effect_amigara( "amigara" );
 static const efftype_id effect_glowing( "glowing" );
 static const efftype_id effect_grabbing( "grabbing" );
@@ -87,6 +93,10 @@ static const move_mode_id move_mode_prone( "prone" );
 static const skill_id skill_swimming( "swimming" );
 static const skill_id skill_throw( "throw" );
 static const skill_id skill_unarmed( "unarmed" );
+
+static const species_id species_CYBORG( "CYBORG" );
+static const species_id species_ROBOT( "ROBOT" );
+static const species_id species_ROBOT_FLYING( "ROBOT_FLYING" );
 
 static const ter_str_id ter_t_door_bar_locked( "t_door_bar_locked" );
 static const ter_str_id ter_t_door_locked( "t_door_locked" );
@@ -1009,6 +1019,7 @@ void avatar_action::plthrow( avatar &you, item_location loc,
         }
     }
 
+    // TODO: Move this to Character or ranged. As of this writing, bionics.h can be removed from header at that time.
     if( you.has_effect_with_flag( json_flag_GRAB_FILTER ) ) {
         if( you.grab_1.victim != nullptr ) {
             int your_size = static_cast<std::underlying_type_t<creature_size>>( you.get_size() );
@@ -1033,16 +1044,28 @@ void avatar_action::plthrow( avatar &you, item_location loc,
                                          skill_unarmed ) * 2 ) + you.get_skill_level( skill_throw ) / 4 ) + 2 *
                                      ( their_size - your_size ) ) - size_factor ) *
                                  2 );
-            // TODO: Get better stamina costs. Pull weight from monster's corpse entry?
-            // Relative size is probably better than absolute until we make weapons
-            // care about character size.
-            int stamina_mod = std::round( std::min( -700.f,
-                                                    ( 300 * std::max( 0.5f, you.get_skill_level( skill_throw ) ) + 400 * std::max( 0.5f,
-                                                            you.get_skill_level( skill_unarmed ) ) +
-                                                            ( -5000 * ( their_size / your_size ) ) ) ) );
+            bool railgun = false;
+            if( you.has_active_bionic( bio_railgun ) && ( you.grab_1.victim->in_species( species_ROBOT ) ||
+                    you.grab_1.victim->in_species( species_ROBOT_FLYING ) ) ) {
+                throwforce += 16;
+                railgun = true;
+            }
+            if( you.has_active_bionic( bio_railgun ) && you.grab_1.victim->in_species( species_CYBORG ) ) {
+                throwforce += 8;
+                railgun = true;
+            }
+            // 16_gram comes from Character::get_standard_stamina_cost()
+            // TODO: Standardize to 10 str at 20_gram in both functions
+            int weight_cost = you.grab_1.victim->get_weight() / 16_gram;
+            // Adjust for relative size and thrower skill.
+            weight_cost /= ( ( 2 / ( their_size / your_size ) ) + 1 * ( ( you.get_skill_level(
+                                 skill_throw ) + you.get_skill_level( skill_unarmed ) ) / 16 ) );
+            int stamina_mod = ( weight_cost + 50 ) * -1 * you.get_modifier(
+                                  character_modifier_melee_stamina_cost_mod );
+
             // Ensure that characters with high skill but low strength aren't throwing people across the street.
             // 10 strength = average.
-            // Fling's range is throwforce/10. Use the same calc here so that trajectory() knows how
+            // fling_creature()'s range is throwforce/10. Use the same calc here so that trajectory() knows how
             // far to let the cursor extend.
             map &here = get_map();
             if( here.has_flag( ter_furn_flag::TFLAG_DEEP_WATER, you.grab_1.victim->pos() ) ) {
@@ -1059,13 +1082,13 @@ void avatar_action::plthrow( avatar &you, item_location loc,
                                        you.grab_1.victim->disp_name() );
                 return;
             }
-            if( ( you.get_stamina() ) < ( -1 * stamina_mod ) ) {
+            if( ( you.get_stamina() ) < ( stamina_mod ) ) {
                 you.add_msg_if_player( ( "You're too exhausted to throw %s." ), you.grab_1.victim->disp_name() );
                 return;
             }
             if( ( you.grab_1.victim->has_effect_with_flag( json_flag_GRAB_FILTER ) &&
                   you.has_effect_with_flag( json_flag_GRAB ) ) && !you.try_remove_grab() ) {
-                item weap =  null_item_reference();
+                item weap = null_item_reference();
                 you.mod_moves( -100 - you.attack_speed( weap ) );
                 return;
             }
@@ -1121,19 +1144,35 @@ void avatar_action::plthrow( avatar &you, item_location loc,
                     you.grab_1.victim->remove_effect( effid );
                 }
             }
+            // Adjust stamina mod for throwforce. A light shove is less taxing than throwing someone.
+            stamina_mod = std::min( -50.0f, stamina_mod * ( throwforce / 100 ) );
+            if( stamina_mod * -1 > you.get_stamina() / 2 ) {
+                if( !query_yn( _( "Throwing %s will really tire you out.  Continue?" ),
+                               you.grab_1.victim->disp_name() ) ) {
+                    return;
+                }
+            }
             // TODO: Give enemies a chance to resist, possibly reducing throwforce.
-            you.add_msg_if_player( _( "You %1s %2s!" ), you.as_character()->get_throw_descriptor( throwforce ),
-                                   you.grab_1.victim->disp_name() );
+            if( !railgun ) {
+                you.add_msg_if_player( _( "You %1s %2s!" ), you.as_character()->get_throw_descriptor( throwforce ),
+                                       you.grab_1.victim->disp_name() );
+            } else {
+                stamina_mod *= 0.9f;
+                const units::energy trigger_cost = bio_railgun->power_trigger;
+                you.as_character()->mod_power_level( -trigger_cost );
+                you.add_msg_if_player( _( "You feel your magnetic repulsor kick in as you %1s %2s!" ),
+                                       you.as_character()->get_throw_descriptor( throwforce ),
+                                       you.grab_1.victim->disp_name() );
+            }
             g->fling_creature( you.grab_1.victim.get(), target_angle, throwforce, false );
-            // Followers always assume you are doing things for good reasons that their dumb NPC brains can't fathom, but will
+            // Followers assume you are doing things for good reasons that their dumb NPC brains can't fathom, but will
             // still react if you start murdering them.
-            // TODO: Neutral NPCs should allow for a small amount of wrassling - there could be good reasons to shove them around.
             if( do_harm ) {
                 you.grab_1.victim->as_npc()->on_attacked( you );
             }
             you.grab_1.clear();
             const float weary_mult = you.exertion_adjusted_move_multiplier( EXPLOSIVE_EXERCISE );
-            item weap =  null_item_reference();
+            item weap = null_item_reference();
             you.mod_moves( -100 - you.attack_speed( weap ) / weary_mult );
             you.as_character()->burn_energy_arms( stamina_mod );
             return;

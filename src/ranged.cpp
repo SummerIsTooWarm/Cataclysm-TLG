@@ -1443,8 +1443,6 @@ dealt_projectile_attack Character::throw_item( const tripoint &target, const ite
     }
 
     if( do_railgun ) {
-        proj_effects.insert( ammo_effect_LIGHTNING );
-
         const units::energy trigger_cost = bio_railgun->power_trigger;
         mod_power_level( -trigger_cost );
     }
