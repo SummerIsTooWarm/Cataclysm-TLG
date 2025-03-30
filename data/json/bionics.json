@@ -1907,7 +1907,7 @@
   {
     "id": "bio_railgun",
     "type": "bionic",
-    "name": { "str": "Repulsing Magnetic Launcher" },
+    "name": { "str": "Magnetic Repulsor" },
     "description": "A powerful electromagnetic system housed in the palms which, when powered up, will expend power to greatly increasing the force of thrown magnetic objects.",
     "occupied_bodyparts": [ [ "hand_l", 1 ], [ "hand_r", 1 ] ],
     "flags": [ "BIONIC_TOGGLED" ],
