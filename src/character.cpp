@@ -6149,9 +6149,8 @@ int Character::throw_range( const item &it ) const
     if( ret < 1 ) {
         return 1;
     }
-    // Cap at double our strength + skill
-    /** @EFFECT_STR caps throwing range */
 
+    /** @EFFECT_STR caps throwing range */
     /** @EFFECT_THROW caps throwing range */
 
     int cap = round( str + get_skill_level( skill_throw ) );
