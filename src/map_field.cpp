@@ -77,6 +77,8 @@ static const efftype_id effect_blind( "blind" );
 static const efftype_id effect_fungus( "fungus" );
 static const efftype_id effect_onfire( "onfire" );
 static const efftype_id effect_poison( "poison" );
+static const efftype_id effect_quadruped_full( "quadruped_full" );
+static const efftype_id effect_quadruped_half( "quadruped_half" );
 static const efftype_id effect_stunned( "stunned" );
 static const efftype_id effect_teargas( "teargas" );
 
@@ -1579,6 +1581,11 @@ void map::player_in_field( Character &you )
                                 parts_burned.emplace_back( "leg_l" );
                                 parts_burned.emplace_back( "leg_r" );
                         }
+                    } else if( you.has_effect( effect_quadruped_full ) ||  you.has_effect( effect_quadruped_half ) ) {
+                        // Moving on all-fours through a fire is a bad idea, hits every body part.
+                        msg_num = 3;
+                        const std::vector<bodypart_id> all_parts = you.get_all_body_parts();
+                        parts_burned.assign( all_parts.begin(), all_parts.end() );
                     } else {
                         // Lying in the fire is BAAAD news, hits every body part.
                         msg_num = 3;
