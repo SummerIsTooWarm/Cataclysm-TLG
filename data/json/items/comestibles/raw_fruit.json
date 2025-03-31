@@ -913,7 +913,14 @@
     "calories": 18,
     "description": "A leathery skin covers this purplish-brown little fruit.  It will need to be deconstructed before anything can be done with it.",
     "material": [ "fruit", "hflesh" ],
-    "vitamins": [ [ "vitC", 2 ], [ "calcium", 1 ], [ "iron", 4 ], [ "mutant_toxin", 6 ], [ "fruit_allergen", 1 ], [ "meat_allergen", 1 ] ],
+    "vitamins": [
+      [ "vitC", 2 ],
+      [ "calcium", 1 ],
+      [ "iron", 4 ],
+      [ "mutant_toxin", 6 ],
+      [ "fruit_allergen", 1 ],
+      [ "meat_allergen", 1 ]
+    ],
     "volume": "60 ml",
     "flags": [ "INEDIBLE", "TRADER_AVOID" ]
   },
@@ -933,6 +940,13 @@
     "volume": "34 ml",
     "fun": -10,
     "flags": [ "BAD_TASTE", "TRADER_AVOID" ],
-    "vitamins": [ [ "vitC", 2 ], [ "calcium", 1 ], [ "iron", 4 ], [ "mutant_toxin", 6 ], [ "fruit_allergen", 1 ], [ "meat_allergen", 1 ] ]
+    "vitamins": [
+      [ "vitC", 2 ],
+      [ "calcium", 1 ],
+      [ "iron", 4 ],
+      [ "mutant_toxin", 6 ],
+      [ "fruit_allergen", 1 ],
+      [ "meat_allergen", 1 ]
+    ]
   }
 ]
