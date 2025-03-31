@@ -1099,7 +1099,7 @@
     "vision_night": 8,
     "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
     "dissect": "dissect_spider_sample_single",
-    "upgrades": { "age_grow": 14, "into_group": "GROUP_SPIDER_BASEMENT" },
+    "upgrades": { "age_grow": 14, "into_group": "GROUP_SPIDER_CELLAR" },
     "delete": {
       "anger_triggers": [ "PLAYER_CLOSE", "PLAYER_WEAK", "HOSTILE_SEEN" ],
       "flags": [ "GRABS" ],
