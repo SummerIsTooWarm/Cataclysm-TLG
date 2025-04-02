@@ -131,7 +131,7 @@
     "id": "mon_gas_zombie",
     "type": "MONSTER",
     "name": { "str": "gasoline zombie" },
-    "description": "A massively bloated zombie that appears to have been chugging fuel; fumes and flames escape from its mouth and liquid fuel leaks from its waddling form.",
+    "description": "A massively bloated zombie that has either been chugging gasoline or making biofuel in its distended gut; fumes and flames escape from its mouth and liquid petroleum leaks from its waddling form.",
     "default_faction": "zombie",
     "bodytype": "human",
     "species": [ "ZOMBIE", "HUMAN" ],

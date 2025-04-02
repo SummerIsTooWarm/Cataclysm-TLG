@@ -85,13 +85,13 @@
     "shape": "blast",
     "effect": "attack",
     "field_id": "fd_acid",
-    "min_aoe": 1,
+    "min_aoe": 0,
     "aoe_increment": 1,
-    "max_aoe": 10,
+    "max_aoe": 5,
     "min_field_intensity": 1,
     "field_intensity_variance": 1,
     "max_field_intensity": 3,
-    "field_chance": 1.5
+    "field_chance": 1.7
   },
   {
     "id": "death_sludge",
