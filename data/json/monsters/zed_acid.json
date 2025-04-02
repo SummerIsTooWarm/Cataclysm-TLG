@@ -44,7 +44,7 @@
       { "id": "grab", "cooldown": 4 }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
+    "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true, "min_level": 1 } },
     "burn_into": "mon_zombie_scorched",
     "upgrades": { "half_life": 30, "into": "mon_zombie_spitter" },
     "fungalize_into": "mon_zombie_fungus_acidic",
@@ -169,7 +169,7 @@
       }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
+    "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true, "min_level": 1 } },
     "burn_into": "mon_zombie_scorched",
     "upgrades": { "half_life": 42, "into": "mon_zombie_corrosive" },
     "fungalize_into": "mon_zombie_fungus_acidic",
@@ -239,7 +239,7 @@
       }
     ],
     "death_drops": "default_zombie_death_drops",
-    "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
+    "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true, "min_level": 1 } },
     "burn_into": "mon_zombie_scorched",
     "upgrades": { "half_life": 30, "into": "mon_zombie_acidic" },
     "flags": [
@@ -307,7 +307,7 @@
       { "id": "scratch_grab_required", "attack_upper": false }
     ],
     "death_drops": "mon_dog_death_drops",
-    "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
+    "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true, "min_level": 1 } },
     "upgrades": { "half_life": 30, "into": "mon_zombie_dog_brute_acidic" },
     "flags": [
       "SEES",
@@ -367,7 +367,7 @@
     "proportional": { "hp": 1.8, "speed": 1.3, "volume": 1.4, "weigth": 1.1 },
     "death_function": {
       "message": "The %s bursts apart in a shower of acid!",
-      "effect": { "id": "acid_burst", "hit_self": true, "min_level": 6 }
+      "effect": { "id": "acid_burst", "hit_self": true, "min_level": 5 }
     }
   }
 ]

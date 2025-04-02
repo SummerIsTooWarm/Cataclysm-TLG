@@ -92,10 +92,7 @@
       ],
       "terrain": { "@": "t_pavement" },
       "flags": [ "ALLOW_TERRAIN_UNDER_OTHER_DATA" ],
-      "monster": {
-        "k": { "monster": "mon_zombie_electric" },
-        "u": { "monster": "mon_zombie_plated" }
-      }
+      "monster": { "k": { "monster": "mon_zombie_electric" }, "u": { "monster": "mon_zombie_plated" } }
     }
   }
 ]
