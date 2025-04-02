@@ -528,7 +528,7 @@
     "id": "spread_fungal_acid",
     "name": { "str": "Spread Hallucinogenic Acid" },
     "description": "Splatters hallucinogenic acid in the air in blasts.",
-    "valid_targets": [ "hostile", "ground" ],
+    "valid_targets": [ "hostile", "ground", "ally", "self" ],
     "flags": [ "NO_EXPLOSION_SFX" ],
     "min_aoe": 2,
     "max_aoe": 3,
@@ -536,10 +536,9 @@
     "min_range": 1,
     "max_range": 1,
     "effect": "attack",
-    "effect_str": "emit_hallucinogenic_spores_blast",
     "shape": "blast",
     "field_id": "fd_hallucinogenic_spores",
-    "field_chance": 2,
+    "field_chance": 0.5,
     "min_field_intensity": 1,
     "max_field_intensity": 2
   },
@@ -916,7 +915,7 @@
     "name": { "str": "Acid Barf" },
     "description": "Vomit a mouthful of acid on an enemy.",
     "//": "Generally the weakest acid attack.",
-    "valid_targets": [ "hostile", "ally" ],
+    "valid_targets": [ "hostile", "ally", "ground" ],
     "max_level": 10,
     "flags": [
       "SILENT",
@@ -1070,7 +1069,7 @@
     "name": { "str": "Acid Burst" },
     "description": "Splash acid all over the place.",
     "//": "Less accurate as it's not really directed.",
-    "valid_targets": [ "hostile", "ground", "ally" ],
+    "valid_targets": [ "hostile", "ground", "ally", "self" ],
     "max_level": 10,
     "flags": [
       "SILENT",

@@ -1950,7 +1950,6 @@ void outfit::absorb_damage( Character &guy, damage_unit &elem, bodypart_id bp,
             fire_data frd{ fire_intensity };
             destroy = !armor.has_flag( flag_INTEGRATED ) && armor.burn( frd );
             int fuel = roll_remainder( frd.fuel_produced );
-            add_msg( _( "fuel %s" ), fuel );
             // Don't add fire duration to people who are already on fire, or they'll never go out.
             if( fuel > 0 && !guy.has_effect( effect_onfire, bp ) && rng( 0, 3 ) <= fuel ) {
                 guy.add_effect( effect_onfire, time_duration::from_turns( fuel * 5 ), bp, false, 0, false,
@@ -2089,7 +2088,6 @@ void outfit::splash_attack( Character &guy, const spell &sp, Creature &caster, b
                             fire_data frd{ fire_intensity };
                             destroy = !armor.has_flag( flag_INTEGRATED ) && armor.burn( frd );
                             int fuel = roll_remainder( frd.fuel_produced );
-                            add_msg( _( "fuel %s" ), fuel );
                             if( fuel > 0 && !guy.has_effect( effect_onfire, bp ) && rng( 0, 3 ) <= fuel ) {
                                 guy.add_effect( effect_onfire, time_duration::from_turns( fuel * 5 ), bp, false, 0, false,
                                                 true );

@@ -144,7 +144,7 @@
     ],
     "death_function": {
       "message": "The %s's body melts away.",
-      "effect": { "id": "death_acid", "hit_self": true },
+      "effect": { "id": "death_acid", "hit_self": true, "min_level": 3 },
       "corpse_type": "NO_CORPSE"
     },
     "flags": [ "SEES", "HEARS", "SMELLS", "KEENNOSE", "STUMBLES", "WARM", "POISON", "GRABS", "NO_BREATHE" ]
@@ -273,7 +273,7 @@
     "id": "mon_zombie_brainless",
     "type": "MONSTER",
     "name": { "str": "headless zombie" },
-    "description": "A zombie like any other, except that at some point it suffered a catastrophic head injury.  Blind and deaf, it gropes its way mindlessly along.",
+    "description": "A zombie like any other, except that at some point it suffered a catastrophic head injury.  Blind and deaf, it still gropes mindlessly for something to attack.",
     "default_faction": "zombie",
     "species": [ "ZOMBIE", "HUMAN" ],
     "volume": "61875 ml",
@@ -1525,7 +1525,7 @@
     "emit_fields": [ { "emit_id": "emit_smoke_stream", "delay": "1 s" } ],
     "grab_strength": 20,
     "special_attacks": [ { "id": "grab" }, { "id": "scratch_humanoid", "cooldown": 15 }, { "id": "bite_humanoid", "cooldown": 5 } ],
-    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "The %s explodes!" },
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true, "min_level": 4 }, "message": "The %s explodes!" },
     "fungalize_into": "mon_zombie_smoker_fungus",
     "upgrades": { "half_life": 30, "into": "mon_smoker_brute" },
     "flags": [
@@ -1574,7 +1574,7 @@
     "vision_night": 3,
     "harvest": "zombie_humanoid",
     "emit_fields": [ { "emit_id": "emit_smoke_stream", "delay": "1 s" } ],
-    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true }, "message": "The %s explodes!" },
+    "death_function": { "effect": { "id": "death_smokeburst", "hit_self": true, "min_level": 5 }, "message": "The %s explodes!" },
     "grab_strength": 35,
     "special_attacks": [
       { "id": "smash", "throw_strength": 48, "cooldown": 30 },
