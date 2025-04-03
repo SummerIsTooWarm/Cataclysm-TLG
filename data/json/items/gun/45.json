@@ -15,7 +15,7 @@
     "variants": [
       {
         "id": "TDI",
-        "name": { "str": ".45 Vector submachine gun" },
+        "name": { "str": "KRISS Vector SMG" },
         "description": "The Vector SMG is a delayed blowback submachine gun with a unique, in-line design that places both the shooter's hand and shoulder in line with the bore axis, reducing muzzle climb during bursts.  This one is chambered in .45 ACP."
       }
     ],
@@ -64,7 +64,7 @@
     "variants": [
       {
         "id": "modular_ump",
-        "name": { "str": "H&K UMP submachine gun" },
+        "name": { "str": "H&K UMP SMG" },
         "description": "Developed as a lower-cost successor to H&K's own MP5, the Universal Machine Pistol is a closed-bolt, simple blowback sub-machine gun constructed of lightweight polymer.  In order to make it more attractive to American police departments, it was offered in .40 S&W and .45 ACP as well as the ubiquitous 9x19mm, all using the same receiver.  This was meant to simplify manufacturing, but it also means the user can change the caliber with the right parts and magazine."
       }
     ],
@@ -158,7 +158,7 @@
     "variants": [
       {
         "id": "mac_10",
-        "name": { "str": "MAC-10 machine pistol" },
+        "name": { "str": "MAC-10 SMG" },
         "description": "The MAC-10 is a popular machine pistol originally designed for military use.  For many years it was the most inexpensive automatic weapon in the US, and enjoyed great popularity among criminals less concerned with quality firearms."
       }
     ],
@@ -278,7 +278,7 @@
     "copy-from": "smg_base",
     "looks_like": "hk_mp5",
     "type": "GUN",
-    "name": { "str": ".45 Luty submachine gun" },
+    "name": { "str": ".45 Luty SMG" },
     "description": "A Luty pattern makeshift smoothbore SMG crudely constructed out of various steel parts using advanced powered hand tools; likely one of the most complex guns that is feasible to make outside of a machine shop, but still very unreliable.  This one is chambered for .45 ACP cartridges and accepts MAC-10 compatible magazines.",
     "//": "Crafting recipe must make use of angle grinder, bench grinder, set square and vise, which don't yet exist in game.",
     "weight": "3520 g",
@@ -318,7 +318,7 @@
     "copy-from": "pistol_revolver",
     "looks_like": "sw_619",
     "type": "GUN",
-    "name": { "str": "homemade hand cannon" },
+    "name": { "str": "homemade pistol" },
     "//": "On one hand, it's very big for a handgun. On the other, it's still a scrap weapon.",
     "description": "A large and heavy pistol evidently welded from scrap.  It's not pretty, but the .45 it's chambered with packs a serious punch.  Just watch out for the kick.",
     "weight": "1200 g",
@@ -352,7 +352,7 @@
     "variants": [
       {
         "id": "tommygun",
-        "name": { "str": "Thompson M1928A1 submachine gun" },
+        "name": { "str": "Thompson M1928A1 SMG" },
         "description": "An American-made submachine gun developed during the very end of World War I, too late to see action.  Infamous during the 1920s for its use by gangsters, and used during World War II before being mostly replaced with less-expensive alternatives."
       }
     ],
@@ -407,12 +407,12 @@
     "variants": [
       {
         "id": "usp_45",
-        "name": { "str": ".45 USP pistol" },
+        "name": { "str": "H&K USP 45 pistol" },
         "description": "A popular pistol, widely used among law enforcement.  Extensively tested for durability, it has been found to stay accurate even after being subjected to extreme abuse."
       },
       {
         "id": "mk23",
-        "name": { "str": "MK 23 MOD 0 pistol" },
+        "name": { "str": "H&K MK 23 MOD 0 pistol" },
         "description": "Jokingly referred to as \"The World's Only Crew-Served Pistol\", this massive pistol was designed as a primary weapon for select \"special operators\".  Its cumbersome nature, the introduction of the derivative HK USP series, and the logistics of getting .45 ACP ammunition in theater doomed this behemoth to US SOCOM armories.  Like the USP, the MK 23 is a remarkably reliable gun; someone could probably take out a nuclear-equipped walking tank with this in their holster."
       }
     ],
@@ -539,7 +539,7 @@
     "variants": [
       {
         "id": "greasegun",
-        "name": { "str": "M3 submachine gun" },
+        "name": { "str": "M3 SMG" },
         "description": "An American-made submachine gun developed during WWII as an alternative to Thompson M1928A1 and used at least till early 1990s.  Simple, cheap, and somewhat crude, the M3 was still quite an effective weapon, mostly made from sheet metal to reduce costs and speed up production.  In times of active use, it was considered as a disposable weapon, which is more expedient to replace than to repair.  Unfortunately, you cannot afford such wastefulness, unlike this submachine gun, which is devoid of even a fire selector for semi-auto fire."
       }
     ],
