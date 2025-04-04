@@ -105,6 +105,9 @@ static const morale_type morale_comfy( "morale_comfy" );
 static const morale_type morale_pyromania_nearfire( "morale_pyromania_nearfire" );
 static const morale_type morale_pyromania_nofire( "morale_pyromania_nofire" );
 
+static const skill_id skill_firstaid( "firstaid" );
+static const skill_id skill_survival( "survival" );
+
 static const trait_id trait_CHITIN_FUR( "CHITIN_FUR" );
 static const trait_id trait_CHITIN_FUR2( "CHITIN_FUR2" );
 static const trait_id trait_CHITIN_FUR3( "CHITIN_FUR3" );
@@ -434,6 +437,28 @@ Hurricane : 100 mph (920 hPa)
 HURRICANE : 185 mph (880 hPa) [Ref: Hurricane Wilma]
 */
 
+// This struct lets us prevent the temperature messages from spamming.
+struct temp_warning_record {
+    // Temperature message cooldowns
+    time_point last_cold;
+    time_point last_very_cold;
+    time_point last_freezing;
+    time_point last_hot;
+    time_point last_very_hot;
+    time_point last_scorching;
+
+    // Windchill message cooldowns
+    time_point last_wind_mild;
+    time_point last_wind_strong;
+    time_point last_wind_extreme;
+
+    // Frostbite message cooldowns
+    time_point last_frostbite_mild;
+    time_point last_frostbite_strong;
+    time_point last_frostbite_extreme;
+};
+std::map<bodypart_id, temp_warning_record> last_temp_warnings;
+
 void Character::update_bodytemp()
 {
     if( has_trait( trait_DEBUG_NOTEMP ) ) {
@@ -472,6 +497,9 @@ void Character::update_bodytemp()
     // This means which temperature is comfortable for a naked person
     // Ambient normal temperature is lower while asleep
     const units::temperature ambient_norm = has_sleep ? 31_C : 19_C;
+    const time_duration cooldown = 1900_seconds;
+    const time_duration cooldown_danger = 300_seconds;
+    const time_duration cooldown_extreme_danger = 5_seconds;
 
     /**
      * Calculations that affect all body parts equally go here, not in the loop
@@ -538,9 +566,14 @@ void Character::update_bodytemp()
         if( bp->has_flag( json_flag_IGNORE_TEMP ) ) {
             continue;
         }
+        // Set up temperature warning cooldown timer
+        if( last_temp_warnings.find( bp ) == last_temp_warnings.end() ) {
+            last_temp_warnings[bp] = temp_warning_record{};
+        }
+        temp_warning_record &record = last_temp_warnings[bp];
 
         // Represents the fact that the body generates heat when it is cold.
-        // TODO: : should this increase hunger?
+        // TODO: : should this burn kcal?
         const double scaled_temperature = logarithmic_range( units::to_celsius( BODYTEMP_VERY_COLD ),
                                           units::to_celsius( BODYTEMP_VERY_HOT ),
                                           units::to_celsius( get_part_temp_cur( bp ) ) );
@@ -766,30 +799,43 @@ void Character::update_bodytemp()
         update_frostbite( bp, bp_windpower, warmth_per_bp );
 
         // Warn the player if condition worsens
-        if( temp_before > BODYTEMP_FREEZING && temp_after < BODYTEMP_FREEZING ) {
-            //~ %s is bodypart
-            add_msg( m_warning, _( "You feel your %s beginning to go numb from the cold!" ),
+        time_point now = calendar::turn;
+        if( temp_before > BODYTEMP_FREEZING && temp_after < BODYTEMP_FREEZING &&
+            now - record.last_freezing > cooldown_extreme_danger ) {
+            add_msg( m_warning, _( "Your %s is freezing cold!" ),
                      body_part_name( bp ) );
-        } else if( temp_before > BODYTEMP_VERY_COLD && temp_after < BODYTEMP_VERY_COLD ) {
-            //~ %s is bodypart
-            add_msg( m_warning, _( "You feel your %s getting very cold." ),
+            record.last_freezing = now;
+
+        } else if( temp_before < BODYTEMP_SCORCHING && temp_after > BODYTEMP_SCORCHING &&
+                   now - record.last_scorching > cooldown_extreme_danger ) {
+            add_msg( m_bad, _( "Your %s is scorching in the heat!" ),
                      body_part_name( bp ) );
-        } else if( temp_before > BODYTEMP_COLD && temp_after < BODYTEMP_COLD ) {
-            //~ %s is bodypart
-            add_msg( m_warning, _( "You feel your %s getting chilly." ),
+            record.last_scorching = now;
+
+
+        } else if( temp_before > BODYTEMP_VERY_COLD && temp_after < BODYTEMP_VERY_COLD &&
+                   now - record.last_very_cold > cooldown_danger ) {
+            add_msg( m_warning, _( "Your %s is getting very cold." ),
                      body_part_name( bp ) );
-        } else if( temp_before < BODYTEMP_SCORCHING && temp_after > BODYTEMP_SCORCHING ) {
-            //~ %s is bodypart
-            add_msg( m_bad, _( "You feel your %s getting red hot from the heat!" ),
+            record.last_very_cold = now;
+
+        } else if( temp_before < BODYTEMP_VERY_HOT && temp_after > BODYTEMP_VERY_HOT &&
+                   now - record.last_very_hot > cooldown_danger ) {
+            add_msg( m_warning, _( "Your %s is getting very hot." ),
                      body_part_name( bp ) );
-        } else if( temp_before < BODYTEMP_VERY_HOT && temp_after > BODYTEMP_VERY_HOT ) {
-            //~ %s is bodypart
-            add_msg( m_warning, _( "You feel your %s getting very hot." ),
+            record.last_very_hot = now;
+
+        } else if( temp_before > BODYTEMP_COLD && temp_after < BODYTEMP_COLD &&
+                   now - record.last_cold > cooldown ) {
+            add_msg( m_warning, _( "Your %s is getting chilly." ),
                      body_part_name( bp ) );
-        } else if( temp_before < BODYTEMP_HOT && temp_after > BODYTEMP_HOT ) {
-            //~ %s is bodypart
-            add_msg( m_warning, _( "You feel your %s getting warm." ),
+            record.last_cold = now;
+
+        } else if( temp_before < BODYTEMP_HOT && temp_after > BODYTEMP_HOT &&
+                   now - record.last_hot > cooldown ) {
+            add_msg( m_warning, _( "Your %s is getting warm." ),
                      body_part_name( bp ) );
+            record.last_hot = now;
         }
 
         // Note: Numbers are based off of BODYTEMP at the top of weather.h
@@ -815,22 +861,24 @@ void Character::update_bodytemp()
             }
         }
 
+        // Warn the player about windchill, but only on cold bodyparts
         const units::temperature conv_temp = get_part_temp_conv( bp );
-        // Warn the player that wind is going to be a problem.
-        // But only if it can be a problem, no need to spam player with "wind chills your scorching body"
-        if( conv_temp <= BODYTEMP_COLD && windchill < units::from_fahrenheit_delta( -10 ) &&
-            one_in( 200 ) ) {
-            add_msg( m_bad, _( "The wind is making your %s feel quite cold." ),
+        if( conv_temp <= BODYTEMP_COLD && windchill < units::from_kelvin_delta( -30 ) &&
+            now - record.last_wind_extreme > cooldown_danger ) {
+            add_msg( m_bad, _( "The powerful wind chills your %s!" ),
                      body_part_name( bp ) );
+            record.last_wind_extreme = now;
         } else if( conv_temp <= BODYTEMP_COLD && windchill < units::from_fahrenheit_delta( -20 ) &&
-                   one_in( 100 ) ) {
+                   now - record.last_wind_strong > cooldown_danger ) {
             add_msg( m_bad,
-                     _( "The wind is very strong; you should find some more wind-resistant clothing for your %s." ),
+                     _( "The strong wind is chilling your unprotected %s." ),
                      body_part_name( bp ) );
-        } else if( conv_temp <= BODYTEMP_COLD && windchill < units::from_kelvin_delta( -30 ) &&
-                   one_in( 50 ) ) {
-            add_msg( m_bad, _( "Your clothing is not providing enough protection from the wind for your %s!" ),
+            record.last_wind_strong = now;
+        } else if( conv_temp <= BODYTEMP_COLD && windchill < units::from_fahrenheit_delta( -10 ) &&
+                   now - record.last_wind_mild > cooldown ) {
+            add_msg( m_warning, _( "The wind is making your %s feel quite cold." ),
                      body_part_name( bp ) );
+            record.last_wind_mild = now;
         }
     }
 }
@@ -867,9 +915,18 @@ void Character::update_frostbite( const bodypart_id &bp, const int FBwindPower,
 
     const float player_local_temp = units::to_fahrenheit( get_weather().get_temperature( pos() ) );
     const units::temperature temp_after = get_part_temp_cur( bp );
+    const time_duration cooldown = 1900_seconds;
+    const time_duration cooldown_danger = 300_seconds;
 
     if( bp == body_part_mouth || bp == body_part_foot_r ||
         bp == body_part_foot_l || bp == body_part_hand_r || bp == body_part_hand_l ) {
+
+        // Ensure that the temp warning record is initialized.
+        if( last_temp_warnings.find( bp ) == last_temp_warnings.end() ) {
+            last_temp_warnings[bp] = temp_warning_record{};
+        }
+        temp_warning_record &record = last_temp_warnings[bp];
+        time_point now = calendar::turn;
         // Handle the frostbite timer
         // Need temps in F, windPower already in mph
         int wetness_percentage = 100 * get_part_wetness_percentage( bp ); // 0 - 100
@@ -888,9 +945,17 @@ void Character::update_frostbite( const bodypart_id &bp, const int FBwindPower,
             if( get_part_frostbite_timer( bp ) < 2000 ) {
                 mod_part_frostbite_timer( bp, 3 );
             }
-            if( one_in( 100 ) && !has_effect( effect_frostbite, bp.id() ) ) {
-                add_msg( m_warning, _( "Your %s will be frostnipped in the next few hours." ),
-                         body_part_name( bp ) );
+            // Frostbite warning check with time gating
+            // TODO: Hide these warnings for very intoxicated people.
+            if( !has_effect( effect_frostbite, bp.id() ) && now - record.last_frostbite_mild > cooldown ) {
+                if( !has_flag( json_flag_PAIN_IMMUNE ) &&
+                    get_skill_level( skill_firstaid ) + get_skill_level( skill_survival ) < 5 ) {
+                    add_msg( m_warning, _( "The chill is making your %s ache." ), body_part_name( bp ) );
+                } else if( get_skill_level( skill_firstaid ) + get_skill_level( skill_survival ) >= 5 ) {
+                    add_msg( m_warning, _( "Your %s will be frostnipped in a couple of hours." ),
+                             body_part_name( bp ) );
+                }
+                record.last_frostbite_mild = now;
             }
             // Medium risk zones
         } else if( temp_after < BODYTEMP_COLD &&
@@ -901,9 +966,14 @@ void Character::update_frostbite( const bodypart_id &bp, const int FBwindPower,
                      ( Ftemperature < -5 && FBwindPower >= 10 &&
                        -4 * Ftemperature + 3 * FBwindPower - 170 >= 0 ) ) ) {
             mod_part_frostbite_timer( bp, 8 );
-            if( one_in( 100 ) && intense < 2 ) {
-                add_msg( m_warning, _( "Your %s will be frostbitten within the hour!" ),
-                         body_part_name( bp ) );
+            if( intense < 2 && now - record.last_frostbite_strong > cooldown_danger ) {
+                if( !has_flag( json_flag_PAIN_IMMUNE ) &&
+                    get_skill_level( skill_firstaid ) + get_skill_level( skill_survival ) < 5 ) {
+                    add_msg( m_warning, _( "Your %s burns from the bitter cold." ), body_part_name( bp ) );
+                } else if( get_skill_level( skill_firstaid ) + get_skill_level( skill_survival ) >= 5 ) {
+                    add_msg( m_warning, _( "Your %s will be frostnipped within the hour." ), body_part_name( bp ) );
+                }
+                record.last_frostbite_strong = now;
             }
             // High risk zones
         } else if( temp_after < BODYTEMP_COLD &&
@@ -911,9 +981,14 @@ void Character::update_frostbite( const bodypart_id &bp, const int FBwindPower,
                        -4 * Ftemperature + 3 * FBwindPower - 170 < 0 ) ||
                      ( Ftemperature < -35 && FBwindPower >= 10 ) ) ) {
             mod_part_frostbite_timer( bp, 72 );
-            if( one_in( 100 ) && intense < 2 ) {
-                add_msg( m_warning, _( "Your %s will be frostbitten any minute now!" ),
-                         body_part_name( bp ) );
+            if( intense < 2 && now - record.last_frostbite_extreme > cooldown_danger ) {
+                if( !has_flag( json_flag_PAIN_IMMUNE ) &&
+                    get_skill_level( skill_firstaid ) + get_skill_level( skill_survival ) < 5 ) {
+                    add_msg( m_warning, _( "Your %s is numb and stiff from the cold!" ), body_part_name( bp ) );
+                } else if( get_skill_level( skill_firstaid ) + get_skill_level( skill_survival ) >= 5 ) {
+                    add_msg( m_warning, _( "Your %s is in danger of being frostbitten!" ), body_part_name( bp ) );
+                }
+                record.last_frostbite_extreme = now;
             }
             // Risk free, so reduce frostbite timer
         } else {

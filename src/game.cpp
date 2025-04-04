@@ -11935,7 +11935,7 @@ void game::vertical_move( int movez, bool force, bool peeking )
                 pts.push_back( pt );
             }
         }
-        
+
         // TODO: Unify the tripoint types here.
         if( wall_cling && here.is_clingable_wall_adjacent( bub_stairs ) ) {
             pts.push_back( stairs );
