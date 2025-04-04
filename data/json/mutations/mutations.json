@@ -7871,7 +7871,7 @@
     "threshreq": [ "THRESH_SPIDER" ],
     "category": [ "SPIDER" ],
     "restricts_gear": [ "torso" ],
-    "enchantments": [ { "values": [ { "value": "MOVE_COST", "multiply": 0.30 } ] } ]
+    "enchantments": [ { "values": [ { "value": "MOVE_COST", "multiply": 0.3 } ] } ]
   },
   {
     "type": "mutation",
@@ -7892,10 +7892,7 @@
       [
         {
           "condition": {
-            "and": [
-              { "or": [ { "u_has_move_mode": "run" }, { "u_has_move_mode": "crouch" } ] },
-              { "not": "u_can_drop_weapon" }
-            ]
+            "and": [ { "or": [ { "u_has_move_mode": "run" }, { "u_has_move_mode": "crouch" } ] }, { "not": "u_can_drop_weapon" } ]
           },
           "msg_on": { "text": "You drop to the ground to use all your limbs to skitter along." }
         }
@@ -7909,7 +7906,7 @@
       },
       {
         "condition": { "and": [ { "u_has_move_mode": "run" }, { "not": "u_can_drop_weapon" } ] },
-        "values": [ { "value": "MOVE_COST", "multiply": -0.30 }, { "value": "FOOTSTEP_NOISE", "multiply": -0.5 } ],
+        "values": [ { "value": "MOVE_COST", "multiply": -0.3 }, { "value": "FOOTSTEP_NOISE", "multiply": -0.5 } ],
         "ench_effects": [ { "effect": "quadruped_full", "intensity": 1 } ]
       },
       {
@@ -7928,7 +7925,9 @@
         "condition": { "and": [ { "u_has_move_mode": "run" }, { "not": "u_can_drop_weapon" } ] },
         "ench_effects": [ { "effect": "wall_crawl", "intensity": 1 } ]
       },
-      { "values": [ { "value": "MOVE_COST", "multiply": 0.40 }, { "value": "MOVECOST_OBSTACLE_MOD", "multiply": -0.5 } ] }
+      {
+        "values": [ { "value": "MOVE_COST", "multiply": 0.4 }, { "value": "MOVECOST_OBSTACLE_MOD", "multiply": -0.5 } ]
+      }
     ]
   },
   {
