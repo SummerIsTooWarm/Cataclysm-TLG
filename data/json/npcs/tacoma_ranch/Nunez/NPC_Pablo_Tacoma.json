@@ -29,7 +29,6 @@
     "carry_override": "TACOMA_Pablo_carried",
     "weapon_override": "TACOMA_Pablo_wield",
     "traits": [
-      { "trait": "QUICK" },
       { "trait": "Exp_Bookkeeping1" },
       { "trait": "SKIN_MEDIUM" },
       { "trait": "eye_color", "variant": "brown" },

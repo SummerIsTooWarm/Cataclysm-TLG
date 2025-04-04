@@ -31,7 +31,6 @@
     "weapon_override": "NC_FREE_MERCHANTS_MERCHANT_carried",
     "traits": [
       { "trait": "GOODCARDIO" },
-      { "trait": "FLEET" },
       { "trait": "OPTIMISTIC" },
       { "trait": "STRONGBACK" },
       { "trait": "THIRST" },
