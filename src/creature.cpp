@@ -939,7 +939,7 @@ void Creature::deal_melee_hit( Creature *source, int hit_spread, bool critical_h
         }
     }
     damage_instance d = dam; // copy, since we will mutate in block_hit
-    bodypart_id bp_hit = bp == nullptr ? select_body_part( -1, -1, source->can_attack_high(),
+    bodypart_id bp_hit = bp == nullptr ? select_body_part( this, -1, -1, source->can_attack_high(),
                          hit_spread ) : *bp;
     block_hit( source, bp_hit, d );
 
@@ -3277,7 +3277,7 @@ bodypart_id Creature::get_max_hitsize_bodypart() const
     return anatomy( get_all_body_parts() ).get_max_hitsize_bodypart();
 }
 
-bodypart_id Creature::select_body_part( int min_hit, int max_hit, bool can_attack_high,
+bodypart_id Creature::select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high,
                                         int hit_roll ) const
 {
     add_msg_debug( debugmode::DF_CREATURE, "hit roll = %d", hit_roll );
@@ -3285,7 +3285,7 @@ bodypart_id Creature::select_body_part( int min_hit, int max_hit, bool can_attac
         can_attack_high = as_character()->is_on_ground();
     }
 
-    return anatomy( get_all_body_parts() ).select_body_part( min_hit, max_hit, can_attack_high,
+    return anatomy( get_all_body_parts() ).select_body_part( you, min_hit, max_hit, can_attack_high,
             hit_roll );
 }
 

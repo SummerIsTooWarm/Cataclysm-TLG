@@ -754,7 +754,7 @@ bool Character::melee_attack_abstract( Creature &t, bool allow_special,
             melee::melee_stats.actual_crit_count += 1;
         }
         // select target body part
-        const bodypart_id &target_bp = t.select_body_part( -1, -1, can_attack_high(),
+        const bodypart_id &target_bp = t.select_body_part( &t, -1, -1, can_attack_high(),
                                        hit_spread );
 
         const bool has_force_technique = !force_technique.str().empty();
