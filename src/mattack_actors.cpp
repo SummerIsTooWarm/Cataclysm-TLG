@@ -708,7 +708,7 @@ bool melee_actor::call( monster &z ) const
 
     // Pick body part
     bodypart_str_id bp_hit = body_parts.empty() ?
-                             target->select_body_part( hitsize_min, hitsize_max, attack_upper, hitspread ).id() :
+                             target->select_body_part( target, hitsize_min, hitsize_max, attack_upper, hitspread ).id() :
                              *body_parts.pick();
 
     bodypart_id bp_id = bodypart_id( bp_hit );

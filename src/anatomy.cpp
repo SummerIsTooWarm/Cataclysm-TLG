@@ -213,14 +213,20 @@ bodypart_id anatomy::random_body_part() const
     return get_part_with_cumulative_hit_size( rng_float( 0.0f, size_sum ) ).id();
 }
 
-bodypart_id anatomy::select_body_part( int min_hit, int max_hit, bool can_attack_high,
+bodypart_id anatomy::select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high,
                                        int hit_roll ) const
 {
 
     weighted_float_list<bodypart_id> hit_weights;
     for( const bodypart_id &bp : cached_bps ) {
         float weight = bp->hit_size;
-        //Filter out too-large or too-small bodyparts
+
+        //Filter out too-large or too-small bodyparts, or damaged ones
+        if( you->get_part_hp_cur( bp ) <= 0 ) {
+            add_msg_debug( debugmode::DF_ANATOMY_BP, "BP %s discarded - no HP", body_part_name( bp ) );
+            continue;
+        }
+
         if( weight < min_hit || ( max_hit > -1 && weight > max_hit ) ) {
             add_msg_debug( debugmode::DF_ANATOMY_BP, "BP %s discarded - hitsize %.1f( min %d max %d )",
                            body_part_name( bp ), weight, min_hit, max_hit );
