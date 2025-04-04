@@ -5036,5 +5036,13 @@
     "max_intensity": 1,
     "max_duration": "1 s",
     "//": "Temporary effect for creatures who are leaping or getting flung.  Should only be applied during such events so that creatures aren't left hovering around."
+  },
+  {
+    "type": "effect_type",
+    "id": "wall_crawl",
+    "name": [ "Wall Crawl" ],
+    "desc": [ "You are especially adept at climbing and can scale most vertical surfaces with ease." ],
+    "flags": [ "WALL_CLING" ],
+    "rating": "good"
   }
 ]
