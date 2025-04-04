@@ -684,7 +684,7 @@
     "name": [ "Unstable Footing" ],
     "desc": [ "Your footing is unstable.  It's more difficult to fight while standing here." ],
     "apply_message": "You try to keep your balance.",
-    "resist_traits": [ "GASTROPOD_BALANCE", "BIRD_LEGS" ],
+    "resist_traits": [ "GASTROPOD_BALANCE", "BIRD_LEGS", "SCUTTLE", "LEG_TENT_BRACE" ],
     "rating": "bad",
     "limb_score_mods": [ { "limb_score": "balance", "modifier": 0.75 }, { "limb_score": "footing", "modifier": 0.4 } ],
     "flags": [ "EFFECT_LIMB_SCORE_MOD" ]
@@ -5036,5 +5036,13 @@
     "max_intensity": 1,
     "max_duration": "1 s",
     "//": "Temporary effect for creatures who are leaping or getting flung.  Should only be applied during such events so that creatures aren't left hovering around."
+  },
+  {
+    "type": "effect_type",
+    "id": "wall_crawl",
+    "name": [ "Wall Crawl" ],
+    "desc": [ "You are especially adept at climbing and can scale most vertical surfaces with ease." ],
+    "flags": [ "WALL_CLING" ],
+    "rating": "good"
   }
 ]

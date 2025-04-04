@@ -315,7 +315,6 @@
     "name": { "str": "Fleet-Footed" },
     "points": 2,
     "description": "You can move more quickly than most, resulting in a 15% speed bonus on sure footing.",
-    "starting_trait": true,
     "changes_to": [ "FLEET2" ],
     "category": [ "SPIDER", "MOUSE", "RABBIT", "BIRD" ],
     "types": [ "RUNNING" ],
@@ -612,7 +611,6 @@
     "name": { "str": "Quick" },
     "points": 3,
     "description": "You're just generally quick!  You get a 10% bonus to action points.",
-    "starting_trait": true,
     "category": [ "FISH", "BIRD", "INSECT", "TROGLOBITE", "CHIMERA", "RAPTOR", "MOUSE", "RABBIT", "CHIROPTERAN" ],
     "enchantments": [ { "condition": "ALWAYS", "values": [ { "value": "SPEED", "multiply": 0.1 } ] } ]
   },
@@ -2987,6 +2985,7 @@
     "changes_to": [ "CRUSTACEAN_CARAPACE" ],
     "category": [ "SPIDER", "INSECT", "CRUSTACEAN" ],
     "integrated_armor": [ "integrated_chitin2" ],
+    "flags": [ "TOUGH_FEET" ],
     "wet_protection": [
       { "part": "head", "ignored": 2 },
       { "part": "leg_l", "ignored": 9 },
@@ -3013,6 +3012,7 @@
     "prereqs": [ "CHITIN_MOLTED" ],
     "leads_to": [ "CRUSTACEAN_CARAPACE" ],
     "integrated_armor": [ "integrated_chitin2_molted" ],
+    "flags": [ "TOUGH_FEET" ],
     "wet_protection": [
       { "part": "head", "ignored": 2 },
       { "part": "leg_l", "ignored": 9 },
@@ -3038,6 +3038,7 @@
     "prereqs": [ "CHITIN2" ],
     "category": [ "CRUSTACEAN" ],
     "leads_to": [ "CRUSTACEAN_CLAW" ],
+    "flags": [ "TOUGH_FEET" ],
     "enchantments": [
       { "condition": { "not": "u_has_weapon" }, "values": [ { "value": "ITEM_DAMAGE_BASH", "add": 3 } ] },
       { "condition": "ALWAYS", "values": [ { "value": "DEXTERITY", "add": -2 } ] }
@@ -3068,6 +3069,7 @@
     "prereqs": [ "CHITIN2_MOLTED" ],
     "leads_to": [ "CRUSTACEAN_CLAW" ],
     "integrated_armor": [ "integrated_carapace_molted" ],
+    "flags": [ "TOUGH_FEET" ],
     "wet_protection": [
       { "part": "head", "ignored": 8 },
       { "part": "leg_l", "ignored": 16 },
@@ -4218,7 +4220,7 @@
     "prereqs": [ "LEGS_BAT" ],
     "category": [ "CHIROPTERAN" ],
     "threshreq": [ "THRESH_CHIROPTERAN" ],
-    "flags": [ "WALL_CLING" ],
+    "flags": [ "WALL_CLING", "TOUGH_FEET" ],
     "restricts_gear": [ "foot_l", "foot_r" ],
     "destroys_gear": true
   },
@@ -5650,7 +5652,7 @@
     "prereqs": [ "STR_UP", "STR_UP_2", "STR_UP_3", "STR_UP_4", "MASOCHIST_MED" ],
     "prereqs2": [ "DENSE_BONES" ],
     "changes_to": [ "LARGE_OK", "HUGE" ],
-    "category": [ "URSINE", "CATTLE", "LIZARD", "CHIMERA", "CRUSTACEAN" ],
+    "category": [ "URSINE", "CATTLE", "LIZARD", "CHIMERA", "CRUSTACEAN", "PLANT" ],
     "enchantments": [
       {
         "values": [
@@ -5672,9 +5674,9 @@
     "types": [ "SIZE" ],
     "prereqs": [ "LARGE" ],
     "prereqs2": [ "STR_UP", "STR_UP_2", "STR_UP_3", "STR_UP_4" ],
-    "threshreq": [ "THRESH_URSINE", "THRESH_CATTLE", "THRESH_LIZARD", "THRESH_CHIMERA", "THRESH_CRUSTACEAN" ],
+    "threshreq": [ "THRESH_URSINE", "THRESH_CATTLE", "THRESH_LIZARD", "THRESH_CHIMERA", "THRESH_CRUSTACEAN", "THRESH_PLANT" ],
     "changes_to": [ "HUGE" ],
-    "category": [ "URSINE", "CATTLE", "LIZARD", "CHIMERA", "CRUSTACEAN" ],
+    "category": [ "URSINE", "CATTLE", "LIZARD", "CHIMERA", "CRUSTACEAN", "PLANT" ],
     "enchantments": [
       {
         "values": [
@@ -6156,6 +6158,7 @@
     "types": [ "SIZE" ],
     "changes_to": [ "SMALL2" ],
     "category": [ "MOUSE", "RABBIT" ],
+    "threshreq": [ "THRESH_MOUSE", "THRESH_RABBIT" ],
     "enchantments": [
       {
         "values": [
@@ -6180,6 +6183,7 @@
     "prereqs": [ "SMALL" ],
     "changes_to": [ "SMALL_OK" ],
     "category": [ "MOUSE" ],
+    "threshreq": [ "THRESH_MOUSE" ],
     "enchantments": [
       {
         "values": [
@@ -6746,7 +6750,7 @@
     "mixed_effect": true,
     "description": "Your bones are particularly dense and durable.  Your tougher frame grants 5% more HP and 15% more carry capacity plus bashing attacks injure you less, but your higher weight makes attacking and moving 5% slower.  Also, dodging and swimming are harder.",
     "types": [ "BONES" ],
-    "category": [ "URSINE", "CATTLE", "CHIMERA", "BEAST", "LIZARD", "CRUSTACEAN" ],
+    "category": [ "URSINE", "CATTLE", "CHIMERA", "BEAST", "LIZARD", "CRUSTACEAN", "PLANT" ],
     "enchantments": [
       {
         "values": [
@@ -7552,6 +7556,7 @@
     "threshreq": [ "THRESH_PLANT" ],
     "changes_to": [ "ROOTS2" ],
     "cancels": [ "LEG_TENTACLES", "HOOVES" ],
+    "flags": [ "TOUGH_FEET" ],
     "category": [ "PLANT" ],
     "restricts_gear": [ "leg_stub_r", "leg_stub_l" ],
     "encumbrance_covered": [ [ "foot_l", 10 ], [ "foot_r", 10 ] ]
@@ -7825,10 +7830,9 @@
     "points": -5,
     "visibility": 8,
     "ugliness": 5,
-    "description": "You've *finally* sprouted a pair of arms from your midsection.  They flail more or less uncontrollably, making you feel rather larval.",
+    "description": "An extra pair of decidedly buggy arms have grown from your torso.  They flail more or less uncontrollably, making you feel rather larval.",
     "purifiable": false,
-    "encumbrance_always": [ [ "arm_l", 30 ], [ "arm_r", 30 ] ],
-    "types": [ "HANDS" ],
+    "encumbrance_always": [ [ "arm_l", 10 ], [ "arm_r", 10 ] ],
     "changes_to": [ "INSECT_ARMS_OK", "ARACHNID_ARMS" ],
     "prereqs": [ "CHITIN", "CHITIN2", "CHITIN_FUR2" ],
     "threshreq": [ "THRESH_INSECT", "THRESH_SPIDER" ],
@@ -7843,9 +7847,8 @@
     "points": 0,
     "visibility": 4,
     "ugliness": 5,
-    "description": "It's good having all your arms.  Though they're too thin to block or punch, you can fold them inside human-shaped gear if need be.",
+    "description": "An extra pair of decidedly buggy arms have grown from your torso.  Though they're too thin to block or punch, you can fold them inside human-shaped gear if need be.",
     "purifiable": false,
-    "types": [ "HANDS" ],
     "prereqs": [ "INSECT_ARMS" ],
     "prereqs2": [ "ANTENNAE" ],
     "threshreq": [ "THRESH_INSECT" ],
@@ -7854,36 +7857,79 @@
   {
     "type": "mutation",
     "id": "ARACHNID_ARMS",
-    "name": { "str": "Arachnid Limbs" },
+    "name": { "str": "Spider Legs" },
     "points": -7,
     "visibility": 10,
     "ugliness": 10,
-    "description": "There's the last two limbs you were expecting.  Unfortunately, you still can't coordinate them, so you're getting in your own way.  A lot.",
+    "description": "Four spidery limbs sprout from your body.  They're not yet strong or coordinated enough to support your weight, and mostly just get in the way of your arms and legs.",
     "purifiable": false,
-    "encumbrance_always": [ [ "arm_l", 40 ], [ "arm_r", 40 ] ],
-    "types": [ "HANDS" ],
+    "encumbrance_always": [ [ "arm_l", 20 ], [ "arm_r", 20 ] ],
+    "types": [ "WINGS" ],
     "changes_to": [ "ARACHNID_ARMS_OK" ],
     "prereqs": [ "INSECT_ARMS" ],
     "prereqs2": [ "CHITIN2", "CHITIN_FUR2" ],
     "threshreq": [ "THRESH_SPIDER" ],
     "category": [ "SPIDER" ],
     "restricts_gear": [ "torso" ],
-    "enchantments": [ { "values": [ { "value": "DEXTERITY", "add": -4 } ] } ]
+    "enchantments": [ { "values": [ { "value": "MOVE_COST", "multiply": 0.30 } ] } ]
   },
   {
     "type": "mutation",
     "id": "ARACHNID_ARMS_OK",
-    "name": { "str": "Arachnid Arms" },
-    "points": 0,
+    "name": { "str": "Eight Legged" },
+    "points": 4,
     "visibility": 6,
     "ugliness": 10,
-    "description": "You have four handsome limbs, and then those mutant 'hand' and 'foot' things.  They probably aren't worth concealing.",
+    "description": "Four strong, spidery limbs sprout from your body.  By crouching or running with your hands free, you can use these in concert with your other arms and legs to move more quickly and quietly, and to easily climb walls and other obstacles.",
     "purifiable": false,
-    "types": [ "HANDS" ],
+    "types": [ "WINGS", "HANDS" ],
     "prereqs": [ "ARACHNID_ARMS" ],
     "prereqs2": [ "POISONOUS", "POISONOUS2", "WEB_RAPPEL" ],
     "threshreq": [ "THRESH_SPIDER" ],
-    "category": [ "SPIDER" ]
+    "restricts_gear": [ "torso" ],
+    "category": [ "SPIDER" ],
+    "triggers": [
+      [
+        {
+          "condition": {
+            "and": [
+              { "or": [ { "u_has_move_mode": "run" }, { "u_has_move_mode": "crouch" } ] },
+              { "not": "u_can_drop_weapon" }
+            ]
+          },
+          "msg_on": { "text": "You drop to the ground to use all your limbs to skitter along." }
+        }
+      ]
+    ],
+    "enchantments": [
+      {
+        "condition": { "and": [ { "u_has_move_mode": "crouch" }, { "not": "u_can_drop_weapon" } ] },
+        "values": [ { "value": "MOVE_COST", "multiply": -0.85 }, { "value": "FOOTSTEP_NOISE", "multiply": -0.5 } ],
+        "ench_effects": [ { "effect": "quadruped_full", "intensity": 1 } ]
+      },
+      {
+        "condition": { "and": [ { "u_has_move_mode": "run" }, { "not": "u_can_drop_weapon" } ] },
+        "values": [ { "value": "MOVE_COST", "multiply": -0.30 }, { "value": "FOOTSTEP_NOISE", "multiply": -0.5 } ],
+        "ench_effects": [ { "effect": "quadruped_full", "intensity": 1 } ]
+      },
+      {
+        "condition": { "and": [ { "u_has_move_mode": "crouch" }, { "not": "u_can_drop_weapon" } ] },
+        "ench_effects": [ { "effect": "natural_stance", "intensity": 1 } ]
+      },
+      {
+        "condition": { "and": [ { "u_has_move_mode": "run" }, { "not": "u_can_drop_weapon" } ] },
+        "ench_effects": [ { "effect": "natural_stance", "intensity": 1 } ]
+      },
+      {
+        "condition": { "and": [ { "u_has_move_mode": "crouch" }, { "not": "u_can_drop_weapon" } ] },
+        "ench_effects": [ { "effect": "wall_crawl", "intensity": 1 } ]
+      },
+      {
+        "condition": { "and": [ { "u_has_move_mode": "run" }, { "not": "u_can_drop_weapon" } ] },
+        "ench_effects": [ { "effect": "wall_crawl", "intensity": 1 } ]
+      },
+      { "values": [ { "value": "MOVE_COST", "multiply": 0.40 }, { "value": "MOVECOST_OBSTACLE_MOD", "multiply": -0.5 } ] }
+    ]
   },
   {
     "type": "mutation",
@@ -8096,7 +8142,7 @@
     "visibility": 4,
     "ugliness": 2,
     "mixed_effect": true,
-    "description": "Your lower tentacles have developed suckers, perfect for walking along lake beds and ocean floors.  They make land movement marginally more tiring, do a good job of keeping you set in place.",
+    "description": "Your lower tentacles have developed suckers, perfect for walking along lake beds and ocean floors.  They make land movement marginally more tiring, but do a good job of keeping you set in place.",
     "prereqs": [ "LEG_TENTACLES" ],
     "threshreq": [ "THRESH_CEPHALOPOD" ],
     "category": [ "CEPHALOPOD" ],
