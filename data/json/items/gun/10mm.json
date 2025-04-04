@@ -150,7 +150,7 @@
     "variants": [
       {
         "id": "hk_mp5_10_semi",
-        "name": { "str": "BA10 rifle" },
+        "name": { "str": "H&K MP5/10 SMG" },
         "description": "The MP5/10 served the FBI briefly alongside their 10mm Auto pistols, adding to the caliber's overall mystique.  Though the gun's usage was short-lived, a handful of clones were made and sold occasionally.  This semi-automatic clone manufactured by Brethren Arms features a welded-on M1913 rail and a collapsible arm brace."
       }
     ],
@@ -213,7 +213,7 @@
     "variants": [
       {
         "id": "witness_10",
-        "name": { "str": "EAA Witness 10mm pistol" },
+        "name": { "str": "Tanfoglio EAA Witness pistol" },
         "description": "The EAA Witness is a modified variant of the CZ-75, produced in Italy by Tanfoglio.  This is the standard steel framed version chambered in 10mm Auto."
       }
     ],
@@ -244,7 +244,7 @@
     "variants": [
       {
         "id": "p220_10",
-        "name": { "str": "SIG P220 10mm pistol" },
+        "name": { "str": "SIG P220 pistol" },
         "description": "The SIG Sauer P220 was developed for the Swiss military in 1975, and its simplified action was later used in most other SIG Sauer designs, including the P226.  The all-steel construction adds heft to this model, which is chambered in hard-hitting 10mm Auto."
       }
     ],
@@ -276,7 +276,7 @@
     "variants": [
       {
         "id": "xd_10",
-        "name": { "str": "XD-M Competition 10mm pistol" },
+        "name": { "str": "Springfield Armory XD-M Competition pistol" },
         "description": "Designed by HS Produkt in Croatia, the HS2000 has become a commercial success for Springfield Armory, who imports and markets it as the eXtreme Duty.  The XD has since been offered in a variety of chamberings and sizes, including this full-sized match grade variant in 10mm Auto."
       }
     ],
@@ -313,7 +313,7 @@
     "variants": [
       {
         "id": "TDI_10",
-        "name": { "str": "Vector SDP 10mm pistol" },
+        "name": { "str": "KRISS Vector SDP pistol" },
         "description": "The Vector SDP is a delayed blowback \"pistol\" with a unique, downward reciprocating bolt that helps combat muzzle climb.  This one is chambered in 10mm Auto."
       }
     ],
@@ -339,7 +339,7 @@
     "variants": [
       {
         "id": "STI_DS_10",
-        "name": { "str": "STI Tactical 2011 DS 10mm pistol" },
+        "name": { "str": "STI Tactical 2011 DS pistol" },
         "description": "A next-gen model of the venerable 1911, ready to win World War Z.  Modernized and manufactured by Staccato, sporting a double-stack magwell, sleek solid-steel frame, and ergonomic grip; favored by certain dog-loving assassins.  This model is chambered in 10mm Auto.",
         "weight": 1
       }
