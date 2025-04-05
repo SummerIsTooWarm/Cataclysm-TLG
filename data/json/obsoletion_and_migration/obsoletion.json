@@ -39,5 +39,20 @@
     "//": "Code assumes each attack is 1s",
     "time_to_learn": "3200 s",
     "required_proficiencies": [ "prof_maces_pro" ]
+  },
+  {
+    "type": "mutation",
+    "id": "WINGS_BUTTERFLY",
+    "name": { "str": "Insect Wings" },
+    "points": 1,
+    "visibility": 4,
+    "ugliness": 4,
+    "description": "A large pair of translucent wings grow from your back.  They are too small to lift you, but if you're not weighed down, they can help a bit if you fall.  You can flutter them quickly to improve your move speed, but this is noisy and tires you out.",
+    "types": [ "WINGS" ],
+    "prereqs": [ "WINGS_STUB" ],
+    "restricts_gear": [ "torso" ],
+    "flags": [ "WINGS_1" ],
+    "active": true,
+    "transform": { "target": "WINGS_INSECT_active", "msg_transform": "You begin buzzing your wings.", "active": true, "moves": 20 }
   }
 ]

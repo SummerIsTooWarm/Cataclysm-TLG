@@ -1033,7 +1033,7 @@ void avatar_action::plthrow( avatar &you, item_location loc,
             }
             int size_factor = std::max( 0, ( their_size - 3 ) ) * 15;
             // A zombie hulk has a throwforce of 96. Fully evolved crab mutant starting from 10 strength has 25 strength. At 5/5 skills.
-            // A fully evolved crab mutant hits ~87. Big mutants can rapidly catch up and exceed this by adding bionics, but are subject to
+            // A fully evolved crab mutant hits ~98. Big mutants can rapidly catch up and exceed this by adding bionics, but are subject to
             // stamina, pain etc. while monsters are not.
             float strength_factor = 0;
             if( you.get_arm_str() > 10 ) {
@@ -1042,7 +1042,7 @@ void avatar_action::plthrow( avatar &you, item_location loc,
             // TODO: Get encumbrance and burden involved here.
             float throwforce = ( ( ( you.get_arm_str() * ( 1.1 + strength_factor ) + ( ( you.get_skill_level(
                                          skill_unarmed ) * 2 ) + you.get_skill_level( skill_throw ) / 4 ) + 2 *
-                                     ( their_size - your_size ) ) - size_factor ) *
+                                     ( your_size - their_size ) ) - size_factor ) *
                                  2 );
             bool railgun = false;
             if( you.has_active_bionic( bio_railgun ) && ( you.grab_1.victim->in_species( species_ROBOT ) ||
@@ -1058,7 +1058,7 @@ void avatar_action::plthrow( avatar &you, item_location loc,
             // TODO: Standardize to 10 str at 20_gram in both functions
             int weight_cost = you.grab_1.victim->get_weight() / 16_gram;
             // Adjust for relative size and thrower skill.
-            weight_cost /= ( ( 2 / ( their_size / your_size ) ) + 1 * ( ( you.get_skill_level(
+            weight_cost /= ( ( 2 / ( static_cast<float>(their_size) / static_cast<float>(your_size) ) ) + 1 * ( ( you.get_skill_level(
                                  skill_throw ) + you.get_skill_level( skill_unarmed ) ) / 16 ) );
             int stamina_mod = ( weight_cost + 50 ) * -1 * you.get_modifier(
                                   character_modifier_melee_stamina_cost_mod );

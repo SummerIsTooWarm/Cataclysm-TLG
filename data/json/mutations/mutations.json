@@ -1180,7 +1180,7 @@
     "points": 3,
     "vitamin_cost": 160,
     "description": "Your genome has become an impregnable fortress to lesser genetic deviations.  You are no longer able to mutate traits that are outside of the Alpha category.  Any that you previously developed are safe, for now.",
-    "allowed_category": [ "ALPHA" ],
+    "allowed_category": [ "ALPHA", "HUMAN" ],
     "cancels": [ "CHAOTIC_BAD", "ROBUST" ],
     "category": [ "ALPHA" ]
   },
@@ -6406,7 +6406,7 @@
     "ugliness": 2,
     "description": "You have a pair of stubby little wings projecting from your shoulderblades.  They can be wiggled at will, but are useless.",
     "types": [ "WINGS" ],
-    "changes_to": [ "WINGS_INSECT", "WINGS_BUTTERFLY" ],
+    "changes_to": [ "WINGS_INSECT" ],
     "category": [ "INSECT" ]
   },
   {
@@ -6425,25 +6425,6 @@
     "category": [ "CHIROPTERAN" ],
     "restricts_gear": [ "arm_l", "arm_r", "hand_l", "hand_r" ],
     "threshreq": [ "THRESH_CHIROPTERAN" ]
-  },
-  {
-    "type": "mutation",
-    "id": "WINGS_BUTTERFLY",
-    "name": { "str": "Butterfly Wings" },
-    "points": 0,
-    "visibility": 10,
-    "ugliness": -2,
-    "description": "You have a very large pair of brightly-colored, very beautiful wings.  They can't lift you, and they make balancing tricky, but they certainly catch air and attention!",
-    "purifiable": false,
-    "encumbrance_always": [ [ "torso", 10 ] ],
-    "types": [ "WINGS" ],
-    "prereqs": [ "WINGS_STUB" ],
-    "threshreq": [ "THRESH_INSECT" ],
-    "category": [ "INSECT" ],
-    "restricts_gear": [ "torso" ],
-    "social_modifiers": { "lie": 15, "persuade": 5, "intimidate": -20 },
-    "enchantments": [ { "values": [ { "value": "MOVE_COST", "multiply": -0.1 }, { "value": "DODGE_CHANCE", "add": -4 } ] } ],
-    "flags": [ "WINGS_1" ]
   },
   {
     "type": "mutation",
