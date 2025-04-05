@@ -53,6 +53,7 @@
     "restricts_gear": [ "torso" ],
     "flags": [ "WINGS_1" ],
     "active": true,
+    "valid": false,
     "transform": { "target": "WINGS_INSECT_active", "msg_transform": "You begin buzzing your wings.", "active": true, "moves": 20 }
   }
 ]
