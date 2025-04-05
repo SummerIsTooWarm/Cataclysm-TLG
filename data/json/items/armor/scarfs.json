@@ -858,7 +858,7 @@
       "type": "transform",
       "menu_text": "Pull up",
       "target": "neck_gaiter_kevlar_raised",
-      "msg": "You pull your Kevlar neck gaiter up over your face.",
+      "msg": "You adjust your Kevlar neck gaiter to be worn up over your face.",
       "moves": 100
     }
   },
@@ -873,7 +873,7 @@
       "type": "transform",
       "menu_text": "Pull up",
       "target": "neck_gaiter_kevlar_xl_raised",
-      "msg": "You pull your XL Kevlar neck gaiter up over your face.",
+      "msg": "You adjust your XL Kevlar neck gaiter to be worn up over your face.",
       "moves": 100
     }
   },
@@ -888,7 +888,7 @@
       "type": "transform",
       "menu_text": "Pull up",
       "target": "neck_gaiter_kevlar_xs_raised",
-      "msg": "You pull your XS Kevlar neck gaiter up over your face.",
+      "msg": "You adjust your XS Kevlar neck gaiter to be worn up over your face.",
       "moves": 100
     }
   },
@@ -920,7 +920,7 @@
       "type": "transform",
       "menu_text": "Pull down",
       "target": "neck_gaiter_kevlar",
-      "msg": "You pull your Kevlar neck gaiter down off of your face.",
+      "msg": "You adjust your Kevlar neck gaiter to be worn down off of your face.",
       "moves": 100
     }
   },
@@ -935,7 +935,7 @@
       "type": "transform",
       "menu_text": "Pull down",
       "target": "neck_gaiter_kevlar_xl",
-      "msg": "You pull your Kevlar neck gaiter down off of your face.",
+      "msg": "You adjust your Kevlar neck gaiter to be worn down off of your face.",
       "moves": 100
     }
   },
@@ -950,7 +950,7 @@
       "type": "transform",
       "menu_text": "Pull down",
       "target": "neck_gaiter_kevlar_xs",
-      "msg": "You pull your Kevlar neck gaiter down off of your face.",
+      "msg": "You adjust your Kevlar neck gaiter to be worn down off of your face.",
       "moves": 100
     }
   },
@@ -967,8 +967,8 @@
     "use_action": {
       "type": "transform",
       "menu_text": "Pull up",
-      "target": "neck_gaiter_kevlar_raised",
-      "msg": "You pull your neck gaiter up over your face.",
+      "target": "neck_gaiter_raised",
+      "msg": "You adjust your neck gaiter to be worn up over your face.",
       "moves": 100
     }
   },
@@ -983,7 +983,7 @@
       "type": "transform",
       "menu_text": "Pull up",
       "target": "neck_gaiter_xs_raised",
-      "msg": "You pull your XS neck gaiter up over your face.",
+      "msg": "You adjust your XS neck gaiter to be worn up over your face.",
       "moves": 100
     }
   },
@@ -998,7 +998,7 @@
       "type": "transform",
       "menu_text": "Pull up",
       "target": "neck_gaiter_xl_raised",
-      "msg": "You pull your XL neck gaiter up over your face.",
+      "msg": "You adjust your XL neck gaiter to be worn up over your face.",
       "moves": 100
     }
   },
@@ -1016,7 +1016,7 @@
       "type": "transform",
       "menu_text": "Pull down",
       "target": "neck_gaiter",
-      "msg": "You pull your neck gaiter down off of your face.",
+      "msg": "You adjust your neck gaiter to be worn down off of your face.",
       "moves": 100
     }
   },
@@ -1031,7 +1031,7 @@
       "type": "transform",
       "menu_text": "Pull down",
       "target": "neck_gaiter_xs",
-      "msg": "You pull your XS neck gaiter down off of your face.",
+      "msg": "You adjust your XS neck gaiter to be worn down off of your face.",
       "moves": 100
     }
   },
@@ -1046,7 +1046,7 @@
       "type": "transform",
       "menu_text": "Pull down",
       "target": "neck_gaiter_xl",
-      "msg": "You pull your XL neck gaiter down off of your face.",
+      "msg": "You adjust your XL neck gaiter to be worn down off of your face.",
       "moves": 100
     }
   },
