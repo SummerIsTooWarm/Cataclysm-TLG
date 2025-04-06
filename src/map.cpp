@@ -4917,7 +4917,7 @@ void map::crush( const tripoint_bub_ms &p )
 void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, const bool hit_items,
                  double dispersion )
 {
-    // TODO: make bashing better a destroying, worse at penetrating
+    // TODO: make bashing better at destroying, worse at penetrating
     std::map<damage_type_id, float> dmg_by_type {};
     for( const damage_unit &dam : proj.impact ) {
         dmg_by_type[dam.type] +=
@@ -4961,6 +4961,14 @@ void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, co
         } else if( dist == 4 ) {
             coverage *= 0.25;
         }
+    // Prevent vehicle turrets and creatures in vehicles from shooting their own vehicles.
+    // TODO: Multi-Z level vehicles.
+    if( veh_at( p ) ) {
+        bool same_vehicle = &veh_at( source )->vehicle() == &veh_at( p )->vehicle();
+        if( same_vehicle ) {
+            coverage = 0;
+        }
+    }
         /**
         * Shot accuracy helps us bypass cover. 1000.0f is a reasonable midpoint between "good"
         * and "bad" shots, with 0.0f being perfect and 2000.0f being a pure gamble. See ranged.cpp
@@ -8192,9 +8200,14 @@ int map::concealment( const tripoint_bub_ms &p ) const
     }
     // Vehicle concealment values.
     if( const optional_vpart_position vp = veh_at( p ) ) {
-        if( vp->obstacle_at_part() ) {
+        const bool is_obstacle = vp->obstacle_at_part().has_value();
+        const bool is_opaque = vp->part_with_feature( VPFLAG_OPAQUE, true ).has_value();
+        const bool is_aisle = vp->part_with_feature( VPFLAG_AISLE, true ).has_value();
+        if( is_obstacle && is_opaque ) {
+            return 100;
+        } else if( is_obstacle ) {
             return 60;
-        } else if( !vp->part_with_feature( VPFLAG_AISLE, true ) ) {
+        } else if( !is_aisle ) {
             return 45;
         }
     }
@@ -8211,14 +8224,18 @@ int map::coverage( const tripoint_bub_ms &p ) const
     if( const furn_id obstacle_f = furn( p ) ) {
         return obstacle_f->coverage;
     }
-    // TODO: Vehicle cover values.
-    // if( const optional_vpart_position vp = veh_at( p ) ) {
-    //     if( vp->obstacle_at_part() ) {
-    //         return 60;
-    //     } else if( !vp->part_with_feature( VPFLAG_AISLE, true ) ) {
-    //         return 45;
-    //     }
-    // }
+    if( const optional_vpart_position vp = veh_at( p ) ) {
+        const bool is_obstacle = vp->obstacle_at_part().has_value();
+        const bool is_opaque = vp->part_with_feature( VPFLAG_OPAQUE, true ).has_value();
+        const bool is_aisle = vp->part_with_feature( VPFLAG_AISLE, true ).has_value();
+        if( is_obstacle && is_opaque ) {
+            return 100;
+        } else if( is_obstacle ) {
+            return 60;
+        } else if( !is_aisle ) {
+            return 45;
+        }
+    }
     return ter( p )->coverage;
 }
 

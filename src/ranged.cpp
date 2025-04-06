@@ -579,6 +579,9 @@ target_handler::trajectory target_handler::mode_spell( avatar &you, spell &casti
     return ui.run();
 }
 
+// TODO: This is nonsensical. If tiles are roughly 2m x 2m x 4m - a cow (huge) would fill 25% of
+// one, an adult man around 40-50%, a housecat would be less than 0.05%, a dog or a kid would be
+// like 18%, it's a mess that leads to weird behavior for both big and tiny critters.
 double occupied_tile_fraction( creature_size target_size )
 {
     switch( target_size ) {
