@@ -8201,6 +8201,27 @@ int map::concealment( const tripoint_bub_ms &p ) const
     return ter( p )->concealment;
 }
 
+int map::coverage( const tripoint &p ) const
+{
+    return map::coverage( tripoint_bub_ms( p ) );
+}
+
+int map::coverage( const tripoint_bub_ms &p ) const
+{
+    if( const furn_id obstacle_f = furn( p ) ) {
+        return obstacle_f->coverage;
+    }
+    // TODO: Vehicle cover values.
+    // if( const optional_vpart_position vp = veh_at( p ) ) {
+    //     if( vp->obstacle_at_part() ) {
+    //         return 60;
+    //     } else if( !vp->part_with_feature( VPFLAG_AISLE, true ) ) {
+    //         return 45;
+    //     }
+    // }
+    return ter( p )->coverage;
+}
+
 // This method tries a bunch of initial offsets for the line to try and find a clear one.
 // Basically it does, "Find a line from any point in the source that ends up in the target square".
 std::vector<tripoint> map::find_clear_path( const tripoint &source,

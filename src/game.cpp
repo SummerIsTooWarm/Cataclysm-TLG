@@ -6454,9 +6454,12 @@ void game::print_terrain_info( const tripoint &lp, const catacurses::window &w_l
     // Furniture, if any
     print_furniture_info( lp, w_look, column, line );
 
-    // Cover percentage from terrain and furniture next.
+    // Concealment percentage from terrain and furniture next.
     fold_and_print( w_look, point( column, ++line ), max_width, c_light_gray, _( "Concealment: %d%%" ),
                     m.concealment( lp ) );
+    // Cover too.
+    fold_and_print( w_look, point( column, ++line ), max_width, c_light_gray, _( "Cover: %d%%" ),
+                    m.coverage( lp ) );
 
     if( m.has_flag( ter_furn_flag::TFLAG_TREE, lp ) ) {
         const int lines = fold_and_print( w_look, point( column, ++line ), max_width, c_light_gray,

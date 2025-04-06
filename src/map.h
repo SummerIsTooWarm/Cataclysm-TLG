@@ -725,6 +725,13 @@ class map
         int concealment( const tripoint_bub_ms &p ) const;
 
         /**
+        * Returns coverage value of the tile.
+        */
+        // TODO: Get rid of untyped overload.
+        int coverage( const tripoint &p ) const;
+        int coverage( const tripoint_bub_ms &p ) const;
+
+        /**
          * Check whether there's a direct line of sight between `F` and
          * `T` with the additional movecost restraints.
          *
