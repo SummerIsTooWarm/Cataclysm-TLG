@@ -9,6 +9,7 @@
     "color": "red_green",
     "move_cost_mod": -1,
     "coverage": 40,
+  "concealment": 40,
     "required_str": 16,
     "bash": {
       "str_min": 40,
@@ -45,6 +46,7 @@
     "color": "light_gray",
     "move_cost_mod": -1,
     "coverage": 30,
+  "concealment": 30,
     "required_str": 16,
     "flags": [ "TRANSPARENT", "NOITEM", "REDUCE_SCENT", "MOUNTABLE", "PERMEABLE", "BLOCKSDOOR" ],
     "bash": {
@@ -82,6 +84,7 @@
     "color": "green_white",
     "move_cost_mod": -1,
     "coverage": 80,
+  "concealment": 80,
     "required_str": -1,
     "examine_action": { "type": "appliance_convert", "furn_set": "f_null", "item": "compact_ASRG_containment" },
     "flags": [ "NOITEM", "SEALED", "REDUCE_SCENT", "PERMEABLE", "EASY_DECONSTRUCT", "ACTIVE_GENERATOR" ],
@@ -111,6 +114,7 @@
     "color": "dark_gray",
     "move_cost_mod": 1,
     "coverage": 10,
+  "concealment": 10,
     "required_str": 2,
     "deployed_item": "xedra_antenna",
     "examine_action": "deployed_furniture",
@@ -128,6 +132,7 @@
     "color": "dark_gray",
     "move_cost_mod": 10,
     "coverage": 65,
+  "concealment": 65,
     "required_str": -1,
     "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE", "PLACE_ITEM" ],
     "deconstruct": {
@@ -172,6 +177,7 @@
     "color": "light_gray",
     "move_cost_mod": 10,
     "coverage": 75,
+  "concealment": 75,
     "required_str": -1,
     "flags": [ "CONTAINER", "SEALED", "PLACE_ITEM" ],
     "deconstruct": {
@@ -223,6 +229,7 @@
     "color": "brown",
     "move_cost_mod": 4,
     "coverage": 55,
+  "concealment": 55,
     "required_str": -1,
     "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE", "PLACE_ITEM" ],
     "deconstruct": {
@@ -272,6 +279,7 @@
     "color": "yellow",
     "move_cost_mod": 8,
     "coverage": 55,
+  "concealment": 55,
     "required_str": -1,
     "flags": [ "TRANSPARENT", "CONTAINER", "SEALED", "FLAMMABLE", "PLACE_ITEM" ],
     "deconstruct": {
@@ -422,6 +430,7 @@
     "color": "light_blue",
     "move_cost_mod": 4,
     "coverage": 40,
+  "concealment": 40,
     "required_str": -1,
     "flags": [ "TRANSPARENT", "MOUNTABLE" ],
     "bash": {
@@ -452,6 +461,7 @@
     "looks_like": "t_machinery_electronic",
     "move_cost_mod": 8,
     "coverage": 55,
+  "concealment": 55,
     "required_str": -1,
     "flags": [ "TRANSPARENT", "FLAMMABLE", "PLACE_ITEM" ],
     "deconstruct": {
@@ -502,6 +512,7 @@
     "symbol": "|",
     "color": "light_gray",
     "coverage": 80,
+  "concealment": 80,
     "move_cost_mod": 6,
     "max_volume": "800 L",
     "emissions": [ "emit_rad_leak" ],
@@ -534,6 +545,7 @@
     "color": "green_white",
     "move_cost_mod": -1,
     "coverage": 80,
+  "concealment": 80,
     "required_str": 8,
     "examine_action": { "type": "appliance_convert", "furn_set": "f_null", "item": "active_backup_generator" },
     "flags": [ "NOITEM", "SEALED", "REDUCE_SCENT", "PERMEABLE", "ACTIVE_GENERATOR", "EASY_DECONSTRUCT" ],

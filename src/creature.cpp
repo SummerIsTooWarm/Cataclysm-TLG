@@ -567,9 +567,9 @@ bool Creature::sees( const Creature &critter ) const
     if( ch != nullptr ) {
         if( ch->is_crouching() || ch->has_effect( effect_all_fours ) || ch->is_prone() ||
             pos_bub().z() != critter.pos_bub().z() ) {
-            const int coverage = std::max( here.obstacle_coverage( pos_bub(), critter.pos_bub() ),
-                                           here.ledge_coverage( *this, critter.pos_bub() ) );
-            if( coverage < 30 ) {
+            const int concealment = std::max( here.obstacle_concealment( pos_bub(), critter.pos_bub() ),
+                                              here.ledge_concealment( *this, critter.pos_bub() ) );
+            if( concealment < 30 ) {
                 return visible( ch );
             }
             float size_modifier = 1.0f;
@@ -600,8 +600,8 @@ bool Creature::sees( const Creature &critter ) const
                 profile *= 0.275;
             }
 
-            if( coverage < profile ) {
-                const int vision_modifier = std::max( 30 * ( 1 - coverage / profile ), 1 );
+            if( concealment < profile ) {
+                const int vision_modifier = std::max( 30 * ( 1 - concealment / profile ), 1 );
                 return target_range <= vision_modifier && visible( ch );
             }
             return false;
@@ -3277,7 +3277,8 @@ bodypart_id Creature::get_max_hitsize_bodypart() const
     return anatomy( get_all_body_parts() ).get_max_hitsize_bodypart();
 }
 
-bodypart_id Creature::select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high,
+bodypart_id Creature::select_body_part( const Creature *you, int min_hit, int max_hit,
+                                        bool can_attack_high,
                                         int hit_roll ) const
 {
     add_msg_debug( debugmode::DF_CREATURE, "hit roll = %d", hit_roll );

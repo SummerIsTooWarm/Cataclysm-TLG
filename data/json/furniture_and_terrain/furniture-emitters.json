@@ -9,6 +9,7 @@
     "color": "blue",
     "move_cost_mod": 1,
     "coverage": 0,
+    "concealment": 0,
     "required_str": -1,
     "flags": [ "TRANSPARENT" ],
     "emissions": [ "emit_swamp_gas_leak" ],
@@ -25,6 +26,7 @@
     "color": "light_gray",
     "move_cost_mod": 2,
     "coverage": 0,
+    "concealment": 0,
     "required_str": -1,
     "flags": [ "TRANSPARENT" ],
     "emissions": [ "emit_fog_plume" ]
@@ -39,6 +41,7 @@
     "color": "blue",
     "move_cost_mod": 0,
     "coverage": 0,
+    "concealment": 0,
     "required_str": -1,
     "flags": [ "TRANSPARENT" ],
     "emissions": [ "emit_cold_air2_stream" ]

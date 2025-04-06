@@ -44,7 +44,8 @@ class anatomy
         /** Returns a random body_part token. main_parts_only will limit it to arms, legs, torso, and head. */
         bodypart_id random_body_part() const;
         // Returns a random bodypart determined by the attacks hitsize/limb restrictions
-        bodypart_id select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high, int hit_roll ) const;
+        bodypart_id select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high,
+                                      int hit_roll ) const;
         bodypart_id select_blocking_part( const Creature *blocker, bool arm, bool leg,
                                           bool nonstandard ) const;
         std::vector<bodypart_id> get_all_eligable_parts( int min_hit, int max_hit,

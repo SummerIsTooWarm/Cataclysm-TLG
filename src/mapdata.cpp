@@ -886,6 +886,7 @@ void ter_t::load( const JsonObject &jo, const std::string &src )
     map_data_common_t::load( jo, src );
     mandatory( jo, was_loaded, "name", name_ );
     mandatory( jo, was_loaded, "move_cost", movecost );
+    optional( jo, was_loaded, "concealment", concealment );
     optional( jo, was_loaded, "coverage", coverage );
     assign( jo, "max_volume", max_volume, src == "tlg" );
     optional( jo, was_loaded, "trap", trap_id_str );
@@ -1062,6 +1063,7 @@ void furn_t::load( const JsonObject &jo, const std::string &src )
     map_data_common_t::load( jo, src );
     mandatory( jo, was_loaded, "name", name_ );
     mandatory( jo, was_loaded, "move_cost_mod", movecost );
+    optional( jo, was_loaded, "concealment", concealment );
     optional( jo, was_loaded, "coverage", coverage );
     optional( jo, was_loaded, "comfort", comfort, 0 );
     int legacy_floor_bedding_warmth = units::to_legacy_bodypart_temp_delta( floor_bedding_warmth );

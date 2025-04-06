@@ -1287,7 +1287,8 @@ class Creature : public viewer
         // Find the body part with the biggest hitsize - we will treat this as the center of mass for targeting
         bodypart_id get_max_hitsize_bodypart() const;
         // Select a bodypart depending on the attack's hitsize/limb restrictions
-        bodypart_id select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high, int hit_roll ) const;
+        bodypart_id select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high,
+                                      int hit_roll ) const;
         bodypart_id select_blocking_part( bool arm, bool leg, bool nonstandard ) const;
         bodypart_id random_body_part( bool main_parts_only = false ) const;
         std::vector<bodypart_id> get_all_eligable_parts( int min_hit, int max_hit,

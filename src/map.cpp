@@ -4914,7 +4914,8 @@ void map::crush( const tripoint_bub_ms &p )
     }
 }
 
-void map::shoot( const tripoint &p, projectile &proj, const bool hit_items )
+void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, const bool hit_items,
+                 double dispersion )
 {
     // TODO: make bashing better a destroying, worse at penetrating
     std::map<damage_type_id, float> dmg_by_type {};
@@ -4947,6 +4948,35 @@ void map::shoot( const tripoint &p, projectile &proj, const bool hit_items )
 
     if( const optional_vpart_position vp = veh_at( p ) ) {
         dam = vp->vehicle().damage( *this, vp->part_index(), dam, main_damage_type, hit_items );
+    }
+
+    // New projectile concealment system due to the old one is bad!
+    int dist = rl_dist( source, p );
+    int coverage = ter( p )->coverage;
+    if( coverage > 0 && dist > 1 && rng( 1, 100 ) > coverage ) {
+        if( dist == 2 ) {
+            coverage *= 0.75;
+        } else if( dist == 3 ) {
+            coverage *= 0.5;
+        } else if( dist == 4 ) {
+            coverage *= 0.25;
+        }
+        /**
+        * Shot accuracy helps us bypass cover. 1000.0f is a reasonable midpoint between "good"
+        * and "bad" shots, with 0.0f being perfect and 2000.0f being a pure gamble. See ranged.cpp
+        * for more details on dispersion.
+        */
+        if( dispersion < 1000.0f ) {
+            coverage *= dispersion / 1000.0f;
+        }
+        if( !laser || ( laser && !ter( p )->transparent ) ) {
+            int damdown = std::min( static_cast<int>( dam ), rng( ter( p )->bash.str_min,
+                                    ( ter( p )->bash.str_max ) ) );
+            add_msg( _( "Projectile with dispersion %1s and dam %2s strikes %3s (adjusted coverage %4s), losing %5s damage!" ),
+                     dispersion, dam, ter( p )->name(), coverage, damdown );
+            bash( p, dam, false );
+            dam -= damdown;
+        }
     }
 
     // This lambda is only called if the furniture/terrain has shoot data!
@@ -8008,7 +8038,7 @@ bool map::sees( const tripoint_bub_ms &F, const tripoint_bub_ms &T, const int ra
     return visible;
 }
 
-int map::obstacle_coverage( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const
+int map::obstacle_concealment( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const
 {
     // Can't hide if you are standing on furniture, or non-flat slowing-down terrain tile.
     if( furn( loc2 ).obj().id || ( move_cost( loc2 ) > 2 &&
@@ -8024,7 +8054,7 @@ int map::obstacle_coverage( const tripoint_bub_ms &loc1, const tripoint_bub_ms &
         return false;
     } );
     if( const furn_id obstacle_f = furn( obstaclepos ) ) {
-        return obstacle_f->coverage;
+        return obstacle_f->concealment;
     }
     if( const optional_vpart_position vp = veh_at( obstaclepos ) ) {
         if( vp->obstacle_at_part() ) {
@@ -8033,15 +8063,15 @@ int map::obstacle_coverage( const tripoint_bub_ms &loc1, const tripoint_bub_ms &
             return 45;
         }
     }
-    return ter( obstaclepos )->coverage;
+    return ter( obstaclepos )->concealment;
 }
 
-int map::ledge_coverage( const Creature &viewer, const tripoint &target_p ) const
+int map::ledge_concealment( const Creature &viewer, const tripoint &target_p ) const
 {
-    return map::ledge_coverage( viewer, tripoint_bub_ms( target_p ) );
+    return map::ledge_concealment( viewer, tripoint_bub_ms( target_p ) );
 }
 
-int map::ledge_coverage( const Creature &viewer, const tripoint_bub_ms &target_p ) const
+int map::ledge_concealment( const Creature &viewer, const tripoint_bub_ms &target_p ) const
 {
     tripoint_bub_ms viewer_p = viewer.pos_bub();
     creature_size viewer_size = viewer.get_size();
@@ -8079,20 +8109,21 @@ int map::ledge_coverage( const Creature &viewer, const tripoint_bub_ms &target_p
     // Viewer eye level is higher when standing on furniture
     const furn_id viewer_furn = furn( viewer_p );
     if( viewer_furn.obj().id ) {
-        eye_level += viewer_furn->coverage * 0.01f;
+        eye_level += viewer_furn->concealment * 0.01f;
     }
 
-    return ledge_coverage( viewer_p, target_p, eye_level );
+    return ledge_concealment( viewer_p, target_p, eye_level );
 }
 
-int map::ledge_coverage( const tripoint &viewer_p, const tripoint &target_p,
-                         const float &eye_level ) const
+int map::ledge_concealment( const tripoint &viewer_p, const tripoint &target_p,
+                            const float &eye_level ) const
 {
-    return map::ledge_coverage( tripoint_bub_ms( viewer_p ), tripoint_bub_ms( target_p ), eye_level );
+    return map::ledge_concealment( tripoint_bub_ms( viewer_p ), tripoint_bub_ms( target_p ),
+                                   eye_level );
 }
 
-int map::ledge_coverage( const tripoint_bub_ms &viewer_p, const tripoint_bub_ms &target_p,
-                         const float &eye_level ) const
+int map::ledge_concealment( const tripoint_bub_ms &viewer_p, const tripoint_bub_ms &target_p,
+                            const float &eye_level ) const
 {
     if( viewer_p.z() == target_p.z() ) {
         return 0;
@@ -8133,32 +8164,33 @@ int map::ledge_coverage( const tripoint_bub_ms &viewer_p, const tripoint_bub_ms 
     const float tangent = eye_ledge_z_delta / dist_to_ledge_base;
     // Absolute level concealed by ledge, anything below this point is invisible
     const float covered_z = abs_eye_z + ( tangent * flat_dist );
-    // Ledge coverage given by comparing covered_z and the absolute z of the target space
-    float ledge_coverage = ( covered_z - target_p.z() * zlevel_to_grid_ratio ) * 100;
+    // Ledge concealment given by comparing covered_z and the absolute z of the target space
+    float ledge_concealment = ( covered_z - target_p.z() * zlevel_to_grid_ratio ) * 100;
 
     // Early exit if the tile is definitely not covered
-    if( ledge_coverage < 0 ) {
+    if( ledge_concealment < 0 ) {
         return 0;
     }
-    // Target has a coverage penalty when standing on furniture
+    // Target has a concealment penalty when standing on furniture
     const furn_id target_furn = furn( target_p );
     if( target_furn ) {
-        ledge_coverage -= target_furn->coverage;
+        ledge_concealment -= target_furn->concealment;
     }
 
-    return std::max( ledge_coverage, 0.0f );
+    return std::max( ledge_concealment, 0.0f );
 }
 
-int map::coverage( const tripoint &p ) const
+int map::concealment( const tripoint &p ) const
 {
-    return map::coverage( tripoint_bub_ms( p ) );
+    return map::concealment( tripoint_bub_ms( p ) );
 }
 
-int map::coverage( const tripoint_bub_ms &p ) const
+int map::concealment( const tripoint_bub_ms &p ) const
 {
     if( const furn_id obstacle_f = furn( p ) ) {
-        return obstacle_f->coverage;
+        return obstacle_f->concealment;
     }
+    // Vehicle concealment values.
     if( const optional_vpart_position vp = veh_at( p ) ) {
         if( vp->obstacle_at_part() ) {
             return 60;
@@ -8166,7 +8198,7 @@ int map::coverage( const tripoint_bub_ms &p ) const
             return 45;
         }
     }
-    return ter( p )->coverage;
+    return ter( p )->concealment;
 }
 
 // This method tries a bunch of initial offsets for the line to try and find a clear one.

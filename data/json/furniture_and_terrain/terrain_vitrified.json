@@ -206,6 +206,7 @@
     "color": "dark_gray",
     "move_cost": 0,
     "coverage": 60,
+  "concealment": 60,
     "roof": "t_vitrified_roof",
     "connect_groups": [ "INDOORFLOOR", "WALL" ],
     "connects_to": "WALL",
@@ -273,6 +274,7 @@
     "color": "light_gray",
     "move_cost": 0,
     "coverage": 30,
+  "concealment": 30,
     "roof": "t_vitrified_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -312,6 +314,7 @@
     "color": "dark_gray",
     "move_cost": 0,
     "coverage": 95,
+  "concealment": 95,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -338,6 +341,7 @@
     "color": "dark_gray",
     "move_cost": 8,
     "coverage": 60,
+  "concealment": 60,
     "roof": "t_vitrified_roof",
     "bash": {
       "str_min": 1,
@@ -383,6 +387,7 @@
     "color": "light_gray",
     "move_cost": 6,
     "coverage": 40,
+  "concealment": 40,
     "flags": [ "SUPPORTS_ROOF", "TRANSPARENT", "THIN_OBSTACLE", "SHARP" ]
   },
   {
@@ -416,6 +421,7 @@
     "color": "light_gray",
     "move_cost": 0,
     "coverage": 80,
+  "concealment": 80,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "SUPPORTS_ROOF", "WALL", "PERMEABLE", "MINEABLE" ],
@@ -451,6 +457,7 @@
     "color": [ "dark_gray" ],
     "move_cost": 0,
     "coverage": 80,
+  "concealment": 80,
     "flags": [ "SUPPORTS_ROOF", "NOITEM", "SUPPORTS_ROOF", "REDUCE_SCENT" ],
     "bash": {
       "str_min": 80,
@@ -471,6 +478,7 @@
     "color": "dark_gray",
     "move_cost": 0,
     "coverage": 80,
+  "concealment": 80,
     "flags": [ "SUPPORTS_ROOF", "NOITEM", "SUPPORTS_ROOF", "TREE", "REDUCE_SCENT" ],
     "bash": {
       "str_min": 70,
@@ -490,6 +498,7 @@
     "color": "dark_gray",
     "move_cost": 8,
     "coverage": 40,
+  "concealment": 40,
     "connect_groups": "INDOORFLOOR",
     "flags": [ "SUPPORTS_ROOF", "TRANSPARENT", "INDOORS", "CONTAINER", "THIN_OBSTACLE", "SHRUB", "SHORT", "SHARP" ],
     "bash": {

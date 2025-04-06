@@ -8,6 +8,7 @@
     "color": "white",
     "move_cost_mod": 2,
     "coverage": 80,
+    "concealment": 80,
     "required_str": 5,
     "crafting_pseudo_item": "mirror",
     "flags": [ "NOITEM", "BLOCKSDOOR", "EASY_DECONSTRUCT" ],
@@ -32,6 +33,7 @@
     "color": "light_gray",
     "move_cost_mod": 2,
     "coverage": 80,
+    "concealment": 80,
     "required_str": 5,
     "flags": [ "NOITEM", "BLOCKSDOOR" ],
     "bash": {
@@ -51,6 +53,7 @@
     "color": "light_gray",
     "move_cost_mod": 2,
     "coverage": 30,
+    "concealment": 30,
     "required_str": 0,
     "bash": {
       "str_min": 80,
@@ -71,6 +74,7 @@
     "looks_like": "f_bitts",
     "move_cost_mod": 2,
     "coverage": 30,
+    "concealment": 30,
     "required_str": 0,
     "bash": {
       "str_min": 80,
@@ -108,6 +112,7 @@
     "color": "dark_gray",
     "move_cost_mod": -1,
     "coverage": 50,
+    "concealment": 50,
     "required_str": 10,
     "flags": [ "PLACE_ITEM", "BLOCKSDOOR", "MINEABLE", "SIGN" ],
     "bash": {
@@ -127,6 +132,7 @@
     "color": "brown",
     "move_cost_mod": 2,
     "coverage": 40,
+    "concealment": 40,
     "required_str": 5,
     "flags": [ "PLACE_ITEM", "TRANSPARENT", "FLAMMABLE", "EASY_DECONSTRUCT" ],
     "deployed_item": "mannequin",
@@ -321,6 +327,7 @@
     "color": "white",
     "move_cost_mod": 5,
     "coverage": 80,
+    "concealment": 80,
     "required_str": -1,
     "crafting_pseudo_item": "mirror",
     "flags": [ "TRANSPARENT", "FLAMMABLE_ASH" ],

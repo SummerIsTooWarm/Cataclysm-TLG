@@ -213,7 +213,8 @@ bodypart_id anatomy::random_body_part() const
     return get_part_with_cumulative_hit_size( rng_float( 0.0f, size_sum ) ).id();
 }
 
-bodypart_id anatomy::select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high,
+bodypart_id anatomy::select_body_part( const Creature *you, int min_hit, int max_hit,
+                                       bool can_attack_high,
                                        int hit_roll ) const
 {
 

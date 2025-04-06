@@ -27,6 +27,7 @@
     "description": "A wall of tangled roots blocks the path here, you'd have destroy it to get past.",
     "move_cost_mod": -1,
     "coverage": 60,
+  "concealment": 60,
     "required_str": -1,
     "flags": [ "TRANSPARENT", "BLOCKSDOOR", "SHORT", "THIN_OBSTACLE" ],
     "bash": {
@@ -46,6 +47,7 @@
     "bgcolor": "brown",
     "move_cost_mod": 3,
     "coverage": 35,
+  "concealment": 35,
     "required_str": -1,
     "flags": [ "TRANSPARENT", "CONTAINER", "PLACE_ITEM", "SHORT", "MOUNTABLE" ]
   }

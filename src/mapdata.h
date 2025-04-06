@@ -510,8 +510,10 @@ struct map_data_common_t {
         // The amount of movement points required to pass this terrain by default.
         int movecost = 0;
         int heat_radiation = 0;
-        // The coverage percentage of a furniture piece of terrain. <30 won't cover from sight.
-        int coverage = 0;
+        // The concealment percentage of a furniture piece of terrain. <30 won't cover from sight.
+        int concealment = 0;
+        // The % chance that this furniture/terrain will interrupt a ranged attack passing through its tile.
+        int coverage = 100;
         // Warmth provided by the terrain (for sleeping, etc.)
         units::temperature_delta floor_bedding_warmth = 0_C_delta;
         int comfort = 0;

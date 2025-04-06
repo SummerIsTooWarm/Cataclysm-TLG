@@ -1058,8 +1058,9 @@ void avatar_action::plthrow( avatar &you, item_location loc,
             // TODO: Standardize to 10 str at 20_gram in both functions
             int weight_cost = you.grab_1.victim->get_weight() / 16_gram;
             // Adjust for relative size and thrower skill.
-            weight_cost /= ( ( 2 / ( static_cast<float>(their_size) / static_cast<float>(your_size) ) ) + 1 * ( ( you.get_skill_level(
-                                 skill_throw ) + you.get_skill_level( skill_unarmed ) ) / 16 ) );
+            weight_cost /= ( ( 2 / ( static_cast<float>( their_size ) / static_cast<float>
+                                     ( your_size ) ) ) + 1 * ( ( you.get_skill_level(
+                                                 skill_throw ) + you.get_skill_level( skill_unarmed ) ) / 16 ) );
             int stamina_mod = ( weight_cost + 50 ) * -1 * you.get_modifier(
                                   character_modifier_melee_stamina_cost_mod );
 

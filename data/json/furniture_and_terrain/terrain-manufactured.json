@@ -33,6 +33,7 @@
     "color": "red",
     "move_cost": 0,
     "coverage": 65,
+  "concealment": 65,
     "flags": [ "TRANSPARENT", "FLAMMABLE", "NOITEM", "SEALED", "CONTAINER", "REDUCE_SCENT", "PERMEABLE", "LIQUIDCONT" ],
     "examine_action": "gaspump",
     "bash": {
@@ -65,6 +66,7 @@
     "color": "light_red",
     "move_cost": 0,
     "coverage": 55,
+  "concealment": 55,
     "flags": [ "TRANSPARENT", "NOITEM", "REDUCE_SCENT", "PERMEABLE" ],
     "bash": {
       "str_min": 20,
@@ -93,6 +95,7 @@
     "looks_like": "t_gas_pump",
     "move_cost": 0,
     "coverage": 65,
+  "concealment": 65,
     "flags": [ "TRANSPARENT", "FLAMMABLE", "NOITEM", "SEALED", "CONTAINER", "REDUCE_SCENT", "PERMEABLE", "LIQUIDCONT" ],
     "examine_action": "gaspump",
     "bash": {
@@ -115,6 +118,7 @@
     "looks_like": "t_gas_pump_a",
     "move_cost": 0,
     "coverage": 65,
+  "concealment": 65,
     "flags": [ "TRANSPARENT", "FLAMMABLE", "NOITEM", "SEALED", "CONTAINER", "REDUCE_SCENT", "PERMEABLE", "LIQUIDCONT" ],
     "examine_action": "gaspump",
     "bash": {
@@ -136,6 +140,7 @@
     "looks_like": "f_wreckage",
     "move_cost": 0,
     "coverage": 55,
+  "concealment": 55,
     "flags": [ "TRANSPARENT", "NOITEM", "REDUCE_SCENT", "PERMEABLE" ],
     "bash": {
       "str_min": 20,
@@ -164,6 +169,7 @@
     "color": "red",
     "move_cost": 0,
     "coverage": 65,
+  "concealment": 65,
     "flags": [ "TRANSPARENT", "FLAMMABLE", "NOITEM", "SEALED", "CONTAINER", "REDUCE_SCENT", "PERMEABLE", "LIQUIDCONT" ],
     "examine_action": "gaspump",
     "bash": {
@@ -185,6 +191,7 @@
     "looks_like": "t_diesel_pump_smashed",
     "move_cost": 0,
     "coverage": 55,
+  "concealment": 55,
     "flags": [ "TRANSPARENT", "NOITEM", "REDUCE_SCENT", "PERMEABLE" ],
     "bash": {
       "str_min": 20,
@@ -213,6 +220,7 @@
     "color": "red",
     "move_cost": 0,
     "coverage": 65,
+  "concealment": 65,
     "flags": [ "TRANSPARENT", "FLAMMABLE", "NOITEM", "SEALED", "CONTAINER", "REDUCE_SCENT", "PERMEABLE", "LIQUIDCONT" ],
     "examine_action": "gaspump",
     "bash": {
@@ -234,6 +242,7 @@
     "looks_like": "t_gas_pump_smashed",
     "move_cost": 0,
     "coverage": 55,
+  "concealment": 55,
     "flags": [ "TRANSPARENT", "NOITEM", "REDUCE_SCENT", "PERMEABLE" ],
     "bash": {
       "str_min": 20,
@@ -261,6 +270,7 @@
     "color": "magenta",
     "move_cost": 0,
     "coverage": 55,
+  "concealment": 55,
     "flags": [ "TRANSPARENT", "NOITEM", "ALARMED", "REDUCE_SCENT", "PERMEABLE" ],
     "examine_action": "atm",
     "bash": {
@@ -289,6 +299,7 @@
     "color": "blue",
     "move_cost": 0,
     "coverage": 55,
+  "concealment": 55,
     "flags": [ "TRANSPARENT", "NOITEM", "ALARMED", "REDUCE_SCENT", "PERMEABLE" ],
     "bash": {
       "str_min": 40,
@@ -308,6 +319,7 @@
     "color": "blue",
     "move_cost": 0,
     "coverage": 55,
+  "concealment": 55,
     "flags": [ "TRANSPARENT", "NOITEM", "ALARMED", "REDUCE_SCENT", "PERMEABLE" ],
     "bash": {
       "str_min": 40,
@@ -327,6 +339,7 @@
     "looks_like": "t_chainfence_v",
     "move_cost": 0,
     "coverage": 90,
+  "concealment": 90,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "NOITEM", "WALL" ],
@@ -413,6 +426,7 @@
     "looks_like": "f_console_broken",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE" ],
     "deconstruct": {
       "ter_set": "t_concrete",
@@ -481,6 +495,7 @@
     "color": "light_gray",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "flags": [ "TRANSPARENT", "MOUNTABLE", "PERMEABLE", "THIN_OBSTACLE", "MINEABLE" ],
     "bash": {
       "str_min": 30,
@@ -501,6 +516,7 @@
     "looks_like": "f_machinery_heavy",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "flags": [ "NOITEM", "REDUCE_SCENT", "MOUNTABLE" ],
     "bash": {
       "str_min": 20,
@@ -526,6 +542,7 @@
     "looks_like": "f_machinery_heavy",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "flags": [ "NOITEM", "WALL" ],
     "bash": {
       "str_min": 20,
@@ -550,6 +567,7 @@
     "looks_like": "t_little_column",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "flags": [ "NOITEM", "THIN_OBSTACLE", "PERMEABLE" ],
     "bash": {
       "str_min": 30,
@@ -574,6 +592,7 @@
     "looks_like": "t_little_column",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "flags": [ "NOITEM", "THIN_OBSTACLE", "PERMEABLE" ],
     "bash": {
       "str_min": 30,
@@ -598,6 +617,7 @@
     "color": "dark_gray",
     "move_cost": 0,
     "coverage": 65,
+  "concealment": 65,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "NOITEM", "WALL", "PERMEABLE" ],
@@ -624,6 +644,7 @@
     "looks_like": "f_console",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "flags": [ "TRANSPARENT", "NOITEM", "PERMEABLE" ],
     "examine_action": "cvdmachine",
     "bash": {
@@ -655,6 +676,7 @@
     "color": "dark_gray",
     "move_cost": 0,
     "coverage": 65,
+  "concealment": 65,
     "flags": [ "PLACE_ITEM", "NANOFAB_TABLE" ],
     "bash": {
       "str_min": 120,
@@ -688,6 +710,7 @@
     "looks_like": "f_console",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "WALL", "NOITEM", "PERMEABLE" ],
@@ -722,6 +745,7 @@
     "looks_like": "f_standing_tank",
     "move_cost": 0,
     "coverage": 40,
+  "concealment": 40,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -747,6 +771,7 @@
     "color": "green",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "roof": "t_flat_roof",
     "connect_groups": "INDOORFLOOR",
     "flags": [ "NOITEM", "INDOORS" ],
@@ -782,6 +807,7 @@
     "color": "light_gray",
     "move_cost": 6,
     "coverage": 40,
+  "concealment": 40,
     "flags": [ "TRANSPARENT", "THIN_OBSTACLE" ],
     "deconstruct": { "ter_set": "t_covered_well", "items": [ { "item": "well_pump", "count": 1 }, { "item": "pipe", "count": [ 1, 6 ] } ] },
     "bash": {
@@ -809,6 +835,7 @@
     "color": "c_brown",
     "move_cost": 6,
     "coverage": 40,
+  "concealment": 40,
     "flags": [ "TRANSPARENT", "THIN_OBSTACLE" ],
     "deconstruct": {
       "ter_set": "t_covered_well",
@@ -834,6 +861,7 @@
     "color": "light_gray",
     "move_cost": 6,
     "coverage": 40,
+  "concealment": 40,
     "flags": [ "TRANSPARENT", "THIN_OBSTACLE", "SALT_WATER" ],
     "deconstruct": { "ter_set": "t_covered_well", "items": [ { "item": "well_pump", "count": 1 }, { "item": "pipe", "count": [ 1, 6 ] } ] },
     "bash": {
@@ -861,6 +889,7 @@
     "color": "light_blue",
     "move_cost": 0,
     "coverage": 40,
+  "concealment": 40,
     "flags": [ "TRANSPARENT", "LIQUIDCONT" ],
     "bash": {
       "str_min": 15,
@@ -887,6 +916,7 @@
     "looks_like": "f_machinery_electronic",
     "move_cost": 0,
     "coverage": 90,
+  "concealment": 90,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "NOITEM", "WALL" ],
@@ -916,6 +946,7 @@
     "looks_like": "f_wreckage",
     "move_cost": 0,
     "coverage": 90,
+  "concealment": 90,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "NOITEM", "WALL" ],
@@ -957,6 +988,7 @@
     "looks_like": "f_machinery_electronic",
     "move_cost": 0,
     "coverage": 90,
+  "concealment": 90,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "TRANSPARENT", "FLAMMABLE", "NOITEM", "WALL", "PERMEABLE" ],
@@ -996,6 +1028,7 @@
     "looks_like": "f_machinery_electronic",
     "move_cost": 0,
     "coverage": 65,
+  "concealment": 65,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "TRANSPARENT", "FLAMMABLE", "NOITEM", "WALL", "PERMEABLE" ],
@@ -1035,6 +1068,7 @@
     "looks_like": "f_machinery_electronic",
     "move_cost": 0,
     "coverage": 90,
+  "concealment": 90,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "TRANSPARENT", "NOITEM", "WALL", "PERMEABLE" ],
@@ -1076,6 +1110,7 @@
     "looks_like": "f_machinery_electronic",
     "move_cost": 0,
     "coverage": 65,
+  "concealment": 65,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "TRANSPARENT", "NOITEM", "WALL", "PERMEABLE" ],
@@ -1201,6 +1236,7 @@
     "looks_like": "f_machinery_electronic",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "TRANSPARENT", "NOITEM", "WALL", "PERMEABLE" ],
@@ -1241,6 +1277,7 @@
     "looks_like": "f_machinery_electronic",
     "move_cost": 0,
     "coverage": 50,
+  "concealment": 50,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "TRANSPARENT", "NOITEM", "WALL", "PERMEABLE" ],
@@ -1282,6 +1319,7 @@
     "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "PLACE_ITEM", "INDOORS" ],
     "coverage": 30,
+  "concealment": 30,
     "deconstruct": {
       "ter_set": "t_rock_floor",
       "items": [
@@ -1342,6 +1380,7 @@
     "looks_like": "f_standing_tank",
     "move_cost": 0,
     "coverage": 85,
+  "concealment": 85,
     "bash": {
       "str_min": 20,
       "str_max": 80,
@@ -1408,6 +1447,7 @@
     "color": "dark_gray",
     "move_cost": 2,
     "coverage": 40,
+  "concealment": 40,
     "flags": [ "TRANSPARENT", "FLAT", "MINEABLE" ],
     "bash": {
       "str_min": 80,
@@ -1433,6 +1473,7 @@
     "looks_like": "t_covered_well",
     "move_cost": 2,
     "coverage": 40,
+  "concealment": 40,
     "flags": [ "TRANSPARENT", "FLAT", "MINEABLE" ],
     "bash": {
       "str_min": 80,
@@ -1457,6 +1498,7 @@
     "color": "yellow",
     "move_cost": 2,
     "coverage": 35,
+  "concealment": 35,
     "comfort": 1,
     "floor_bedding_warmth": 100,
     "deconstruct": { "items": [ { "item": "straw_pile", "count": [ 55, 60 ] } ], "ter_set": "t_pit_shallow" },
@@ -1480,6 +1522,7 @@
     "looks_like": "t_leanto",
     "move_cost": 2,
     "coverage": 30,
+  "concealment": 30,
     "floor_bedding_warmth": 1000,
     "comfort": 3,
     "connect_groups": "INDOORFLOOR",
@@ -1518,6 +1561,7 @@
     "comfort": 4,
     "move_cost": 2,
     "coverage": 30,
+  "concealment": 30,
     "connect_groups": "INDOORFLOOR",
     "flags": [
       "TRANSPARENT",

@@ -80,6 +80,7 @@
     "symbol": "#",
     "color": "red",
     "coverage": 50,
+    "concealment": 50,
     "move_cost_mod": 2,
     "required_str": -1,
     "flags": [
@@ -105,6 +106,7 @@
     "symbol": "#",
     "color": "light_green",
     "coverage": 30,
+    "concealment": 30,
     "move_cost_mod": 1,
     "required_str": -1,
     "flags": [
@@ -480,6 +482,7 @@
     "color": "brown",
     "move_cost_mod": 1,
     "coverage": 40,
+    "concealment": 40,
     "deconstruct": { "items": [  ] },
     "required_str": 3,
     "flags": [ "SEALED", "TRANSPARENT", "CONTAINER", "EASY_DECONSTRUCT", "DONT_REMOVE_ROTTEN", "FLAMMABLE_ASH" ],

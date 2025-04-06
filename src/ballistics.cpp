@@ -484,14 +484,15 @@ dealt_projectile_attack projectile_attack( const projectile &proj_arg, const tri
                 attack.missed_by = aim.missed_by;
             }
         } else if( in_veh != nullptr && veh_pointer_or_null( here.veh_at( tp ) ) == in_veh ) {
-            // Don't do anything, especially don't call map::shoot as this would damage the vehicle
+            // Don't do anything, especially don't call map::shoot() as this would damage the vehicle
         } else {
             if( proj.count > 1 ) {
                 if( rl_dist( source, tp ) > 1 ) {
                     proj.impact = proj.shot_impact;
                 }
             }
-            here.shoot( tp, proj, !no_item_damage && tp == target );
+            // map::shoot() handles projectile collision with furniture and terrain as well as coverage.
+            here.shoot( tp, source, proj, !no_item_damage && tp == target, aim.dispersion );
             has_momentum = proj.impact.total_damage() > 0;
         }
         if( !has_momentum && proj.count > 1 && rl_dist( source, tp ) <= 1 ) {
@@ -499,10 +500,10 @@ dealt_projectile_attack projectile_attack( const projectile &proj_arg, const tri
             // to cancel out of applying the other projectiles.
             proj.count = 1;
         }
-
-        if( ( !has_momentum || !is_bullet ) && here.impassable( tp ) ) {
-            // Don't let flamethrowers go through walls
-            // TODO: Let them go through bars
+        // Flamethrowers go through bars etc, but not walls.
+        if( ( ( !has_momentum || !is_bullet ) && here.impassable( tp ) ) || ( stream &&
+                here.impassable( tp )
+                && !here.has_flag( ter_furn_flag::TFLAG_PERMEABLE, tp ) ) ) {
             traj_len = i;
             break;
         }
