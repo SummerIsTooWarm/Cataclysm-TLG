@@ -321,6 +321,8 @@ class Creature : public viewer
         void setpos( const tripoint &p );
         void setpos( const tripoint_bub_ms &p );
 
+        // Convert size to int. TODO: use this everywhere instead of enuming every time.
+        int enum_size() const;
         /** Checks if the creature fits into a given tile. Set the boolean argument to true if the creature would barely fit. */
         bool can_move_to_vehicle_tile( const tripoint_abs_ms &loc, bool &cramped ) const;
         /** Helper overload for when the boolean is discardable */

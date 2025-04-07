@@ -8043,12 +8043,14 @@ bool map::sees( const tripoint_bub_ms &F, const tripoint_bub_ms &T, const int ra
         return true;
     } );
     skew_cache.insert( 100000, key, visible ? 1 : 0 );
+    
     return visible;
 }
 
 int map::obstacle_concealment( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const
 {
     // Can't hide if you are standing on furniture, or non-flat slowing-down terrain tile.
+    // TODO: Let characters hide under furniture.
     if( furn( loc2 ).obj().id || ( move_cost( loc2 ) > 2 &&
                                    !has_flag_ter( ter_furn_flag::TFLAG_FLAT, loc2 ) ) ) {
         return 0;
@@ -8061,17 +8063,35 @@ int map::obstacle_concealment( const tripoint_bub_ms &loc1, const tripoint_bub_m
         obstaclepos = new_point;
         return false;
     } );
-    if( const furn_id obstacle_f = furn( obstaclepos ) ) {
-        return obstacle_f->concealment;
+    // if( const furn_id obstacle_f = furn( obstaclepos ) ) {
+    //     return obstacle_f->concealment;
+    // }
+    // if( const optional_vpart_position vp = veh_at( obstaclepos ) ) {
+    //     if( vp->obstacle_at_part() ) {
+    //         return 60;
+    //     } else if( !vp->part_with_feature( VPFLAG_AISLE, true ) ) {
+    //         return 45;
+    //     }
+    // }
+    return concealment( obstaclepos );
+    //return ter( obstaclepos )->concealment;
+}
+
+int map::obstacle_coverage( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const
+{
+    if( furn( loc2 ).obj().id || ( move_cost( loc2 ) > 2 &&
+                                   !has_flag_ter( ter_furn_flag::TFLAG_FLAT, loc2 ) ) ) {
+        return 0;
     }
-    if( const optional_vpart_position vp = veh_at( obstaclepos ) ) {
-        if( vp->obstacle_at_part() ) {
-            return 60;
-        } else if( !vp->part_with_feature( VPFLAG_AISLE, true ) ) {
-            return 45;
-        }
-    }
-    return ter( obstaclepos )->concealment;
+    const point a( std::abs( loc1.x() - loc2.x() ) * 2, std::abs( loc1.y() - loc2.y() ) * 2 );
+    int offset = std::min( a.x, a.y ) - ( std::max( a.x, a.y ) / 2 );
+    tripoint obstaclepos;
+    bresenham( loc2.raw(), loc1.raw(), offset, 0, [&obstaclepos]( const tripoint & new_point ) {
+        // Only adjacent tile between you and enemy is checked for cover.
+        obstaclepos = new_point;
+        return false;
+    } );
+    return coverage( obstaclepos );
 }
 
 int map::ledge_concealment( const Creature &viewer, const tripoint &target_p ) const

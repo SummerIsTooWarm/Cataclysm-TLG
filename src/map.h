@@ -709,6 +709,10 @@ class map
         * If there's no obstacle adjacent to the target - no concealment.
         */
         int obstacle_concealment( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const;
+        
+        // Currently only used for IR vision as map::shoot() handles most of this already.
+        int obstacle_coverage( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const;
+        
         // TODO: Get rid of untyped override.
         int ledge_concealment( const Creature &viewer, const tripoint &target_p ) const;
         int ledge_concealment( const Creature &viewer, const tripoint_bub_ms &target_p ) const;

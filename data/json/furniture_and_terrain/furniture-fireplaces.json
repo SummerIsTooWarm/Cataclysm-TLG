@@ -30,7 +30,7 @@
     "description": "A simple metal stove for hosting wood-fueled fires.  Good for cooking or heating food, and safe to use indoors.",
     "move_cost_mod": 2,
     "coverage": 60,
-    "concealment": 60,
+    "concealment": 38,
     "required_str": 10,
     "max_volume": "250 L",
     "crafting_pseudo_item": "fake_woodstove",

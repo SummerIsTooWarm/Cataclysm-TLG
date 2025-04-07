@@ -64,7 +64,7 @@
     "color": "white",
     "move_cost_mod": 2,
     "coverage": 60,
-    "concealment": 60,
+    "concealment": 38,
     "required_str": -1,
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "CONTAINER", "PLACE_ITEM", "MOUNTABLE" ],
     "connect_groups": "COUNTER",

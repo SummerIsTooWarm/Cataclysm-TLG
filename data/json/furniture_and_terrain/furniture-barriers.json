@@ -31,7 +31,7 @@
     "description": "A low wall made of stacked gravelbags, uncommonly used to catch bullets and block flooding.",
     "move_cost_mod": -1,
     "coverage": 60,
-    "concealment": 60,
+    "concealment": 38,
     "required_str": -1,
     "flags": [
       "CLIMB_SIMPLE",
@@ -95,7 +95,7 @@
     "description": "A low wall made of stacked earthbags, commonly used to catch bullets and block flooding.",
     "move_cost_mod": -1,
     "coverage": 60,
-    "concealment": 60,
+    "concealment": 38,
     "required_str": -1,
     "flags": [
       "CLIMB_SIMPLE",
@@ -176,7 +176,7 @@
     "description": "A low wall made of canvas sacks filled with sand, commonly used to catch bullets and prevent flooding.",
     "move_cost_mod": -1,
     "coverage": 60,
-    "concealment": 60,
+    "concealment": 38,
     "required_str": -1,
     "flags": [
       "CLIMB_SIMPLE",
@@ -259,7 +259,7 @@
     "looks_like": "f_showjump",
     "move_cost_mod": -1,
     "coverage": 60,
-    "concealment": 60,
+    "concealment": 38,
     "description": "The end of a show jump made of planks.",
     "required_str": -1,
     "flags": [ "TRANSPARENT", "NOITEM", "THIN_OBSTACLE", "PERMEABLE", "FLAMMABLE_ASH" ],

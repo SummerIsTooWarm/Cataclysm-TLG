@@ -1310,6 +1310,22 @@ int monster::sight_range( const float light_level ) const
     return range;
 }
 
+int monster::eye_level() const
+{
+    if( flies() || has_effect( effect_airborne ) ) {
+    return 100;
+    }
+    bool tall = ( type->bodytype == "human" || type->bodytype == "angel" || type->bodytype == "kangaroo" || type->bodytype == "horse"
+    || type->bodytype == "elephant" || type->bodytype == "bird" || type->bodytype == "bear" || type->bodytype == "migo" );
+    float eye_level = static_cast<float>( enum_size() ) * 20;
+    if ( has_effect( effect_downed ) ) {
+        eye_level *= 0.3;
+    } else if ( !tall ) {
+        eye_level *= 0.6;
+    }
+    return eye_level;
+}
+
 bool monster::made_of( const material_id &m ) const
 {
     return type->made_of( m );

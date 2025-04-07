@@ -237,6 +237,15 @@ static units::volume size_to_volume( creature_size size_class )
     return 250000_ml;
 }
 
+int Creature::enum_size() const {
+    static const int size_map[] = { 1, 2, 3, 4, 5 }; // Mapping from enum value to size
+    if ( get_size() < creature_size::num_sizes ) {
+        return size_map[static_cast<int>( get_size() )];
+    }
+    debugmsg("ERROR: enum_size() returned invalid creature size class.");
+    return 3;
+}
+
 bool Creature::can_move_to_vehicle_tile( const tripoint_abs_ms &loc, bool &cramped ) const
 {
     map &here = get_map();
@@ -564,50 +573,19 @@ bool Creature::sees( const Creature &critter ) const
              std::abs( posz() - critter.posz() ) <= 1 ) ) ) {
         return false;
     }
-    if( ch != nullptr ) {
-        if( ch->is_crouching() || ch->has_effect( effect_all_fours ) || ch->is_prone() ||
-            pos_bub().z() != critter.pos_bub().z() ) {
-            const int concealment = std::max( here.obstacle_concealment( pos_bub(), critter.pos_bub() ),
-                                              here.ledge_concealment( *this, critter.pos_bub() ) );
-            if( concealment < 30 ) {
-                return visible( ch );
+    const int concealment = std::max( here.obstacle_concealment( pos_bub(), critter.pos_bub() ),
+    here.ledge_concealment( *this, critter.pos_bub() ) );
+        if( ch != nullptr ) {
+            if( concealment > ch->eye_level() ) {
+                return false;
             }
-            float size_modifier = 1.0f;
-            switch( ch->get_size() ) {
-                case creature_size::tiny:
-                    size_modifier = 2.0f;
-                    break;
-                case creature_size::small:
-                    size_modifier = 1.4f;
-                    break;
-                case creature_size::medium:
-                    break;
-                case creature_size::large:
-                    size_modifier = 0.6f;
-                    break;
-                case creature_size::huge:
-                    size_modifier = 0.15f;
-                    break;
-                case creature_size::num_sizes:
-                    debugmsg( "ERROR: Creature has invalid size class." );
-                    break;
+            return visible( ch );
+        } else {
+            if( concealment > critter.as_monster()->eye_level() ) {
+                return false;
             }
-
-            int profile = 120 / size_modifier;
-            if( ch->is_crouching() || ch->has_effect( effect_all_fours ) ) {
-                profile *= 0.5;
-            } else if( ch->is_prone() ) {
-                profile *= 0.275;
-            }
-
-            if( concealment < profile ) {
-                const int vision_modifier = std::max( 30 * ( 1 - concealment / profile ), 1 );
-                return target_range <= vision_modifier && visible( ch );
-            }
-            return false;
         }
-    }
-    return visible( ch );
+    return true;
 }
 
 bool Creature::sees( const tripoint &t, bool is_avatar, int range_mod ) const

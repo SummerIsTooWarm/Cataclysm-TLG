@@ -206,7 +206,7 @@
     "color": "dark_gray",
     "move_cost": 0,
     "coverage": 60,
-  "concealment": 60,
+  "concealment": 38,
     "roof": "t_vitrified_roof",
     "connect_groups": [ "INDOORFLOOR", "WALL" ],
     "connects_to": "WALL",
@@ -341,7 +341,7 @@
     "color": "dark_gray",
     "move_cost": 8,
     "coverage": 60,
-  "concealment": 60,
+  "concealment": 38,
     "roof": "t_vitrified_roof",
     "bash": {
       "str_min": 1,
