@@ -4,11 +4,11 @@
     "id": "f_bigmirror",
     "name": "standing mirror",
     "symbol": "{",
-    "description": "A full-length mirror mounted in a sleek aluminum frame.  You can easily see all of the dirt and blood on your clothes, and the weariness in your eyes.",
+    "description": "A full-length mirror mounted in a sleek aluminum frame.",
     "color": "white",
     "move_cost_mod": 2,
-    "coverage": 80,
-    "concealment": 80,
+    "coverage": 65,
+    "concealment": 65,
     "required_str": 5,
     "crafting_pseudo_item": "mirror",
     "flags": [ "NOITEM", "BLOCKSDOOR", "EASY_DECONSTRUCT" ],
@@ -21,7 +21,7 @@
       "sound_fail": "whack!",
       "sound_vol": 16,
       "furn_set": "f_bigmirror_b",
-      "items": [ { "item": "glass_shard", "count": [ 121, 131 ] } ]
+      "items": [ { "item": "glass_shard", "charges": [ 60, 120 ] } ]
     }
   },
   {
@@ -32,8 +32,8 @@
     "symbol": "{",
     "color": "light_gray",
     "move_cost_mod": 2,
-    "coverage": 80,
-    "concealment": 80,
+    "coverage": 65,
+    "concealment": 65,
     "required_str": 5,
     "flags": [ "NOITEM", "BLOCKSDOOR" ],
     "bash": {
@@ -41,7 +41,7 @@
       "str_max": 30,
       "sound": "metal screeching!",
       "sound_fail": "clang!",
-      "items": [ { "item": "scrap_aluminum", "count": [ 7, 10 ] }, { "item": "glass_shard", "count": [ 26, 46 ] } ]
+      "items": [ { "item": "scrap_aluminum", "count": [ 7, 10 ] }, { "item": "glass_shard", "charges": [ 26, 46 ] } ]
     }
   },
   {
@@ -52,8 +52,8 @@
     "symbol": "B",
     "color": "light_gray",
     "move_cost_mod": 2,
-    "coverage": 30,
-    "concealment": 30,
+    "coverage": 10,
+    "concealment": 10,
     "required_str": 0,
     "bash": {
       "str_min": 80,
@@ -73,8 +73,8 @@
     "color": "light_gray",
     "looks_like": "f_bitts",
     "move_cost_mod": 2,
-    "coverage": 30,
-    "concealment": 30,
+    "coverage": 10,
+    "concealment": 10,
     "required_str": 0,
     "bash": {
       "str_min": 80,
@@ -94,6 +94,7 @@
     "color": "light_gray",
     "move_cost_mod": 1,
     "required_str": -1,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "ALLOW_FIELD_EFFECT", "MOUNTABLE", "SHORT" ],
     "bash": {
       "str_min": 18,
@@ -172,6 +173,7 @@
     "color": "white",
     "move_cost_mod": -1,
     "required_str": 10,
+    "coverage": 15,
     "flags": [ "BLOCKSDOOR", "MINEABLE" ],
     "bash": {
       "str_min": 16,
@@ -194,6 +196,7 @@
     "color": "white",
     "move_cost_mod": -2,
     "required_str": 10,
+    "coverage": 5,
     "flags": [ "TRANSPARENT", "BLOCKSDOOR", "PLACE_ITEM" ],
     "deconstruct": {
       "items": [
@@ -221,6 +224,7 @@
     "color": "light_gray",
     "move_cost_mod": 2,
     "required_str": 1,
+    "coverage": 5,
     "examine_action": { "type": "appliance_convert", "furn_set": "f_null", "item": "standing_lamp" },
     "flags": [ "TRANSPARENT", "BLOCKSDOOR", "PLACE_ITEM", "EASY_DECONSTRUCT" ],
     "deconstruct": { "items": [ { "item": "standing_lamp", "count": 1 } ] },
@@ -247,6 +251,8 @@
     "color": "light_gray",
     "required_str": -1,
     "move_cost_mod": -1,
+    "coverage": 38,
+    "concealment": 38,
     "deconstruct": { "items": [ { "item": "lightstrip_inactive" }, { "item": "material_aluminium_ingot", "count": 4 } ] },
     "bash": {
       "str_min": 18,
@@ -265,6 +271,7 @@
     "color": "light_green",
     "move_cost_mod": 2,
     "required_str": 5,
+    "coverage": 0,
     "bash": {
       "str_min": 20,
       "str_max": 40,
@@ -287,6 +294,7 @@
     "color": "yellow",
     "move_cost_mod": 2,
     "required_str": -1,
+    "coverage": 5,
     "bash": {
       "str_min": 1,
       "str_max": 1,
@@ -305,6 +313,8 @@
     "looks_like": "t_tree_pine",
     "move_cost_mod": -1,
     "required_str": 10,
+    "concealment": 65,
+    "coverage": 15,
     "flags": [ "BLOCKSDOOR", "PLACE_ITEM", "EASY_DECONSTRUCT" ],
     "bash": {
       "str_min": 20,
@@ -326,8 +336,8 @@
     "description": "A styling station, is a countertop with a mirror mounted above it and just enough room and cubbies to store a stylist's equipment on it.",
     "color": "white",
     "move_cost_mod": 5,
-    "coverage": 80,
-    "concealment": 80,
+    "coverage": 45,
+    "concealment": 45,
     "required_str": -1,
     "crafting_pseudo_item": "mirror",
     "flags": [ "TRANSPARENT", "FLAMMABLE_ASH" ],

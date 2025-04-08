@@ -238,7 +238,7 @@ static units::volume size_to_volume( creature_size size_class )
 }
 
 int Creature::enum_size() const {
-    static const int size_map[] = { 1, 2, 3, 4, 5 }; // Mapping from enum value to size
+    static const int size_map[] = { 0, 1, 2, 3, 4 }; // Mapping from enum value to size
     if ( get_size() < creature_size::num_sizes ) {
         return size_map[static_cast<int>( get_size() )];
     }
