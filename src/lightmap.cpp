@@ -1122,8 +1122,8 @@ void map::seen_cache_process_ledges( array_of_grids_of<float> &seen_caches,
                         // Or floor reached
                         if( ( *floor_caches[cache_z] ) [p.x][p.y] ) {
                             // In which case check if it should be obscured by a ledge
-                            if( override_p ? ledge_concealment( origin, p ) > 100 : ledge_concealment( player_character,
-                                    p ) > 100 ) {
+                            if( override_p ? ledge_concealment( origin, p ) >= 100 : ledge_concealment( player_character,
+                                    p ) >= player_character.eye_level() ) {
                                 ( *seen_caches[cache_z] )[p.x][p.y] = 0.0f;
                             }
                             break;

@@ -4950,7 +4950,7 @@ void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, co
         dam = vp->vehicle().damage( *this, vp->part_index(), dam, main_damage_type, hit_items );
     }
 
-    // New projectile concealment system due to the old one is bad!
+    // New projectile coverage system due to the old one is bad!
     int dist = rl_dist( source, p );
     int coverage = ter( p )->coverage;
     if( coverage > 0 && dist > 1 && rng( 1, 100 ) > coverage ) {
@@ -8049,12 +8049,12 @@ bool map::sees( const tripoint_bub_ms &F, const tripoint_bub_ms &T, const int ra
 
 int map::obstacle_concealment( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const
 {
-    // Can't hide if you are standing on furniture, or non-flat slowing-down terrain tile.
-    // TODO: Let characters hide under furniture.
-    if( furn( loc2 ).obj().id || ( move_cost( loc2 ) > 2 &&
-                                   !has_flag_ter( ter_furn_flag::TFLAG_FLAT, loc2 ) ) ) {
-        return 0;
-    }
+    // Can't hide if you are standing on furniture.
+    // TODO: Let characters hide under furniture & prevent big ones from standing on it.
+    //if( furn( loc2 ).obj().id || ( move_cost( loc2 ) > 2 &&
+    //                              !has_flag_ter( ter_furn_flag::TFLAG_FLAT, loc2 ) ) ) {
+    //   return 0;
+    //}
     const point a( std::abs( loc1.x() - loc2.x() ) * 2, std::abs( loc1.y() - loc2.y() ) * 2 );
     int offset = std::min( a.x, a.y ) - ( std::max( a.x, a.y ) / 2 );
     tripoint obstaclepos;
@@ -8074,15 +8074,14 @@ int map::obstacle_concealment( const tripoint_bub_ms &loc1, const tripoint_bub_m
     //     }
     // }
     return concealment( obstaclepos );
-    //return ter( obstaclepos )->concealment;
 }
 
 int map::obstacle_coverage( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const
 {
-    if( furn( loc2 ).obj().id || ( move_cost( loc2 ) > 2 &&
-                                   !has_flag_ter( ter_furn_flag::TFLAG_FLAT, loc2 ) ) ) {
-        return 0;
-    }
+     //if( furn( loc2 ).obj().id || ( move_cost( loc2 ) > 2 &&
+     //                               !has_flag_ter( ter_furn_flag::TFLAG_FLAT, loc2 ) ) ) {
+     //    return 0;
+     //}
     const point a( std::abs( loc1.x() - loc2.x() ) * 2, std::abs( loc1.y() - loc2.y() ) * 2 );
     int offset = std::min( a.x, a.y ) - ( std::max( a.x, a.y ) / 2 );
     tripoint obstaclepos;
@@ -8102,56 +8101,55 @@ int map::ledge_concealment( const Creature &viewer, const tripoint &target_p ) c
 int map::ledge_concealment( const Creature &viewer, const tripoint_bub_ms &target_p ) const
 {
     tripoint_bub_ms viewer_p = viewer.pos_bub();
-    creature_size viewer_size = viewer.get_size();
+    //creature_size viewer_size = viewer.get_size();
 
     // Viewer eye level from ground in grids
-    float eye_level = 1.0f;
-    switch( viewer_size ) {
-        case creature_size::medium:
-            break;
-        case creature_size::tiny:
-            eye_level = 0.4f;
-            break;
-        case creature_size::small:
-            eye_level = 0.7f;
-            break;
-        case creature_size::large:
-            eye_level = 1.3f;
-            break;
-        case creature_size::huge:
-            eye_level = 1.6f;
-            break;
-        case creature_size::num_sizes:
-            debugmsg( "ERROR: Creature has invalid size class." );
-            break;
-    }
+
+    //int eye_level = viewer.eye_level();
+
+    // float eye_level = 1.0f;
+    // switch( viewer_size ) {
+    //     case creature_size::medium:
+    //         break;
+    //     case creature_size::tiny:
+    //         eye_level = 0.4f;
+    //         break;
+    //     case creature_size::small:
+    //         eye_level = 0.7f;
+    //         break;
+    //     case creature_size::large:
+    //         eye_level = 1.3f;
+    //         break;
+    //     case creature_size::huge:
+    //         eye_level = 1.6f;
+    //         break;
+    //     case creature_size::num_sizes:
+    //         debugmsg( "ERROR: Creature has invalid size class." );
+    //         break;
+    // }
     // Viewer eye level crouch / prone multipliers
-    const Character *viewer_ch = viewer.as_character();
-    if( viewer_ch ) {
-        if( viewer_ch->is_crouching() ) {
-            eye_level *= 0.5;
-        } else if( viewer_ch->is_prone() ) {
-            eye_level *= 0.275;
-        }
-    }
+    // const Character *viewer_ch = viewer.as_character();
+    // if( viewer_ch ) {
+    //     if( viewer_ch->is_crouching() ) {
+    //         eye_level *= 0.5;
+    //     } else if( viewer_ch->is_prone() ) {
+    //         eye_level *= 0.3;
+    //     }
+    // } else {
+    //     if( viewer->is_prone() )
+    // }
     // Viewer eye level is higher when standing on furniture
-    const furn_id viewer_furn = furn( viewer_p );
-    if( viewer_furn.obj().id ) {
-        eye_level += viewer_furn->concealment * 0.01f;
-    }
+    //const furn_id viewer_furn = furn( viewer_p );
 
-    return ledge_concealment( viewer_p, target_p, eye_level );
+    return ledge_concealment( viewer_p, target_p );
 }
 
-int map::ledge_concealment( const tripoint &viewer_p, const tripoint &target_p,
-                            const float &eye_level ) const
+int map::ledge_concealment( const tripoint &viewer_p, const tripoint &target_p ) const
 {
-    return map::ledge_concealment( tripoint_bub_ms( viewer_p ), tripoint_bub_ms( target_p ),
-                                   eye_level );
+    return map::ledge_concealment( tripoint_bub_ms( viewer_p ), tripoint_bub_ms( target_p ) );
 }
 
-int map::ledge_concealment( const tripoint_bub_ms &viewer_p, const tripoint_bub_ms &target_p,
-                            const float &eye_level ) const
+int map::ledge_concealment( const tripoint_bub_ms &viewer_p, const tripoint_bub_ms &target_p ) const
 {
     if( viewer_p.z() == target_p.z() ) {
         return 0;
@@ -8178,34 +8176,21 @@ int map::ledge_concealment( const tripoint_bub_ms &viewer_p, const tripoint_bub_
         return true;
     } );
 
-    // Height of each z-level in grids
-    const float zlevel_to_grid_ratio = 2.0f;
     float dist_to_ledge_base = trig_dist( viewer_p, tripoint_bub_ms( ledge_p.x, ledge_p.y,
                                           viewer_p.z() ) );
     // Adjustment to ledge distance because ledge is assumed to be between two grids
     dist_to_ledge_base += ( viewer_p.z() < target_p.z() ) ? -0.5f : 0.5f;
     const float flat_dist = trig_dist( viewer_p, tripoint_bub_ms( target_p.xy(), viewer_p.z() ) );
-    // Absolute level of viewer's eye
-    const float abs_eye_z = viewer_p.z() * zlevel_to_grid_ratio + eye_level;
-    // "Opposite" of the angle between the eye level and ledge
-    const float eye_ledge_z_delta = ( ledge_p.z * zlevel_to_grid_ratio ) - abs_eye_z;
-    const float tangent = eye_ledge_z_delta / dist_to_ledge_base;
+    // Similarly adjust relative Z comparisons.
+    const float adjusted_viewer_z = viewer_p.z() * 2;
+    // "Opposite" of the angle between the viewer level and ledge
+    const float adjusted_ledge_z_delta = ( ledge_p.z ) - adjusted_viewer_z;
+    const float tangent = adjusted_ledge_z_delta / dist_to_ledge_base;
     // Absolute level concealed by ledge, anything below this point is invisible
-    const float covered_z = abs_eye_z + ( tangent * flat_dist );
-    // Ledge concealment given by comparing covered_z and the absolute z of the target space
-    float ledge_concealment = ( covered_z - target_p.z() * zlevel_to_grid_ratio ) * 100;
-
-    // Early exit if the tile is definitely not covered
-    if( ledge_concealment < 0 ) {
-        return 0;
-    }
-    // Target has a concealment penalty when standing on furniture
-    const furn_id target_furn = furn( target_p );
-    if( target_furn ) {
-        ledge_concealment -= target_furn->concealment;
-    }
-
-    return std::max( ledge_concealment, 0.0f );
+    const float covered_z = adjusted_viewer_z + ( tangent * flat_dist );
+    // Compare adjusted target Z to covered area. Multiply by 100 to compare to eye_level().
+    int ledge_concealment = 100 * ( covered_z - ( target_p.z() * 2 ) );
+    return std::max( ledge_concealment, 0 );
 }
 
 int map::concealment( const tripoint &p ) const

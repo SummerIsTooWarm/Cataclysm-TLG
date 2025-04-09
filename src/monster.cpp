@@ -1323,6 +1323,21 @@ int monster::eye_level() const
     } else if ( !tall ) {
         eye_level *= 0.6;
     }
+
+    map &here = get_map();
+    const furn_id viewer_furn = here.furn( pos_bub() );
+    const furn_t &furn = viewer_furn.obj();
+    if( !furn.id ) {
+        return eye_level;
+    }
+    if( furn.coverage <= 0 ) {
+        return eye_level;
+    }
+    if( ( furn.has_flag( ter_furn_flag::TFLAG_CAN_SIT ) || furn.has_flag( ter_furn_flag::TFLAG_MOUNTABLE ) || furn.has_flag( ter_furn_flag::TFLAG_FLAT_SURF ) || furn.has_flag( ter_furn_flag::TFLAG_FLAT ) || furn.has_flag( ter_furn_flag::TFLAG_CLIMBABLE ) ) &&
+        !furn.has_flag( ter_furn_flag::TFLAG_HIDE_PLACE ) &&
+        ( !furn.has_flag( ter_furn_flag::TFLAG_SMALL_HIDE ) && !this->has_flag( mon_flag_SMALL_HIDER ) ) ) {
+        eye_level += furn.coverage;
+    }
     return eye_level;
 }
 

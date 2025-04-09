@@ -1352,13 +1352,25 @@ int Character::eye_level() const
     // Standing:  Tiny = 20, Small = 40, Med = 60, Large = 80, Huge = 100
     // Crouching: Tiny = 12, Small = 24, Med = 36, Large = 48, Huge = 60
     // Prone:     Tiny = 6,  Small = 12, Med = 18, Large = 24, Huge = 30
-    // Dirtmound = 10, Tall Grass = 15, Window = 38, Couch 38, Counter = 38, Dresser 40, Bramble = 40
     int eye_level = static_cast<float>( enum_size() ) * 20;
-
     if ( flat ) {
         eye_level *= 0.3;
     } else if ( low_profile ) {
         eye_level *= 0.6;
+    }
+
+    map &here = get_map();
+    const furn_id viewer_furn = here.furn( pos_bub() );
+    const furn_t &furn = viewer_furn.obj();
+    if( !furn.id ) {
+        return eye_level;
+    }
+    if( furn.coverage <= 0 ) {
+        return eye_level;
+    }
+    if( ( furn.has_flag( ter_furn_flag::TFLAG_CAN_SIT ) || furn.has_flag( ter_furn_flag::TFLAG_MOUNTABLE ) || furn.has_flag( ter_furn_flag::TFLAG_FLAT_SURF ) || furn.has_flag( ter_furn_flag::TFLAG_FLAT ) || furn.has_flag( ter_furn_flag::TFLAG_CLIMBABLE ) ) &&
+        !furn.has_flag( ter_furn_flag::TFLAG_HIDE_PLACE ) ) {
+        eye_level += furn.coverage;
     }
     return eye_level;
 }

@@ -717,10 +717,8 @@ class map
         int ledge_concealment( const Creature &viewer, const tripoint &target_p ) const;
         int ledge_concealment( const Creature &viewer, const tripoint_bub_ms &target_p ) const;
         // TODO: Get rid of untyped override.
-        int ledge_concealment( const tripoint &viewer_p, const tripoint &target_p,
-                               const float &eye_level = 1.0f ) const;
-        int ledge_concealment( const tripoint_bub_ms &viewer_p, const tripoint_bub_ms &target_p,
-                               const float &eye_level = 1.0f ) const;
+        int ledge_concealment( const tripoint &viewer_p, const tripoint &target_p ) const;
+        int ledge_concealment( const tripoint_bub_ms &viewer_p, const tripoint_bub_ms &target_p ) const;
         /**
         * Returns concealment value of the tile.
         */

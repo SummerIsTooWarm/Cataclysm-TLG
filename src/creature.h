@@ -387,6 +387,9 @@ class Creature : public viewer
          */
         virtual bool avoid_trap( const tripoint &pos, const trap &tr ) const = 0;
 
+        /** Gets the relevant eye_level() function from either monster or Character. */
+        int eye_level() const;
+
         /**
          * The functions check whether this creature can see the target.
          * The target may either be another creature (critter), or a specific point on the map.

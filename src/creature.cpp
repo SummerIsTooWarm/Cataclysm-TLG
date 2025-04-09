@@ -238,7 +238,7 @@ static units::volume size_to_volume( creature_size size_class )
 }
 
 int Creature::enum_size() const {
-    static const int size_map[] = { 0, 1, 2, 3, 4 }; // Mapping from enum value to size
+    static const int size_map[] = { 0, 1, 2, 3, 4, 5 }; // Mapping from enum value to size
     if ( get_size() < creature_size::num_sizes ) {
         return size_map[static_cast<int>( get_size() )];
     }
@@ -547,7 +547,10 @@ bool Creature::sees( const Creature &critter ) const
         critter.has_effect( effect_telepathic_ignorance_self ) ) {
         return false;
     }
-
+    bool different_levels = false;
+    if( posz() != critter.posz() ) {
+        different_levels = true;
+    }
     if( ( target_range > 2 && critter.digging() &&
           here.has_flag( ter_furn_flag::TFLAG_DIGGABLE, critter.pos_bub() ) ) ||
         ( critter.has_flag( mon_flag_CAMOUFLAGE ) && target_range > this->get_eff_per() ) ||
@@ -563,29 +566,37 @@ bool Creature::sees( const Creature &critter ) const
         ( !is_likely_underwater() && critter.is_likely_underwater() &&
           majority_rule( critter.has_flag( mon_flag_WATER_CAMOUFLAGE ),
                          here.has_flag( ter_furn_flag::TFLAG_DEEP_WATER, critter.pos_bub() ),
-                         posz() != critter.posz() ) ) ||
-        ( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_HIDE_PLACE, critter.pos_bub() ) &&
-          !( std::abs( posx() - critter.posx() ) <= 1 && std::abs( posy() - critter.posy() ) <= 1 &&
-             std::abs( posz() - critter.posz() ) <= 1 ) ) ||
+                         different_levels ) ) ||
+        ( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_HIDE_PLACE, critter.pos_bub() ) ) ||
         ( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_SMALL_HIDE, critter.pos_bub() ) &&
-          critter.has_flag( mon_flag_SMALL_HIDER ) &&
-          !( std::abs( posx() - critter.posx() ) <= 1 && std::abs( posy() - critter.posy() ) <= 1 &&
-             std::abs( posz() - critter.posz() ) <= 1 ) ) ) {
+          critter.has_flag( mon_flag_SMALL_HIDER ) ) ) {
         return false;
     }
-    const int concealment = std::max( here.obstacle_concealment( pos_bub(), critter.pos_bub() ),
-    here.ledge_concealment( *this, critter.pos_bub() ) );
+    int ledge_concealment = 0;
+    if( different_levels ) {
+        ledge_concealment = here.ledge_concealment( pos_bub(), critter.pos_bub() );
+    }
+    const int concealment = std::max( here.obstacle_concealment( pos_bub(), critter.pos_bub() ), ledge_concealment );
         if( ch != nullptr ) {
-            if( concealment > ch->eye_level() ) {
+            if( concealment > eye_level() ) {
                 return false;
             }
             return visible( ch );
         } else {
-            if( concealment > critter.as_monster()->eye_level() ) {
+            if( concealment > eye_level() ) {
                 return false;
             }
         }
     return true;
+}
+
+int Creature::eye_level() const
+{
+    if( this->is_monster() ) {
+        return this->as_monster()->eye_level();
+    } else {
+        return this->as_character()->eye_level();
+    }
 }
 
 bool Creature::sees( const tripoint &t, bool is_avatar, int range_mod ) const
