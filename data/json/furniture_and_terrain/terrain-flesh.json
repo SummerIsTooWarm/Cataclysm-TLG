@@ -28,7 +28,7 @@
     "color": "magenta_yellow",
     "move_cost": 0,
     "coverage": 100,
-  "concealment": 100,
+    "concealment": 100,
     "roof": "t_concrete_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
