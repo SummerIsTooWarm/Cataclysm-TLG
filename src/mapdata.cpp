@@ -450,6 +450,8 @@ bool map_shoot_info::load( const JsonObject &jsobj, const std::string_view membe
     std::pair<int, int> reduce_damage;
     std::pair<int, int> reduce_damage_laser;
     std::pair<int, int> destroy_damage;
+    std::pair<ter_str_id, int> bash_as_ter;
+    std::pair<furn_str_id, int> bash_as_furn;
 
     mandatory( j, was_loaded, "reduce_damage", reduce_damage );
     mandatory( j, was_loaded, "reduce_damage_laser", reduce_damage_laser );
@@ -462,6 +464,8 @@ bool map_shoot_info::load( const JsonObject &jsobj, const std::string_view membe
     destroy_dmg_min = destroy_damage.first;
     destroy_dmg_max = destroy_damage.second;
 
+    optional( j, was_loaded, "bash_as_ter", bash_as_ter );
+    optional( j, was_loaded, "bash_as_furn", bash_as_furn );
     optional( j, was_loaded, "no_laser_destroy", no_laser_destroy, false );
 
     return true;

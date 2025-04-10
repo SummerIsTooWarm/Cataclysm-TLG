@@ -237,12 +237,13 @@ static units::volume size_to_volume( creature_size size_class )
     return 250000_ml;
 }
 
-int Creature::enum_size() const {
+int Creature::enum_size() const
+{
     static const int size_map[] = { 0, 1, 2, 3, 4, 5 }; // Mapping from enum value to size
-    if ( get_size() < creature_size::num_sizes ) {
+    if( get_size() < creature_size::num_sizes ) {
         return size_map[static_cast<int>( get_size() )];
     }
-    debugmsg("ERROR: enum_size() returned invalid creature size class.");
+    debugmsg( "ERROR: enum_size() returned invalid creature size class." );
     return 3;
 }
 
@@ -576,17 +577,18 @@ bool Creature::sees( const Creature &critter ) const
     if( different_levels ) {
         ledge_concealment = here.ledge_concealment( pos_bub(), critter.pos_bub() );
     }
-    const int concealment = std::max( here.obstacle_concealment( pos_bub(), critter.pos_bub() ), ledge_concealment );
-        if( ch != nullptr ) {
-            if( concealment > eye_level() ) {
-                return false;
-            }
-            return visible( ch );
-        } else {
-            if( concealment > eye_level() ) {
-                return false;
-            }
+    const int concealment = std::max( here.obstacle_concealment( pos_bub(), critter.pos_bub() ),
+                                      ledge_concealment );
+    if( ch != nullptr ) {
+        if( concealment > eye_level() ) {
+            return false;
         }
+        return visible( ch );
+    } else {
+        if( concealment > eye_level() ) {
+            return false;
+        }
+    }
     return true;
 }
 

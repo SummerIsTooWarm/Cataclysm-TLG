@@ -25,7 +25,7 @@
       "ter_set": "t_window_frame",
       "items": [ { "item": "glass_shard", "count": [ 14, 29 ] }, { "item": "glass_shard_large", "count": [ 0, 4 ] } ]
     },
-    "shoot": { "reduce_damage": [ 1, 4 ], "reduce_damage_laser": [ 0, 4 ], "destroy_damage": [ 1, 4 ], "no_laser_destroy": true }
+    "shoot": { "bash_as_ter": [ "t_window_empty", 38 ], "reduce_damage": [ 0, 0], "reduce_damage_laser": [ 0, 4 ], "destroy_damage": [ 2, 8 ], "no_laser_destroy": false }
   },
   {
     "type": "terrain",

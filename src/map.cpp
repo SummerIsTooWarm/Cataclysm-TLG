@@ -147,6 +147,8 @@ static const furn_str_id furn_f_rubble( "f_rubble" );
 static const furn_str_id furn_f_rubble_rock( "f_rubble_rock" );
 static const furn_str_id furn_f_wreckage( "f_wreckage" );
 
+static furn_id f_null;
+
 static const item_group_id Item_spawn_data_default_zombie_clothes( "default_zombie_clothes" );
 static const item_group_id Item_spawn_data_default_zombie_items( "default_zombie_items" );
 
@@ -4914,6 +4916,7 @@ void map::crush( const tripoint_bub_ms &p )
     }
 }
 
+
 void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, const bool hit_items,
                  double dispersion )
 {
@@ -4946,109 +4949,134 @@ void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, co
     const bool ignite = ammo_effects.count( ammo_effect_IGNITE );
     const bool laser = ammo_effects.count( ammo_effect_LASER );
 
-    if( const optional_vpart_position vp = veh_at( p ) ) {
-        dam = vp->vehicle().damage( *this, vp->part_index(), dam, main_damage_type, hit_items );
-    }
-
-    // New projectile coverage system due to the old one is bad!
     int dist = rl_dist( source, p );
-    int coverage = ter( p )->coverage;
-    if( coverage > 0 && dist > 1 && rng( 1, 100 ) > coverage ) {
-        if( dist == 2 ) {
-            coverage *= 0.75;
-        } else if( dist == 3 ) {
-            coverage *= 0.5;
-        } else if( dist == 4 ) {
-            coverage *= 0.25;
+    // Manually check coverage sources as coverage() isn't smart enough.
+    int furn_coverage = 0;
+    if( furn( p ) != f_null ) {
+        furn_coverage = furn( p )->coverage;
+    }
+    int ter_coverage = 0;
+    if( ter( p ) != t_null ) {
+        ter_coverage = ter( p )->coverage;
+    }
+    int veh_coverage = 0;
+    if( const optional_vpart_position vp = veh_at( p ) ) {
+        const bool is_obstacle = vp->obstacle_at_part().has_value();
+        const bool is_aisle = vp->part_with_feature( VPFLAG_AISLE, true ).has_value();
+        if( is_obstacle ) {
+            veh_coverage = 100;
+        } else if( is_obstacle ) {
+            veh_coverage = 60;
+        } else if( !is_aisle ) {
+            veh_coverage = 45;
         }
+    }
     // Prevent vehicle turrets and creatures in vehicles from shooting their own vehicles.
     // TODO: Multi-Z level vehicles.
     if( veh_at( p ) ) {
         bool same_vehicle = &veh_at( source )->vehicle() == &veh_at( p )->vehicle();
         if( same_vehicle ) {
-            coverage = 0;
+            veh_coverage = 0;
         }
     }
-        /**
-        * Shot accuracy helps us bypass cover. 1000.0f is a reasonable midpoint between "good"
-        * and "bad" shots, with 0.0f being perfect and 2000.0f being a pure gamble. See ranged.cpp
-        * for more details on dispersion.
-        */
-        if( dispersion < 1000.0f ) {
-            coverage *= dispersion / 1000.0f;
-        }
-        if( !laser || ( laser && !ter( p )->transparent ) ) {
-            int damdown = std::min( static_cast<int>( dam ), rng( ter( p )->bash.str_min,
-                                    ( ter( p )->bash.str_max ) ) );
-            add_msg( _( "Projectile with dispersion %1s and dam %2s strikes %3s (adjusted coverage %4s), losing %5s damage!" ),
-                     dispersion, dam, ter( p )->name(), coverage, damdown );
-            bash( p, dam, false );
-            dam -= damdown;
-        }
+    int coverage = std::max( { veh_coverage, furn_coverage, ter_coverage } );
+
+    bool veh_hit = false;
+    bool furn_hit = false;
+    bool ter_hit = false;
+
+    if( veh_coverage == coverage ) {
+        veh_hit = true;
+    } else if( furn_coverage == coverage ) {
+        furn_hit = true;
+    } else {
+        ter_hit = true;
     }
-
-    // This lambda is only called if the furniture/terrain has shoot data!
-    const auto shoot_furn_ter = [&]( const map_data_common_t &data ) {
-        const map_shoot_info &shoot = *data.shoot;
-        bool destroyed = false;
-
-        // if you are aiming at this tile, you can never miss
-        if( hit_items || x_in_y( shoot.chance_to_hit, 100 ) ) {
-            if( laser ) {
-                dam -= rng( shoot.reduce_dmg_min_laser, shoot.reduce_dmg_max_laser );
-            } else {
-                dam -= rng( shoot.reduce_dmg_min, shoot.reduce_dmg_max );
-            }
-            // lasers can't destroy some types of furn/ter you can shoot through
-            if( !laser || !shoot.no_laser_destroy ) {
-                // important to use initial damage, energy from reduction has gone into the furn/ter
-                const int min_damage = int( initial_damage ) - shoot.destroy_dmg_min;
-                const int max_damage = shoot.destroy_dmg_max - shoot.destroy_dmg_min;
-                if( x_in_y( min_damage, max_damage ) ) {
-                    // don't need to duplicate all the destruction logic here
-                    bash_params bsh{ 0, false, true, false, 0.0, false, false, false, false };
-                    bash_ter_furn( p, bsh );
-                    destroyed = true;
-                }
-            }
-            if( dam <= 0 && get_player_view().sees( p ) ) {
-                add_msg( _( "The shot is stopped by the %s!" ), data.name() );
-            }
-            // only very flammable furn/ter can be set alight with incendiary rounds
-            if( data.has_flag( ter_furn_flag::TFLAG_FLAMMABLE_ASH ) ) {
-                if( incendiary && x_in_y( 1, 10 ) ) { // 10% chance
-                    add_field( p, fd_fire, 1 );
-                }
-                if( ignite ) {
-                    add_field( p, fd_fire, 1 );
-                }
-            }
-            // bash_ter_furn already triggers the alarm
-            // TODO: fix alarm event weirdness (not just here, also in bash, hack, etc)
-            if( !destroyed && data.has_flag( ter_furn_flag::TFLAG_ALARMED ) ) {
-                sounds::sound( p, 40, sounds::sound_t::alarm, _( "an alarm go off!" ),
-                               false, "environment", "alarm" );
-            }
-            return true;
-        }
-        return false;
-    };
-
-    furn_id furniture = furn( p );
-    ter_id terrain = ter( p );
+    if( dist <= 1 ) {
+        coverage = 0;
+    } else if( dist == 2 ) {
+        coverage *= 0.25;
+    } else if( dist == 3 ) {
+        coverage *= 0.5;
+    } else if( dist == 4 ) {
+        coverage *= 0.75;
+    }
+    /**
+    * Shot accuracy helps us bypass cover. 1000.0f is a reasonable midpoint between "good"
+    * and "bad" shots, with 0.0f being perfect and 2000.0f being a pure gamble. See ranged.cpp
+    * for more details on dispersion.
+    */
+    if( coverage > 0 && dispersion < 1000.0f ) {
+        coverage *= dispersion / 1000.0f;
+    }
+    // Check again so we can skip if the result was zero.
     bool hit_something = false;
-
-    // shoot through furniture or terrain and see if we hit something
-    if( furniture->shoot ) { // Shoot data is optional, most furniture will never trigger this
-        hit_something |= shoot_furn_ter( furniture.obj() );
-    } else if( terrain->shoot ) { // Shoot data is optional, most terrain will never trigger this
-        hit_something |= shoot_furn_ter( terrain.obj() );
-        // fall back to just bashing when shoot data is not defined
-    } else if( impassable( p ) && !is_transparent( p ) ) {
-        bash( p, dam, false );
-        dam = 0;
+    if( coverage > 0 ) {
+        int coverage_roll = rng( 1, 100 );
+        if( coverage > 0 && coverage_roll < coverage ) {
+            furn_id furniture = furn( p );
+            ter_id terrain = ter( p );
+            // Did we hit the ter/furn/veh?
+            hit_something = true;
+            bool laser_passthrough = false;
+            if( ter_hit || furn_hit ) {
+                // Does the ter/furn have shoot data? If so, it will run this lambda first.
+                const auto shoot_furn_ter = [&]( const map_data_common_t &data ) {
+                    if( !data.shoot ) {
+                        return;
+                    }
+                    const map_shoot_info &shoot = *data.shoot;
+                    // Handle treating ter/furn as other types if their shoot data says so.
+                    if( ter_hit && shoot.bash_as_ter.second > 0 && dispersion > shoot.bash_as_ter.second ) {
+                        terrain = shoot.bash_as_ter.first.id();
+                    }
+                    if( furn_hit && shoot.bash_as_furn.second > 0 && dispersion > shoot.bash_as_furn.second ) {
+                        furniture = shoot.bash_as_furn.first.id();
+                    }
+                    // Non-destructively reduce damage (lasers through glass, etc.)
+                    if( laser && shoot.no_laser_destroy ) {
+                        dam -= rng( shoot.reduce_dmg_min_laser, shoot.reduce_dmg_max_laser );
+                        laser_passthrough = true;
+                    }
+                    // Reduce_dmg reduces damage without harming the ter/furn. Use for armored tiles.
+                    if( shoot.reduce_dmg_max > 0 ) {
+                        dam -= rng( shoot.reduce_dmg_min, shoot.reduce_dmg_max );
+                    }
+                };
+                if( veh_hit ) {
+                    if( const optional_vpart_position vp = veh_at( p ) ) {
+                        dam = vp->vehicle().damage( *this, vp->part_index(), dam, main_damage_type );
+                    }
+                } else if( furn_hit ) {
+                    shoot_furn_ter( furniture.obj() );
+                    if( laser_passthrough == false ) {
+                        int damdown = std::min( static_cast<int>( dam ), rng( furniture->bash.str_min,
+                                                furniture->bash.str_max ) );
+                        bash( p, dam, false );
+                        dam -= damdown;
+                    }
+                } else if( ter_hit ) {
+                    shoot_furn_ter( terrain.obj() );
+                    if( laser_passthrough == false ) {
+                        int damdown = std::min( static_cast<int>( dam ), rng( terrain->bash.str_min,
+                                                terrain->bash.str_max ) );
+                        bash( p, dam, false );
+                        dam -= damdown;
+                    }
+                }
+                // only very flammable furn/ter can be set alight with incendiary rounds
+                if( ( ter_hit && terrain->has_flag( ter_furn_flag::TFLAG_FLAMMABLE_ASH ) ) || ( furn_hit &&
+                        furniture->has_flag( ter_furn_flag::TFLAG_FLAMMABLE_ASH ) ) ) {
+                    if( incendiary && x_in_y( 1, 10 ) ) { // 10% chance
+                        add_field( p, fd_fire, 1 );
+                    }
+                    if( ignite ) {
+                        add_field( p, fd_fire, 1 );
+                    }
+                }
+            }
+        }
     }
-    dam = std::max( 0.0f, dam );
 
     for( const ammo_effect &ae : ammo_effects::get_all() ) {
         if( ammo_effects.count( ae.id ) > 0 ) {
@@ -8043,45 +8071,25 @@ bool map::sees( const tripoint_bub_ms &F, const tripoint_bub_ms &T, const int ra
         return true;
     } );
     skew_cache.insert( 100000, key, visible ? 1 : 0 );
-    
+
     return visible;
 }
 
 int map::obstacle_concealment( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const
 {
-    // Can't hide if you are standing on furniture.
-    // TODO: Let characters hide under furniture & prevent big ones from standing on it.
-    //if( furn( loc2 ).obj().id || ( move_cost( loc2 ) > 2 &&
-    //                              !has_flag_ter( ter_furn_flag::TFLAG_FLAT, loc2 ) ) ) {
-    //   return 0;
-    //}
     const point a( std::abs( loc1.x() - loc2.x() ) * 2, std::abs( loc1.y() - loc2.y() ) * 2 );
     int offset = std::min( a.x, a.y ) - ( std::max( a.x, a.y ) / 2 );
     tripoint obstaclepos;
     bresenham( loc2.raw(), loc1.raw(), offset, 0, [&obstaclepos]( const tripoint & new_point ) {
-        // Only adjacent tile between you and enemy is checked for cover.
+        // Only adjacent tile between you and enemy is checked for concealment.
         obstaclepos = new_point;
         return false;
     } );
-    // if( const furn_id obstacle_f = furn( obstaclepos ) ) {
-    //     return obstacle_f->concealment;
-    // }
-    // if( const optional_vpart_position vp = veh_at( obstaclepos ) ) {
-    //     if( vp->obstacle_at_part() ) {
-    //         return 60;
-    //     } else if( !vp->part_with_feature( VPFLAG_AISLE, true ) ) {
-    //         return 45;
-    //     }
-    // }
     return concealment( obstaclepos );
 }
 
 int map::obstacle_coverage( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const
 {
-     //if( furn( loc2 ).obj().id || ( move_cost( loc2 ) > 2 &&
-     //                               !has_flag_ter( ter_furn_flag::TFLAG_FLAT, loc2 ) ) ) {
-     //    return 0;
-     //}
     const point a( std::abs( loc1.x() - loc2.x() ) * 2, std::abs( loc1.y() - loc2.y() ) * 2 );
     int offset = std::min( a.x, a.y ) - ( std::max( a.x, a.y ) / 2 );
     tripoint obstaclepos;
@@ -8101,46 +8109,6 @@ int map::ledge_concealment( const Creature &viewer, const tripoint &target_p ) c
 int map::ledge_concealment( const Creature &viewer, const tripoint_bub_ms &target_p ) const
 {
     tripoint_bub_ms viewer_p = viewer.pos_bub();
-    //creature_size viewer_size = viewer.get_size();
-
-    // Viewer eye level from ground in grids
-
-    //int eye_level = viewer.eye_level();
-
-    // float eye_level = 1.0f;
-    // switch( viewer_size ) {
-    //     case creature_size::medium:
-    //         break;
-    //     case creature_size::tiny:
-    //         eye_level = 0.4f;
-    //         break;
-    //     case creature_size::small:
-    //         eye_level = 0.7f;
-    //         break;
-    //     case creature_size::large:
-    //         eye_level = 1.3f;
-    //         break;
-    //     case creature_size::huge:
-    //         eye_level = 1.6f;
-    //         break;
-    //     case creature_size::num_sizes:
-    //         debugmsg( "ERROR: Creature has invalid size class." );
-    //         break;
-    // }
-    // Viewer eye level crouch / prone multipliers
-    // const Character *viewer_ch = viewer.as_character();
-    // if( viewer_ch ) {
-    //     if( viewer_ch->is_crouching() ) {
-    //         eye_level *= 0.5;
-    //     } else if( viewer_ch->is_prone() ) {
-    //         eye_level *= 0.3;
-    //     }
-    // } else {
-    //     if( viewer->is_prone() )
-    // }
-    // Viewer eye level is higher when standing on furniture
-    //const furn_id viewer_furn = furn( viewer_p );
-
     return ledge_concealment( viewer_p, target_p );
 }
 
@@ -8226,14 +8194,13 @@ int map::coverage( const tripoint &p ) const
 
 int map::coverage( const tripoint_bub_ms &p ) const
 {
-    if( const furn_id obstacle_f = furn( p ) ) {
-        return obstacle_f->coverage;
+    if( furn( p )->coverage > 0 ) {
+        return furn( p )->coverage;
     }
     if( const optional_vpart_position vp = veh_at( p ) ) {
         const bool is_obstacle = vp->obstacle_at_part().has_value();
-        const bool is_opaque = vp->part_with_feature( VPFLAG_OPAQUE, true ).has_value();
         const bool is_aisle = vp->part_with_feature( VPFLAG_AISLE, true ).has_value();
-        if( is_obstacle && is_opaque ) {
+        if( is_obstacle ) {
             return 100;
         } else if( is_obstacle ) {
             return 60;

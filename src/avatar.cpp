@@ -1329,15 +1329,15 @@ void avatar::set_movement_mode( const move_mode_id &new_mode )
             stop_hauling();
         }
         add_msg( new_mode->change_message( true, get_steed_type() ) );
-        if (
+        if(
             (
-                ((move_mode == move_mode_run || move_mode == move_mode_walk) &&
-                 (new_mode == move_mode_crouch || new_mode == move_mode_prone)) ||
-        
-                ((move_mode == move_mode_prone || move_mode == move_mode_crouch) &&
-                 (new_mode == move_mode_walk || new_mode == move_mode_run))
+                ( ( move_mode == move_mode_run || move_mode == move_mode_walk ) &&
+                  ( new_mode == move_mode_crouch || new_mode == move_mode_prone ) ) ||
+
+                ( ( move_mode == move_mode_prone || move_mode == move_mode_crouch ) &&
+                  ( new_mode == move_mode_walk || new_mode == move_mode_run ) )
             ) &&
-            (move_mode != new_mode)
+            ( move_mode != new_mode )
         ) {
             instant = false;
         }
@@ -1349,7 +1349,7 @@ void avatar::set_movement_mode( const move_mode_id &new_mode )
         recoil = MAX_RECOIL;
         // TODO: Variable costs from traits, mutations, whether we were prone or crouching, limb scores.
         if( !instant ) {
-        mod_moves( -50 );
+            mod_moves( -100 );
         }
     } else {
         add_msg( new_mode->change_message( false, get_steed_type() ) );

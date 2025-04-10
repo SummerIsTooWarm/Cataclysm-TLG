@@ -1353,9 +1353,9 @@ int Character::eye_level() const
     // Crouching: Tiny = 12, Small = 24, Med = 36, Large = 48, Huge = 60
     // Prone:     Tiny = 6,  Small = 12, Med = 18, Large = 24, Huge = 30
     int eye_level = static_cast<float>( enum_size() ) * 20;
-    if ( flat ) {
+    if( flat ) {
         eye_level *= 0.3;
-    } else if ( low_profile ) {
+    } else if( low_profile ) {
         eye_level *= 0.6;
     }
 
@@ -1368,7 +1368,10 @@ int Character::eye_level() const
     if( furn.coverage <= 0 ) {
         return eye_level;
     }
-    if( ( furn.has_flag( ter_furn_flag::TFLAG_CAN_SIT ) || furn.has_flag( ter_furn_flag::TFLAG_MOUNTABLE ) || furn.has_flag( ter_furn_flag::TFLAG_FLAT_SURF ) || furn.has_flag( ter_furn_flag::TFLAG_FLAT ) || furn.has_flag( ter_furn_flag::TFLAG_CLIMBABLE ) ) &&
+    if( ( furn.has_flag( ter_furn_flag::TFLAG_CAN_SIT ) ||
+          furn.has_flag( ter_furn_flag::TFLAG_MOUNTABLE ) ||
+          furn.has_flag( ter_furn_flag::TFLAG_FLAT_SURF ) || furn.has_flag( ter_furn_flag::TFLAG_FLAT ) ||
+          furn.has_flag( ter_furn_flag::TFLAG_CLIMBABLE ) ) &&
         !furn.has_flag( ter_furn_flag::TFLAG_HIDE_PLACE ) ) {
         eye_level += furn.coverage;
     }
@@ -10676,7 +10679,7 @@ bool Character::sees_with_infrared( const Creature &critter ) const
 
     if( here.sees( pos_bub(), critter.pos_bub(), unimpaired_range(), false ) ) {
         const int IR_concealment = std::max( here.obstacle_coverage( pos_bub(), critter.pos_bub() ),
-        here.ledge_concealment( *this, critter.pos_bub() ) );
+                                             here.ledge_concealment( *this, critter.pos_bub() ) );
         if( critter.is_monster() && IR_concealment > critter.as_monster()->eye_level() ) {
             return false;
         } else if( !critter.is_monster() && IR_concealment > critter.as_character()->eye_level() ) {
