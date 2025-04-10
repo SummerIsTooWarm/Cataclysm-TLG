@@ -514,17 +514,19 @@ bool Creature::sees( const Creature &critter ) const
     }
 
     if( critter.is_hallucination() && !is_avatar() ) {
-        // hallucinations are imaginations of the player character, npcs or monsters don't hallucinate.
+        // Hallucinations are imaginations of the player character, npcs or monsters don't hallucinate.
         return false;
     }
 
-    // Creature has stumbled into an invisible player and is now aware of them
+    // Creature has stumbled into an invisible player and is now aware of them.
+    // REVIEW: Why is this only done for the player?
     if( has_effect( effect_stumbled_into_invisible ) &&
         here.has_field_at( critter.pos(), field_fd_last_known ) && critter.is_avatar() ) {
         return true;
     }
 
     // This check is ridiculously expensive so defer it to after everything else.
+    // REVIEW: Is this really expensive, or an old comment?
     auto visible = []( const Character * ch ) {
         return ch == nullptr || !ch->is_invisible();
     };
@@ -552,30 +554,70 @@ bool Creature::sees( const Creature &critter ) const
     if( posz() != critter.posz() ) {
         different_levels = true;
     }
-    if( ( target_range > 2 && critter.digging() &&
-          here.has_flag( ter_furn_flag::TFLAG_DIGGABLE, critter.pos_bub() ) ) ||
-        ( critter.has_flag( mon_flag_CAMOUFLAGE ) && target_range > this->get_eff_per() ) ||
-        ( critter.has_flag( mon_flag_WATER_CAMOUFLAGE ) &&
-          target_range > this->get_eff_per() &&
-          ( critter.is_likely_underwater() ||
-            here.has_flag( ter_furn_flag::TFLAG_DEEP_WATER, critter.pos_bub() ) ||
-            ( here.has_flag( ter_furn_flag::TFLAG_SHALLOW_WATER, critter.pos_bub() ) &&
-              critter.get_size() < creature_size::medium ) ) ) ||
-        ( critter.has_flag( mon_flag_NIGHT_INVISIBILITY ) &&
-          here.light_at( critter.pos() ) <= lit_level::LOW ) ||
-        critter.has_effect( effect_invisibility ) ||
-        ( !is_likely_underwater() && critter.is_likely_underwater() &&
-          majority_rule( critter.has_flag( mon_flag_WATER_CAMOUFLAGE ),
-                         here.has_flag( ter_furn_flag::TFLAG_DEEP_WATER, critter.pos_bub() ),
-                         different_levels ) ) ||
-        ( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_HIDE_PLACE, critter.pos_bub() ) ) ||
-        ( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_SMALL_HIDE, critter.pos_bub() ) &&
-          critter.has_flag( mon_flag_SMALL_HIDER ) ) ) {
+
+    bool has_camouflage = false;
+    bool has_water_camouflage = false;
+    bool has_night_invisibility = false;
+
+    if( critter.is_monster() ) {
+        has_camouflage = critter.has_flag( mon_flag_CAMOUFLAGE );
+        has_water_camouflage = critter.has_flag( mon_flag_WATER_CAMOUFLAGE );
+        has_night_invisibility = critter.has_flag( mon_flag_NIGHT_INVISIBILITY );
+    }
+    bool is_underwater = critter.is_likely_underwater();
+    bool is_invisible = critter.has_effect( effect_invisibility );
+
+    // Check if creature is digging and the tile is diggable
+    if( target_range > 2 && critter.digging() &&
+        here.has_flag( ter_furn_flag::TFLAG_DIGGABLE, critter.pos_bub() ) ) {
         return false;
     }
+
+    // Camouflage or Water Camouflage checks
+    if( has_camouflage && target_range > this->get_eff_per() ) {
+        return false;
+    }
+
+    if( has_water_camouflage && target_range > this->get_eff_per() ) {
+        if( is_underwater ||
+            here.has_flag( ter_furn_flag::TFLAG_DEEP_WATER, critter.pos_bub() ) ||
+            ( here.has_flag( ter_furn_flag::TFLAG_SHALLOW_WATER, critter.pos_bub() ) &&
+              critter.get_size() < creature_size::medium ) ) {
+            return false;
+        }
+    }
+
+    // Night Invisibility check
+    if( has_night_invisibility && here.light_at( critter.pos() ) <= lit_level::LOW ) {
+        return false;
+    }
+
+    // Invisible effect
+    if( is_invisible ) {
+        return false;
+    }
+
+    // Underwater visibility check with majority rule
+    if( !is_likely_underwater() && is_underwater &&
+        majority_rule( critter.has_flag( mon_flag_WATER_CAMOUFLAGE ),
+                       here.has_flag( ter_furn_flag::TFLAG_DEEP_WATER, critter.pos_bub() ),
+                       different_levels ) ) {
+        return false;
+    }
+
+    if( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_HIDE_PLACE, critter.pos_bub() ) &&
+        critter.get_size() < creature_size::huge ) {
+        return false;
+    }
+
+    if( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_SMALL_HIDE, critter.pos_bub() ) &&
+        critter.has_flag( mon_flag_SMALL_HIDER ) ) {
+        return false;
+    }
+
     int ledge_concealment = 0;
     if( different_levels ) {
-        ledge_concealment = here.ledge_concealment( pos_bub(), critter.pos_bub() );
+        ledge_concealment = ( here.ledge_concealment( pos_bub(), critter.pos_bub() ) );
     }
     const int concealment = std::max( here.obstacle_concealment( pos_bub(), critter.pos_bub() ),
                                       ledge_concealment );

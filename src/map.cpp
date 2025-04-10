@@ -4992,14 +4992,16 @@ void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, co
     } else {
         ter_hit = true;
     }
-    if( dist <= 1 ) {
-        coverage = 0;
-    } else if( dist == 2 ) {
-        coverage *= 0.25;
-    } else if( dist == 3 ) {
-        coverage *= 0.5;
-    } else if( dist == 4 ) {
-        coverage *= 0.75;
+    if( coverage < 100 ) {
+        if( dist <= 1 ) {
+            coverage = 0;
+        } else if( dist == 2 ) {
+            coverage *= 0.25;
+        } else if( dist == 3 ) {
+            coverage *= 0.5;
+        } else if( dist == 4 ) {
+            coverage *= 0.75;
+        }
     }
     /**
     * Shot accuracy helps us bypass cover. 1000.0f is a reasonable midpoint between "good"
@@ -5043,6 +5045,11 @@ void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, co
                         dam -= rng( shoot.reduce_dmg_min, shoot.reduce_dmg_max );
                     }
                 };
+                // So that arrows aren't destroying brick walls.
+                float modified_dam = dam;
+                if( main_damage_type != damage_bash && modified_dam > 0.0f ) {
+                    modified_dam /= 3;
+                }
                 if( veh_hit ) {
                     if( const optional_vpart_position vp = veh_at( p ) ) {
                         dam = vp->vehicle().damage( *this, vp->part_index(), dam, main_damage_type );
@@ -5052,7 +5059,7 @@ void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, co
                     if( laser_passthrough == false ) {
                         int damdown = std::min( static_cast<int>( dam ), rng( furniture->bash.str_min,
                                                 furniture->bash.str_max ) );
-                        bash( p, dam, false );
+                        bash( p, modified_dam, false );
                         dam -= damdown;
                     }
                 } else if( ter_hit ) {
@@ -5060,10 +5067,11 @@ void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, co
                     if( laser_passthrough == false ) {
                         int damdown = std::min( static_cast<int>( dam ), rng( terrain->bash.str_min,
                                                 terrain->bash.str_max ) );
-                        bash( p, dam, false );
+                        bash( p, modified_dam, false );
                         dam -= damdown;
                     }
                 }
+
                 // only very flammable furn/ter can be set alight with incendiary rounds
                 if( ( ter_hit && terrain->has_flag( ter_furn_flag::TFLAG_FLAMMABLE_ASH ) ) || ( furn_hit &&
                         furniture->has_flag( ter_furn_flag::TFLAG_FLAMMABLE_ASH ) ) ) {
@@ -8081,7 +8089,7 @@ int map::obstacle_concealment( const tripoint_bub_ms &loc1, const tripoint_bub_m
     int offset = std::min( a.x, a.y ) - ( std::max( a.x, a.y ) / 2 );
     tripoint obstaclepos;
     bresenham( loc2.raw(), loc1.raw(), offset, 0, [&obstaclepos]( const tripoint & new_point ) {
-        // Only adjacent tile between you and enemy is checked for concealment.
+        // Only adjacent tile between viewer and enemy is checked for concealment.
         obstaclepos = new_point;
         return false;
     } );
@@ -8147,7 +8155,7 @@ int map::ledge_concealment( const tripoint_bub_ms &viewer_p, const tripoint_bub_
     float dist_to_ledge_base = trig_dist( viewer_p, tripoint_bub_ms( ledge_p.x, ledge_p.y,
                                           viewer_p.z() ) );
     // Adjustment to ledge distance because ledge is assumed to be between two grids
-    dist_to_ledge_base += ( viewer_p.z() < target_p.z() ) ? -0.5f : 0.5f;
+    dist_to_ledge_base *= ( viewer_p.z() < target_p.z() ) ? -2.0f : 2.0f;
     const float flat_dist = trig_dist( viewer_p, tripoint_bub_ms( target_p.xy(), viewer_p.z() ) );
     // Similarly adjust relative Z comparisons.
     const float adjusted_viewer_z = viewer_p.z() * 2;
@@ -8168,7 +8176,8 @@ int map::concealment( const tripoint &p ) const
 
 int map::concealment( const tripoint_bub_ms &p ) const
 {
-    if( const furn_id obstacle_f = furn( p ) ) {
+    const furn_id obstacle_f = furn( p );
+    if( obstacle_f->concealment > 0 ) {
         return obstacle_f->concealment;
     }
     // Vehicle concealment values.

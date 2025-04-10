@@ -1138,7 +1138,7 @@ double Character::aim_factor_from_volume( const item &gun ) const
 
 static bool is_obstacle( tripoint pos )
 {
-    return get_map().concealment( pos ) >= 50;
+    return get_map().coverage( pos ) >= 50;
 }
 
 double Character::aim_factor_from_length( const item &gun ) const
