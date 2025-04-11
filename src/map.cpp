@@ -4985,9 +4985,9 @@ void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, co
     bool furn_hit = false;
     bool ter_hit = false;
 
-    if( veh_coverage == coverage ) {
+    if( veh_coverage == coverage && coverage != 0 ) {
         veh_hit = true;
-    } else if( furn_coverage == coverage ) {
+    } else if( furn_coverage == coverage && coverage != 0 ) {
         furn_hit = true;
     } else {
         ter_hit = true;
@@ -5011,11 +5011,11 @@ void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, co
     if( coverage > 0 && dispersion < 1000.0f ) {
         coverage *= dispersion / 1000.0f;
     }
-    // Check again so we can skip if the result was zero.
     bool hit_something = false;
-    if( coverage > 0 ) {
+    // Check again so we can skip if the result was zero.
+    if( coverage > 0 || ter( p )->has_flag( ter_furn_flag::TFLAG_HIT_WITHOUT_COVER ) ) {
         int coverage_roll = rng( 1, 100 );
-        if( coverage > 0 && coverage_roll < coverage ) {
+        if( ( coverage > 0 && coverage_roll < coverage ) || ter( p )->has_flag( ter_furn_flag::TFLAG_HIT_WITHOUT_COVER ) ) {
             furn_id furniture = furn( p );
             ter_id terrain = ter( p );
             // Did we hit the ter/furn/veh?

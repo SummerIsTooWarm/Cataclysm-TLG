@@ -334,6 +334,7 @@ enum class ter_furn_flag : int {
     TFLAG_TINDER,
     TFLAG_UNCLINGABLE,
     TFLAG_HARVEST_REQ_CUT1,
+    TFLAG_HIT_WITHOUT_COVER,
 
     NUM_TFLAG_FLAGS
 };

@@ -504,7 +504,7 @@
     "symbol": "#",
     "color": "brown",
     "move_cost_mod": 1,
-    "coverage": 0,
+    "coverage": 5,
     "concealment": 40,
     "deconstruct": { "items": [  ] },
     "required_str": 3,

@@ -6456,8 +6456,14 @@ void game::print_terrain_info( const tripoint &lp, const catacurses::window &w_l
 
     // Concealment percentage from terrain and furniture next.
     if( m.concealment( lp ) > 0 && m.concealment( lp ) < 100 ) {
-        fold_and_print( w_look, point( column, ++line ), max_width, c_light_gray, _( "Concealment: %d%%" ),
-                        m.concealment( lp ) );
+        int height = get_player_character().eye_level();
+        if( height < m.concealment( lp ) ) {
+            fold_and_print( w_look, point( column, ++line ), max_width, c_blue, _( "Concealment: %d%%" ),
+                            m.concealment( lp ) );
+        } else {
+            fold_and_print( w_look, point( column, ++line ), max_width, c_light_gray, _( "Concealment: %d%%" ),
+                            m.concealment( lp ) );
+        }
     }
     // Cover too, if applicable.
     if( m.coverage( lp ) > 0 && m.coverage( lp ) < 100 ) {
