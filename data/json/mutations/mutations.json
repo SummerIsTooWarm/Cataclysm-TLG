@@ -2029,11 +2029,10 @@
     "name": { "str": "Genetic Downward Spiral" },
     "points": -8,
     "purifiable": false,
-    "description": "The events of the Cataclysm have damaged your DNA beyond repair.  You mutate frequently, all mutations you receive (from any source) are negative, and your instability is rapidly growing out of control.",
+    "description": "The events of the Cataclysm have damaged your DNA beyond repair.  You mutate frequently, all mutations you receive (from any source) are negative.",
     "starting_trait": true,
     "cancels": [ "ROBUST", "RESTRICTED" ],
-    "valid": false,
-    "vitamin_rates": [ [ "instability", -60 ] ]
+    "valid": false
   },
   {
     "type": "mutation",
@@ -7366,7 +7365,7 @@
     "types": [ "DIET" ],
     "cancels": [ "VEGAN" ],
     "category": [ "LIZARD", "SPIDER", "CHIMERA", "RAPTOR", "FELINE", "BATRACHIAN", "BEAST", "LUPINE" ],
-    "vitamin_rates": [ [ "vitC", -1200 ] ]
+    "vitamin_rates": [ [ "vitC", 1200 ] ]
   },
   {
     "type": "mutation",
@@ -7379,7 +7378,7 @@
     "cancels": [ "VEGAN" ],
     "category": [ "CHIROPTERAN" ],
     "changes_to": [ "BLOODFEEDER" ],
-    "vitamin_rates": [ [ "iron", 1000 ], [ "vitC", -300 ] ]
+    "vitamin_rates": [ [ "iron", -2000 ], [ "vitC", 300 ] ]
   },
   {
     "type": "mutation",
@@ -7395,7 +7394,7 @@
     "vitamins_absorb_multi": [ [ "blood", [ [ "mutant_toxin", 0.25 ] ] ], [ "flesh", [ [ "mutant_toxin", 0.75 ] ] ] ],
     "category": [ "CHIROPTERAN" ],
     "threshreq": [ "THRESH_CHIROPTERAN" ],
-    "vitamin_rates": [ [ "iron", 800 ], [ "vitC", -600 ] ]
+    "vitamin_rates": [ [ "iron", -4000 ], [ "vitC", 600 ] ]
   },
   {
     "type": "mutation",
