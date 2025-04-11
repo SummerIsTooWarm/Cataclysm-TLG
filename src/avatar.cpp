@@ -1324,16 +1324,33 @@ void avatar::rebuild_aim_cache()
 void avatar::set_movement_mode( const move_mode_id &new_mode )
 {
     if( can_switch_to( new_mode ) ) {
+        bool instant = true;
         if( is_hauling() && new_mode->stop_hauling() ) {
             stop_hauling();
         }
         add_msg( new_mode->change_message( true, get_steed_type() ) );
+        if(
+            (
+                ( ( move_mode == move_mode_run || move_mode == move_mode_walk ) &&
+                  ( new_mode == move_mode_crouch || new_mode == move_mode_prone ) ) ||
+
+                ( ( move_mode == move_mode_prone || move_mode == move_mode_crouch ) &&
+                  ( new_mode == move_mode_walk || new_mode == move_mode_run ) )
+            ) &&
+            ( move_mode != new_mode )
+        ) {
+            instant = false;
+        }
         move_mode = new_mode;
         // Enchantments based on move modes can stack inappropriately without a recalc here
         recalculate_enchantment_cache();
         // crouching affects visibility
         get_map().set_seen_cache_dirty( pos().z );
         recoil = MAX_RECOIL;
+        // TODO: Variable costs from traits, mutations, whether we were prone or crouching, limb scores.
+        if( !instant ) {
+            mod_moves( -100 );
+        }
     } else {
         add_msg( new_mode->change_message( false, get_steed_type() ) );
     }

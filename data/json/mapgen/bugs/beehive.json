@@ -172,7 +172,7 @@
         "                      ............................                      ",
         "                             ..............                             "
       ],
-      "terrain": { " ": "t_open_air", ".": "t_floor_wax" }
+      "terrain": { " ": "t_open_air", ".": "t_floor_wax_outdoor" }
     }
   }
 ]

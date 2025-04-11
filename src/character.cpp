@@ -209,6 +209,7 @@ static const damage_type_id damage_stab( "stab" );
 static const effect_on_condition_id effect_on_condition_add_effect( "add_effect" );
 
 static const efftype_id effect_adrenaline( "adrenaline" );
+static const efftype_id effect_airborne( "airborne" );
 static const efftype_id effect_alarm_clock( "alarm_clock" );
 static const efftype_id effect_bandaged( "bandaged" );
 static const efftype_id effect_beartrap( "beartrap" );
@@ -1339,6 +1340,42 @@ int Character::sight_range( float light_level ) const
 int Character::unimpaired_range() const
 {
     return std::min( sight_max, 60 );
+}
+
+int Character::eye_level() const
+{
+    if( has_effect( effect_airborne ) ) {
+        return 100;
+    }
+    bool low_profile = ( is_crouching() || ( has_effect( effect_quadruped_full ) && is_running() ) );
+    bool flat = is_prone();
+    // Standing:  Tiny = 20, Small = 40, Med = 60, Large = 80, Huge = 100
+    // Crouching: Tiny = 12, Small = 24, Med = 36, Large = 48, Huge = 60
+    // Prone:     Tiny = 6,  Small = 12, Med = 18, Large = 24, Huge = 30
+    int eye_level = static_cast<float>( enum_size() ) * 20;
+    if( flat ) {
+        eye_level *= 0.3;
+    } else if( low_profile ) {
+        eye_level *= 0.6;
+    }
+
+    map &here = get_map();
+    const furn_id viewer_furn = here.furn( pos_bub() );
+    const furn_t &furn = viewer_furn.obj();
+    if( !furn.id ) {
+        return eye_level;
+    }
+    if( furn.coverage <= 0 ) {
+        return eye_level;
+    }
+    if( ( furn.has_flag( ter_furn_flag::TFLAG_CAN_SIT ) ||
+          furn.has_flag( ter_furn_flag::TFLAG_MOUNTABLE ) ||
+          furn.has_flag( ter_furn_flag::TFLAG_FLAT_SURF ) || furn.has_flag( ter_furn_flag::TFLAG_FLAT ) ||
+          furn.has_flag( ter_furn_flag::TFLAG_CLIMBABLE ) ) &&
+        !furn.has_flag( ter_furn_flag::TFLAG_HIDE_PLACE ) ) {
+        eye_level += furn.coverage;
+    }
+    return eye_level;
 }
 
 bool Character::overmap_los( const tripoint_abs_omt &omt, int sight_points ) const
@@ -10640,7 +10677,17 @@ bool Character::sees_with_infrared( const Creature &critter ) const
 
     map &here = get_map();
 
-    return here.sees( pos_bub(), critter.pos_bub(), unimpaired_range(), false );
+    if( here.sees( pos_bub(), critter.pos_bub(), unimpaired_range(), false ) ) {
+        const int IR_concealment = std::max( here.obstacle_coverage( pos_bub(), critter.pos_bub() ),
+                                             here.ledge_concealment( *this, critter.pos_bub() ) );
+        if( critter.is_monster() && IR_concealment > critter.as_monster()->eye_level() ) {
+            return false;
+        } else if( !critter.is_monster() && IR_concealment > critter.as_character()->eye_level() ) {
+            return false;
+        }
+        return true;
+    }
+    return false;
 }
 
 bool Character::is_visible_in_range( const Creature &critter, const int range ) const
@@ -10747,32 +10794,13 @@ void Character::echo_pulse()
         }
         Creature *critter = get_creature_tracker().creature_at( origin, true );
         if( critter && here.sees( pos(), origin, pulse_range, false ) ) {
-            switch( critter->get_size() ) {
-                case creature_size::tiny:
-                    echo_volume = 1;
-                    break;
-                case creature_size::small:
-                    echo_volume = 2;
-                    break;
-                case creature_size::medium:
-                    echo_volume = 3;
-                    break;
-                case creature_size::large:
-                    echo_volume = 4;
-                    break;
-                case creature_size::huge:
-                    echo_volume = 5;
-                    break;
-                case creature_size::num_sizes:
-                    debugmsg( "ERROR: Invalid Creature size class." );
-                    break;
-            }
+            echo_volume = critter->enum_size();
             // Some monsters are harder to get a read on
             if( critter->has_flag( mon_flag_PLASTIC ) ) {
-                echo_volume -= std::max( 1, 1 );
+                echo_volume = std::max( 1, echo_volume - 1 );
             }
             if( critter->has_flag( mon_flag_HARDTOSHOOT ) ) {
-                echo_volume -= std::max( 1, 1 );
+                echo_volume = std::max( 1, echo_volume - 1 );
             }
             const char *echo_string = nullptr;
             // bio_targeting has a visual HUD and automatically interprets the raw audio data,
@@ -10795,6 +10823,7 @@ void Character::echo_pulse()
                         echo_string = _( "Warning!  Target [Huge]." );
                         break;
                     default:
+                        echo_string = _( "Target [Unknown]." );
                         debugmsg( "ERROR: Invalid echo string." );
                         break;
                 }
@@ -10817,6 +10846,7 @@ void Character::echo_pulse()
                         break;
                     default:
                         debugmsg( "ERROR: Invalid echo string." );
+                        echo_string = _( "ping." );
                         break;
                 }
             } else {
@@ -10837,6 +10867,7 @@ void Character::echo_pulse()
                         echo_string = _( "chkchh." );
                         break;
                     default:
+                        echo_string = _( "chhk." );
                         debugmsg( "ERROR: Invalid echo string." );
                         break;
                 }

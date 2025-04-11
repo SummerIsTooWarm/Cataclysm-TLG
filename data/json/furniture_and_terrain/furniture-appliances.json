@@ -9,7 +9,9 @@
     "bgcolor": "white",
     "move_cost_mod": -1,
     "coverage": 55,
+    "concealment": 55,
     "required_str": -1,
+    "flags": [ "TRANSPARENT" ],
     "deconstruct": {
       "items": [
         { "item": "pipe", "count": 1 },
@@ -51,8 +53,10 @@
     "bgcolor": "white",
     "move_cost_mod": -1,
     "coverage": 50,
+    "concealment": 50,
     "required_str": -1,
     "looks_like": "f_air_conditioner",
+    "flags": [ "TRANSPARENT" ],
     "deconstruct": {
       "items": [
         { "item": "scrap", "count": [ 2, 6 ] },
@@ -91,11 +95,21 @@
     "symbol": "{",
     "bgcolor": "white",
     "move_cost_mod": -1,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "required_str": 13,
     "max_volume": "120 L",
     "examine_action": { "type": "appliance_convert", "furn_set": "f_null", "item": "household_dishwasher" },
-    "flags": [ "CONTAINER", "PLACE_ITEM", "BLOCKSDOOR", "FLAT_SURF", "MINEABLE", "EASY_DECONSTRUCT", "NO_SELF_CONNECT" ],
+    "flags": [
+      "TRANSPARENT",
+      "CONTAINER",
+      "PLACE_ITEM",
+      "BLOCKSDOOR",
+      "FLAT_SURF",
+      "MINEABLE",
+      "EASY_DECONSTRUCT",
+      "NO_SELF_CONNECT"
+    ],
     "deconstruct": { "items": [ { "item": "household_dishwasher", "count": 1 } ] },
     "bash": {
       "str_min": 18,
@@ -124,10 +138,11 @@
     "symbol": "{",
     "bgcolor": "white",
     "move_cost_mod": -1,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "required_str": 12,
     "max_volume": "37500 ml",
-    "flags": [ "CONTAINER", "PLACE_ITEM", "BLOCKSDOOR", "FLAT_SURF", "MINEABLE", "SMALL_HIDE" ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "PLACE_ITEM", "BLOCKSDOOR", "FLAT_SURF", "MINEABLE", "SMALL_HIDE" ],
     "deconstruct": {
       "items": [
         { "item": "scrap", "count": [ 2, 6 ] },
@@ -167,9 +182,10 @@
     "symbol": "0",
     "bgcolor": "white",
     "move_cost_mod": -1,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "required_str": -1,
-    "flags": [ "CONTAINER", "PLACE_ITEM", "FIRE_CONTAINER", "SUPPRESS_SMOKE", "BLOCKSDOOR" ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "PLACE_ITEM", "FIRE_CONTAINER", "SUPPRESS_SMOKE", "BLOCKSDOOR" ],
     "examine_action": "fireplace",
     "deconstruct": {
       "items": [
@@ -208,11 +224,12 @@
     "symbol": "{",
     "bgcolor": "white",
     "move_cost_mod": -1,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "required_str": 12,
     "max_volume": "135 L",
     "examine_action": { "type": "appliance_convert", "furn_set": "f_null", "item": "household_washing_machine" },
-    "flags": [ "CONTAINER", "PLACE_ITEM", "BLOCKSDOOR", "FLAT_SURF", "MINEABLE", "EASY_DECONSTRUCT", "SMALL_HIDE" ],
+    "flags": [ "TRANSPARENT", "CONTAINER", "PLACE_ITEM", "BLOCKSDOOR", "FLAT_SURF", "MINEABLE", "EASY_DECONSTRUCT", "SMALL_HIDE" ],
     "deconstruct": { "items": [ { "item": "household_washing_machine", "count": 1 } ] },
     "bash": {
       "str_min": 18,
@@ -240,10 +257,11 @@
     "description": "A standard electric convection-based oven, commonly used for heating and cooking food.  It can safely contain a fire, although it's not adequately ventilated.  You could disconnect it and plug it into a working power grid, or power it with a UPS.",
     "color": "dark_gray",
     "move_cost_mod": 2,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "required_str": 10,
     "examine_action": { "type": "appliance_convert", "furn_set": "f_null", "item": "oven" },
-    "//": "TODO: Replace FIRE_CONTAINER with some flag choking out small files",
+    "//": "TODO: Replace FIRE_CONTAINER with some flag choking out small fires",
     "flags": [
       "PLACE_ITEM",
       "TRANSPARENT",
@@ -282,7 +300,8 @@
     "description": "A standard gas-powered oven, commonly used for heating and cooking food.  With the state of nearby gas lines unknown, it's best not to put any fire near it.",
     "color": "dark_gray",
     "move_cost_mod": 2,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "required_str": 10,
     "flags": [ "PLACE_ITEM", "TRANSPARENT", "CONTAINER", "BLOCKSDOOR", "MOUNTABLE", "NO_SELF_CONNECT" ],
     "deconstruct": {
@@ -355,7 +374,8 @@
     "color": "dark_gray",
     "looks_like": "f_machinery_old",
     "move_cost_mod": 2,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "required_str": 10,
     "flags": [ "TRANSPARENT" ],
     "deconstruct": {
@@ -389,7 +409,8 @@
     "color": "white",
     "looks_like": "f_machinery_old",
     "move_cost_mod": 2,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "required_str": 10,
     "flags": [ "TRANSPARENT" ],
     "crafting_pseudo_item": "fake_drop_hammer",
@@ -469,7 +490,8 @@
     "symbol": ":",
     "color": "blue_white",
     "move_cost_mod": -1,
-    "coverage": 90,
+    "coverage": 80,
+    "concealment": 80,
     "required_str": 8,
     "flags": [ "BLOCKSDOOR" ],
     "deconstruct": {
@@ -507,6 +529,7 @@
     "color": "yellow",
     "move_cost_mod": -1,
     "coverage": 50,
+    "concealment": 50,
     "required_str": -1,
     "connect_groups": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "NOITEM", "INDOORS", "SHORT", "PERMEABLE" ],
@@ -537,7 +560,9 @@
     "color": "white_green",
     "move_cost_mod": -1,
     "coverage": 70,
+    "concealment": 70,
     "required_str": -1,
+    "flags": [ "TRANSPARENT" ],
     "deconstruct": {
       "items": [
         { "item": "pipe", "count": [ 6, 12 ] },

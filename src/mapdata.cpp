@@ -273,6 +273,7 @@ std::string enum_to_string<ter_furn_flag>( ter_furn_flag data )
         case ter_furn_flag::TFLAG_UNCLINGABLE: return "UNCLINGABLE";
         case ter_furn_flag::TFLAG_FLOATS_IN_AIR: return "FLOATS_IN_AIR";
         case ter_furn_flag::TFLAG_HARVEST_REQ_CUT1: return "HARVEST_REQ_CUT1";
+        case ter_furn_flag::TFLAG_HIT_WITHOUT_COVER: return "HIT_WITHOUT_COVER";
 
         // *INDENT-ON*
         case ter_furn_flag::NUM_TFLAG_FLAGS:
@@ -450,6 +451,8 @@ bool map_shoot_info::load( const JsonObject &jsobj, const std::string_view membe
     std::pair<int, int> reduce_damage;
     std::pair<int, int> reduce_damage_laser;
     std::pair<int, int> destroy_damage;
+    std::pair<ter_str_id, int> bash_as_ter;
+    std::pair<furn_str_id, int> bash_as_furn;
 
     mandatory( j, was_loaded, "reduce_damage", reduce_damage );
     mandatory( j, was_loaded, "reduce_damage_laser", reduce_damage_laser );
@@ -462,6 +465,8 @@ bool map_shoot_info::load( const JsonObject &jsobj, const std::string_view membe
     destroy_dmg_min = destroy_damage.first;
     destroy_dmg_max = destroy_damage.second;
 
+    optional( j, was_loaded, "bash_as_ter", bash_as_ter );
+    optional( j, was_loaded, "bash_as_furn", bash_as_furn );
     optional( j, was_loaded, "no_laser_destroy", no_laser_destroy, false );
 
     return true;
@@ -886,6 +891,7 @@ void ter_t::load( const JsonObject &jo, const std::string &src )
     map_data_common_t::load( jo, src );
     mandatory( jo, was_loaded, "name", name_ );
     mandatory( jo, was_loaded, "move_cost", movecost );
+    optional( jo, was_loaded, "concealment", concealment );
     optional( jo, was_loaded, "coverage", coverage );
     assign( jo, "max_volume", max_volume, src == "tlg" );
     optional( jo, was_loaded, "trap", trap_id_str );
@@ -1062,6 +1068,7 @@ void furn_t::load( const JsonObject &jo, const std::string &src )
     map_data_common_t::load( jo, src );
     mandatory( jo, was_loaded, "name", name_ );
     mandatory( jo, was_loaded, "move_cost_mod", movecost );
+    optional( jo, was_loaded, "concealment", concealment );
     optional( jo, was_loaded, "coverage", coverage );
     optional( jo, was_loaded, "comfort", comfort, 0 );
     int legacy_floor_bedding_warmth = units::to_legacy_bodypart_temp_delta( floor_bedding_warmth );

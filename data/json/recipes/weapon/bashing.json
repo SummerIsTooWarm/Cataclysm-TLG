@@ -282,7 +282,7 @@
     "autolearn": true,
     "qualities": [ { "id": "CUT", "level": 1 } ],
     "using": [ [ "adhesive", 5 ] ],
-    "components": [ [ [ "glass_shard", 30 ], [ "ceramic_shard", 30 ], [ "flint", 30 ] ], [ [ "2x4", 1 ] ] ]
+    "components": [ [ [ "glass_shard", 30 ], [ "black_glass_shard", 30 ], [ "ceramic_shard", 30 ], [ "flint", 30 ] ], [ [ "2x4", 1 ] ] ]
   },
   {
     "type": "recipe",

@@ -8,6 +8,7 @@
     "color": "pink",
     "move_cost": 8,
     "coverage": 40,
+    "concealment": 40,
     "flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "FUNGUS", "SHRUB", "SHORT", "GRAZER_INEDIBLE" ],
     "examine_action": "shrub_marloss",
     "bash": { "str_min": 4, "str_max": 60, "sound": "crunch.", "sound_fail": "poof!", "ter_set": "t_fungus" }
@@ -77,6 +78,7 @@
     "color": "dark_gray",
     "move_cost": 0,
     "coverage": 100,
+    "concealment": 100,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "FLAMMABLE_ASH", "NOITEM", "SUPPORTS_ROOF", "FUNGUS", "WALL", "REDUCE_SCENT", "MINEABLE" ],
@@ -91,6 +93,7 @@
     "color": "dark_gray",
     "move_cost": 0,
     "coverage": 100,
+    "concealment": 100,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "flags": [ "FLAMMABLE_ASH", "NOITEM", "SUPPORTS_ROOF", "FUNGUS", "WALL", "NO_SCENT", "AUTO_WALL_SYMBOL", "MINEABLE" ],
@@ -116,6 +119,7 @@
     "color": "dark_gray",
     "move_cost": 8,
     "coverage": 40,
+    "concealment": 40,
     "flags": [
       "TRANSPARENT",
       "CONTAINER",
@@ -138,6 +142,7 @@
     "color": "dark_gray",
     "move_cost": 0,
     "coverage": 80,
+    "concealment": 80,
     "flags": [ "FLAMMABLE_ASH", "NOITEM", "FUNGUS", "TREE", "REDUCE_SCENT" ],
     "bash": { "str_min": 40, "str_max": 180, "sound": "crunch!", "sound_fail": "poof!", "ter_set": "t_fungus" }
   },
@@ -161,6 +166,7 @@
     "color": "pink",
     "move_cost": 0,
     "coverage": 80,
+    "concealment": 80,
     "flags": [ "FLAMMABLE_ASH", "NOITEM", "FUNGUS", "TREE", "REDUCE_SCENT" ],
     "examine_action": "tree_marloss",
     "bash": { "str_min": 40, "str_max": 180, "sound": "crunch!", "sound_fail": "poof!", "ter_set": "t_fungus" }

@@ -7,6 +7,7 @@
     "symbol": ".",
     "color": "brown",
     "connect_groups": "DIRT",
+    "coverage": 0,
     "connects_to": [ "DIRT", "CLAY", "SAND", "MUD", "DIRTMOUND", "CLAYMOUND", "SANDMOUND", "SANDGLASS", "CONCRETE" ],
     "move_cost": 2,
     "flags": [ "TRANSPARENT", "DIGGABLE", "FLAT", "PLOWABLE" ],
@@ -16,8 +17,9 @@
     "type": "terrain",
     "id": "t_dirt_rocky",
     "name": "rocky soil",
-    "description": "Many stones are protruding from beneath the ground.  This will not be good farmland.",
+    "description": "Many stones are protruding from beneath the ground.  This would not be good farmland.",
     "symbol": ".",
+    "coverage": 0,
     "color": "light_gray",
     "looks_like": "t_railroad_rubble",
     "move_cost": 2,
@@ -33,6 +35,7 @@
     "color": "brown",
     "looks_like": "t_moss",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "DIGGABLE", "FLAT" ],
     "bash": { "sound": "thump", "ter_set": "t_null", "str_min": 50, "str_max": 100, "str_min_supported": 100, "bash_below": true }
   },
@@ -44,6 +47,7 @@
     "symbol": ".",
     "color": "yellow",
     "move_cost": 3,
+    "coverage": 0,
     "connect_groups": "SAND",
     "connects_to": [ "SAND", "SANDMOUND", "SANDGLASS" ],
     "flags": [ "TRANSPARENT", "DIGGABLE", "FLAT" ],
@@ -58,6 +62,7 @@
     "color": "brown",
     "looks_like": "t_dirt",
     "move_cost": 3,
+    "coverage": 0,
     "connect_groups": "MUD",
     "connects_to": "MUD",
     "flags": [ "TRANSPARENT", "DIGGABLE", "FLAT" ],
@@ -73,6 +78,7 @@
     "connect_groups": "CLAY",
     "connects_to": [ "CLAY", "CLAYMOUND" ],
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "DIGGABLE", "FLAT" ],
     "bash": { "sound": "thump", "ter_set": "t_null", "str_min": 50, "str_max": 100, "str_min_supported": 100, "bash_below": true }
   },
@@ -87,6 +93,7 @@
     "connect_groups": "CLAYMOUND",
     "connects_to": "CLAYMOUND",
     "move_cost": 5,
+    "coverage": 10,
     "flags": [ "TRANSPARENT", "BURROWABLE" ],
     "bash": {
       "str_min": 2,
@@ -108,6 +115,7 @@
     "connect_groups": "SANDMOUND",
     "connects_to": "SANDMOUND",
     "move_cost": 5,
+    "coverage": 10,
     "flags": [ "TRANSPARENT", "BURROWABLE" ],
     "bash": {
       "str_min": 2,
@@ -129,6 +137,7 @@
     "connect_groups": "SANDGLASS",
     "connects_to": "SANDGLASS",
     "move_cost": 3,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "DIGGABLE", "FLAT" ],
     "bash": { "sound": "crunch", "ter_set": "t_sand", "str_min": 25, "str_max": 100, "str_min_supported": 100, "bash_below": true }
   },
@@ -142,6 +151,7 @@
     "connect_groups": "DIRTMOUND",
     "connects_to": "DIRTMOUND",
     "move_cost": 3,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "DIGGABLE", "MOUNTABLE", "NOCOLLIDE", "PLANTABLE", "TREE_PLANTABLE" ],
     "bash": { "sound": "thump", "ter_set": "t_null", "str_min": 50, "str_max": 100, "str_min_supported": 100 },
     "examine_action": "dirtmound"
@@ -158,6 +168,7 @@
     "connects_to": "DIRT",
     "move_cost": 3,
     "coverage": 40,
+    "concealment": 40,
     "flags": [ "TRANSPARENT" ],
     "bash": {
       "sound": "thump",
@@ -205,6 +216,7 @@
     "symbol": "#",
     "color": "green",
     "move_cost": 3,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "DIGGABLE", "MOUNTABLE", "NOCOLLIDE" ],
     "bash": { "sound": "thump", "ter_set": "t_dirt", "str_min": 50, "str_max": 100, "str_min_supported": 100 }
   },
@@ -217,6 +229,7 @@
     "symbol": "#",
     "color": "brown",
     "move_cost": 3,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "DIGGABLE", "MOUNTABLE", "NOCOLLIDE", "CONTAINER", "SEALED" ],
     "bash": { "sound": "thump", "ter_set": "t_dirt", "str_min": 50, "str_max": 100, "str_min_supported": 100 }
   },
@@ -231,6 +244,7 @@
     "connect_groups": "ROCKFLOOR",
     "connects_to": "ROCKFLOOR",
     "move_cost": 2,
+    "coverage": 0,
     "roof": "t_open_air",
     "flags": [ "TRANSPARENT", "FLAT", "ROAD" ],
     "bash": { "ter_set": "t_null", "str_min": 75, "str_max": 400, "str_min_supported": 100, "bash_below": true }
@@ -243,6 +257,7 @@
     "symbol": ".",
     "color": "dark_gray",
     "move_cost": 3,
+    "coverage": 0,
     "connect_groups": "MULCHFLOOR",
     "connects_to": "MULCHFLOOR",
     "flags": [ "TRANSPARENT", "DIGGABLE", "FLAT" ],
@@ -258,6 +273,7 @@
     "symbol": ".",
     "color": "dark_gray",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD", "MINEABLE" ],
     "bash": {
       "ter_set": "t_null",
@@ -277,6 +293,7 @@
     "symbol": ".",
     "color": "yellow",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD", "MINEABLE" ],
     "bash": {
       "ter_set": "t_null",
@@ -297,6 +314,7 @@
     "symbol": ".",
     "color": "white",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD", "MINEABLE" ],
     "bash": {
       "ter_set": "t_null",
@@ -315,6 +333,7 @@
     "color": "light_gray",
     "looks_like": "t_concrete",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD", "MINEABLE" ],
     "connect_groups": "CONCRETE",
     "connects_to": "CONCRETE",
@@ -335,6 +354,7 @@
     "symbol": ".",
     "color": "cyan",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD" ],
     "connect_groups": "CONCRETE",
     "connects_to": "CONCRETE",
@@ -360,6 +380,7 @@
     "symbol": ".",
     "color": "cyan",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD" ],
     "connect_groups": "CONCRETE",
     "connects_to": "CONCRETE",
@@ -385,6 +406,7 @@
     "color": "light_gray",
     "looks_like": "t_pavement",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD", "MINEABLE" ],
     "connect_groups": "CONCRETE",
     "connects_to": "CONCRETE",
@@ -405,6 +427,7 @@
     "color": "yellow",
     "looks_like": "t_pavement_y",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD", "MINEABLE" ],
     "connect_groups": "CONCRETE",
     "connects_to": "CONCRETE",
@@ -425,6 +448,7 @@
     "color": "brown",
     "looks_like": "t_floor",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "FLAT", "ROAD" ],
     "bash": {
       "sound": "SMASH!",
@@ -448,6 +472,7 @@
     "color": "brown",
     "looks_like": "t_floor",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "FLAT", "ROAD" ],
     "bash": {
       "sound": "SMASH!",
@@ -473,6 +498,7 @@
     "connect_groups": "METALFLOOR",
     "connects_to": "METALFLOOR",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD" ],
     "bash": {
       "sound": "thump",
@@ -498,6 +524,7 @@
     "connect_groups": "METALFLOOR",
     "connects_to": "METALFLOOR",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD" ],
     "bash": {
       "sound": "thump",
@@ -523,6 +550,7 @@
     "connect_groups": "LINOLEUM",
     "connects_to": "LINOLEUM",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "FLAT", "ROAD" ],
     "bash": {
       "sound": "thump",
@@ -544,6 +572,7 @@
     "connect_groups": "LINOLEUM",
     "connects_to": "LINOLEUM",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAMMABLE_HARD", "FLAT", "ROAD" ],
     "bash": {
       "sound": "SMASH!",
@@ -576,6 +605,7 @@
     "symbol": ".",
     "color": "pink",
     "move_cost": 5,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT" ],
     "bash": { "sound": "thump", "ter_set": "t_null", "str_min": 50, "str_max": 100, "str_min_supported": 100, "bash_below": true }
   },
@@ -602,6 +632,7 @@
     "color": "dark_gray",
     "looks_like": "t_elevator",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ELEVATOR" ]
   },
   {
@@ -615,6 +646,7 @@
     "connect_groups": "METALFLOOR",
     "connects_to": "METALFLOOR",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "FLAT", "ROAD", "TRANSPARENT" ],
     "bash": {
       "sound": "thump",
@@ -673,6 +705,7 @@
     "connect_groups": "ROCKFLOOR",
     "connects_to": "ROCKFLOOR",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT", "ROAD" ],
     "bash": { "ter_set": "t_null", "str_min": 75, "str_max": 400, "str_min_supported": 100, "bash_below": true }
   },
@@ -684,6 +717,7 @@
     "symbol": "#",
     "color": "dark_gray",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT" ]
   },
   {
@@ -694,6 +728,7 @@
     "symbol": ".",
     "color": "red",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT" ]
   },
   {
@@ -704,6 +739,7 @@
     "symbol": ".",
     "color": "green",
     "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT" ]
   },
   {
@@ -714,6 +750,19 @@
     "symbol": ".",
     "color": "blue",
     "move_cost": 2,
+    "coverage": 0,
+    "flags": [ "TRANSPARENT", "FLAT" ]
+  },
+  {
+    "type": "terrain",
+    "id": "t_floor_wax_outdoor",
+    "name": "wax floor",
+    "description": "A floor section made entirely out of wax.",
+    "symbol": ".",
+    "color": "yellow",
+    "looks_like": "t_floor_wax",
+    "move_cost": 2,
+    "coverage": 0,
     "flags": [ "TRANSPARENT", "FLAT" ]
   }
 ]

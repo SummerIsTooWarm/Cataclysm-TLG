@@ -8,6 +8,8 @@
     "color": "white",
     "move_cost_mod": 3,
     "required_str": 6,
+    "coverage": 15,
+    "concealment": 15,
     "flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "ORGANIC", "MOUNTABLE", "TINY" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splat!", "sound_fail": "whump.", "furn_set": "f_egg_sacke" }
   },
@@ -21,6 +23,8 @@
     "looks_like": "f_sack_bw",
     "move_cost_mod": 3,
     "required_str": 6,
+    "coverage": 15,
+    "concealment": 15,
     "flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "ORGANIC", "MOUNTABLE", "TINY" ],
     "bash": { "str_min": 8, "str_max": 16, "sound": "splat!", "sound_fail": "whump.", "furn_set": "f_egg_sacke" }
   },
@@ -34,6 +38,8 @@
     "looks_like": "f_sack_bw",
     "move_cost_mod": 3,
     "required_str": 6,
+    "coverage": 15,
+    "concealment": 15,
     "flags": [ "TRANSPARENT", "FLAMMABLE_ASH", "ORGANIC", "MOUNTABLE", "TINY" ],
     "bash": { "str_min": 4, "str_max": 8, "sound": "splat!", "sound_fail": "whump.", "furn_set": "f_egg_sacke" }
   },
@@ -46,6 +52,8 @@
     "color": "white",
     "move_cost_mod": 3,
     "required_str": 6,
+    "coverage": 8,
+    "concealment": 8,
     "flags": [ "TRANSPARENT", "CONTAINER", "FLAMMABLE_ASH", "ORGANIC", "MOUNTABLE", "TINY" ],
     "bash": { "str_min": 2, "str_max": 6, "sound": "splat!", "sound_fail": "whump." }
   }

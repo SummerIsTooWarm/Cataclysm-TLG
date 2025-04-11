@@ -8,6 +8,7 @@
     "color": "dark_gray",
     "move_cost_mod": 2,
     "coverage": 30,
+    "concealment": 30,
     "required_str": 12,
     "crafting_pseudo_item": "boulder_anvil",
     "flags": [ "PLACE_ITEM", "BLOCKSDOOR", "TRANSPARENT", "ALLOW_FIELD_EFFECT", "MOUNTABLE", "SHORT", "MINEABLE" ],
@@ -28,6 +29,8 @@
     "color": "light_gray",
     "move_cost_mod": 0,
     "required_str": -1,
+    "coverage": 30,
+    "concealment": 30,
     "crafting_pseudo_item": "boulder_anvil",
     "flags": [ "MINEABLE", "TRANSPARENT", "SHORT", "NOCOLLIDE", "ALLOW_FIELD_EFFECT", "MOUNTABLE", "PLACE_ITEM" ],
     "bash": {
@@ -46,7 +49,8 @@
     "symbol": "^",
     "color": "light_gray",
     "move_cost_mod": 2,
-    "coverage": 50,
+    "coverage": 35,
+    "concealment": 35,
     "required_str": -1,
     "crafting_pseudo_item": "boulder_anvil",
     "flags": [ "MINEABLE", "NOITEM", "TRANSPARENT", "MOUNTABLE", "ROUGH", "PLACE_ITEM" ],
@@ -66,7 +70,8 @@
     "symbol": "^",
     "color": "dark_gray",
     "move_cost_mod": 2,
-    "coverage": 50,
+    "coverage": 35,
+    "concealment": 35,
     "required_str": -1,
     "flags": [ "MINEABLE", "NOITEM", "TRANSPARENT", "MOUNTABLE", "ROUGH", "PLACE_ITEM", "UNSTABLE" ],
     "bash": {
@@ -86,6 +91,7 @@
     "color": "black_white",
     "move_cost_mod": -1,
     "coverage": 55,
+    "concealment": 55,
     "required_str": -1,
     "flags": [ "MINEABLE", "NOITEM" ],
     "bash": {
@@ -104,12 +110,13 @@
     "symbol": "(",
     "color": "dark_gray",
     "move_cost_mod": 0,
-    "coverage": 20,
+    "coverage": 10,
+    "concealment": 5,
     "required_str": -1,
     "flags": [ "EASY_DECONSTRUCT", "TRANSPARENT", "MOUNTABLE" ],
     "deconstruct": {
       "items": [
-        { "item": "modular_m4_carbine", "count": 1, "charges": 0, "variant": "modular_m4a1" },
+        { "item": "modular_m4_carbine", "count": 1, "charges": 0, "variant": "modular_m4a1", "damage": [ 0, 3 ] },
         { "item": "helmet_army", "count": 1, "damage": [ 0, 3 ] },
         { "item": "boots_combat", "count": [ 0, 1 ], "damage": [ 0, 3 ] }
       ]
@@ -120,9 +127,9 @@
       "sound": "thump.",
       "sound_fail": "whack.",
       "items": [
-        { "item": "modular_m4_carbine", "count": 1, "charges": 0, "variant": "modular_m4a1" },
-        { "item": "helmet_army", "count": 1, "damage": [ 0, 3 ] },
-        { "item": "boots_combat", "count": [ 0, 1 ], "damage": [ 0, 3 ] }
+        { "item": "modular_m4_carbine", "count": 1, "charges": 0, "variant": "modular_m4a1", "damage": [ 1, 4 ] },
+        { "item": "helmet_army", "count": 1, "damage": [ 0, 4 ] },
+        { "item": "boots_combat", "count": [ 0, 1 ], "damage": [ 0, 4 ] }
       ]
     }
   }

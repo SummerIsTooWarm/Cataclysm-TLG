@@ -107,6 +107,9 @@ struct map_shoot_info {
     int destroy_dmg_max = 0;
     // Are lasers incapable of destroying the object (defaults to false)
     bool no_laser_destroy = false;
+    //
+    std::pair<ter_str_id, int> bash_as_ter = { ter_str_id( "t_null" ), 0 };
+    std::pair<furn_str_id, int> bash_as_furn = { furn_str_id( "f_null" ), 0 };
     bool load( const JsonObject &jsobj, std::string_view member, bool was_loaded );
 };
 struct furn_workbench_info {
@@ -331,6 +334,7 @@ enum class ter_furn_flag : int {
     TFLAG_TINDER,
     TFLAG_UNCLINGABLE,
     TFLAG_HARVEST_REQ_CUT1,
+    TFLAG_HIT_WITHOUT_COVER,
 
     NUM_TFLAG_FLAGS
 };
@@ -510,8 +514,10 @@ struct map_data_common_t {
         // The amount of movement points required to pass this terrain by default.
         int movecost = 0;
         int heat_radiation = 0;
-        // The coverage percentage of a furniture piece of terrain. <30 won't cover from sight.
-        int coverage = 0;
+        // The concealment percentage of a furniture piece of terrain. <30 won't cover from sight.
+        int concealment = 0;
+        // The % chance that this furniture/terrain will interrupt a ranged attack passing through its tile.
+        int coverage = 100;
         // Warmth provided by the terrain (for sleeping, etc.)
         units::temperature_delta floor_bedding_warmth = 0_C_delta;
         int comfort = 0;

@@ -358,7 +358,7 @@ struct tile_render_info {
  * When the player moves between submaps, the whole map is shifted, so that if the player moves one submap to the right,
  * (0, 0) now points to a tile one submap to the right from before
  *
- * The map's coverage is 11 * 11 submaps, corresponding to the current submap plus 5 submaps on every side of it,
+ * The map's concealment is 11 * 11 submaps, corresponding to the current submap plus 5 submaps on every side of it,
  * covering all Z levels. 5 submaps means 5 * 12 = 60 map squares, which means the map covers the current reality bubble
  * in all directions for as long as you remain within the current submap (and when you leave the map shifts).
  * The natural relative reference system for the map is the tripoint_bub_ms, as the map covers 132 * 132 tiles
@@ -704,25 +704,35 @@ class map
         point sees_cache_key( const tripoint_bub_ms &from, const tripoint_bub_ms &to ) const;
     public:
         /**
-        * Returns coverage of target in relation to the observer. Target is loc2, observer is loc1.
-        * First tile from the target is an obstacle, which has the coverage value.
-        * If there's no obstacle adjacent to the target - no coverage.
+        * Returns concealment of target in relation to the observer. Target is loc2, observer is loc1.
+        * First tile from the target is an obstacle, which has the concealment value.
+        * If there's no obstacle adjacent to the target - no concealment.
         */
+        int obstacle_concealment( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const;
+
+        // Currently only used for IR vision as map::shoot() handles most of this already.
         int obstacle_coverage( const tripoint_bub_ms &loc1, const tripoint_bub_ms &loc2 ) const;
+
         // TODO: Get rid of untyped override.
-        int ledge_coverage( const Creature &viewer, const tripoint &target_p ) const;
-        int ledge_coverage( const Creature &viewer, const tripoint_bub_ms &target_p ) const;
+        int ledge_concealment( const Creature &viewer, const tripoint &target_p ) const;
+        int ledge_concealment( const Creature &viewer, const tripoint_bub_ms &target_p ) const;
         // TODO: Get rid of untyped override.
-        int ledge_coverage( const tripoint &viewer_p, const tripoint &target_p,
-                            const float &eye_level = 1.0f ) const;
-        int ledge_coverage( const tripoint_bub_ms &viewer_p, const tripoint_bub_ms &target_p,
-                            const float &eye_level = 1.0f ) const;
+        int ledge_concealment( const tripoint &viewer_p, const tripoint &target_p ) const;
+        int ledge_concealment( const tripoint_bub_ms &viewer_p, const tripoint_bub_ms &target_p ) const;
+        /**
+        * Returns concealment value of the tile.
+        */
+        // TODO: Get rid of untyped overload.
+        int concealment( const tripoint &p ) const;
+        int concealment( const tripoint_bub_ms &p ) const;
+
         /**
         * Returns coverage value of the tile.
         */
         // TODO: Get rid of untyped overload.
         int coverage( const tripoint &p ) const;
         int coverage( const tripoint_bub_ms &p ) const;
+
         /**
          * Check whether there's a direct line of sight between `F` and
          * `T` with the additional movecost restraints.
@@ -1400,7 +1410,9 @@ class map
         void destroy_furn( const tripoint &p, bool silent = false );
         void destroy_furn( const tripoint_bub_ms &, bool silent = false );
         void crush( const tripoint_bub_ms &p );
-        void shoot( const tripoint &p, projectile &proj, bool hit_items );
+        /** Track a projectile as it travels and roll for cover etc. */
+        void shoot( const tripoint &p, const tripoint &source, projectile &proj, bool hit_items,
+                    double dispersion );
         /** Checks if a square should collapse, returns the X for the one_in(X) collapse chance */
         int collapse_check( const tripoint_bub_ms &p ) const;
         /** Causes a collapse at p, such as from destroying a wall */

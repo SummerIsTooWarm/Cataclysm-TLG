@@ -9,7 +9,8 @@
     "color": "brown",
     "move_cost_mod": 5,
     "required_str": -1,
-    "coverage": 60,
+    "coverage": 45,
+    "concealment": 45,
     "flags": [ "TRANSPARENT", "NOITEM", "MOUNTABLE", "REDUCE_SCENT", "EASY_DECONSTRUCT", "SMALL_HIDE" ],
     "deconstruct": {
       "items": [ { "item": "brick", "count": 400 }, { "item": "pallet", "count": 1 }, { "item": "plastic_sheet", "count": 1 } ]
@@ -37,7 +38,8 @@
     "color": "brown",
     "move_cost_mod": 5,
     "required_str": -1,
-    "coverage": 60,
+    "coverage": 45,
+    "concealment": 45,
     "flags": [ "TRANSPARENT", "NOITEM", "MOUNTABLE", "REDUCE_SCENT", "EASY_DECONSTRUCT", "SMALL_HIDE" ],
     "deconstruct": {
       "items": [ { "item": "adobe_brick", "count": 400 }, { "item": "pallet", "count": 1 }, { "item": "plastic_sheet", "count": 1 } ]
@@ -65,7 +67,8 @@
     "color": "light_gray",
     "move_cost_mod": 5,
     "required_str": -1,
-    "coverage": 60,
+    "coverage": 45,
+    "concealment": 45,
     "flags": [ "TRANSPARENT", "NOITEM", "MOUNTABLE", "REDUCE_SCENT", "EASY_DECONSTRUCT", "SMALL_HIDE" ],
     "deconstruct": {
       "items": [ { "group": "cement_bag", "count": 64 }, { "item": "pallet", "count": 1 }, { "item": "plastic_sheet", "count": 1 } ]
@@ -93,7 +96,8 @@
     "color": "light_gray",
     "move_cost_mod": 5,
     "required_str": -1,
-    "coverage": 40,
+    "coverage": 45,
+    "concealment": 45,
     "flags": [ "TRANSPARENT", "NOITEM", "MOUNTABLE", "REDUCE_SCENT", "EASY_DECONSTRUCT", "FLAMMABLE_ASH", "SMALL_HIDE" ],
     "deconstruct": { "items": [ { "item": "2x4", "count": 120 }, { "item": "rope_6", "count": 2 }, { "item": "pallet", "count": 1 } ] },
     "bash": {

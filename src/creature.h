@@ -321,6 +321,8 @@ class Creature : public viewer
         void setpos( const tripoint &p );
         void setpos( const tripoint_bub_ms &p );
 
+        // Convert size to int. TODO: use this everywhere instead of enuming every time.
+        int enum_size() const;
         /** Checks if the creature fits into a given tile. Set the boolean argument to true if the creature would barely fit. */
         bool can_move_to_vehicle_tile( const tripoint_abs_ms &loc, bool &cramped ) const;
         /** Helper overload for when the boolean is discardable */
@@ -384,6 +386,9 @@ class Creature : public viewer
          * @param pos is the location of the trap (not necessarily of the creature) in the main map.
          */
         virtual bool avoid_trap( const tripoint &pos, const trap &tr ) const = 0;
+
+        /** Gets the relevant eye_level() function from either monster or Character. */
+        int eye_level() const;
 
         /**
          * The functions check whether this creature can see the target.
@@ -1287,7 +1292,8 @@ class Creature : public viewer
         // Find the body part with the biggest hitsize - we will treat this as the center of mass for targeting
         bodypart_id get_max_hitsize_bodypart() const;
         // Select a bodypart depending on the attack's hitsize/limb restrictions
-        bodypart_id select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high, int hit_roll ) const;
+        bodypart_id select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high,
+                                      int hit_roll ) const;
         bodypart_id select_blocking_part( bool arm, bool leg, bool nonstandard ) const;
         bodypart_id random_body_part( bool main_parts_only = false ) const;
         std::vector<bodypart_id> get_all_eligable_parts( int min_hit, int max_hit,

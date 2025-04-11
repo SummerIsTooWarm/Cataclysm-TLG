@@ -9,6 +9,7 @@
     "color": "black",
     "move_cost_mod": 2,
     "required_str": -1,
+    "coverage": 0,
     "flags": [ "NOITEM" ]
   },
   {
@@ -20,6 +21,7 @@
     "color": "red",
     "move_cost_mod": 2,
     "required_str": -1,
+    "coverage": 0,
     "workbench": { "multiplier": 1.0, "mass": 5000, "volume": "10 L" }
   },
   {
@@ -33,6 +35,7 @@
     "color": "white",
     "move_cost_mod": 0,
     "required_str": 0,
+    "coverage": 0,
     "deconstruct": { "items": [  ] },
     "bash": { "str_min": 0, "str_max": 0, "items": [  ] },
     "flags": [ "PLACE_ITEM", "TRANSPARENT", "EASY_DECONSTRUCT", "NOCOLLIDE" ],
@@ -47,6 +50,7 @@
     "description": "Seeing this is a bug.  If seen, please report and destroy.",
     "symbol": "#",
     "color": "black",
+    "coverage": 0,
     "move_cost_mod": 2,
     "required_str": -1,
     "flags": [ "NOITEM" ]

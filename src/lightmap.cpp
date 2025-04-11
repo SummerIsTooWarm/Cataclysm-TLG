@@ -207,22 +207,13 @@ bool map::build_vision_transparency_cache( const int zlev )
     }
 
     bool dirty = false;
-
-    bool is_crouching = player_character.is_crouching();
-    bool low_profile = player_character.has_effect( effect_quadruped_full ) &&
-                       player_character.is_running();
-    bool is_prone = player_character.is_prone();
-    static move_mode_id previous_move_mode = player_character.current_movement_mode();
-
     for( const tripoint &loc : points_in_radius( p, 1 ) ) {
         if( loc == p ) {
             // The tile player is standing on should always be visible
             vision_transparency_cache[p.x][p.y] = LIGHT_TRANSPARENCY_OPEN_AIR;
-        } else if( ( is_crouching || is_prone || low_profile ) && coverage( loc ) >= 30 ) {
-            // If we're crouching or prone behind an obstacle, we can't see past it.
-            if( vision_transparency_cache[loc.x][loc.y] != LIGHT_TRANSPARENCY_SOLID ||
-                previous_move_mode != player_character.current_movement_mode() ) {
-                previous_move_mode = player_character.current_movement_mode();
+        } else if( player_character.eye_level() < concealment( loc ) ) {
+            // Can we see over the obstacle?
+            if( vision_transparency_cache[loc.x][loc.y] != LIGHT_TRANSPARENCY_SOLID ) {
                 vision_transparency_cache[loc.x][loc.y] = LIGHT_TRANSPARENCY_SOLID;
                 dirty = true;
             }
@@ -1131,7 +1122,8 @@ void map::seen_cache_process_ledges( array_of_grids_of<float> &seen_caches,
                         // Or floor reached
                         if( ( *floor_caches[cache_z] ) [p.x][p.y] ) {
                             // In which case check if it should be obscured by a ledge
-                            if( override_p ? ledge_coverage( origin, p ) > 100 : ledge_coverage( player_character, p ) > 100 ) {
+                            if( override_p ? ledge_concealment( origin, p ) >= 100 : ledge_concealment( player_character,
+                                    p ) >= player_character.eye_level() ) {
                                 ( *seen_caches[cache_z] )[p.x][p.y] = 0.0f;
                             }
                             break;

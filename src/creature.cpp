@@ -237,6 +237,16 @@ static units::volume size_to_volume( creature_size size_class )
     return 250000_ml;
 }
 
+int Creature::enum_size() const
+{
+    static const int size_map[] = { 0, 1, 2, 3, 4, 5 }; // Mapping from enum value to size
+    if( get_size() < creature_size::num_sizes ) {
+        return size_map[static_cast<int>( get_size() )];
+    }
+    debugmsg( "ERROR: enum_size() returned invalid creature size class." );
+    return 3;
+}
+
 bool Creature::can_move_to_vehicle_tile( const tripoint_abs_ms &loc, bool &cramped ) const
 {
     map &here = get_map();
@@ -504,17 +514,19 @@ bool Creature::sees( const Creature &critter ) const
     }
 
     if( critter.is_hallucination() && !is_avatar() ) {
-        // hallucinations are imaginations of the player character, npcs or monsters don't hallucinate.
+        // Hallucinations are imaginations of the player character, npcs or monsters don't hallucinate.
         return false;
     }
 
-    // Creature has stumbled into an invisible player and is now aware of them
+    // Creature has stumbled into an invisible player and is now aware of them.
+    // REVIEW: Why is this only done for the player?
     if( has_effect( effect_stumbled_into_invisible ) &&
         here.has_field_at( critter.pos(), field_fd_last_known ) && critter.is_avatar() ) {
         return true;
     }
 
     // This check is ridiculously expensive so defer it to after everything else.
+    // REVIEW: Is this really expensive, or an old comment?
     auto visible = []( const Character * ch ) {
         return ch == nullptr || !ch->is_invisible();
     };
@@ -538,76 +550,97 @@ bool Creature::sees( const Creature &critter ) const
         critter.has_effect( effect_telepathic_ignorance_self ) ) {
         return false;
     }
+    bool different_levels = false;
+    if( posz() != critter.posz() ) {
+        different_levels = true;
+    }
 
-    if( ( target_range > 2 && critter.digging() &&
-          here.has_flag( ter_furn_flag::TFLAG_DIGGABLE, critter.pos_bub() ) ) ||
-        ( critter.has_flag( mon_flag_CAMOUFLAGE ) && target_range > this->get_eff_per() ) ||
-        ( critter.has_flag( mon_flag_WATER_CAMOUFLAGE ) &&
-          target_range > this->get_eff_per() &&
-          ( critter.is_likely_underwater() ||
-            here.has_flag( ter_furn_flag::TFLAG_DEEP_WATER, critter.pos_bub() ) ||
-            ( here.has_flag( ter_furn_flag::TFLAG_SHALLOW_WATER, critter.pos_bub() ) &&
-              critter.get_size() < creature_size::medium ) ) ) ||
-        ( critter.has_flag( mon_flag_NIGHT_INVISIBILITY ) &&
-          here.light_at( critter.pos() ) <= lit_level::LOW ) ||
-        critter.has_effect( effect_invisibility ) ||
-        ( !is_likely_underwater() && critter.is_likely_underwater() &&
-          majority_rule( critter.has_flag( mon_flag_WATER_CAMOUFLAGE ),
-                         here.has_flag( ter_furn_flag::TFLAG_DEEP_WATER, critter.pos_bub() ),
-                         posz() != critter.posz() ) ) ||
-        ( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_HIDE_PLACE, critter.pos_bub() ) &&
-          !( std::abs( posx() - critter.posx() ) <= 1 && std::abs( posy() - critter.posy() ) <= 1 &&
-             std::abs( posz() - critter.posz() ) <= 1 ) ) ||
-        ( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_SMALL_HIDE, critter.pos_bub() ) &&
-          critter.has_flag( mon_flag_SMALL_HIDER ) &&
-          !( std::abs( posx() - critter.posx() ) <= 1 && std::abs( posy() - critter.posy() ) <= 1 &&
-             std::abs( posz() - critter.posz() ) <= 1 ) ) ) {
+    bool has_camouflage = false;
+    bool has_water_camouflage = false;
+    bool has_night_invisibility = false;
+
+    if( critter.is_monster() ) {
+        has_camouflage = critter.has_flag( mon_flag_CAMOUFLAGE );
+        has_water_camouflage = critter.has_flag( mon_flag_WATER_CAMOUFLAGE );
+        has_night_invisibility = critter.has_flag( mon_flag_NIGHT_INVISIBILITY );
+    }
+    bool is_underwater = critter.is_likely_underwater();
+    bool is_invisible = critter.has_effect( effect_invisibility );
+
+    // Check if creature is digging and the tile is diggable
+    if( target_range > 2 && critter.digging() &&
+        here.has_flag( ter_furn_flag::TFLAG_DIGGABLE, critter.pos_bub() ) ) {
         return false;
     }
-    if( ch != nullptr ) {
-        if( ch->is_crouching() || ch->has_effect( effect_all_fours ) || ch->is_prone() ||
-            pos_bub().z() != critter.pos_bub().z() ) {
-            const int coverage = std::max( here.obstacle_coverage( pos_bub(), critter.pos_bub() ),
-                                           here.ledge_coverage( *this, critter.pos_bub() ) );
-            if( coverage < 30 ) {
-                return visible( ch );
-            }
-            float size_modifier = 1.0f;
-            switch( ch->get_size() ) {
-                case creature_size::tiny:
-                    size_modifier = 2.0f;
-                    break;
-                case creature_size::small:
-                    size_modifier = 1.4f;
-                    break;
-                case creature_size::medium:
-                    break;
-                case creature_size::large:
-                    size_modifier = 0.6f;
-                    break;
-                case creature_size::huge:
-                    size_modifier = 0.15f;
-                    break;
-                case creature_size::num_sizes:
-                    debugmsg( "ERROR: Creature has invalid size class." );
-                    break;
-            }
 
-            int profile = 120 / size_modifier;
-            if( ch->is_crouching() || ch->has_effect( effect_all_fours ) ) {
-                profile *= 0.5;
-            } else if( ch->is_prone() ) {
-                profile *= 0.275;
-            }
+    // Camouflage or Water Camouflage checks
+    if( has_camouflage && target_range > this->get_eff_per() ) {
+        return false;
+    }
 
-            if( coverage < profile ) {
-                const int vision_modifier = std::max( 30 * ( 1 - coverage / profile ), 1 );
-                return target_range <= vision_modifier && visible( ch );
-            }
+    if( has_water_camouflage && target_range > this->get_eff_per() ) {
+        if( is_underwater ||
+            here.has_flag( ter_furn_flag::TFLAG_DEEP_WATER, critter.pos_bub() ) ||
+            ( here.has_flag( ter_furn_flag::TFLAG_SHALLOW_WATER, critter.pos_bub() ) &&
+              critter.get_size() < creature_size::medium ) ) {
             return false;
         }
     }
-    return visible( ch );
+
+    // Night Invisibility check
+    if( has_night_invisibility && here.light_at( critter.pos() ) <= lit_level::LOW ) {
+        return false;
+    }
+
+    // Invisible effect
+    if( is_invisible ) {
+        return false;
+    }
+
+    // Underwater visibility check with majority rule
+    if( !is_likely_underwater() && is_underwater &&
+        majority_rule( critter.has_flag( mon_flag_WATER_CAMOUFLAGE ),
+                       here.has_flag( ter_furn_flag::TFLAG_DEEP_WATER, critter.pos_bub() ),
+                       different_levels ) ) {
+        return false;
+    }
+
+    if( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_HIDE_PLACE, critter.pos_bub() ) &&
+        critter.get_size() < creature_size::huge ) {
+        return false;
+    }
+
+    if( here.has_flag_ter_or_furn( ter_furn_flag::TFLAG_SMALL_HIDE, critter.pos_bub() ) &&
+        critter.has_flag( mon_flag_SMALL_HIDER ) ) {
+        return false;
+    }
+
+    int ledge_concealment = 0;
+    if( different_levels ) {
+        ledge_concealment = ( here.ledge_concealment( pos_bub(), critter.pos_bub() ) );
+    }
+    const int concealment = std::max( here.obstacle_concealment( pos_bub(), critter.pos_bub() ),
+                                      ledge_concealment );
+    if( ch != nullptr ) {
+        if( concealment > eye_level() ) {
+            return false;
+        }
+        return visible( ch );
+    } else {
+        if( concealment > eye_level() ) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int Creature::eye_level() const
+{
+    if( this->is_monster() ) {
+        return this->as_monster()->eye_level();
+    } else {
+        return this->as_character()->eye_level();
+    }
 }
 
 bool Creature::sees( const tripoint &t, bool is_avatar, int range_mod ) const
@@ -3277,7 +3310,8 @@ bodypart_id Creature::get_max_hitsize_bodypart() const
     return anatomy( get_all_body_parts() ).get_max_hitsize_bodypart();
 }
 
-bodypart_id Creature::select_body_part( const Creature *you, int min_hit, int max_hit, bool can_attack_high,
+bodypart_id Creature::select_body_part( const Creature *you, int min_hit, int max_hit,
+                                        bool can_attack_high,
                                         int hit_roll ) const
 {
     add_msg_debug( debugmode::DF_CREATURE, "hit roll = %d", hit_roll );

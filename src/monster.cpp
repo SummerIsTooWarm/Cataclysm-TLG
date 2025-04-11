@@ -1310,6 +1310,42 @@ int monster::sight_range( const float light_level ) const
     return range;
 }
 
+int monster::eye_level() const
+{
+    if( flies() || has_effect( effect_airborne ) ) {
+        return 100;
+    }
+    bool tall = ( type->bodytype == "human" || type->bodytype == "angel" ||
+                  type->bodytype == "kangaroo" || type->bodytype == "horse"
+                  || type->bodytype == "elephant" || type->bodytype == "bird" || type->bodytype == "bear" ||
+                  type->bodytype == "migo" );
+    float eye_level = static_cast<float>( enum_size() ) * 20;
+    if( has_effect( effect_downed ) ) {
+        eye_level *= 0.3;
+    } else if( !tall ) {
+        eye_level *= 0.6;
+    }
+
+    map &here = get_map();
+    const furn_id viewer_furn = here.furn( pos_bub() );
+    const furn_t &furn = viewer_furn.obj();
+    if( !furn.id ) {
+        return eye_level;
+    }
+    if( furn.coverage <= 0 ) {
+        return eye_level;
+    }
+    if( ( furn.has_flag( ter_furn_flag::TFLAG_CAN_SIT ) ||
+          furn.has_flag( ter_furn_flag::TFLAG_MOUNTABLE ) ||
+          furn.has_flag( ter_furn_flag::TFLAG_FLAT_SURF ) || furn.has_flag( ter_furn_flag::TFLAG_FLAT ) ||
+          furn.has_flag( ter_furn_flag::TFLAG_CLIMBABLE ) ) &&
+        !furn.has_flag( ter_furn_flag::TFLAG_HIDE_PLACE ) &&
+        ( !furn.has_flag( ter_furn_flag::TFLAG_SMALL_HIDE ) && !this->has_flag( mon_flag_SMALL_HIDER ) ) ) {
+        eye_level += furn.coverage;
+    }
+    return eye_level;
+}
+
 bool monster::made_of( const material_id &m ) const
 {
     return type->made_of( m );

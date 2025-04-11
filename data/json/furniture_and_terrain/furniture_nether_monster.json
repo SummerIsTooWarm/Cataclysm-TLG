@@ -9,6 +9,7 @@
     "color": "magenta",
     "move_cost_mod": 6,
     "coverage": 50,
+    "concealment": 50,
     "required_str": -1,
     "flags": [ "TRANSPARENT" ]
   },
@@ -21,7 +22,7 @@
     "symbol": "|",
     "color": "magenta_red",
     "move_cost_mod": 6,
-    "coverage": 50,
+    "coverage": 30,
     "required_str": -1,
     "flags": [ "TRANSPARENT" ],
     "emissions": [ "emit_monster_gas_1", "emit_monster_gas_2" ]
@@ -36,7 +37,7 @@
     "symbol": "P",
     "color": "red",
     "move_cost_mod": 2,
-    "coverage": 40,
+    "coverage": 10,
     "required_str": -1,
     "flags": [ "TRANSPARENT" ],
     "bash": {
@@ -88,7 +89,8 @@
     "symbol": "^",
     "color": "blue",
     "move_cost_mod": 1,
-    "coverage": 10,
+    "coverage": 25,
+    "concealment": 25,
     "required_str": -1,
     "flags": [ "TRANSPARENT", "ROUGH", "PAINFUL" ],
     "bash": { "str_min": 15, "str_max": 25, "sound": "crunch!", "sound_fail": "smash!" }
@@ -101,7 +103,8 @@
     "symbol": "^",
     "color": "blue",
     "move_cost_mod": 2,
-    "coverage": 10,
+    "coverage": 25,
+    "concealment": 25,
     "required_str": -1,
     "flags": [ "PAINFUL" ],
     "bash": { "str_min": 15, "str_max": 25, "sound": "crunch!", "sound_fail": "smash!" }
@@ -114,7 +117,7 @@
     "symbol": "Y",
     "color": "green",
     "move_cost_mod": 1,
-    "coverage": 10,
+    "coverage": 0,
     "required_str": -1,
     "flags": [ "TRANSPARENT" ],
     "bash": {
@@ -134,7 +137,7 @@
     "symbol": "L",
     "color": "green",
     "move_cost_mod": 1,
-    "coverage": 10,
+    "coverage": 0,
     "required_str": -1,
     "flags": [ "TRANSPARENT", "ROUGH", "PAINFUL" ],
     "bash": {

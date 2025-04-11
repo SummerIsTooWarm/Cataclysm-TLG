@@ -7,7 +7,8 @@
     "symbol": "\"",
     "color": "light_cyan",
     "move_cost": 0,
-    "coverage": 60,
+    "concealment": 38,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -15,8 +16,8 @@
     "flags": [ "TRANSPARENT", "FLAMMABLE", "NOITEM", "BARRICADABLE_WINDOW", "BLOCK_WIND", "REDUCE_SCENT", "WINDOW", "SUPPORTS_ROOF" ],
     "deconstruct": { "ter_set": "t_window_empty", "items": [ { "item": "glass_sheet", "count": 1 } ] },
     "bash": {
-      "str_min": 3,
-      "str_max": 6,
+      "str_min": 4,
+      "str_max": 10,
       "sound": "glass breaking!",
       "sound_fail": "whack!",
       "sound_vol": 16,
@@ -24,7 +25,13 @@
       "ter_set": "t_window_frame",
       "items": [ { "item": "glass_shard", "count": [ 14, 29 ] }, { "item": "glass_shard_large", "count": [ 0, 4 ] } ]
     },
-    "shoot": { "reduce_damage": [ 1, 4 ], "reduce_damage_laser": [ 0, 4 ], "destroy_damage": [ 1, 4 ], "no_laser_destroy": true }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 4 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": true
+    }
   },
   {
     "type": "terrain",
@@ -34,7 +41,7 @@
     "symbol": "\"",
     "color": "dark_gray",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -42,8 +49,8 @@
     "flags": [ "FLAMMABLE", "NOITEM", "WALL", "BLOCK_WIND", "REDUCE_SCENT", "WINDOW", "SUPPORTS_ROOF" ],
     "deconstruct": { "ter_set": "t_window", "items": [ { "item": "null", "count": 0 } ] },
     "bash": {
-      "str_min": 3,
-      "str_max": 6,
+      "str_min": 5,
+      "str_max": 11,
       "sound": "glass breaking!",
       "sound_fail": "whack!",
       "sound_vol": 14,
@@ -51,7 +58,13 @@
       "ter_set": "t_window_frame",
       "items": [ { "item": "glass_shard", "count": [ 9, 19 ] }, { "item": "glass_shard_large", "count": [ 0, 2 ] } ]
     },
-    "shoot": { "reduce_damage": [ 1, 6 ], "reduce_damage_laser": [ 2, 10 ], "destroy_damage": [ 2, 8 ], "no_laser_destroy": true }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -61,7 +74,8 @@
     "symbol": "\"",
     "color": "light_gray",
     "move_cost": 0,
-    "coverage": 60,
+    "concealment": 38,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -92,8 +106,8 @@
       ]
     },
     "bash": {
-      "str_min": 3,
-      "str_max": 6,
+      "str_min": 4,
+      "str_max": 10,
       "sound": "glass breaking!",
       "sound_fail": "whack!",
       "sound_vol": 16,
@@ -118,7 +132,13 @@
         "failure": "You pry, but can't pry open the window."
       }
     },
-    "shoot": { "reduce_damage": [ 1, 4 ], "reduce_damage_laser": [ 0, 4 ], "destroy_damage": [ 1, 4 ], "no_laser_destroy": true }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 4 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": true
+    }
   },
   {
     "type": "terrain",
@@ -128,7 +148,8 @@
     "symbol": "\"",
     "color": "white",
     "move_cost": 0,
-    "coverage": 60,
+    "concealment": 38,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -148,8 +169,8 @@
     "open": "t_window_no_curtains_open",
     "deconstruct": { "ter_set": "t_window_empty", "items": [ { "item": "glass_sheet", "count": 1 } ] },
     "bash": {
-      "str_min": 3,
-      "str_max": 6,
+      "str_min": 4,
+      "str_max": 10,
       "sound": "glass breaking!",
       "sound_fail": "whack!",
       "sound_vol": 16,
@@ -168,7 +189,13 @@
         "failure": "You pry, but can't pry open the window."
       }
     },
-    "shoot": { "reduce_damage": [ 1, 4 ], "reduce_damage_laser": [ 0, 4 ], "destroy_damage": [ 1, 4 ], "no_laser_destroy": true }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 4 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": true
+    }
   },
   {
     "type": "terrain",
@@ -178,7 +205,8 @@
     "symbol": "'",
     "color": "white",
     "move_cost": 4,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -199,14 +227,21 @@
     "close": "t_window_no_curtains",
     "deconstruct": { "ter_set": "t_window_empty", "items": [ { "item": "glass_sheet", "count": 1 } ] },
     "bash": {
-      "str_min": 3,
-      "str_max": 6,
+      "str_min": 4,
+      "str_max": 10,
       "sound": "glass breaking!",
       "sound_fail": "whack!",
       "sound_vol": 16,
       "sound_fail_vol": 10,
       "ter_set": "t_window_frame",
       "items": [ { "item": "glass_shard", "count": [ 9, 19 ] }, { "item": "glass_shard_large", "count": [ 0, 2 ] } ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
     }
   },
   {
@@ -217,7 +252,6 @@
     "symbol": "\"",
     "color": "dark_gray",
     "move_cost": 0,
-    "coverage": 95,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -225,16 +259,22 @@
     "flags": [ "FLAMMABLE", "NOITEM", "WALL", "BLOCK_WIND", "REDUCE_SCENT", "WINDOW", "SUPPORTS_ROOF" ],
     "deconstruct": { "ter_set": "t_window_no_curtains", "items": [ { "item": "null", "count": 0 } ] },
     "bash": {
-      "str_min": 6,
-      "str_max": 12,
-      "sound": "glass breaking!",
+      "str_min": 5,
+      "str_max": 11,
+      "sound": "muffled glass breaking!",
       "sound_fail": "whack!",
-      "sound_vol": 16,
+      "sound_vol": 13,
       "sound_fail_vol": 10,
       "ter_set": "t_window_frame",
       "items": [ { "item": "glass_shard", "count": [ 9, 19 ] }, { "item": "glass_shard_large", "count": [ 0, 2 ] } ]
     },
-    "shoot": { "reduce_damage": [ 1, 6 ], "reduce_damage_laser": [ 2, 10 ], "destroy_damage": [ 2, 8 ], "no_laser_destroy": true }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -244,7 +284,6 @@
     "symbol": "\"",
     "color": "dark_gray",
     "move_cost": 0,
-    "coverage": 95,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -252,11 +291,11 @@
     "flags": [ "FLAMMABLE", "NOITEM", "WALL", "BLOCK_WIND", "REDUCE_SCENT", "WINDOW", "SUPPORTS_ROOF" ],
     "deconstruct": { "ter_set": "t_window_domestic", "items": [ { "item": "null", "count": 0 } ] },
     "bash": {
-      "str_min": 6,
-      "str_max": 12,
-      "sound": "glass breaking!",
+      "str_min": 5,
+      "str_max": 11,
+      "sound": "muffled glass breaking!",
       "sound_fail": "whack!",
-      "sound_vol": 16,
+      "sound_vol": 13,
       "sound_fail_vol": 10,
       "ter_set": "t_window_frame",
       "items": [
@@ -267,7 +306,13 @@
         { "item": "string_36", "count": 1 }
       ]
     },
-    "shoot": { "reduce_damage": [ 1, 6 ], "reduce_damage_laser": [ 2, 10 ], "destroy_damage": [ 2, 8 ], "no_laser_destroy": true }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -277,7 +322,8 @@
     "symbol": "'",
     "color": "light_gray",
     "move_cost": 4,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -309,8 +355,8 @@
       ]
     },
     "bash": {
-      "str_min": 3,
-      "str_max": 6,
+      "str_min": 4,
+      "str_max": 10,
       "sound": "glass breaking!",
       "sound_fail": "whack!",
       "sound_vol": 16,
@@ -323,6 +369,13 @@
         { "item": "stick", "count": 1 },
         { "item": "string_36", "count": 1 }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
     }
   },
   {
@@ -333,11 +386,11 @@
     "symbol": "\"",
     "color": "dark_gray",
     "move_cost": 0,
-    "coverage": 95,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "rotates_to": "INDOORFLOOR",
+    "coverage": 100,
     "flags": [ "FLAMMABLE", "NOITEM", "OPENCLOSE_INSIDE", "BARRICADABLE_WINDOW_CURTAINS", "BLOCK_WIND", "WINDOW", "SUPPORTS_ROOF" ],
     "curtain_transform": "t_window_no_curtains",
     "open": "t_window_domestic",
@@ -353,8 +406,8 @@
       ]
     },
     "bash": {
-      "str_min": 3,
-      "str_max": 6,
+      "str_min": 4,
+      "str_max": 10,
       "sound": "glass breaking!",
       "sound_fail": "whack!",
       "sound_vol": 16,
@@ -379,7 +432,13 @@
         "failure": "You pry, but can't pry open the window."
       }
     },
-    "shoot": { "reduce_damage": [ 1, 6 ], "reduce_damage_laser": [ 2, 10 ], "destroy_damage": [ 1, 4 ], "no_laser_destroy": true }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -389,14 +448,16 @@
     "symbol": "\"",
     "color": "light_cyan",
     "move_cost": 0,
+    "concealment": 38,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "rotates_to": "INDOORFLOOR",
     "flags": [ "TRANSPARENT", "FLAMMABLE", "ALARMED", "NOITEM", "BARRICADABLE_WINDOW", "BLOCK_WIND", "WINDOW", "SUPPORTS_ROOF" ],
     "bash": {
-      "str_min": 3,
-      "str_max": 6,
+      "str_min": 4,
+      "str_max": 10,
       "sound": "glass breaking!",
       "sound_fail": "whack!",
       "sound_vol": 16,
@@ -404,7 +465,13 @@
       "ter_set": "t_window_frame",
       "items": [ { "item": "glass_shard", "count": [ 14, 29 ] }, { "item": "glass_shard_large", "count": [ 0, 4 ] } ]
     },
-    "shoot": { "reduce_damage": [ 1, 4 ], "reduce_damage_laser": [ 0, 4 ], "destroy_damage": [ 1, 4 ], "no_laser_destroy": true }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 4 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": true
+    }
   },
   {
     "type": "terrain",
@@ -414,7 +481,7 @@
     "symbol": "\"",
     "color": "dark_gray",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -422,16 +489,22 @@
     "flags": [ "FLAMMABLE", "NOITEM", "ALARMED", "WALL", "BLOCK_WIND", "REDUCE_SCENT", "WINDOW", "SUPPORTS_ROOF" ],
     "deconstruct": { "ter_set": "t_window_alarm", "items": [ { "item": "null", "count": 0 } ] },
     "bash": {
-      "str_min": 6,
-      "str_max": 12,
-      "sound": "glass breaking!",
+      "str_min": 5,
+      "str_max": 11,
+      "sound": "muffled glass breaking!",
       "sound_fail": "whack!",
-      "sound_vol": 16,
+      "sound_vol": 13,
       "sound_fail_vol": 10,
       "ter_set": "t_window_frame",
       "items": [ { "item": "glass_shard", "count": [ 14, 29 ] }, { "item": "glass_shard_large", "count": [ 0, 4 ] } ]
     },
-    "shoot": { "reduce_damage": [ 1, 6 ], "reduce_damage_laser": [ 2, 10 ], "destroy_damage": [ 2, 8 ], "no_laser_destroy": true }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -442,7 +515,8 @@
     "symbol": "0",
     "color": "yellow",
     "move_cost": 4,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "rotates_to": "INDOORFLOOR",
@@ -481,7 +555,8 @@
     "symbol": "0",
     "color": "yellow",
     "move_cost": 4,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "rotates_to": "INDOORFLOOR",
@@ -515,7 +590,8 @@
     "symbol": "0",
     "color": "yellow",
     "move_cost": 4,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 100,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "rotates_to": "INDOORFLOOR",
@@ -547,14 +623,15 @@
     "symbol": "0",
     "color": "light_cyan",
     "move_cost": 8,
-    "coverage": 60,
+    "coverage": 40,
+    "concealment": 38,
     "roof": "t_flat_roof",
     "bash": {
       "str_min": 1,
       "str_max": 1,
       "sound": "glass crunching!",
       "sound_fail": "whack!",
-      "sound_vol": 12,
+      "sound_vol": 8,
       "sound_fail_vol": 8,
       "ter_set": "t_window_empty",
       "items": [ { "item": "glass_shard", "count": [ 3, 8 ] }, { "item": "glass_shard_large", "count": [ 0, 1 ] } ]
@@ -562,7 +639,14 @@
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "rotates_to": "INDOORFLOOR",
-    "flags": [ "TRANSPARENT", "SHARP", "FLAMMABLE", "NOITEM", "MOUNTABLE", "SMALL_PASSAGE", "PERMEABLE", "WINDOW", "SUPPORTS_ROOF" ]
+    "flags": [ "TRANSPARENT", "SHARP", "FLAMMABLE", "NOITEM", "MOUNTABLE", "SMALL_PASSAGE", "PERMEABLE", "WINDOW", "SUPPORTS_ROOF" ],
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -572,7 +656,7 @@
     "symbol": "#",
     "color": "brown",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -600,7 +684,13 @@
       "byproducts": [ { "item": "nail", "count": 8 }, { "item": "2x4", "count": 4 } ],
       "prying_data": { "prying_nails": true }
     },
-    "shoot": { "reduce_damage": [ 10, 25 ], "reduce_damage_laser": [ 5, 20 ], "destroy_damage": [ 10, 40 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -611,7 +701,7 @@
     "looks_like": "t_window_boarded",
     "color": "brown",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -642,7 +732,13 @@
       "byproducts": [ { "item": "nail", "count": 8 }, { "item": "2x4", "count": 4 } ],
       "prying_data": { "prying_nails": true }
     },
-    "shoot": { "reduce_damage": [ 10, 25 ], "reduce_damage_laser": [ 5, 20 ], "destroy_damage": [ 10, 40 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -653,7 +749,7 @@
     "looks_like": "t_window_boarded",
     "color": "brown",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -684,7 +780,13 @@
       "byproducts": [ { "item": "nail", "count": 8 }, { "item": "2x4", "count": 4 } ],
       "prying_data": { "prying_nails": true }
     },
-    "shoot": { "reduce_damage": [ 10, 25 ], "reduce_damage_laser": [ 5, 20 ], "destroy_damage": [ 10, 40 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -695,7 +797,6 @@
     "looks_like": "t_window_boarded",
     "color": "brown",
     "move_cost": 0,
-    "coverage": 95,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -722,7 +823,13 @@
       "byproducts": [ { "item": "nail", "count": 8 }, { "item": "2x4", "count": 4 } ],
       "prying_data": { "prying_nails": true }
     },
-    "shoot": { "reduce_damage": [ 10, 25 ], "reduce_damage_laser": [ 5, 20 ], "destroy_damage": [ 10, 40 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -733,7 +840,6 @@
     "symbol": "#",
     "color": "brown",
     "move_cost": 0,
-    "coverage": 95,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -760,7 +866,13 @@
       "byproducts": [ { "item": "nail", "count": 8 }, { "item": "2x4", "count": 4 } ],
       "prying_data": { "prying_nails": true }
     },
-    "shoot": { "reduce_damage": [ 9, 21 ], "reduce_damage_laser": [ 5, 16 ], "destroy_damage": [ 10, 40 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -771,7 +883,7 @@
     "symbol": "#",
     "color": "red",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -796,7 +908,13 @@
       "byproducts": [ { "item": "nail", "count": 8 }, { "item": "2x4", "count": 4 } ],
       "prying_data": { "prying_nails": true }
     },
-    "shoot": { "reduce_damage": [ 15, 30 ], "reduce_damage_laser": [ 10, 30 ], "destroy_damage": [ 20, 50 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 1, 5 ],
+      "reduce_damage_laser": [ 1, 5 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -807,7 +925,7 @@
     "symbol": "#",
     "color": "red",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -832,7 +950,13 @@
       "byproducts": [ { "item": "nail", "count": 8 }, { "item": "2x4", "count": 4 } ],
       "prying_data": { "prying_nails": true }
     },
-    "shoot": { "reduce_damage": [ 15, 30 ], "reduce_damage_laser": [ 10, 30 ], "destroy_damage": [ 20, 50 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 1, 5 ],
+      "reduce_damage_laser": [ 1, 5 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -843,7 +967,7 @@
     "symbol": "#",
     "color": "red",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -868,7 +992,13 @@
       "byproducts": [ { "item": "nail", "count": 8 }, { "item": "2x4", "count": 4 } ],
       "prying_data": { "prying_nails": true }
     },
-    "shoot": { "reduce_damage": [ 15, 30 ], "reduce_damage_laser": [ 10, 30 ], "destroy_damage": [ 20, 50 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 1, 5 ],
+      "reduce_damage_laser": [ 1, 5 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -879,7 +1009,7 @@
     "symbol": "#",
     "color": "red",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -904,7 +1034,13 @@
       "byproducts": [ { "item": "nail", "count": 8 }, { "item": "2x4", "count": 4 } ],
       "prying_data": { "prying_nails": true }
     },
-    "shoot": { "reduce_damage": [ 14, 26 ], "reduce_damage_laser": [ 10, 26 ], "destroy_damage": [ 20, 50 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 1, 5 ],
+      "reduce_damage_laser": [ 1, 5 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -915,7 +1051,7 @@
     "symbol": "#",
     "color": "cyan",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -942,7 +1078,13 @@
       "ter_set": "t_window_reinforced",
       "items": [ { "item": "spike", "count": [ 0, 2 ] }, { "item": "sheet_metal", "count": [ 1, 3 ] } ]
     },
-    "shoot": { "reduce_damage": [ 20, 35 ], "reduce_damage_laser": [ 15, 40 ], "destroy_damage": [ 30, 60 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 15 ],
+      "reduce_damage": [ 5, 10 ],
+      "reduce_damage_laser": [ 5, 10 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -953,7 +1095,7 @@
     "symbol": "#",
     "color": "cyan",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -980,7 +1122,13 @@
       "ter_set": "t_window_no_curtains_reinforced",
       "items": [ { "item": "spike", "count": [ 0, 2 ] }, { "item": "sheet_metal", "count": [ 1, 3 ] } ]
     },
-    "shoot": { "reduce_damage": [ 20, 35 ], "reduce_damage_laser": [ 15, 40 ], "destroy_damage": [ 30, 60 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 15 ],
+      "reduce_damage": [ 5, 10 ],
+      "reduce_damage_laser": [ 5, 10 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -991,7 +1139,7 @@
     "symbol": "#",
     "color": "cyan",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -1018,7 +1166,13 @@
       "ter_set": "t_plastic_window_reinforced",
       "items": [ { "item": "spike", "count": [ 0, 2 ] }, { "item": "sheet_metal", "count": [ 1, 3 ] } ]
     },
-    "shoot": { "reduce_damage": [ 20, 35 ], "reduce_damage_laser": [ 15, 40 ], "destroy_damage": [ 30, 60 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 15 ],
+      "reduce_damage": [ 5, 10 ],
+      "reduce_damage_laser": [ 5, 10 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -1029,7 +1183,7 @@
     "symbol": "#",
     "color": "cyan",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -1056,7 +1210,13 @@
       "ter_set": "t_window_reinforced_noglass",
       "items": [ { "item": "spike", "count": [ 0, 2 ] }, { "item": "sheet_metal", "count": [ 1, 3 ] } ]
     },
-    "shoot": { "reduce_damage": [ 19, 31 ], "reduce_damage_laser": [ 15, 36 ], "destroy_damage": [ 30, 60 ] }
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 15 ],
+      "reduce_damage": [ 5, 10 ],
+      "reduce_damage_laser": [ 5, 10 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
+    }
   },
   {
     "type": "terrain",
@@ -1067,6 +1227,8 @@
     "symbol": "#",
     "color": "light_gray",
     "move_cost": 0,
+    "coverage": 100,
+    "concealment": 38,
     "roof": "t_flat_roof",
     "hacksaw": {
       "result": "t_window",
@@ -1088,6 +1250,13 @@
       "sound_fail_vol": 10,
       "ter_set": "t_window_bars_noglass",
       "items": [ { "item": "glass_shard", "count": [ 9, 19 ] }, { "item": "glass_shard_large", "count": [ 0, 2 ] } ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 5 ],
+      "reduce_damage_laser": [ 0, 5 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": true
     }
   },
   {
@@ -1100,6 +1269,8 @@
     "symbol": "#",
     "color": "light_gray",
     "move_cost": 0,
+    "coverage": 100,
+    "concealment": 38,
     "roof": "t_flat_roof",
     "hacksaw": {
       "result": "t_window_empty",
@@ -1123,6 +1294,13 @@
         { "item": "steel_chunk", "count": [ 1, 4 ] },
         { "item": "scrap", "count": [ 1, 5 ] }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 5 ],
+      "reduce_damage_laser": [ 0, 5 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
     }
   },
   {
@@ -1134,6 +1312,8 @@
     "symbol": "#",
     "color": "light_gray",
     "move_cost": 0,
+    "coverage": 100,
+    "concealment": 38,
     "roof": "t_flat_roof",
     "hacksaw": {
       "result": "t_window_alarm",
@@ -1155,6 +1335,13 @@
       "sound_fail_vol": 10,
       "ter_set": "t_window_bars_noglass",
       "items": [ { "item": "glass_shard", "count": [ 9, 19 ] }, { "item": "glass_shard_large", "count": [ 0, 2 ] } ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 5 ],
+      "reduce_damage_laser": [ 0, 5 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": true
     }
   },
   {
@@ -1166,7 +1353,7 @@
     "looks_like": "t_curtains",
     "color": "light_gray",
     "move_cost": 0,
-    "coverage": 95,
+    "coverage": 100,
     "hacksaw": {
       "result": "t_window_domestic",
       "duration": "10 minutes",
@@ -1197,6 +1384,13 @@
         { "item": "stick", "count": 1 },
         { "item": "string_36", "count": 1 }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 5 ],
+      "reduce_damage_laser": [ 0, 5 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
     }
   },
   {
@@ -1208,6 +1402,7 @@
     "looks_like": "t_window_bars",
     "color": "light_gray",
     "move_cost": 0,
+    "coverage": 100,
     "hacksaw": {
       "result": "t_window_domestic",
       "duration": "10 minutes",
@@ -1238,6 +1433,13 @@
         { "item": "stick", "count": 1 },
         { "item": "string_36", "count": 1 }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 5 ],
+      "reduce_damage_laser": [ 0, 5 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": true
     }
   },
   {
@@ -1248,6 +1450,7 @@
     "symbol": "\"",
     "color": "light_green",
     "move_cost": 0,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "flags": [
       "NOITEM",
@@ -1277,6 +1480,7 @@
     "symbol": "\"",
     "color": "light_red",
     "move_cost": 0,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "flags": [
       "NOITEM",
@@ -1306,6 +1510,7 @@
     "symbol": "\"",
     "color": "light_blue",
     "move_cost": 0,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "flags": [
       "NOITEM",
@@ -1336,7 +1541,8 @@
     "symbol": "|",
     "color": "light_blue",
     "move_cost": 0,
-    "coverage": 60,
+    "coverage": 100,
+    "concealment": 38,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -1358,7 +1564,7 @@
       "str_max": 8,
       "sound": "whump!",
       "sound_fail": "whack!",
-      "sound_vol": 16,
+      "sound_vol": 13,
       "sound_fail_vol": 10,
       "ter_set": "t_window_empty",
       "items": [
@@ -1366,6 +1572,13 @@
         { "item": "nail", "charges": [ 3, 4 ] },
         { "item": "plastic_chunk", "count": [ 4, 9 ] }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 6 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": true
     }
   },
   {
@@ -1377,7 +1590,7 @@
     "symbol": "|",
     "color": "light_blue",
     "move_cost": 0,
-    "coverage": 60,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -1398,7 +1611,7 @@
       "str_max": 8,
       "sound": "whump!",
       "sound_fail": "whack!",
-      "sound_vol": 16,
+      "sound_vol": 10,
       "sound_fail_vol": 10,
       "ter_set": "t_window_empty",
       "items": [
@@ -1406,18 +1619,26 @@
         { "item": "nail", "charges": [ 3, 4 ] },
         { "item": "plastic_chunk", "count": [ 4, 9 ] }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 6 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
     }
   },
   {
     "type": "terrain",
     "id": "t_plastic_window_open",
     "name": "open plastic window",
-    "description": "A makeshift window comprised of a sheet of translucent, rigid plastic secured in a wooden frame.  It'll do in a pinch.  It's open and can be crawled through.",
+    "description": "A makeshift window composed of a sheet of clear acrylic secured in a wooden frame.  It's open and can be crawled through.",
     "looks_like": "t_window_no_curtains_open",
     "symbol": "|",
     "color": "light_blue",
     "move_cost": 4,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -1458,6 +1679,13 @@
         { "item": "nail", "charges": [ 3, 4 ] },
         { "item": "plastic_chunk", "count": [ 4, 9 ] }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
     }
   },
   {
@@ -1469,7 +1697,8 @@
     "symbol": "|",
     "color": "light_blue",
     "move_cost": 0,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -1503,6 +1732,13 @@
         { "item": "nail", "charges": [ 3, 4 ] },
         { "item": "plastic_chunk", "count": [ 4, 9 ] }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 0 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
     }
   },
   {
@@ -1514,7 +1750,8 @@
     "symbol": "|",
     "color": "light_blue",
     "move_cost": 0,
-    "coverage": 60,
+    "concealment": 38,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -1548,7 +1785,7 @@
       "str_max": 8,
       "sound": "whump!",
       "sound_fail": "whack!",
-      "sound_vol": 16,
+      "sound_vol": 13,
       "sound_fail_vol": 10,
       "ter_set": "t_window_empty",
       "items": [
@@ -1559,6 +1796,13 @@
         { "item": "nail", "charges": [ 3, 4 ] },
         { "item": "plastic_chunk", "count": [ 4, 9 ] }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 6 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
     }
   },
   {
@@ -1570,7 +1814,7 @@
     "symbol": "|",
     "color": "light_blue",
     "move_cost": 0,
-    "coverage": 60,
+    "coverage": 100,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -1587,11 +1831,11 @@
       ]
     },
     "bash": {
-      "str_min": 4,
-      "str_max": 8,
+      "str_min": 5,
+      "str_max": 9,
       "sound": "whump!",
       "sound_fail": "whack!",
-      "sound_vol": 16,
+      "sound_vol": 10,
       "sound_fail_vol": 10,
       "ter_set": "t_window_empty",
       "items": [
@@ -1602,6 +1846,13 @@
         { "item": "nail", "charges": [ 3, 4 ] },
         { "item": "plastic_chunk", "count": [ 4, 9 ] }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 6 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": false
     }
   },
   {
@@ -1613,7 +1864,8 @@
     "symbol": "|",
     "color": "light_blue",
     "move_cost": 4,
-    "coverage": 60,
+    "coverage": 38,
+    "concealment": 38,
     "roof": "t_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",
@@ -1649,7 +1901,7 @@
       "str_max": 8,
       "sound": "whump!",
       "sound_fail": "whack!",
-      "sound_vol": 16,
+      "sound_vol": 13,
       "sound_fail_vol": 10,
       "ter_set": "t_window_empty",
       "items": [
@@ -1660,6 +1912,13 @@
         { "item": "nail", "charges": [ 3, 4 ] },
         { "item": "plastic_chunk", "count": [ 4, 9 ] }
       ]
+    },
+    "shoot": {
+      "bash_as_ter": [ "t_window_empty", 38 ],
+      "reduce_damage": [ 0, 0 ],
+      "reduce_damage_laser": [ 0, 6 ],
+      "destroy_damage": [ 0, 0 ],
+      "no_laser_destroy": true
     }
   },
   {
@@ -1701,6 +1960,8 @@
     "color": "light_gray",
     "move_cost": 0,
     "roof": "t_metal_flat_roof",
+    "concealment": 38,
+    "coverage": 38,
     "connect_groups": "WALL",
     "connects_to": "WALL",
     "rotates_to": "INDOORFLOOR",
@@ -1728,6 +1989,7 @@
     "symbol": "o",
     "color": "light_gray",
     "move_cost": 0,
+    "coverage": 100,
     "roof": "t_metal_flat_roof",
     "connect_groups": "WALL",
     "connects_to": "WALL",

@@ -8,6 +8,7 @@
     "color": "white",
     "move_cost_mod": -2,
     "required_str": 10,
+    "coverage": 15,
     "flags": [ "TRANSPARENT", "PLACE_ITEM", "ALLOW_ON_OPEN_AIR" ],
     "bash": {
       "str_min": 6,
@@ -44,6 +45,7 @@
     "color": "light_gray",
     "move_cost_mod": -2,
     "required_str": 10,
+    "coverage": 15,
     "flags": [ "TRANSPARENT", "NOITEM" ],
     "bash": {
       "items": [
@@ -64,6 +66,7 @@
     "color": "red",
     "move_cost_mod": 2,
     "coverage": 35,
+    "concealment": 35,
     "required_str": -1,
     "flags": [ "MINEABLE" ],
     "deconstruct": { "items": [ { "item": "sheet_metal", "count": 2 }, { "item": "brick", "count": 30 } ] },
@@ -84,6 +87,7 @@
     "color": "light_gray",
     "move_cost_mod": 2,
     "required_str": 8,
+    "coverage": 2,
     "flags": [ "TRANSPARENT" ],
     "deconstruct": {
       "items": [ { "item": "pipe", "count": 6 }, { "item": "steel_chunk", "count": 2 }, { "item": "cable", "charges": 10 } ]
@@ -108,7 +112,8 @@
     "symbol": "|",
     "color": "dark_gray",
     "move_cost_mod": 2,
-    "coverage": 40,
+    "coverage": 10,
+    "concealment": 10,
     "required_str": -1,
     "flags": [ "TRANSPARENT" ],
     "deconstruct": { "items": [ { "item": "pipe", "count": 2 }, { "item": "steel_chunk", "count": 2 } ] },
@@ -156,6 +161,7 @@
     "color": "light_gray",
     "move_cost_mod": 2,
     "coverage": 40,
+    "concealment": 40,
     "required_str": -1,
     "flags": [ "TRANSPARENT" ],
     "deconstruct": { "items": [ { "item": "sheet_metal_small", "count": 6 }, { "item": "steel_chunk", "count": 2 } ] },
