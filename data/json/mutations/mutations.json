@@ -3054,7 +3054,8 @@
       { "part": "hand_l", "ignored": 9 },
       { "part": "hand_r", "ignored": 9 },
       { "part": "torso", "ignored": 34 }
-    ]
+    ],
+    "vitamin_rates": [ [ "calcium", -150 ] ]
   },
   {
     "type": "mutation",
@@ -7361,11 +7362,11 @@
     "id": "CARNIVORE",
     "name": { "str": "Carnivore" },
     "points": -4,
-    "description": "Your body's ability to digest fruits, vegetables, grains and nuts is severely hampered.  You cannot eat anything besides meat.  While your vitamin C needs are lowered, it's still needed and can be found often in organ meat.",
+    "description": "Your body's ability to digest fruits, vegetables, grains and nuts is severely hampered.  You've largely lost your taste for everything but meat, but your nutritional needs have largely adjusted to suit your new lifestyle.",
     "types": [ "DIET" ],
     "cancels": [ "VEGAN" ],
     "category": [ "LIZARD", "SPIDER", "CHIMERA", "RAPTOR", "FELINE", "BATRACHIAN", "BEAST", "LUPINE" ],
-    "vitamin_rates": [ [ "vitC", 1200 ] ]
+    "vitamin_rates": [ [ "vitC", 600 ] ]
   },
   {
     "type": "mutation",
@@ -7378,7 +7379,7 @@
     "cancels": [ "VEGAN" ],
     "category": [ "CHIROPTERAN" ],
     "changes_to": [ "BLOODFEEDER" ],
-    "vitamin_rates": [ [ "iron", -2000 ], [ "vitC", 300 ] ]
+    "vitamin_rates": [ [ "iron", -450 ], [ "vitC", 450 ] ]
   },
   {
     "type": "mutation",
@@ -7394,7 +7395,7 @@
     "vitamins_absorb_multi": [ [ "blood", [ [ "mutant_toxin", 0.25 ] ] ], [ "flesh", [ [ "mutant_toxin", 0.75 ] ] ] ],
     "category": [ "CHIROPTERAN" ],
     "threshreq": [ "THRESH_CHIROPTERAN" ],
-    "vitamin_rates": [ [ "iron", -4000 ], [ "vitC", 600 ] ]
+    "vitamin_rates": [ [ "iron", -600 ], [ "vitC", 600 ] ]
   },
   {
     "type": "mutation",
@@ -8043,7 +8044,8 @@
     "category": [ "CEPHALOPOD", "GASTROPOD" ],
     "wet_protection": [ { "part": "torso", "ignored": 26 } ],
     "integrated_armor": [ "integrated_shell" ],
-    "restricts_gear": [ "torso" ]
+    "restricts_gear": [ "torso" ],
+    "vitamin_rates": [ [ "calcium", -200 ] ]
   },
   {
     "type": "mutation",
@@ -8064,7 +8066,8 @@
     "wet_protection": [ { "part": "torso", "ignored": 26 } ],
     "active": true,
     "integrated_armor": [ "integrated_shell2" ],
-    "restricts_gear": [ "torso" ]
+    "restricts_gear": [ "torso" ],
+    "vitamin_rates": [ [ "calcium", -250 ] ]
   },
   {
     "type": "mutation",
@@ -8082,7 +8085,8 @@
     "wet_protection": [ { "part": "torso", "ignored": 45 } ],
     "active": true,
     "integrated_armor": [ "integrated_shell3" ],
-    "restricts_gear": [ "torso" ]
+    "restricts_gear": [ "torso" ],
+    "vitamin_rates": [ [ "calcium", -300 ] ]
   },
   {
     "type": "mutation",
