@@ -7366,7 +7366,7 @@
     "types": [ "DIET" ],
     "cancels": [ "VEGAN" ],
     "category": [ "LIZARD", "SPIDER", "CHIMERA", "RAPTOR", "FELINE", "BATRACHIAN", "BEAST", "LUPINE" ],
-    "vitamin_rates": [ [ "vitC", 600 ] ]
+    "vitamin_rates": [ [ "vitC", 900 ] ]
   },
   {
     "type": "mutation",
