@@ -98,7 +98,7 @@
     ],
     "examine_action": "clear_overgrown",
     "bash": { "str_min": 4, "str_max": 10, "sound": "crunch.", "sound_fail": "whish." },
-    "plant_data": { "transform": "f_plant_dead", "base": "f_null" }
+    "plant_data": { "transform": "f_plant_unharvested_overgrown", "base": "f_null" }
   },
   {
     "type": "furniture",
