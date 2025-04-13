@@ -583,7 +583,8 @@
         "rigid": true,
         "max_contains_volume": "750 ml",
         "max_contains_weight": "1 kg",
-        "max_item_length": "239 mm"
+        "max_item_length": "239 mm",
+        "spoil_multiplier": 0.8
       }
     ],
     "qualities": [ [ "CONTAIN", 1 ] ],
