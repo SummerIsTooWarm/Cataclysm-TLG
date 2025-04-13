@@ -661,8 +661,7 @@
     "material": [ "aluminum", "soft_rubber" ],
     "symbol": ";",
     "color": "light_gray",
-    "charges_per_use": 1,
-    "pocket_data": [ { "pocket_type": "CONTAINER", "ammo_restriction": { "liquid_rubber_spray": 10 }, "watertight": true, "rigid": true } ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "ammo_restriction": { "liquid_rubber_spray": 10 }, "watertight": true, "rigid": true } ],
     "flags": [ "NO_RELOAD", "NO_UNLOAD" ]
   },
   {

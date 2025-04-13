@@ -91,13 +91,7 @@
       { "item": "cotton_patchwork", "prob": 8, "custom-flags": [ "FILTHY" ] },
       { "item": "tshirt", "prob": 4, "damage": [ 0, 4 ], "custom-flags": [ "FILTHY" ] },
       { "item": "cotton_patchwork", "prob": 8 },
-      {
-        "item": "liquid_rubber_spray",
-        "prob": 2,
-        "charges": [ 0, 10 ],
-        "container-item": "rubber_spray_can",
-        "sealed": false
-      },
+      { "item": "rubber_spray_can", "prob": 2, "charges": [ 0, 10 ] },
       { "item": "tshirt", "prob": 4, "damage": [ 0, 4 ] },
       {
         "distribution": [ { "item": "pockknife", "damage": [ 0, 1 ] }, { "item": "boxcutter", "damage": [ 0, 1 ] } ],

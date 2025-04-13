@@ -962,12 +962,12 @@
     "type": "item_group",
     "id": "rubber_sealant_spray",
     "subtype": "collection",
-    "entries": [ { "item": "liquid_rubber_spray", "container-item": "rubber_spray_can", "charges": 10 } ]
+    "entries": [ { "item": "rubber_spray_can", "charges": 10 } ]
   },
   {
     "type": "item_group",
     "id": "rubber_sealant_spray_used",
     "subtype": "collection",
-    "entries": [ { "item": "liquid_rubber_spray", "container-item": "rubber_spray_can", "charges": [ 0, 10 ] } ]
+    "entries": [ { "item": "rubber_spray_can", "charges": [ 0, 10 ] } ]
   }
 ]
