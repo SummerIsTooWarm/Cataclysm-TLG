@@ -143,7 +143,7 @@
       { "group": "tools_home", "prob": 150 },
       { "group": "tools_general", "prob": 30 },
       { "group": "supplies_hardware", "prob": 50 },
-      { "item": "liquid_rubber_spray", "prob": 5, "charges": [ 0, 10 ] },
+      { "item": "rubber_spray_can", "prob": 5, "charges": [ 0, 10 ] },
       { "item": "manual_mechanics", "prob": 35 },
       { "item": "manual_fabrication", "prob": 20 },
       { "item": "recipe_bows", "prob": 10 },

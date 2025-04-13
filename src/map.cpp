@@ -5015,7 +5015,8 @@ void map::shoot( const tripoint &p, const tripoint &source, projectile &proj, co
     // Check again so we can skip if the result was zero.
     if( coverage > 0 || ter( p )->has_flag( ter_furn_flag::TFLAG_HIT_WITHOUT_COVER ) ) {
         int coverage_roll = rng( 1, 100 );
-        if( ( coverage > 0 && coverage_roll < coverage ) || ter( p )->has_flag( ter_furn_flag::TFLAG_HIT_WITHOUT_COVER ) ) {
+        if( ( coverage > 0 && coverage_roll < coverage ) ||
+            ter( p )->has_flag( ter_furn_flag::TFLAG_HIT_WITHOUT_COVER ) ) {
             furn_id furniture = furn( p );
             ter_id terrain = ter( p );
             // Did we hit the ter/furn/veh?
