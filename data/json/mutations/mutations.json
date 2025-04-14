@@ -2845,7 +2845,7 @@
     "points": 2,
     "visibility": 10,
     "ugliness": 6,
-    "description": "Your skin has mutated into an amalgamation of fur and scales.",
+    "description": "Patches of fur, scale, and chitin mottle your skin like a rorschach test.",
     "enchantments": [ { "values": [ { "value": "MOVECOST_SWIM_MOD", "multiply": -0.05 }, { "value": "BODYTEMP_SLEEP", "add": 0.1 } ] } ],
     "wet_protection": [
       { "part": "head", "ignored": 2 },
@@ -2899,7 +2899,7 @@
     "points": 6,
     "visibility": 10,
     "ugliness": 12,
-    "description": "Your skin has warped into a highly protective but inconsistent medley of chitin, scales, fur, bone, and even something close to Kevlar.",
+    "description": "Twisted growths of horn, bony scales, and chitinous plates sprout at random from your skin, which bristles with fur and feathers seemingly at random.",
     "enchantments": [ { "values": [ { "value": "MOVECOST_SWIM_MOD", "multiply": -0.15 }, { "value": "BODYTEMP_SLEEP", "add": 0.25 } ] } ],
     "wet_protection": [
       { "part": "head", "ignored": 3 },
