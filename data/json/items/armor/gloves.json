@@ -36,7 +36,7 @@
     "warmth": 20,
     "material_thickness": 3,
     "environmental_protection": 3,
-    "flags": [ "VARSIZE", "OVERSIZE", "STURDY" ],
+    "flags": [ "VARSIZE", "OVERSIZE", "STURDY", "MITTS" ],
     "armor": [ { "encumbrance": 70, "coverage": 98, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
@@ -107,7 +107,7 @@
     "warmth": 25,
     "material_thickness": 3,
     "environmental_protection": 6,
-    "flags": [ "VARSIZE", "STURDY", "WATERPROOF", "NORMAL" ],
+    "flags": [ "VARSIZE", "STURDY", "RAINPROOF", "NORMAL" ],
     "armor": [ { "encumbrance": 50, "coverage": 98, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
@@ -371,7 +371,7 @@
     "looks_like": "gloves_wraps",
     "color": "light_blue",
     "material_thickness": 0.01,
-    "flags": [ "WATERPROOF", "OVERSIZE", "OUTER", "SOFT" ],
+    "flags": [ "WATERPROOF", "UNRESTRICTED", "OVERSIZE", "MITTS", "OUTER", "SOFT" ],
     "armor": [ { "encumbrance": 7, "coverage": 70, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
@@ -543,7 +543,7 @@
     "color": "dark_gray",
     "warmth": 25,
     "material_thickness": 0.5,
-    "flags": [ "VARSIZE", "WATERPROOF" ],
+    "flags": [ "VARSIZE", "RAINPROOF" ],
     "armor": [ { "encumbrance": 10, "coverage": 100, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
@@ -616,7 +616,7 @@
     "warmth": 5,
     "material_thickness": 0.1,
     "flags": [ "WATER_FRIENDLY", "SKINTIGHT" ],
-    "armor": [ { "encumbrance": 1, "coverage": 100, "covers": [ "hand_l", "hand_r" ] } ]
+    "armor": [ { "encumbrance": 2, "coverage": 100, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
     "id": "xl_gloves_liner",
@@ -782,7 +782,7 @@
     "color": "blue",
     "warmth": 40,
     "material_thickness": 3,
-    "flags": [ "ALLOWS_NATURAL_ATTACKS", "ALLOWS_TALONS" ],
+    "flags": [ "ALLOWS_NATURAL_ATTACKS" ],
     "armor": [
       {
         "encumbrance": 7,
@@ -830,7 +830,7 @@
     "warmth": 25,
     "material_thickness": 2,
     "environmental_protection": 5,
-    "flags": [ "WATERPROOF", "STURDY", "VARSIZE" ],
+    "flags": [ "RAINPROOF", "STURDY", "VARSIZE" ],
     "armor": [ { "encumbrance": 20, "coverage": 98, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
@@ -870,7 +870,7 @@
     "color": "white",
     "warmth": 5,
     "material_thickness": 2,
-    "flags": [ "OVERSIZE", "ALLOWS_NATURAL_ATTACKS" ],
+    "flags": [ "ALLOWS_NATURAL_ATTACKS", "UNRESTRICTED", "OVERSIZE", "MITTS" ],
     "armor": [ { "coverage": 60, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
@@ -889,7 +889,7 @@
     "color": "brown",
     "warmth": 20,
     "material_thickness": 2,
-    "flags": [ "OVERSIZE", "ALLOWS_NATURAL_ATTACKS" ],
+    "flags": [ "ALLOWS_NATURAL_ATTACKS", "UNRESTRICTED", "OVERSIZE", "MITTS" ],
     "armor": [ { "encumbrance": 5, "coverage": 60, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
@@ -908,7 +908,7 @@
     "color": "brown",
     "warmth": 10,
     "material_thickness": 2,
-    "flags": [ "OVERSIZE", "ALLOWS_NATURAL_ATTACKS" ],
+    "flags": [ "ALLOWS_NATURAL_ATTACKS", "UNRESTRICTED", "OVERSIZE", "MITTS" ],
     "armor": [ { "encumbrance": 5, "coverage": 60, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
@@ -927,7 +927,7 @@
     "color": "blue",
     "warmth": 15,
     "material_thickness": 2,
-    "flags": [ "OVERSIZE", "ALLOWS_NATURAL_ATTACKS" ],
+    "flags": [ "ALLOWS_NATURAL_ATTACKS", "UNRESTRICTED", "OVERSIZE", "MITTS" ],
     "armor": [ { "encumbrance": 2, "coverage": 60, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
@@ -974,8 +974,57 @@
     "color": "blue",
     "warmth": 70,
     "material_thickness": 1,
-    "flags": [ "OVERSIZE", "OUTER" ],
+    "flags": [ "UNRESTRICTED", "OUTER", "MITTS" ],
     "armor": [ { "encumbrance": 80, "coverage": 98, "covers": [ "hand_l", "hand_r" ] } ]
+  },
+  {
+    "id": "mittens_xs",
+    "type": "ARMOR",
+    "name": { "str": "pair of mittens", "str_pl": "pairs of mittens" },
+    "description": "A pair of mittens sized for a preschooler.",
+    "weight": "91 g",
+    "volume": "300 ml",
+    "price": "18 USD",
+    "price_postapoc": "20 cent",
+    "to_hit": 1,
+    "material": [ "wool" ],
+    "symbol": "[",
+    "looks_like": "gloves_wool",
+    "color": "blue",
+    "warmth": 70,
+    "material_thickness": 1,
+    "extend": { "flags": [ "PREFIX_XS", "UNDERSIZE" ] },
+    "armor": [ { "encumbrance": 80, "coverage": 98, "covers": [ "hand_l", "hand_r" ] } ]
+  },
+  {
+    "id": "mittens_nylon",
+    "type": "ARMOR",
+    "name": { "str": "pair of snow mittens", "str_pl": "pairs of snow mittens" },
+    "description": "A pair of mittens with a water-resistant nylon shell, perfect for skiing.",
+    "weight": "364 g",
+    "volume": "750 ml",
+    "price": "25 USD",
+    "price_postapoc": "50 cent",
+    "to_hit": 1,
+    "material": [ "nylon", "cotton" ],
+    "symbol": "[",
+    "looks_like": "gloves_wool",
+    "color": "light_blue",
+    "warmth": 60,
+    "material_thickness": 1,
+    "environmental_protection": 3,
+    "flags": [ "UNRESTRICTED", "OUTER", "MITTS", "RAINPROOF" ],
+    "armor": [
+      {
+        "covers": [ "hand_l", "hand_r" ],
+        "coverage": 98,
+        "encumbrance": 80,
+        "material": [
+          { "type": "cotton", "covered_by_mat": 100, "thickness": 0.8 },
+          { "type": "nylon", "covered_by_mat": 100, "thickness": 0.3 }
+        ]
+      }
+    ]
   },
   {
     "id": "nomex_gloves",
@@ -1018,8 +1067,8 @@
   {
     "id": "sockmitts",
     "type": "ARMOR",
-    "name": { "str": "pair of sock mitts", "str_pl": "pairs of sock mitts" },
-    "description": "A pair of improvised gloves made from socks with holes cut out for the thumbs and fingers.",
+    "name": { "str": "pair of wrist warmers", "str_pl": "pairs of wrist warmers" },
+    "description": "A pair of cloth mitts that cover the wrists and palms but leave the fingers free.",
     "weight": "32 g",
     "volume": "250 ml",
     "price": "0 cent",
@@ -1030,10 +1079,11 @@
     "color": "white",
     "warmth": 5,
     "material_thickness": 0.2,
-    "flags": [ "VARSIZE", "ALLOWS_NATURAL_ATTACKS" ],
+    "flags": [ "VARSIZE", "ALLOWS_NATURAL_ATTACKS", "MITTS", "OVERSIZE" ],
     "armor": [
       {
         "coverage": 98,
+        "encumbrance": 3,
         "covers": [ "hand_l", "hand_r" ],
         "specifically_covers": [ "hand_palm_l", "hand_palm_r", "hand_back_l", "hand_back_r", "hand_wrist_l", "hand_wrist_r" ]
       }
@@ -1043,8 +1093,8 @@
     "id": "wool_sockmitts",
     "type": "ARMOR",
     "copy-from": "sockmitts",
-    "name": { "str": "pair of wool sock mitts", "str_pl": "pairs of wool sock mitts" },
-    "description": "A pair of improvised gloves made from wool socks with holes cut out for the thumbs and fingers.",
+    "name": { "str": "pair of wool wrist warmers", "str_pl": "pairs of wool wrist warmers" },
+    "description": "A pair of warm wool mitts that cover the wrists and palms but leave the fingers free.",
     "weight": "44 g",
     "volume": "250 ml",
     "material": [ "wool" ],
@@ -1053,6 +1103,7 @@
     "armor": [
       {
         "coverage": 98,
+        "encumbrance": 3,
         "covers": [ "hand_l", "hand_r" ],
         "specifically_covers": [ "hand_palm_l", "hand_palm_r", "hand_back_l", "hand_back_r", "hand_wrist_l", "hand_wrist_r" ]
       }
@@ -1062,8 +1113,8 @@
     "id": "nomex_sockmitts",
     "type": "ARMOR",
     "copy-from": "sockmitts",
-    "name": { "str": "pair of Nomex sock mitts", "str_pl": "pairs of Nomex sock mitts" },
-    "description": "A pair of improvised gloves made from Nomex socks with holes cut out for the thumbs and fingers.",
+    "name": { "str": "pair of Nomex wrist warmers", "str_pl": "pairs of Nomex wrist warmers" },
+    "description": "A pair of mitts that cover the wrists and palms but leave the fingers free.  These are made from a fire-resistant aramid weave.",
     "weight": "200 g",
     "volume": "750 ml",
     "material": [ "nomex" ],
@@ -1075,6 +1126,7 @@
     "armor": [
       {
         "coverage": 98,
+        "encumbrance": 3,
         "covers": [ "hand_l", "hand_r" ],
         "specifically_covers": [ "hand_palm_l", "hand_palm_r", "hand_back_l", "hand_back_r", "hand_wrist_l", "hand_wrist_r" ]
       }
@@ -1096,7 +1148,7 @@
     "warmth": 10,
     "material_thickness": 0.2,
     "flags": [ "VARSIZE", "SKINTIGHT", "OVERSIZE" ],
-    "armor": [ { "encumbrance": 10, "coverage": 75, "covers": [ "arm_l", "arm_r", "hand_l", "hand_r" ] } ]
+    "armor": [ { "encumbrance": 5, "coverage": 75, "covers": [ "arm_l", "arm_r", "hand_l", "hand_r" ] } ]
   },
   {
     "id": "winter_gloves_army",
@@ -1138,7 +1190,7 @@
     "material_thickness": 0.1,
     "flags": [ "VARSIZE" ],
     "warmth": 5,
-    "armor": [ { "encumbrance": 1, "coverage": 100, "covers": [ "hand_l", "hand_r" ] } ]
+    "armor": [ { "encumbrance": 4, "coverage": 100, "covers": [ "hand_l", "hand_r" ] } ]
   },
   {
     "id": "gloves_golf",
@@ -1156,7 +1208,7 @@
     "color": "dark_gray",
     "warmth": 20,
     "material_thickness": 0.5,
-    "flags": [ "VARSIZE", "WATERPROOF" ],
+    "flags": [ "VARSIZE", "RAINPROOF" ],
     "armor": [
       {
         "encumbrance": 5,

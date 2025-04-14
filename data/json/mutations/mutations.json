@@ -2845,7 +2845,7 @@
     "points": 2,
     "visibility": 10,
     "ugliness": 6,
-    "description": "Your skin has mutated into an amalgamation of fur and scales.",
+    "description": "Patches of fur, scale, and chitin mottle your skin like a rorschach test.",
     "enchantments": [ { "values": [ { "value": "MOVECOST_SWIM_MOD", "multiply": -0.05 }, { "value": "BODYTEMP_SLEEP", "add": 0.1 } ] } ],
     "wet_protection": [
       { "part": "head", "ignored": 2 },
@@ -2899,7 +2899,7 @@
     "points": 6,
     "visibility": 10,
     "ugliness": 12,
-    "description": "Your skin has warped into a highly protective but inconsistent medley of chitin, scales, fur, bone, and even something close to Kevlar.",
+    "description": "Twisted growths of horn, bony scales, and chitinous plates sprout at random from your skin, which bristles with fur and feathers seemingly at random.",
     "enchantments": [ { "values": [ { "value": "MOVECOST_SWIM_MOD", "multiply": -0.15 }, { "value": "BODYTEMP_SLEEP", "add": 0.25 } ] } ],
     "wet_protection": [
       { "part": "head", "ignored": 3 },
@@ -3143,6 +3143,7 @@
     "threshreq": [ "THRESH_CRUSTACEAN" ],
     "category": [ "CRUSTACEAN" ],
     "restricts_gear": [ "hand_r" ],
+    "allowed_items": [ "MITTS" ],
     "types": [ "HANDS" ]
   },
   {
@@ -7051,14 +7052,16 @@
     "ugliness": 2,
     "mixed_effect": true,
     "types": [ "HANDS" ],
-    "description": "Your hands are heavily webbed, reducing your Dexterity by 1 and causing problems with gloves.  However, you can swim much faster.  Slightly decreases wet penalties.",
+    "description": "Your hands are heavily webbed, which significantly improves your ability to swim, but makes manipulation more difficult and prevents wearing many kinds of gloves.",
+    "enchantments": [ "ench_hands_webbed" ],
     "leads_to": [ "WEBBED_FEET" ],
-    "category": [ "LIZARD", "FISH", "SLIME", "BATRACHIAN", "CHIROPTERAN" ],
+    "category": [ "FISH", "SLIME", "BATRACHIAN", "LIZARD", "CHIROPTERAN" ],
     "flags": [ "WEBBED_HANDS" ],
+    "allowed_items": [ "MITTS" ],
+    "restricts_gear": [ "hand_l", "hand_r" ],
+    "destroys_gear": true,
     "changes_to": [ "WINGS_BAT" ],
-    "wet_protection": [ { "part": "hand_l", "good": 3 }, { "part": "hand_r", "good": 3 } ],
-    "encumbrance_covered": [ [ "hand_l", 50 ], [ "hand_r", 50 ] ],
-    "enchantments": [ { "values": [ { "value": "DEXTERITY", "add": -1 } ] } ]
+    "wet_protection": [ { "part": "hand_l", "good": 3 }, { "part": "hand_r", "good": 3 } ]
   },
   {
     "type": "mutation",
@@ -7115,7 +7118,7 @@
     "visibility": 4,
     "ugliness": 3,
     "mixed_effect": true,
-    "description": "Your paws are much larger now.  Manual dexterity is difficult: permanent hand encumbrance of 20, serious problems crafting, and no gloves.  In return, though, you can swim better and move on all fours when crouching and unarmed.",
+    "description": "Your paws are much larger now.  Manual dexterity is difficult: permanent hand encumbrance of 20, serious problems crafting, and no gloves, though they're not terrible for swimming.",
     "craft_skill_bonus": [
       [ "electronics", -4 ],
       [ "tailor", -4 ],
@@ -7148,7 +7151,11 @@
         }
       ]
     ],
-    "enchantments": [ "ench_quadruped_movement_half" ],
+    "enchantments": [ "ench_quadruped_movement_half", {
+      "values": [
+        { "value": "MOVECOST_SWIM_MOD", "multiply": -0.02 }
+      ]
+    } ],
     "category": [ "BEAST", "URSINE" ]
   },
   {

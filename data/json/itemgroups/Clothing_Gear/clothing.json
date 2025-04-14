@@ -1860,6 +1860,8 @@
       [ "mittens", 30 ],
       [ "gloves_wool", 33 ],
       [ "gloves_wool_fingerless", 15 ],
+      [ "sockmitts", 5 ],
+      [ "wool_sockmitts", 2 ],
       [ "thermal_socks", 10 ],
       [ "thermal_gloves", 10 ],
       [ "thermal_suit", 10 ],

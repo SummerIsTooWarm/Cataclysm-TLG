@@ -470,8 +470,6 @@ static const trait_id trait_NOMAD2( "NOMAD2" );
 static const trait_id trait_NOMAD3( "NOMAD3" );
 static const trait_id trait_PACIFIST( "PACIFIST" );
 static const trait_id trait_PARAIMMUNE( "PARAIMMUNE" );
-static const trait_id trait_PAWS( "PAWS" );
-static const trait_id trait_PAWS_LARGE( "PAWS_LARGE" );
 static const trait_id trait_PER_SLIME( "PER_SLIME" );
 static const trait_id trait_PER_SLIME_OK( "PER_SLIME_OK" );
 static const trait_id trait_PROF_DICEMASTER( "PROF_DICEMASTER" );
@@ -1543,59 +1541,41 @@ int Character::swim_speed() const
         }
     }
     const body_part_set usable = exclusive_flag_coverage( flag_ALLOWS_NATURAL_ATTACKS );
-    float hand_bonus_mult = ( usable.test( body_part_hand_l ) ? 0.5f : 0.0f ) +
-                            ( usable.test( body_part_hand_r ) ? 0.5f : 0.0f );
-
-    // base swim speed.
+    // Base swim speed. Effective_weight lets us not drown because we had a few small items.
+    units::mass effective_weight = std::max( 0_gram,
+                                   ( weight_carried() + bionics_weight() ) - ( str_cur * 1_kilogram ) );
     float swim_speed_mult = enchantment_cache->modify_value( enchant_vals::mod::MOVECOST_SWIM_MOD, 1 );
-    ret = ( 440 * swim_speed_mult ) + weight_carried() /
-          ( 60_gram / swim_speed_mult ) - 50 * get_skill_level( skill_swimming );
-    /** @EFFECT_STR increases swim speed bonus from PAWS */
-    if( has_trait( trait_PAWS ) ) {
-        ret -= hand_bonus_mult * ( 20 + str_cur * 3 );
-    }
-    /** @EFFECT_STR increases swim speed bonus from PAWS_LARGE */
-    if( has_trait( trait_PAWS_LARGE ) ) {
-        ret -= hand_bonus_mult * ( 20 + str_cur * 4 );
-    }
+    ret = ( 750 * swim_speed_mult ) +
+          effective_weight / ( 60_gram / swim_speed_mult ) -
+          50 * get_skill_level( skill_swimming );
     /** @EFFECT_STR increases swim speed bonus from swim_fins */
     if( worn_with_flag( flag_FIN, body_part_foot_l ) ||
         worn_with_flag( flag_FIN, body_part_foot_r ) ) {
         if( worn_with_flag( flag_FIN, body_part_foot_l ) &&
             worn_with_flag( flag_FIN, body_part_foot_r ) ) {
-            ret -= ( 15 * str_cur );
+            ret -= ( 2 * str_cur );
         } else {
-            ret -= ( 15 * str_cur ) / 2;
+            ret -= str_cur;
         }
     }
-    /** @EFFECT_STR increases swim speed bonus from WEBBED and WEBBED_FEET */
-    float webbing_factor = 60 + str_cur * 5;
-    if( has_flag( json_flag_WEBBED_HANDS ) ) {
-        ret -= hand_bonus_mult * webbing_factor * 0.5f;
-    }
+    /** @EFFECT_STR increases swim speed bonus from WEBBED_FEET */
+    // TODO: Limbify this.
     if( has_flag( json_flag_WEBBED_FEET ) && is_barefoot() ) {
-        ret -= webbing_factor * 0.5f;
+        ret -= str_cur * 2.0f;
     }
     /** @EFFECT_SWIMMING increases swim speed */
     ret *= get_modifier( character_modifier_swim_mod );
-    ret += worn.swim_modifier( round( get_skill_level( skill_swimming ) ) );
     /** @EFFECT_STR increases swim speed */
-
     /** @EFFECT_DEX increases swim speed */
-    ret -= str_cur * 6 + dex_cur * 4;
+    ret -= std::max( 100, ( str_cur * 2 + dex_cur * 1 ) );
     if( worn_with_flag( flag_FLOTATION ) ) {
         ret = std::min( ret, 400 );
         ret = std::max( ret, 200 );
     }
-    // If (ret > 500), we can not swim; so do not apply the underwater bonus.
-    if( underwater && ret < 500 ) {
-        ret -= 50;
-    }
-
     ret += move_mode->swim_speed_mod();
 
-    if( ret < 30 ) {
-        ret = 30;
+    if( ret < 50 ) {
+        ret = 50;
     }
     return ret;
 }

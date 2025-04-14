@@ -27,6 +27,7 @@
   },
   {
     "id": "ALLOWS_TALONS",
+    "//": "Makes footwear compatable with the TOE_TALONS mutation.",
     "type": "json_flag"
   },
   {
@@ -2473,5 +2474,10 @@
     "id": "DECAYS_IN_AIR",
     "type": "json_flag",
     "info": "This will eventually <bad>go bad</bad> if left in the open air too long."
+  },
+  {
+    "id": "MITTS",
+    "type": "json_flag",
+    "//": "This item can be worn even with huge claws, webbed hands, or other sorts of coverings."
   }
 ]
