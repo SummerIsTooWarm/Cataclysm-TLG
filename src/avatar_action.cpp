@@ -696,7 +696,8 @@ void avatar_action::swim( map &m, avatar &you, const tripoint &p )
     if( m.veh_at( you.pos_bub() ).part_with_feature( VPFLAG_BOARDABLE, true ) ) {
         m.board_vehicle( you.pos_bub(), &you );
     }
-    you.mod_moves( -( ( movecost > 200 ? 200 : movecost ) * ( trigdist && diagonal ? M_SQRT2 : 1 ) ) );
+    // 500 means we can't swim, so for now that's the cap.
+    you.mod_moves( -( ( movecost > 500 ? 500 : movecost ) * ( trigdist && diagonal ? M_SQRT2 : 1 ) ) );
     you.inv->rust_iron_items();
 
     if( !you.is_mounted() ) {

@@ -761,6 +761,30 @@
   },
   {
     "type": "material",
+    "id": "keratin",
+    "name": "Keratin",
+    "density": 2.1,
+    "specific_heat_liquid": 3.0,
+    "specific_heat_solid": 1.53,
+    "latent_heat": 330,
+    "chip_resist": 12,
+    "wind_resist": 90,
+    "dmg_adj": [ "scratched", "cut", "cracked", "shattered" ],
+    "bash_dmg_verb": "cracked",
+    "cut_dmg_verb": "chipped",
+    "acid_dmg_verb": "burned",
+    "//": "burn data copied from chitin",
+    "burn_data": [
+      { "fuel": 0, "smoke": 0, "burn": 0.0001 },
+      { "fuel": 0.2, "smoke": 3, "burn": 0.005, "volume_per_turn": "200 ml" },
+      { "fuel": 0.35, "smoke": 5, "burn": 0.015, "volume_per_turn": "200 ml" }
+    ],
+    "burn_products": [ [ "corpse_ash", 0.035 ] ],
+    "resist": { "bash": 2.3, "cut": 4, "acid": 7, "heat": 2.2, "bullet": 1.2 },
+    "repair_difficulty": 5
+  },
+  {
+    "type": "material",
     "id": "flesh",
     "name": "Flesh",
     "//": "Density of non-fat parts of human body, also around upper-level densities for all organic matter",
@@ -2436,7 +2460,7 @@
     "latent_heat": 42,
     "soft": true,
     "chip_resist": 7,
-    "breathability": "GOOD",
+    "breathability": "AVERAGE",
     "repaired_with": "nylon",
     "salvaged_into": "nylon",
     "dmg_adj": [ "ripped", "torn", "shredded", "tattered" ],
@@ -3170,8 +3194,8 @@
   },
   {
     "type": "material",
-    "id": "mut_feather",
-    "name": "Mutant Feather",
+    "id": "feathers",
+    "name": "Feathers",
     "density": 0.8,
     "specific_heat_liquid": 0.5,
     "specific_heat_solid": 0.5,
@@ -3265,8 +3289,8 @@
   },
   {
     "type": "material",
-    "id": "mut_scales",
-    "name": "Mutant Scales",
+    "id": "scales",
+    "name": "Scales",
     "density": 1.2,
     "specific_heat_liquid": 1.2,
     "specific_heat_solid": 1.2,
@@ -3285,7 +3309,7 @@
     ],
     "soft": true,
     "burn_products": [ [ "corpse_ash", 0.035 ] ],
-    "resist": { "bash": 2.2, "cut": 3.5, "acid": 7, "heat": 1, "bullet": 1.4 }
+    "resist": { "bash": 2, "cut": 3, "acid": 7, "heat": 1, "bullet": 1 }
   },
   {
     "type": "material",

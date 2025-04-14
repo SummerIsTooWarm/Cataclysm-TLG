@@ -3143,6 +3143,7 @@
     "threshreq": [ "THRESH_CRUSTACEAN" ],
     "category": [ "CRUSTACEAN" ],
     "restricts_gear": [ "hand_r" ],
+    "allowed_items": [ "MITTS" ],
     "types": [ "HANDS" ]
   },
   {
@@ -7051,14 +7052,16 @@
     "ugliness": 2,
     "mixed_effect": true,
     "types": [ "HANDS" ],
-    "description": "Your hands are heavily webbed, reducing your Dexterity by 1 and causing problems with gloves.  However, you can swim much faster.  Slightly decreases wet penalties.",
+    "description": "Your hands are heavily webbed, which significantly improves your ability to swim, but makes manipulation more difficult and prevents wearing many kinds of gloves.",
+    "enchantments": [ "ench_hands_webbed" ],
     "leads_to": [ "WEBBED_FEET" ],
-    "category": [ "LIZARD", "FISH", "SLIME", "BATRACHIAN", "CHIROPTERAN" ],
+    "category": [ "FISH", "SLIME", "BATRACHIAN", "LIZARD", "CHIROPTERAN" ],
     "flags": [ "WEBBED_HANDS" ],
+    "allowed_items": [ "MITTS" ],
+    "restricts_gear": [ "hand_l", "hand_r" ],
+    "destroys_gear": true,
     "changes_to": [ "WINGS_BAT" ],
-    "wet_protection": [ { "part": "hand_l", "good": 3 }, { "part": "hand_r", "good": 3 } ],
-    "encumbrance_covered": [ [ "hand_l", 50 ], [ "hand_r", 50 ] ],
-    "enchantments": [ { "values": [ { "value": "DEXTERITY", "add": -1 } ] } ]
+    "wet_protection": [ { "part": "hand_l", "good": 3 }, { "part": "hand_r", "good": 3 } ]
   },
   {
     "type": "mutation",

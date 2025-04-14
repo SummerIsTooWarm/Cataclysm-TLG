@@ -192,5 +192,11 @@
       ]
     },
     "values": [ { "value": "MOVE_COST", "multiply": -0.5 } ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_hands_webbed",
+    "condition": "ALWAYS",
+    "modified_bodyparts": [ { "lose": "hand_r" }, { "lose": "hand_l" }, { "gain": "hand_webbed_l" }, { "gain": "hand_webbed_r" } ]
   }
 ]
