@@ -1068,7 +1068,7 @@
     "id": "sockmitts",
     "type": "ARMOR",
     "name": { "str": "pair of wrist warmers", "str_pl": "pairs of wrist warmers" },
-    "description": "A pair of mitts that cover the wrists and palms but leave the fingers free.",
+    "description": "A pair of cloth mitts that cover the wrists and palms but leave the fingers free.",
     "weight": "32 g",
     "volume": "250 ml",
     "price": "0 cent",
