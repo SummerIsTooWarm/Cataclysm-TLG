@@ -866,7 +866,7 @@ static void grab()
             }
         }
         you.grab( object_type::VEHICLE, grabp - you.pos_bub() );
-        add_msg( _( "You grab the %s. btw %2s" ), veh_name, you.eye_level() );
+        add_msg( _( "You grab the %s." ), veh_name );
     } else if( here.has_furn( grabp ) ) {
         if( !here.furn( grabp ).obj().is_movable() ) {
             add_msg( _( "You can not grab the %s." ), here.furnname( grabp ) );

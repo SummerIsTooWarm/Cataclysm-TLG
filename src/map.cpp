@@ -8103,7 +8103,7 @@ int map::obstacle_coverage( const tripoint_bub_ms &loc1, const tripoint_bub_ms &
     int offset = std::min( a.x, a.y ) - ( std::max( a.x, a.y ) / 2 );
     tripoint obstaclepos;
     bresenham( loc2.raw(), loc1.raw(), offset, 0, [&obstaclepos]( const tripoint & new_point ) {
-        // Only adjacent tile between you and enemy is checked for cover.
+        // Only adjacent tile between viewer and enemy is checked for cover.
         obstaclepos = new_point;
         return false;
     } );
@@ -8204,8 +8204,9 @@ int map::coverage( const tripoint &p ) const
 
 int map::coverage( const tripoint_bub_ms &p ) const
 {
-    if( furn( p )->coverage > 0 ) {
-        return furn( p )->coverage;
+    const furn_id obstacle_f = furn( p );
+    if( obstacle_f != f_null && obstacle_f->coverage > 0 ) {
+        return obstacle_f->coverage;
     }
     if( const optional_vpart_position vp = veh_at( p ) ) {
         const bool is_obstacle = vp->obstacle_at_part().has_value();

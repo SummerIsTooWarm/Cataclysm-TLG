@@ -1898,6 +1898,7 @@ void map::monster_in_field( monster &z )
     // later by the field processing, which will also adjust field_count accordingly.
     for( auto &field_list_it : curfield ) {
         field_entry &cur = field_list_it.second;
+        const int size_factor = z.enum_size();
         if( !cur.is_field_alive() ) {
             continue;
         }
@@ -1914,11 +1915,8 @@ void map::monster_in_field( monster &z )
             mod_field_intensity( z.pos(), cur.get_field_type(), -1 );
         }
         if( cur_field_type == fd_sludge ) {
-            if( !z.digs() && !z.flies() &&
-                !z.has_flag( mon_flag_SLUDGEPROOF ) ) {
                 z.mod_moves( -cur.get_field_intensity() * 300 );
                 cur.set_field_intensity( 0 );
-            }
         }
         if( cur_field_type == fd_fire ) {
             // TODO: MATERIALS Use fire resistance
@@ -1978,11 +1976,10 @@ void map::monster_in_field( monster &z )
 
         }
         if( cur_field_type == fd_tear_gas ) {
-            if( z.made_of_any( Creature::cmat_fleshnveg ) && !z.has_flag( mon_flag_NO_BREATHE ) ) {
+            if( z.made_of_any( Creature::cmat_flesh ) && !z.has_flag( mon_flag_NO_BREATHE ) ) {
                 // Ferals can power through it, but even they have limits.
                 if( !z.has_effect( effect_stunned ) && ( !z.in_species( species_FERAL ) || one_in( 3 ) ) ) {
-                    z.add_effect( effect_stunned, rng( cur.get_field_intensity() * 1_turns,
-                                                       cur.get_field_intensity() * 5_turns ) );
+                    z.add_effect( effect_stunned, cur.get_field_intensity() * rng( 1_turns, 5_turns ) );
                     if( z.type->has_fear_trigger( mon_trigger::HURT ) ) {
                         z.morale -= ( 2 * cur.get_field_intensity() );
                     }
@@ -1990,11 +1987,12 @@ void map::monster_in_field( monster &z )
                         z.anger += ( 2 * cur.get_field_intensity() );
                     }
                 }
-                if( z.has_flag( mon_flag_SEES ) && !z.in_species( species_INSECT ) &&
+                // Cyborg monsters ignore it because of the protective lenses CBM.
+                if( z.has_flag( mon_flag_SEES ) && z.made_of_any( Creature::cmat_flesh ) && !z.in_species( species_INSECT ) &&
                     !z.in_species( species_INSECT_FLYING ) && !z.in_species( species_CENTIPEDE ) &&
                     !z.in_species( species_SPIDER ) && !z.in_species( species_CYBORG ) &&
                     !z.has_effect( effect_blind ) ) {
-                    z.add_effect( effect_blind, cur.get_field_intensity() * 5_turns );
+                    z.add_effect( effect_blind, cur.get_field_intensity() * rng( 1_turns, 5_turns ) );
                     if( z.type->has_fear_trigger( mon_trigger::HURT ) ) {
                         z.morale -= ( 2 * cur.get_field_intensity() );
                     }
@@ -2007,14 +2005,14 @@ void map::monster_in_field( monster &z )
         }
         if( cur_field_type == fd_relax_gas ) {
             if( z.made_of_any( Creature::cmat_fleshnveg ) && !z.has_flag( mon_flag_NO_BREATHE ) ) {
-                z.add_effect( effect_stunned, rng( cur.get_field_intensity() * 4_turns,
-                                                   cur.get_field_intensity() * 8_turns ) );
+                z.add_effect( effect_stunned, rng( cur.get_field_intensity() * 1_turns,
+                                                   cur.get_field_intensity() * 5_turns ) );
             }
         }
         if( cur_field_type == fd_dazzling ) {
             if( z.has_flag( mon_flag_SEES ) && !z.has_flag( mon_flag_ELECTRONIC ) ) {
-                z.add_effect( effect_blind, cur.get_field_intensity() * 12_turns );
-                z.add_effect( effect_stunned, cur.get_field_intensity() * rng( 5_turns, 12_turns ) );
+                z.add_effect( effect_blind, cur.get_field_intensity() * rng( 1_turns, 5_turns ) );
+                z.add_effect( effect_stunned, cur.get_field_intensity() * rng( 1_turns, 5_turns ) );
             }
 
         }
@@ -2050,17 +2048,14 @@ void map::monster_in_field( monster &z )
             if( z.has_flag( mon_flag_FIREPROOF ) || z.has_flag( mon_flag_FIREY ) ) {
                 return;
             }
-            if( z.made_of_any( Creature::cmat_flesh ) ) {
+            if( z.made_of( material_veggy ) ) {
                 dam += 3;
             }
-            if( z.made_of( material_veggy ) ) {
-                dam += 12;
-            }
             if( z.made_of( phase_id::LIQUID ) || z.made_of_any( Creature::cmat_flammable ) ) {
-                dam += 50;
+                dam += 20;
             }
             if( z.made_of_any( Creature::cmat_flameres ) ) {
-                dam += -25;
+                dam += -5;
             }
             dam += rng( 0, 8 );
             z.mod_moves( -to_moves<int>( 1_seconds ) * 0.2 );
@@ -2078,7 +2073,6 @@ void map::monster_in_field( monster &z )
             }
         }
         if( cur_field_type == fd_incendiary ) {
-            // TODO: MATERIALS Use fire resistance
             if( z.has_flag( mon_flag_FIREPROOF ) || z.has_flag( mon_flag_FIREY ) ) {
                 return;
             }
@@ -2120,22 +2114,22 @@ void map::monster_in_field( monster &z )
                 !z.make_fungus() ) {
                 // Don't insta-kill jabberwocks, that's silly
                 const int intensity = cur.get_field_intensity();
-                z.mod_moves( -rng( 10 * intensity, 30 * intensity ) );
-                dam += rng( 0, 10 * intensity );
+                z.mod_moves( -rng( 10 - size_factor * intensity, 30 - size_factor * intensity ) );
+                dam += rng( 0, 10 - size_factor * intensity );
             }
         }
         if( cur_field_type == fd_fungicidal_gas ) {
             if( z.type->in_species( species_FUNGUS ) ) {
                 const int intensity = cur.get_field_intensity();
-                z.mod_moves( -rng( 10 * intensity, 30 * intensity ) );
-                dam += rng( 4, 7 * intensity );
+                z.mod_moves( -rng( 10 - size_factor * intensity, 30 - size_factor * intensity ) );
+                dam += rng( 1, 8 - size_factor * intensity );
             }
         }
         if( cur_field_type == fd_insecticidal_gas ) {
             if( z.made_of( material_iflesh ) && !z.has_flag( mon_flag_INSECTICIDEPROOF ) ) {
                 const int intensity = cur.get_field_intensity();
-                z.mod_moves( -rng( 10 * intensity, 30 * intensity ) );
-                dam += rng( 4, 7 * intensity );
+                z.mod_moves( -rng( 10 - size_factor * intensity, 30 - size_factor * intensity ) );
+                dam += rng( 1, 8 - size_factor * intensity );
             }
         }
     }

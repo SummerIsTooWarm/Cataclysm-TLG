@@ -136,6 +136,7 @@ static const json_character_flag json_flag_LIMB_UPPER( "LIMB_UPPER" );
 
 static const material_id material_cotton( "cotton" );
 static const material_id material_flesh( "flesh" );
+static const material_id material_hflesh( "hflesh" );
 static const material_id material_iflesh( "iflesh" );
 static const material_id material_kevlar( "kevlar" );
 static const material_id material_paper( "paper" );
@@ -163,13 +164,13 @@ const std::map<std::string, creature_size> Creature::size_map = {
 };
 
 const std::set<material_id> Creature::cmat_flesh{
-    material_flesh, material_iflesh
+    material_flesh, material_iflesh, material_hflesh,
 };
 const std::set<material_id> Creature::cmat_fleshnveg{
-    material_flesh,  material_iflesh, material_veggy
+    material_flesh, material_iflesh, material_hflesh, material_veggy
 };
 const std::set<material_id> Creature::cmat_flammable{
-    material_paper, material_powder, material_wood,
+    material_paper, material_powder,
     material_cotton, material_wool
 };
 const std::set<material_id> Creature::cmat_flameres{

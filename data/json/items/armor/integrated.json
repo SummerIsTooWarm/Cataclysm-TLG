@@ -1520,14 +1520,52 @@
     "armor": [
       {
         "material": [
-          { "type": "chitin", "covered_by_mat": 100, "thickness": 0.5 },
-          { "type": "sclerotin", "covered_by_mat": 70, "thickness": 1.0 }
+          { "type": "sclerotin", "covered_by_mat": 70, "thickness": 1.0 },
+          { "type": "chitin", "covered_by_mat": 100, "thickness": 0.5 }
         ],
         "covers": [ "eyes" ],
         "coverage": 100,
-        "encumbrance": 1,
-        "rigid_layer_only": true,
-        "cover_vitals": 90
+        "rigid_layer_only": true
+      }
+    ]
+  },
+  {
+    "id": "integrated_compound_eyes",
+    "type": "ARMOR",
+    "category": "armor",
+    "name": { "str_sp": "compound eyes" },
+    "description": "Thousands of ommatidea tesselate into a pair of eyes.  Each jewel-hard hexagonal lens picks up the dominant color in its field of view, rendering a single pixel to the image composited by the viewer's brain.",
+    "weight": "180 g",
+    "volume": "250 ml",
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "to_hit": -2,
+    "material": [ "sclerotin", "chitin" ],
+    "symbol": "[",
+    "color": "dark_gray",
+    "warmth": 0,
+    "material_thickness": 1.5,
+    "environmental_protection": 10,
+    "flags": [
+      "INTEGRATED",
+      "UNBREAKABLE",
+      "SKINTIGHT",
+      "NORMAL",
+      "SOFT",
+      "WATER_FRIENDLY",
+      "NO_REPAIR",
+      "SWIM_GOGGLES",
+      "NO_SALVAGE"
+    ],
+    "armor": [
+      {
+        "material": [
+          { "type": "sclerotin", "covered_by_mat": 70, "thickness": 0.6 },
+          { "type": "chitin", "covered_by_mat": 100, "thickness": 0.5 }
+        ],
+        "covers": [ "eyes" ],
+        "coverage": 100,
+        "rigid_layer_only": true
       }
     ]
   },

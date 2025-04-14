@@ -1191,16 +1191,16 @@
     "name": { "str": "Scout" },
     "points": 1,
     "description": "You're an excellent navigator and your ability to recognize distant landmarks is unmatched.  Your sight radius on the overmap extends beyond the normal range.",
-    "category": [ "BIRD", "MOUSE", "CEPHALOPOD" ],
+    "category": [ "BIRD", "CEPHALOPOD" ],
     "cancels": [ "UNOBSERVANT" ],
     "enchantments": [ { "condition": "is_day", "values": [ { "value": "OVERMAP_SIGHT", "add": 5 } ] } ]
   },
   {
     "type": "mutation",
     "id": "UNOBSERVANT",
-    "name": { "str": "Topographagnosia" },
+    "name": { "str": "Directionally Challenged" },
     "points": -1,
-    "description": "Focal brain damage has rendered you incapable of recognizing landmarks and orienting yourself in your surroundings, severely crippling your sight radius on the overmap.",
+    "description": "You get lost easily.  Even in good conditions, you will uncover much less of your overmap while exploring.",
     "valid": false,
     "starting_trait": true,
     "cancels": [ "EAGLEEYED" ],
@@ -1211,7 +1211,6 @@
     "id": "CANNIBAL",
     "name": { "str": "Cannibal" },
     "points": 2,
-    "//": "Feral humans vastly increase the cannibal meat supply, therefore this trait needs to increase in cost.",
     "description": "For your whole life you've been forbidden from indulging in your peculiar tastes.  Now the world's ended, and you'll be damned if anyone is going to tell you that you can't eat people.",
     "starting_trait": true,
     "valid": false,
@@ -1223,7 +1222,7 @@
     "id": "PSYCHOPATH",
     "name": { "str": "Psychopath" },
     "points": 2,
-    "description": "You have a diminished capacity for empathy and feel little remorse for your actions.  This does not necessarily make you predisposed to using, harming, or lying to others, but your superficial charm and lack of guilt make it all too easy.",
+    "description": "You have a diminished capacity for empathy and feel little remorse for your actions.  This does not necessarily make you predisposed to harming or exploiting others, but your superficial charm and lack of guilt make lying all too easy.",
     "starting_trait": true,
     "valid": false,
     "social_modifiers": { "lie": 10, "persuade": 5 },
@@ -4131,7 +4130,9 @@
     "description": "Your eyes are compound, like those of an insect.  This increases your Perception by 2 whenever you aren't wearing eyewear.",
     "types": [ "EYES" ],
     "prereqs": [ "EYEBULGE" ],
-    "category": [ "INSECT" ]
+    "cancels": [ "MYOPIC", "HYPEROPIC" ],
+    "category": [ "INSECT" ],
+    "integrated_armor": [ "integrated_compound_eyes" ]
   },
   {
     "type": "mutation",
@@ -4498,6 +4499,7 @@
     "prereqs": [ "HERBIVORE" ],
     "changes_to": [ "GRAZER" ],
     "category": [ "CATTLE", "RABBIT" ],
+    "enchantments": [ { "values": [ { "value": "STOMACH_SIZE_MULTIPLIER", "multiply": 0.5 } ] } ],
     "active": true,
     "cost": 0
   },
@@ -4620,7 +4622,7 @@
     "description": "You're burning calories like crazy to heal your wounds.",
     "copy-from": "EATHEALTH",
     "valid": false,
-    "cost": 9,
+    "cost": 33,
     "time": "1 s",
     "kcal": true,
     "enchantments": [ { "values": [ { "value": "REGEN_HP", "multiply": 349 }, { "value": "REGEN_HP_AWAKE", "multiply": 0.85 } ] } ],
@@ -6180,7 +6182,7 @@
     "points": 0,
     "visibility": 8,
     "mixed_effect": true,
-    "description": "You're the size of a toddler!  The weight of things you once found easy to carry is now unbearable, clothes are now twice as encumbering for you unless you refit them, and your hit points are heavily reduced.  However, your movement is silent, and your dodge skill is a little higher.",
+    "description": "You're the size of a toddler!  You can't carry much, most clothes won't fit, and your hit points are heavily reduced, but your stature confers a number of advantages: you're harder to hit, quieter, less injured by falls, and too light to set off certain traps.",
     "types": [ "SIZE" ],
     "prereqs": [ "SMALL" ],
     "changes_to": [ "SMALL_OK" ],
@@ -7151,11 +7153,7 @@
         }
       ]
     ],
-    "enchantments": [ "ench_quadruped_movement_half", {
-      "values": [
-        { "value": "MOVECOST_SWIM_MOD", "multiply": -0.02 }
-      ]
-    } ],
+    "enchantments": [ "ench_quadruped_movement_half", { "values": [ { "value": "MOVECOST_SWIM_MOD", "multiply": -0.02 } ] } ],
     "category": [ "BEAST", "URSINE" ]
   },
   {

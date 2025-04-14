@@ -312,8 +312,8 @@
       { "item": "elbow_pads", "prob": 10 },
       { "item": "knee_pads", "prob": 85 },
       {
-        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 99 } ],
-        "prob": 70
+        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 199 } ],
+        "prob": 50
       },
       { "item": "gloves_tactical", "prob": 60 },
       { "group": "military_ballistic_vest", "prob": 90 },
@@ -336,8 +336,8 @@
       { "item": "elbow_pads", "prob": 10 },
       { "item": "knee_pads", "prob": 85 },
       {
-        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 99 } ],
-        "prob": 70
+        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 199 } ],
+        "prob": 50
       },
       { "item": "gloves_tactical", "prob": 60 },
       { "group": "military_ballistic_vest_pristine", "prob": 90 },
@@ -359,8 +359,8 @@
       { "item": "elbow_pads", "prob": 10 },
       { "item": "knee_pads", "prob": 85 },
       {
-        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 99 } ],
-        "prob": 70
+        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 199 } ],
+        "prob": 40
       },
       { "item": "gloves_tactical", "prob": 60 },
       { "group": "military_ballistic_vest", "prob": 100 },
@@ -383,8 +383,8 @@
       { "item": "elbow_pads", "prob": 10 },
       { "item": "knee_pads", "prob": 85 },
       {
-        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 99 } ],
-        "prob": 70
+        "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 199 } ],
+        "prob": 50
       },
       { "item": "gloves_tactical", "prob": 60 },
       { "group": "military_ballistic_vest_heavy", "prob": 90 },
@@ -408,10 +408,10 @@
       { "item": "knee_pads", "prob": 85 },
       {
         "collection": [
-          { "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 99 } ] },
+          { "distribution": [ { "group": "army_helmet_nvg", "prob": 1 }, { "item": "helmet_army", "prob": 199 } ] },
           { "item": "helmet_liner" }
         ],
-        "prob": 70
+        "prob": 50
       },
       { "collection": [ { "item": "gloves_liner", "prob": 60 }, { "item": "winter_gloves_army" } ], "prob": 80 },
       { "group": "military_ballistic_vest", "prob": 90 },
@@ -2224,7 +2224,8 @@
       { "item": "peacoat", "prob": 30 },
       { "item": "greatcoat", "prob": 15 },
       { "item": "gloves_light", "prob": 35 },
-      { "item": "mittens", "prob": 30 },
+      { "item": "mittens", "prob": 25 },
+      { "item": "mittens_nylon", "prob": 12 },
       { "item": "gloves_wool", "prob": 33 },
       { "item": "gloves_wool_fingerless", "prob": 10 },
       { "item": "thermal_socks", "prob": 2 },
@@ -2760,18 +2761,17 @@
       [ "under_armor", 20 ],
       [ "boots", 70 ],
       [ "boots_combat", 70 ],
-      [ "gloves_tactical", 30 ],
-      [ "glasses_bal", 40 ],
-      [ "chestguard_hard", 20 ],
-      [ "armguard_hard", 20 ],
-      [ "legguard_hard", 15 ],
-      { "group": "army_helmet_nvg", "prob": 1 },
-      [ "helmet_army", 40 ],
+      [ "gloves_tactical", 60 ],
+      [ "glasses_bal", 45 ],
+      [ "chestguard_hard", 25 ],
+      [ "armguard_hard", 25 ],
+      [ "legguard_hard", 20 ],
+      [ "helmet_army", 60 ],
       [ "helmet_liner", 10 ],
       [ "beret", 50 ],
-      [ "beret_wool", 40 ],
-      [ "elbow_pads", 50 ],
-      [ "knee_pads", 50 ],
+      [ "beret_wool", 60 ],
+      [ "elbow_pads", 80 ],
+      [ "knee_pads", 80 ],
       [ "solarpack", 5 ]
     ]
   },
