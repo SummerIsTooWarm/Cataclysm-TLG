@@ -263,7 +263,7 @@
       "msg": "Your %s deactivates.",
       "target": "military_nvg"
     },
-    "armor": [ { "covers": [ "eyes" ], "coverage": 100, "encumbrance": 20, "rigid_layer_only": true } ]
+    "armor": [ { "covers": [ "eyes" ], "coverage": 100, "encumbrance": 30, "rigid_layer_only": true } ]
   },
   {
     "id": "advanced_gpnvg",
@@ -328,7 +328,7 @@
       "target": "advanced_gpnvg"
     },
     "armor": [
-      { "covers": [ "eyes" ], "coverage": 100, "encumbrance": 15, "rigid_layer_only": true },
+      { "covers": [ "eyes" ], "coverage": 100, "encumbrance": 30, "rigid_layer_only": true },
       { "covers": [ "head" ], "encumbrance": 3, "coverage": 80, "specifically_covers": [ "head_crown" ] }
     ]
   },
@@ -395,7 +395,7 @@
       "target": "enhanced_nvg"
     },
     "armor": [
-      { "covers": [ "eyes" ], "coverage": 100, "encumbrance": 10, "rigid_layer_only": true },
+      { "covers": [ "eyes" ], "coverage": 100, "encumbrance": 30, "rigid_layer_only": true },
       { "covers": [ "head" ], "encumbrance": 3, "coverage": 80, "specifically_covers": [ "head_crown" ] }
     ]
   },

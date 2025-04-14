@@ -10656,14 +10656,24 @@ bool Character::sees_with_infrared( const Creature &critter ) const
     }
 
     map &here = get_map();
+    const tripoint_bub_ms viewer_pov = pos_bub();
 
-    if( here.sees( pos_bub(), critter.pos_bub(), unimpaired_range(), false ) ) {
-        const int IR_concealment = std::max( here.obstacle_coverage( pos_bub(), critter.pos_bub() ),
-                                             here.ledge_concealment( *this, critter.pos_bub() ) );
+    // TODO: IR vision should have proper range values derived from the tech or limb scores.
+    int IR_range = 1 + ( 60 * get_per() / 20 );
+    if( here.sees( viewer_pov, critter.pos_bub(), IR_range, false ) ) {
+        const int IR_concealment = here.obstacle_coverage( viewer_pov, critter.pos_bub() );
+        // Return false if the critter is covered by something adjacent to it.
         if( critter.is_monster() && IR_concealment > critter.as_monster()->eye_level() ) {
             return false;
+        // Check ledge concealment as normal.
         } else if( !critter.is_monster() && IR_concealment > critter.as_character()->eye_level() ) {
             return false;
+        } else {
+            // If we can see over their coverage, let's make sure we can see over our own.
+            const int viewer_IR_concealment = here.obstacle_coverage( critter.pos_bub(), viewer_pov );
+            if( viewer_IR_concealment > eye_level() ) {
+            return false;
+            }
         }
         return true;
     }

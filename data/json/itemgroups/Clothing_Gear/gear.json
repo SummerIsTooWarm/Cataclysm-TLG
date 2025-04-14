@@ -12,8 +12,8 @@
       [ "bootstrap", 5 ],
       [ "chestpouch", 5 ],
       [ "flashbang", 30 ],
-      { "item": "goggles_ir", "prob": 10, "charges": [ 0, 100 ] },
-      { "item": "goggles_nv", "prob": 10, "charges": [ 0, 100 ] },
+      { "item": "goggles_ir", "prob": 1, "charges": [ 0, 100 ] },
+      { "item": "goggles_nv", "prob": 1, "charges": [ 0, 100 ] },
       [ "helmet_riot", 5 ],
       [ "holo_sight", 20 ],
       [ "balaclava", 10 ],
@@ -33,7 +33,7 @@
       [ "suppressor_compact", 20 ],
       [ "tac_fullhelmet", 5 ],
       [ "tac_helmet", 10 ],
-      { "item": "teargas_sprayer", "prob": 25, "charges": [ 1, 10 ] }
+      { "item": "teargas_sprayer", "prob": 15, "charges": [ 1, 10 ] }
     ]
   },
   {
@@ -55,8 +55,8 @@
       {
         "distribution": [
           { "item": "military_nvg", "prob": 60, "charges": [ 0, 100 ] },
-          { "item": "advanced_gpnvg", "prob": 30, "charges": [ 0, 100 ] },
-          { "item": "enhanced_nvg", "prob": 10, "charges": [ 0, 100 ] }
+          { "item": "advanced_gpnvg", "prob": 35, "charges": [ 0, 100 ] },
+          { "item": "enhanced_nvg", "prob": 5, "charges": [ 0, 100 ] }
         ]
       }
     ]

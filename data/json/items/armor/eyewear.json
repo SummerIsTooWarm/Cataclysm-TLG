@@ -17,7 +17,7 @@
     "environmental_protection": 1,
     "qualities": [ [ "GLARE", 1 ] ],
     "flags": [ "SUN_GLASSES" ],
-    "armor": [ { "encumbrance": 10, "coverage": 80, "covers": [ "eyes" ], "rigid_layer_only": true } ]
+    "armor": [ { "encumbrance": 40, "coverage": 80, "covers": [ "eyes" ], "rigid_layer_only": true } ]
   },
   {
     "id": "eyepatch_leather",
