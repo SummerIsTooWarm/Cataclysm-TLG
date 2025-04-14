@@ -470,9 +470,6 @@ static const trait_id trait_NOMAD2( "NOMAD2" );
 static const trait_id trait_NOMAD3( "NOMAD3" );
 static const trait_id trait_PACIFIST( "PACIFIST" );
 static const trait_id trait_PARAIMMUNE( "PARAIMMUNE" );
-static const trait_id trait_PAWS( "PAWS" );
-static const trait_id trait_PAWS_LARGE( "PAWS_LARGE" );
-static const trait_id trait_PAWS_LITTLE( "PAWS_LITTLE" );
 static const trait_id trait_PER_SLIME( "PER_SLIME" );
 static const trait_id trait_PER_SLIME_OK( "PER_SLIME_OK" );
 static const trait_id trait_PROF_DICEMASTER( "PROF_DICEMASTER" );
@@ -1551,13 +1548,6 @@ int Character::swim_speed() const
     ret = ( 750 * swim_speed_mult ) +
           effective_weight / ( 60_gram / swim_speed_mult ) -
           50 * get_skill_level( skill_swimming );
-    //TODO: Limbify paws and remove this.
-    if( has_trait( trait_PAWS ) || has_trait( trait_PAWS_LITTLE ) ) {
-        ret += 50;
-    }
-    if( has_trait( trait_PAWS_LARGE ) ) {
-        ret += 25;
-    }
     /** @EFFECT_STR increases swim speed bonus from swim_fins */
     if( worn_with_flag( flag_FIN, body_part_foot_l ) ||
         worn_with_flag( flag_FIN, body_part_foot_r ) ) {
