@@ -438,7 +438,7 @@
     "type": "MONSTER_FACTION",
     "name": "wasp",
     "base_faction": "insect",
-    "by_mood": [ "fungus", "ant", "acid_ant", "bee" ],
+    "by_mood": [ "fungus", "ant", "acid_ant", "fire_ant", "bee" ],
     "hate": [ "insect", "small_animal" ]
   },
   {
@@ -462,7 +462,7 @@
     "type": "MONSTER_FACTION",
     "name": "dragonfly",
     "base_faction": "insect",
-    "by_mood": [ "centipede", "spider", "ant", "acid_ant" ],
+    "by_mood": [ "centipede", "spider", "ant", "acid_ant", "fire_ant" ],
     "hate": [ "insect", "small_animal" ]
   },
   {
@@ -523,19 +523,28 @@
     "name": "ant",
     "base_faction": "insect",
     "friendly": [ "aphid" ],
-    "neutral": [ "stag_beetle_larva" ]
+    "neutral": [ "stag_beetle_larva" ],
+    "hate": [ "acid_ant", "fire_ant" ]
   },
   {
     "type": "MONSTER_FACTION",
     "name": "acid_ant",
     "base_faction": "insect",
-    "neutral": [ "aphid", "stag_beetle_larva" ]
+    "neutral": [ "aphid", "stag_beetle_larva" ],
+    "hate": [ "ant", "fire_ant" ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "fire_ant",
+    "base_faction": "insect",
+    "neutral": [ "aphid", "stag_beetle_larva" ],
+    "hate": [ "ant", "acid_ant" ]
   },
   {
     "type": "MONSTER_FACTION",
     "name": "aphid",
     "base_faction": "insect",
-    "neutral": [ "ant", "acid_ant", "stag_beetle_larva" ]
+    "neutral": [ "ant", "acid_ant", "fire_ant", "stag_beetle_larva" ]
   },
   {
     "type": "MONSTER_FACTION",
@@ -553,7 +562,7 @@
     "type": "MONSTER_FACTION",
     "name": "stag_beetle_larva",
     "base_faction": "stag_beetle",
-    "neutral": [ "ant", "acid_ant", "aphid" ]
+    "neutral": [ "ant", "acid_ant", "fire_ant", "aphid" ]
   },
   {
     "type": "MONSTER_FACTION",
@@ -561,7 +570,7 @@
     "base_faction": "insect",
     "neutral": [ "antlion_grub", "antlion_adult" ],
     "by_mood": [ "fungus", "bee" ],
-    "hate": [ "insect", "small_animal", "ant", "acid_ant" ]
+    "hate": [ "insect", "small_animal", "ant", "acid_ant", "fire_ant" ]
   },
   {
     "type": "MONSTER_FACTION",
@@ -574,13 +583,13 @@
     "name": "ladybug",
     "base_faction": "insect",
     "by_mood": [ "bee", "insect" ],
-    "hate": [ "small_animal", "ant", "acid_ant" ]
+    "hate": [ "small_animal", "ant", "acid_ant", "fire_ant" ]
   },
   {
     "type": "MONSTER_FACTION",
     "name": "mantis",
     "base_faction": "insect",
-    "by_mood": [ "centipede", "spider", "ant", "acid_ant" ],
+    "by_mood": [ "centipede", "spider", "ant", "acid_ant", "fire_ant" ],
     "hate": [ "insect", "small_animal" ]
   },
   {

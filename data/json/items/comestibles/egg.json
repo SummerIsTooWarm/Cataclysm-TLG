@@ -218,6 +218,14 @@
   },
   {
     "type": "COMESTIBLE",
+    "id": "ant_egg_fire",
+    "name": { "str": "fire ant egg" },
+    "copy-from": "ant_egg",
+    "description": "A large, heavy fire ant egg, the size of a softball.  Extremely nutritious, but incredibly gross.",
+    "rot_spawn": "GROUP_EGG_ANT_FIRE"
+  },
+  {
+    "type": "COMESTIBLE",
     "id": "egg_roach",
     "name": { "str": "roach egg" },
     "description": "A fist-sized egg from a giant roach.  Incredibly gross.",
