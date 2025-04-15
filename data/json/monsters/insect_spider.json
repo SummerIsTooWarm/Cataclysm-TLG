@@ -2227,7 +2227,7 @@
     "special_attacks": [ [ "EAT_FOOD", 30 ], [ "BROWSE", 90 ], [ "EAT_CARRION", 90 ] ],
     "fungalize_into": "mon_ant_fungus",
     "path_settings": { "max_dist": 10, "avoid_sharp": true, "avoid_dangerous_fields": true },
-    "flags": [ "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS", "CORNERED_FIGHTER" ],
     "armor": { "bash": 5, "cut": 10, "bullet": 8, "electric": 1 }
   },
   {
@@ -2304,7 +2304,7 @@
     "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
     "harvest": "arachnid_acid",
     "dissect": "dissect_insect_sample_single",
-    "flags": [ "ACIDPROOF", "CLIMBS", "HEARS", "POISON", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS" ],
+    "flags": [ "ACIDPROOF", "CLIMBS", "HEARS", "POISON", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS", "CORNERED_FIGHTER" ],
     "armor": { "bash": 6, "cut": 10, "bullet": 8, "electric": 2 }
   },
   {
@@ -2361,7 +2361,7 @@
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
     "fungalize_into": "mon_ant_fungus",
     "path_settings": { "max_dist": 10, "avoid_sharp": true },
-    "flags": [ "ACIDPROOF", "CLIMBS", "HEARS", "QUEEN", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "BASHES" ],
+    "flags": [ "ACIDPROOF", "CLIMBS", "HEARS", "QUEEN", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "BASHES", "CORNERED_FIGHTER" ],
     "armor": { "bash": 8, "cut": 10, "bullet": 8, "electric": 1 }
   },
   {
@@ -2414,7 +2414,7 @@
     "dissect": "dissect_insect_sample_single",
     "upgrades": { "age_grow": 42, "into": "mon_ant_acid_soldier_mega" },
     "name": { "str": "oversized acidic soldier ant" },
-    "flags": [ "ACIDPROOF", "SHORTACIDTRAIL", "CLIMBS", "HEARS", "POISON", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL" ],
+    "flags": [ "ACIDPROOF", "SHORTACIDTRAIL", "CLIMBS", "HEARS", "POISON", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "CORNERED_FIGHTER" ],
     "armor": { "bash": 12, "cut": 14, "bullet": 11, "electric": 1 }
   },
   {
@@ -2508,7 +2508,7 @@
     "reproduction": { "baby_egg": "ant_egg", "baby_count": 3, "baby_timer": 1 },
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
     "fungalize_into": "mon_ant_fungus",
-    "flags": [ "SMELLS", "QUEEN", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "BASHES" ],
+    "flags": [ "SMELLS", "QUEEN", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "BASHES", "CORNERED_FIGHTER" ],
     "armor": { "bash": 8, "cut": 10, "bullet": 8, "electric": 1 }
   },
   {
@@ -2549,7 +2549,7 @@
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
     "fungalize_into": "mon_ant_fungus",
     "upgrades": { "age_grow": 42, "into": "mon_ant_soldier_mega" },
-    "flags": [ "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "CLIMBS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS", "CORNERED_FIGHTER" ],
     "armor": { "bash": 10, "cut": 12, "bullet": 10, "electric": 2 }
   },
   {
@@ -3959,7 +3959,7 @@
         "type": "spell",
         "spell_data": { "id": "flame_spray", "min_level": 2 },
         "monster_message": "The %s sprays fire!",
-        "cooldown": 43,
+        "cooldown": 33,
         "condition": { "and": [ { "not": { "u_is_underwater": "true" } }, { "not": { "npc_is_underwater": "true" } } ] }
       },
       [ "EAT_FOOD", 30 ],
@@ -4019,7 +4019,7 @@
     "death_function": { "message": "The %s's body hisses as gas escapes from its remains.", "effect": { "id": "death_fireball", "hit_self": true } },
     "harvest": "arachnid",
     "dissect": "dissect_insect_sample_single",
-    "flags": [ "CLIMBS", "HEARS", "POISON", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS" ],
+    "flags": [ "CLIMBS", "HEARS", "POISON", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS", "CORNERED_FIGHTER" ],
     "armor": { "bash": 6, "cut": 10, "bullet": 8, "electric": 2, "acid": 3, "heat": 6 }
   },
   {
@@ -4054,7 +4054,7 @@
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
     "fungalize_into": "mon_ant_fungus",
     "path_settings": { "max_dist": 10, "avoid_sharp": true },
-    "flags": [ "CLIMBS", "HEARS", "QUEEN", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "BASHES" ],
+    "flags": [ "CLIMBS", "HEARS", "QUEEN", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "BASHES", "CORNERED_FIGHTER" ],
     "armor": { "bash": 8, "cut": 10, "bullet": 8, "electric": 1, "acid": 6, "heat": 12 }
   }
 ]
