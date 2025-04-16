@@ -364,6 +364,51 @@
     "explosion": { "power": 7980, "shrapnel": { "casing_mass": 8725, "fragment_mass": 0.5 } }
   },
   {
+    "id": "EXPLOSIVE_PG7VL",
+    "type": "ammo_effect",
+    "explosion": {
+      "power": 3190,
+      "shrapnel": {
+        "casing_mass": 350,
+        "fragment_mass": 0.3
+      }
+    }
+  },
+  {
+    "id": "EXPLOSIVE_PG7VR",
+    "type": "ammo_effect",
+    "explosion": {
+      "power": 5700,
+      "shrapnel": {
+        "casing_mass": 400,
+        "fragment_mass": 0.3
+      }
+    }
+  },
+  {
+    "id": "EXPLOSIVE_TBG7V",
+    "type": "ammo_effect",
+    "aoe": { "field_type": "fd_fire", "intensity_min": 1, "intensity_max": 2, "radius": 5, "chance": 66 },
+    "explosion": {
+      "power": 6200,
+      "shrapnel": {
+        "casing_mass": 300,
+        "fragment_mass": 0.12
+      }
+    }
+  },
+  {
+    "id": "EXPLOSIVE_OG7V",
+    "type": "ammo_effect",
+    "explosion": {
+      "power": 800,
+      "shrapnel": {
+        "casing_mass": 500,
+        "fragment_mass": 0.2
+      }
+    }
+  },
+  {
     "id": "FLASHBANG",
     "type": "ammo_effect",
     "//": "Blinds and deafens nearby targets",
