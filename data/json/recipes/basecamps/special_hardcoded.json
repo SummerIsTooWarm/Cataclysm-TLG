@@ -24,9 +24,12 @@
       { "id": "foraging" },
       { "id": "sorting" },
       { "id": "logging" },
+      { "id": "trapping" },
+      { "id": "hunting" },
       { "id": "kitchen" },
       { "id": "relaying" },
       { "id": "walls" },
+      { "id": "recruiting" },
       { "id": "scouting" },
       { "id": "water_well" },
       { "id": "patrolling" }
