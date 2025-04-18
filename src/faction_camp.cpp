@@ -1058,13 +1058,13 @@ void basecamp::get_available_missions_by_dir( mission_data &mission_key, const p
                                   "May produce less food than consumed!\n"
                                   "Risk: Low\n"
                                   "Intensity: Light\n"
-                                  "Time: 6 Hours, Repeated\n"
+                                  "Time: 10 Hours, Repeated\n"
                                   "Positions: %d/2\n" ), npc_list.size() );
         mission_key.add_start( miss_id, name_display_of( miss_id ),
                                entry, npc_list.size() < 2 );
         if( !npc_list.empty() ) {
             entry = action_of( miss_id.id );
-            bool avail = update_time_fixed( entry, npc_list, 6_hours );
+            bool avail = update_time_fixed( entry, npc_list, 10_hours );
             mission_key.add_return( miss_id, dir_abbr + _( " Recover Trappers" ),
                                     entry, avail );
         }
@@ -1082,13 +1082,13 @@ void basecamp::get_available_missions_by_dir( mission_data &mission_key, const p
                                   "May produce less food than consumed!\n"
                                   "Risk: Medium\n"
                                   "Intensity: Moderate\n"
-                                  "Time: 6 Hours, Repeated\n"
+                                  "Time: 14 Hours, Repeated\n"
                                   "Positions: %d/1\n" ), npc_list.size() );
         mission_key.add_start( miss_id, name_display_of( miss_id ),
                                entry, npc_list.empty() );
         if( !npc_list.empty() ) {
             entry = action_of( miss_id.id );
-            bool avail = update_time_fixed( entry, npc_list, 6_hours );
+            bool avail = update_time_fixed( entry, npc_list, 14_hours );
             mission_key.add_return( miss_id, dir_abbr + _( " Recover Hunter" ),
                                     entry, avail );
         }
@@ -1789,18 +1789,18 @@ bool basecamp::handle_mission( const ui_mission_id &miss_id )
 
         case Camp_Trapping:
             if( miss_id.ret ) {
-                gathering_return( miss_id.id, 6_hours );
+                gathering_return( miss_id.id, 10_hours );
             } else {
-                start_mission( miss_id.id, 6_hours, true,
+                start_mission( miss_id.id, 10_hours, true,
                                _( "departs to set traps for small animals…" ), false, {}, skill_traps, 0, LIGHT_EXERCISE );
             }
             break;
 
         case Camp_Hunting:
             if( miss_id.ret ) {
-                gathering_return( miss_id.id, 6_hours );
+                gathering_return( miss_id.id, 14_hours );
             } else {
-                start_mission( miss_id.id, 6_hours, true,
+                start_mission( miss_id.id, 14_hours, true,
                                _( "departs to hunt for meat…" ), false, {}, skill_gun, 0, MODERATE_EXERCISE );
             }
             break;
@@ -3904,14 +3904,14 @@ bool basecamp::gathering_return( const mission_id &miss_id, time_duration min_ti
     if( miss_id.id == Camp_Foraging ) {
         task_description = _( "foraging for edible plants" );
         danger = 15;
-        checks_per_cycle = 12;
+        checks_per_cycle = 9;
     } else if( miss_id.id == Camp_Trapping ) {
         task_description = _( "trapping small animals" );
         favor = 1;
         danger = 15;
         skill_group = "trapping";
         skill = 2 * comp->get_skill_level( skill_traps ) + comp->per_cur;
-        checks_per_cycle = 4;
+        checks_per_cycle = 3;
     } else if( miss_id.id == Camp_Hunting ) {
         task_description = _( "hunting for meat" );
         danger = 10;
