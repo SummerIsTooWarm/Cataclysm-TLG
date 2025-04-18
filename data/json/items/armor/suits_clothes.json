@@ -699,49 +699,49 @@
     "variants": [
       {
         "id": "shark_costume",
-        "name": { "str": "shark mascot suit" },
+        "name": { "str": "shark mascot costume" },
         "description": "A full-body mascot-style costume in the form of an anthropomorphic shark.  It is quite encumbering and very warm.",
         "color": "cyan",
         "weight": 20
       },
       {
         "id": "fish_costume",
-        "name": { "str": "shark mascot suit" },
+        "name": { "str": "fish mascot costume" },
         "description": "A full-body mascot-style costume in the form of an anthropomorphic fish.  It is quite encumbering and very warm.",
         "color": "cyan",
         "weight": 10
       },
       {
         "id": "dino_costume",
-        "name": { "str": "dinosaur mascot suit" },
+        "name": { "str": "dinosaur mascot costume" },
         "description": "A full-body mascot-style costume in the form of an anthropomorphic dinosaur.  It is quite encumbering and very warm.",
         "color": "green",
         "weight": 20
       },
       {
         "id": "dino_costume",
-        "name": { "str": "dragon mascot suit" },
+        "name": { "str": "dragon mascot costume" },
         "description": "A full-body mascot-style costume in the form of an anthropomorphic dragon.  It is quite encumbering and very warm.",
         "color": "green",
         "weight": 20
       },
       {
         "id": "spartan_costume",
-        "name": { "str": "spartain mascot suit" },
+        "name": { "str": "spartan mascot costume" },
         "description": "A full-body mascot-style costume in the form of a caricaturized ancient greek warrior.  It is quite encumbering and very warm.",
         "color": "red",
         "weight": 5
       },
       {
         "id": "pizza_costume",
-        "name": { "str": "pizza mascot suit" },
+        "name": { "str": "pizza mascot costume" },
         "description": "A full-body mascot-style costume in the form of an anthropomorphic slice of pizza.  It is quite encumbering and very warm.",
         "color": "light_red",
         "weight": 5
       },
       {
         "id": "revolutionary_costume",
-        "name": { "str": "revolutionary mascot suit" },
+        "name": { "str": "revolutionary mascot costume" },
         "description": "A full-body mascot-style costume in the form of a caricaturized continental soldier, circa 1776.  It is quite encumbering and very warm.",
         "color": "blue",
         "weight": 5
