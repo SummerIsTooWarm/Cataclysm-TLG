@@ -2304,7 +2304,18 @@
     "death_function": { "message": "The %s's body leaks acid.", "effect": { "id": "death_acid", "hit_self": true } },
     "harvest": "arachnid_acid",
     "dissect": "dissect_insect_sample_single",
-    "flags": [ "ACIDPROOF", "CLIMBS", "HEARS", "POISON", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS", "CORNERED_FIGHTER" ],
+    "flags": [
+      "ACIDPROOF",
+      "CLIMBS",
+      "HEARS",
+      "POISON",
+      "SEES",
+      "SMELLS",
+      "PATH_AVOID_FIRE",
+      "PATH_AVOID_FALL",
+      "EATS",
+      "CORNERED_FIGHTER"
+    ],
     "armor": { "bash": 6, "cut": 10, "bullet": 8, "electric": 2 }
   },
   {
@@ -2361,7 +2372,18 @@
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
     "fungalize_into": "mon_ant_fungus",
     "path_settings": { "max_dist": 10, "avoid_sharp": true },
-    "flags": [ "ACIDPROOF", "CLIMBS", "HEARS", "QUEEN", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "BASHES", "CORNERED_FIGHTER" ],
+    "flags": [
+      "ACIDPROOF",
+      "CLIMBS",
+      "HEARS",
+      "QUEEN",
+      "SEES",
+      "SMELLS",
+      "PATH_AVOID_FIRE",
+      "PATH_AVOID_FALL",
+      "BASHES",
+      "CORNERED_FIGHTER"
+    ],
     "armor": { "bash": 8, "cut": 10, "bullet": 8, "electric": 1 }
   },
   {
@@ -2414,7 +2436,18 @@
     "dissect": "dissect_insect_sample_single",
     "upgrades": { "age_grow": 42, "into": "mon_ant_acid_soldier_mega" },
     "name": { "str": "oversized acidic soldier ant" },
-    "flags": [ "ACIDPROOF", "SHORTACIDTRAIL", "CLIMBS", "HEARS", "POISON", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "CORNERED_FIGHTER" ],
+    "flags": [
+      "ACIDPROOF",
+      "SHORTACIDTRAIL",
+      "CLIMBS",
+      "HEARS",
+      "POISON",
+      "SEES",
+      "SMELLS",
+      "PATH_AVOID_FIRE",
+      "PATH_AVOID_FALL",
+      "CORNERED_FIGHTER"
+    ],
     "armor": { "bash": 12, "cut": 14, "bullet": 11, "electric": 1 }
   },
   {
@@ -4016,7 +4049,10 @@
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED", "HURT", "PLAYER_CLOSE" ],
     "path_settings": { "max_dist": 10, "avoid_sharp": true },
-    "death_function": { "message": "The %s's body hisses as gas escapes from its remains.", "effect": { "id": "death_fireball", "hit_self": true } },
+    "death_function": {
+      "message": "The %s's body hisses as gas escapes from its remains.",
+      "effect": { "id": "death_fireball", "hit_self": true }
+    },
     "harvest": "arachnid",
     "dissect": "dissect_insect_sample_single",
     "flags": [ "CLIMBS", "HEARS", "POISON", "SEES", "SMELLS", "PATH_AVOID_FIRE", "PATH_AVOID_FALL", "EATS", "CORNERED_FIGHTER" ],

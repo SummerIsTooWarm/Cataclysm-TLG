@@ -3867,7 +3867,9 @@
         ]
       },
       "male": { "entries": [ { "item": "jeans_skinny" }, { "item": "tank_top" }, { "item": "briefs" } ] },
-      "female": { "entries": [ { "item": "skirt" }, { "item": "corset" }, { "item": "panties" }, { "item": "stockings" }, { "item": "sockmitts" } ] }
+      "female": {
+        "entries": [ { "item": "skirt" }, { "item": "corset" }, { "item": "panties" }, { "item": "stockings" }, { "item": "sockmitts" } ]
+      }
     }
   },
   {
