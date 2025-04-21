@@ -470,9 +470,16 @@ void Character::roll_all_damage( bool crit, damage_instance &di, bool average,
 }
 
 static void melee_train( Character &you, int lo, int hi, const item &weap,
-                         const attack_vector_id vector )
+                         const attack_vector_id vector, bool reach_attacking )
 {
-    you.practice( skill_melee, std::ceil( rng( lo, hi ) / 2.0 ), hi );
+    // 1/2 learning rate for reach attacks.
+    if( reach_attacking && one_in( 2 ) ) {
+        return;
+    }
+    // Don't train melee if we're not in melee.
+    if( !reach_attacking ) {
+        you.practice( skill_melee, std::ceil( rng( lo, hi ) / 2.0 ), hi );
+    }
 
     float total = 0.f;
 
@@ -732,7 +739,8 @@ bool Character::melee_attack_abstract( Creature &t, bool allow_special,
 
         // Practice melee and relevant weapon skill (if any) except when using CQB bionic
         if( !has_active_bionic( bio_cqb ) && !t.is_hallucination() ) {
-            melee_train( *this, 2, std::min( 5, skill_training_cap ), cur_weap, attack_vector_vector_null );
+            melee_train( *this, 2, std::min( 5, skill_training_cap ), cur_weap, attack_vector_vector_null,
+                         reach_attacking );
         }
 
         // Cap stumble penalty, heavy weapons are quite weak already
@@ -914,7 +922,7 @@ bool Character::melee_attack_abstract( Creature &t, bool allow_special,
 
             // Practice melee and relevant weapon skill (if any) except when using CQB bionic
             if( !has_active_bionic( bio_cqb ) && !t.is_hallucination() ) {
-                melee_train( *this, 5, std::min( 10, skill_training_cap ), cur_weap, vector_id );
+                melee_train( *this, 5, std::min( 10, skill_training_cap ), cur_weap, vector_id, reach_attacking );
             }
 
             // Treat monster as seen if we see it before or after the attack
