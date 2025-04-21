@@ -1915,8 +1915,8 @@ void map::monster_in_field( monster &z )
             mod_field_intensity( z.pos(), cur.get_field_type(), -1 );
         }
         if( cur_field_type == fd_sludge ) {
-                z.mod_moves( -cur.get_field_intensity() * 300 );
-                cur.set_field_intensity( 0 );
+            z.mod_moves( -cur.get_field_intensity() * 300 );
+            cur.set_field_intensity( 0 );
         }
         if( cur_field_type == fd_fire ) {
             // TODO: MATERIALS Use fire resistance
@@ -1988,7 +1988,8 @@ void map::monster_in_field( monster &z )
                     }
                 }
                 // Cyborg monsters ignore it because of the protective lenses CBM.
-                if( z.has_flag( mon_flag_SEES ) && z.made_of_any( Creature::cmat_flesh ) && !z.in_species( species_INSECT ) &&
+                if( z.has_flag( mon_flag_SEES ) && z.made_of_any( Creature::cmat_flesh ) &&
+                    !z.in_species( species_INSECT ) &&
                     !z.in_species( species_INSECT_FLYING ) && !z.in_species( species_CENTIPEDE ) &&
                     !z.in_species( species_SPIDER ) && !z.in_species( species_CYBORG ) &&
                     !z.has_effect( effect_blind ) ) {

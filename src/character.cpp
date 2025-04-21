@@ -10664,14 +10664,14 @@ bool Character::sees_with_infrared( const Creature &critter ) const
         // Return false if the critter is covered by something adjacent to it.
         if( critter.is_monster() && IR_concealment > critter.as_monster()->eye_level() ) {
             return false;
-        // Check ledge concealment as normal.
+            // Check ledge concealment as normal.
         } else if( !critter.is_monster() && IR_concealment > critter.as_character()->eye_level() ) {
             return false;
         } else {
             // If we can see over their coverage, let's make sure we can see over our own.
             const int viewer_IR_concealment = here.obstacle_coverage( critter.pos_bub(), viewer_pov );
             if( viewer_IR_concealment > eye_level() ) {
-            return false;
+                return false;
             }
         }
         return true;
