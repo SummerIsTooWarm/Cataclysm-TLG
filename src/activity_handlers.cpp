@@ -565,6 +565,7 @@ static void set_up_butchery( player_activity &act, Character &you, butcher_type 
     }
 
     if( action == butcher_type::BLEED && ( corpse_item.has_flag( flag_BLED ) ||
+                                           corpse_item.has_flag( flag_SKINNED ) ||
                                            corpse_item.has_flag( flag_QUARTERED ) || corpse_item.has_flag( flag_PULPED ) ||
                                            corpse_item.has_flag( flag_FIELD_DRESS_FAILED ) ||
                                            corpse_item.has_flag( flag_FIELD_DRESS ) ) ) {
@@ -589,8 +590,8 @@ static void set_up_butchery( player_activity &act, Character &you, butcher_type 
         return;
     }
 
-    if( action == butcher_type::SKIN && corpse_item.has_flag( flag_SKINNED ) ) {
-        you.add_msg_if_player( m_info, _( "This corpse is already skinned." ) );
+    if( action == butcher_type::SKIN && ( corpse_item.has_flag( flag_SKINNED ) || corpse_item.has_flag( flag_QUARTERED ) || corpse_item.has_flag( flag_PULPED ) || corpse_item.has_flag( flag_GIBBED ) ) ) {
+        you.add_msg_if_player( m_info, _( "The corpse no longer has a salvageable skin." ) );
         act.targets.pop_back();
         return;
     }
@@ -980,15 +981,15 @@ static bool butchery_drops_harvest( item *corpse_item, const mtype &mt, Characte
     if( corpse_item->has_flag( flag_QUARTERED ) ) {
         monster_weight *= 0.95;
     }
-    if( corpse_item->has_flag( flag_GIBBED ) ) {
-        monster_weight = std::round( 0.85 * monster_weight );
+    if( corpse_item->has_flag( flag_GIBBED ) || corpse_item->has_flag( flag_PULPED ) ) {
+        monster_weight = std::round( 0.65 * monster_weight );
         if( action != butcher_type::FIELD_DRESS ) {
             you.add_msg_if_player( m_bad,
                                    _( "You salvage what you can from the corpse, but it is badly damaged." ) );
         }
     }
     if( corpse_item->has_flag( flag_UNDERFED ) ) {
-        monster_weight = std::round( 0.9 * monster_weight );
+        monster_weight = std::round( 0.8 * monster_weight );
         if( action != butcher_type::FIELD_DRESS && action != butcher_type::SKIN &&
             action != butcher_type::DISSECT ) {
             you.add_msg_if_player( m_bad,
@@ -1201,10 +1202,8 @@ static bool butchery_drops_harvest( item *corpse_item, const mtype &mt, Characte
                 }
 
                 // TODO: smarter NPC liquid handling
-                // If we're not bleeding the animal we don't care about the blood being wasted
-                if( you.is_npc() || action != butcher_type::BLEED ) {
-                    drop_on_map( you, item_drop_reason::deliberate, { obj }, you.pos_bub() );
-                } else {
+                // TODO: Multiple liquid types from one corpse?
+                if( !you.is_npc() && action == butcher_type::BLEED ) {
                     liquid_handler::handle_all_liquid( obj, 1 );
                 }
             } else if( drop->count_by_charges() ) {
@@ -1380,11 +1379,11 @@ void activity_handlers::butcher_finish( player_activity *act, Character *you )
         target.remove_item();
         act->targets.pop_back();
 
-        here.add_splatter( type_gib, you->pos(), rng( corpse->size + 2, ( corpse->size + 1 ) * 2 ) );
-        here.add_splatter( type_blood, you->pos(), rng( corpse->size + 2, ( corpse->size + 1 ) * 2 ) );
+        here.add_splatter( type_gib, you->pos(), corpse->size + 0 );
+        here.add_splatter( type_blood, you->pos(), rng( corpse->size + 0, ( corpse->size + 1 ) ) );
         for( int i = 1; i <= corpse->size; i++ ) {
             here.add_splatter_trail( type_gib, you->pos(), random_entry( here.points_in_radius( you->pos(),
-                                     corpse->size + 1 ) ) );
+                                     std::max( 1, ( corpse->size - 1 ) ) ) ) );
             here.add_splatter_trail( type_blood, you->pos(), random_entry( here.points_in_radius( you->pos(),
                                      corpse->size + 1 ) ) );
         }
@@ -1425,13 +1424,10 @@ void activity_handlers::butcher_finish( player_activity *act, Character *you )
                      SNIPPET.random_from_category( success ? "harvest_drop_default_field_dress_success" :
                                                    "harvest_drop_default_field_dress_failed" ).value_or( translation() ).translated() );
             corpse_item.set_flag( success ? flag_FIELD_DRESS : flag_FIELD_DRESS_FAILED );
-            here.add_splatter( type_gib, you->pos(), rng( corpse->size + 2, ( corpse->size + 1 ) * 2 ) );
-            here.add_splatter( type_blood, you->pos(), rng( corpse->size + 2, ( corpse->size + 1 ) * 2 ) );
+            here.add_splatter( type_gib, you->pos(), rng( corpse->size + 0, ( corpse->size + 0 ) ) );
             for( int i = 1; i <= corpse->size; i++ ) {
                 here.add_splatter_trail( type_gib, you->pos(), random_entry( here.points_in_radius( you->pos(),
-                                         corpse->size + 1 ) ) );
-                here.add_splatter_trail( type_blood, you->pos(), random_entry( here.points_in_radius( you->pos(),
-                                         corpse->size + 1 ) ) );
+                                         std::max( 1, ( corpse->size - 1 ) ) ) ) );
             }
             if( !act->targets.empty() ) {
                 act->targets.pop_back();
@@ -1478,6 +1474,15 @@ void activity_handlers::butcher_finish( player_activity *act, Character *you )
             break;
     }
 
+    // Spill the blood if there's any left.
+    if( !corpse_item.has_flag( flag_BLED ) ) {
+        here.add_splatter( type_blood, you->pos(), rng( corpse->size + 0, ( corpse->size + 1 ) ) );
+        for( int i = 1; i <= corpse->size; i++ ) {
+            here.add_splatter_trail( type_blood, you->pos(), random_entry( here.points_in_radius( you->pos(),
+                                     corpse->size + 1 ) ) );
+        }
+        corpse_item.set_flag( flag_BLED );
+    }
     you->recoil = MAX_RECOIL;
 
     get_event_bus().send<event_type::character_butchered_corpse>( you->getID(),
