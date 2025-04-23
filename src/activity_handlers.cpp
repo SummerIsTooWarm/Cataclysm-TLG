@@ -565,7 +565,8 @@ static void set_up_butchery( player_activity &act, Character &you, butcher_type 
     }
 
     if( action == butcher_type::BLEED && ( corpse_item.has_flag( flag_BLED ) ||
-                                           corpse_item.has_flag( flag_QUARTERED ) || corpse_item.has_flag( flag_FIELD_DRESS_FAILED ) ||
+                                           corpse_item.has_flag( flag_QUARTERED ) || corpse_item.has_flag( flag_PULPED ) ||
+                                           corpse_item.has_flag( flag_FIELD_DRESS_FAILED ) ||
                                            corpse_item.has_flag( flag_FIELD_DRESS ) ) ) {
         you.add_msg_if_player( m_info, _( "This corpse has already been bled." ) );
         act.targets.pop_back();
@@ -573,7 +574,8 @@ static void set_up_butchery( player_activity &act, Character &you, butcher_type 
     }
 
     if( action == butcher_type::DISSECT && ( corpse_item.has_flag( flag_QUARTERED ) ||
-            corpse_item.has_flag( flag_FIELD_DRESS_FAILED ) ) ) {
+            corpse_item.has_flag( flag_FIELD_DRESS_FAILED ) || corpse_item.has_flag( flag_PULPED ) ||
+            corpse_item.has_flag( flag_GIBBED ) ) ) {
         you.add_msg_if_player( m_info,
                                _( "It would be futile to dissect this badly damaged corpse." ) );
         act.targets.pop_back();
@@ -1349,7 +1351,7 @@ void activity_handlers::butcher_finish( player_activity *act, Character *you )
 
     item &corpse_item = *target;
     const mtype *corpse = corpse_item.get_mtype();
-    const field_type_id type_blood = corpse->bloodType();
+    const field_type_id type_blood = corpse_item.has_flag( flag_BLED ) ? fd_null : corpse->bloodType();
     const field_type_id type_gib = corpse->gibType();
 
     // Dump items from the "container" before destroying it.
@@ -1883,7 +1885,8 @@ void activity_handlers::pulp_do_turn( player_activity *act, Character *you )
                                  you->is_immune_field( fd_acid );
         if( !corpse.is_corpse() || !corpse.can_revive() ||
             ( ( std::find( act->str_values.begin(), act->str_values.end(), "auto_pulp_no_acid" ) !=
-                act->str_values.end() && corpse_mtype->bloodType().obj().has_acid ) && !acid_immune ) ) {
+                act->str_values.end() && corpse_mtype->bloodType().obj().has_acid &&
+                !corpse.has_flag( flag_BLED ) ) && !acid_immune ) ) {
             // Don't smash non-rezing corpses //don't smash acid zombies when auto pulping unprotected
             continue;
         }
@@ -1902,10 +1905,18 @@ void activity_handlers::pulp_do_turn( player_activity *act, Character *you )
                 // Splatter a bit more randomly, so that it looks cooler
                 const int radius = mess_radius + x_in_y( pulp_power, 500 ) + x_in_y( pulp_power, 1000 );
                 const tripoint dest( pos + point( rng( -radius, radius ), rng( -radius, radius ) ) );
-                const field_type_id type_blood = ( mess_radius > 1 && x_in_y( pulp_power, 10000 ) ) ?
-                                                 corpse.get_mtype()->gibType() :
-                                                 corpse.get_mtype()->bloodType();
-                here.add_splatter_trail( type_blood, pos, dest );
+
+                if( !corpse.has_flag( flag_BLED ) ) {
+                    const field_type_id type_blood = ( mess_radius > 1 && x_in_y( pulp_power, 10000 ) ) ?
+                                                     corpse.get_mtype()->gibType() :
+                                                     corpse.get_mtype()->bloodType();
+                    here.add_splatter_trail( type_blood, pos, dest );
+                } else {
+                    const field_type_id type_blood = ( mess_radius > 1 && x_in_y( pulp_power, 10000 ) ) ?
+                                                     corpse.get_mtype()->gibType() :
+                                                     fd_null;
+                    here.add_splatter_trail( type_blood, pos, dest );
+                }
             }
 
             // mixture of isaac clarke stomps and swinging your weapon
