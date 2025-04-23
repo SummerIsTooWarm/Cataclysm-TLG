@@ -82,7 +82,7 @@ jobs:
       max-parallel: ${{ fromJSON(needs.matrix-variables.outputs.max_parallel) }}
       matrix:
         include:
-          - compiler: clang++-10
+          - compiler: clang++-13
             os: ubuntu-22.04
             tiles: 0
             sound: 0
@@ -94,12 +94,12 @@ jobs:
             pch: 1
             archive-success: basic-build
             dont_skip_data_only_changes: 1
-            title: Basic Build and Test (Clang 10, Ubuntu, Curses)
+            title: Basic Build and Test (Clang oldest supported, Ubuntu, Curses)
             # ~190MB in a clean build
             # ~30MB compressed
             # observed usage: 3.0GB -> 300MB
             ccache_limit: 2G
-            ccache_key: linux-llvm-10-break1
+            ccache_key: linux-llvm-13
 
           - compiler: clang++
             os: macos-13
@@ -241,7 +241,7 @@ jobs:
         CCACHE_FILECLONE: true
         CCACHE_HARDLINK: true
         CCACHE_NOCOMPRESS: true
-        SKIP: ${{ ( github.event.pull_request.draft == true && matrix.title != 'Basic Build and Test (Clang 10, Ubuntu, Curses)' ) || ( matrix.dont_skip_data_only_changes == 0 && needs.skip-duplicates.outputs.should_skip_code == 'true' ) || ( matrix.dont_skip_data_only_changes != 0 && needs.skip-duplicates-mods.outputs.should_skip_data == 'true' ) }}
+        SKIP: ${{ ( github.event.pull_request.draft == true && matrix.title != 'Basic Build and Test (Clang 13, Ubuntu, Curses)' ) || ( matrix.dont_skip_data_only_changes == 0 && needs.skip-duplicates.outputs.should_skip_code == 'true' ) || ( matrix.dont_skip_data_only_changes != 0 && needs.skip-duplicates-mods.outputs.should_skip_data == 'true' ) }}
         SKIP_TESTS: ${{ needs.matrix-variables.outputs.skip_tests }}
     steps:
     - name: checkout repository
