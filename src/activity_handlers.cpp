@@ -590,8 +590,8 @@ static void set_up_butchery( player_activity &act, Character &you, butcher_type 
         return;
     }
 
-    if( action == butcher_type::SKIN && corpse_item.has_flag( flag_SKINNED ) ) {
-        you.add_msg_if_player( m_info, _( "This corpse is already skinned." ) );
+    if( action == butcher_type::SKIN && ( corpse_item.has_flag( flag_SKINNED ) || corpse_item.has_flag( flag_QUARTERED ) || corpse_item.has_flag( flag_PULPED ) || corpse_item.has_flag( flag_GIBBED ) ) ) {
+        you.add_msg_if_player( m_info, _( "The corpse no longer has a salvageable skin." ) );
         act.targets.pop_back();
         return;
     }
