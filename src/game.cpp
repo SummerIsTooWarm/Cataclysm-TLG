@@ -11962,7 +11962,7 @@ void game::vertical_move( int movez, bool force, bool peeking )
             // TODO: Make it an extended action
             climbing = true;
             climbing_aid = climbing_aid_furn_CLIMBABLE;
-            u.set_activity_level( EXTRA_EXERCISE );
+            u.set_activity_level( EXPLOSIVE_EXERCISE );
             move_cost = cost == 0 ? 1000 : cost + 500;
 
             const std::optional<tripoint> pnt = point_selection_menu( pts );
@@ -11979,7 +11979,7 @@ void game::vertical_move( int movez, bool force, bool peeking )
         if( wall_cling && !here.has_floor_or_support( u.pos() ) ) {
             climbing = true;
             climbing_aid = climbing_aid_ability_WALL_CLING;
-            u.set_activity_level( EXTRA_EXERCISE );
+            u.set_activity_level( EXPLOSIVE_EXERCISE );
             u.burn_energy_all( -750 );
             move_cost += 500;
         } else {
@@ -13608,8 +13608,8 @@ void game::climb_down_using( const tripoint &examp, climbing_aid_id aid_id, bool
         }
     }
 
-    you.set_activity_level( ACTIVE_EXERCISE );
-    float weary_mult = 1.0f / you.exertion_adjusted_move_multiplier( ACTIVE_EXERCISE );
+    you.set_activity_level( EXPLOSIVE_EXERCISE );
+    float weary_mult = 1.0f / you.exertion_adjusted_move_multiplier( EXPLOSIVE_EXERCISE );
 
     you.mod_moves( -to_moves<int>( 1_seconds + 1_seconds * fall_mod ) * weary_mult );
     you.setpos( examp );
