@@ -1507,11 +1507,11 @@
     "id": "BADBACK",
     "name": { "str": "Bad Back" },
     "points": -3,
-    "description": "You simply cannot carry as much as people with a similar strength could.  Your maximum weight carried is reduced by 35%.",
+    "description": "You simply cannot carry as much as people with a similar strength could.  Your maximum weight carried is reduced by 20%.",
     "starting_trait": true,
     "category": [ "BIRD", "ELFA" ],
     "cancels": [ "STRONGBACK" ],
-    "enchantments": [ { "values": [ { "value": "CARRY_WEIGHT", "multiply": -0.35 } ] } ]
+    "enchantments": [ { "values": [ { "value": "CARRY_WEIGHT", "multiply": -0.2 } ] } ]
   },
   {
     "type": "mutation",
@@ -2677,7 +2677,7 @@
     "name": { "str": "Light Bones" },
     "points": 2,
     "mixed_effect": true,
-    "description": "Your bones are very light.  This enables you to move and attack 10% faster, but also reduces your carrying weight by 20% and makes bashing attacks hurt a little more.",
+    "description": "Your bones are very light.  This enables you to move and attack more quickly, but limits your weight capacity and makes you vulnerable to bashing damage.",
     "types": [ "BONES" ],
     "category": [ "MOUSE", "RABBIT", "BIRD", "SLIME", "ELFA", "SPIDER", "CHIROPTERAN" ],
     "changes_to": [ "HOLLOW_BONES" ],
@@ -2688,7 +2688,7 @@
           { "value": "EXTRA_BASH", "multiply": 0.4 },
           { "value": "MOVE_COST", "multiply": -0.1 },
           { "value": "ATTACK_SPEED", "multiply": -0.1 },
-          { "value": "CARRY_WEIGHT", "multiply": -0.2 }
+          { "value": "CARRY_WEIGHT", "multiply": -0.1 }
         ]
       }
     ]
@@ -6712,7 +6712,7 @@
     "name": { "str": "Hollow Bones" },
     "points": 1,
     "mixed_effect": true,
-    "description": "You have Avian Bone Syndrome--your bones are nearly hollow.  Your body is very light as a result, enabling you to move and attack 20% faster, but also frail; you can carry 40% less, and bashing attacks injure you more.",
+    "description": "Your bones are very light, hollow and partially supported by a network of air sacs connected to your lungs.  You are faster and recover stamina more efficiently as a result, but are vulnerable to blunt force trauma and cannot carry as much.",
     "types": [ "BONES" ],
     "prereqs": [ "LIGHT_BONES" ],
     "category": [ "BIRD", "SLIME", "ELFA" ],
@@ -6720,9 +6720,10 @@
       {
         "values": [
           { "value": "EXTRA_BASH", "multiply": 0.8 },
-          { "value": "MOVE_COST", "multiply": -0.2 },
-          { "value": "ATTACK_SPEED", "multiply": -0.2 },
-          { "value": "CARRY_WEIGHT", "multiply": -0.4 }
+          { "value": "MOVE_COST", "multiply": -0.15 },
+          { "value": "ATTACK_SPEED", "multiply": -0.15 },
+          { "value": "STAMINA_REGEN_MOD", "add": 0.1 },
+          { "value": "CARRY_WEIGHT", "multiply": -0.25 }
         ]
       }
     ]
