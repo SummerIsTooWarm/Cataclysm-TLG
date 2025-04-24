@@ -983,8 +983,8 @@ static bool butchery_drops_harvest( item *corpse_item, const mtype &mt, Characte
     if( corpse_item->has_flag( flag_QUARTERED ) ) {
         monster_weight *= 0.95;
     }
-    if( corpse_item->has_flag( flag_GIBBED ) || corpse_item->has_flag( flag_PULPED ) ) {
-        monster_weight = std::round( 0.65 * monster_weight );
+    if( corpse_item->has_flag( flag_GIBBED ) || corpse_item->has_flag( flag_PULPED ) || corpse_item->damage() >= corpse_item->max_damage() ) {
+        monster_weight = std::round( 0.4 * monster_weight );
         if( action != butcher_type::FIELD_DRESS ) {
             you.add_msg_if_player( m_bad,
                                    _( "You salvage what you can from the corpse, but it is badly damaged." ) );
