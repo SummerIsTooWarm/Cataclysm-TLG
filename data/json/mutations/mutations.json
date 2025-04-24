@@ -4625,7 +4625,7 @@
     "cost": 14,
     "time": "16 s",
     "kcal": true,
-    "enchantments": [ { "values": [ { "value": "REGEN_HP", "multiply": 160 }, { "value": "REGEN_HP_AWAKE", "multiply": 0.65 } ] } ],
+    "enchantments": [ { "values": [ { "value": "REGEN_HP", "multiply": 150 }, { "value": "REGEN_HP_AWAKE", "multiply": 0.65 } ] } ],
     "transform": { "target": "EATHEALTH", "msg_transform": "Your hyper-metabolism slows down.", "active": false, "moves": 0 }
   },
   {

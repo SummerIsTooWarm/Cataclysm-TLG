@@ -903,15 +903,7 @@
     "id": "EOC_EATHEALTH_active",
     "//": "Handle thirst cost, because inline costs can't be different and EATHEALTH has a huge mutation cost",
     "recurrence": [ "5 minutes", "30 minutes" ],
-    "condition": {
-      "and": [
-        { "u_has_trait": "EATHEALTH_active" },
-        { "math": [ "u_val('instant_thirst')", "<", "240" ] }
-      ]
-    },
-    "effect": [
-      { "math": [ "u_val('thirst')", "+=", "10" ] },
-      { "u_message": "Steam rises from your sweltering skin." }
-    ]
+    "condition": { "and": [ { "u_has_trait": "EATHEALTH_active" }, { "math": [ "u_val('instant_thirst')", "<", "240" ] } ] },
+    "effect": [ { "math": [ "u_val('thirst')", "+=", "10" ] }, { "u_message": "Steam rises from your sweltering skin." } ]
   }
 ]
