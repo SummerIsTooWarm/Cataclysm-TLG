@@ -4622,8 +4622,8 @@
     "description": "You're burning calories like crazy to heal your wounds.",
     "copy-from": "EATHEALTH",
     "valid": false,
-    "cost": 33,
-    "time": "1 s",
+    "cost": 14,
+    "time": "4 s",
     "kcal": true,
     "enchantments": [ { "values": [ { "value": "REGEN_HP", "multiply": 349 }, { "value": "REGEN_HP_AWAKE", "multiply": 0.85 } ] } ],
     "transform": { "target": "EATHEALTH", "msg_transform": "Your hyper-metabolism slows down.", "active": false, "moves": 0 }
