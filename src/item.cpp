@@ -8659,7 +8659,8 @@ bool item::can_revive() const
            damage() < max_damage() &&
            !( has_flag( flag_FIELD_DRESS ) || has_flag( flag_FIELD_DRESS_FAILED ) ||
               has_flag( flag_QUARTERED ) ||
-              has_flag( flag_SKINNED ) || has_flag( flag_PULPED ) );
+              has_flag( flag_SKINNED ) || has_flag( flag_PULPED ) || has_flag( flag_GIBBED ) ||
+              has_flag( flag_FROZEN ) );
 }
 
 bool item::ready_to_revive( map &here, const tripoint &pos ) const
@@ -8670,7 +8671,7 @@ bool item::ready_to_revive( map &here, const tripoint &pos ) const
     if( here.veh_at( pos ) ) {
         return false;
     }
-    if( !calendar::once_every( 1_seconds ) ) {
+    if( !calendar::once_every( 361_seconds ) ) {
         return false;
     }
     int age_in_hours = to_hours<int>( age() );
