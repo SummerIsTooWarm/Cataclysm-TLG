@@ -983,8 +983,8 @@ static bool butchery_drops_harvest( item *corpse_item, const mtype &mt, Characte
     if( corpse_item->has_flag( flag_QUARTERED ) ) {
         monster_weight *= 0.95;
     }
-    if( corpse_item->has_flag( flag_GIBBED ) || corpse_item->has_flag( flag_PULPED ) ) {
-        monster_weight = std::round( 0.65 * monster_weight );
+    if( corpse_item->has_flag( flag_GIBBED ) || corpse_item->has_flag( flag_PULPED ) || corpse_item->damage() >= corpse_item->max_damage() ) {
+        monster_weight = std::round( 0.4 * monster_weight );
         if( action != butcher_type::FIELD_DRESS ) {
             you.add_msg_if_player( m_bad,
                                    _( "You salvage what you can from the corpse, but it is badly damaged." ) );
@@ -1902,7 +1902,8 @@ void activity_handlers::pulp_do_turn( player_activity *act, Character *you )
             // Increase damage as we keep smashing ensuring we eventually smash the target.
             if( x_in_y( pulp_power, corpse.volume() / units::legacy_volume_factor ) ) {
                 corpse.inc_damage();
-                if( corpse.damage() == corpse.max_damage() ) {
+                if( corpse.damage() >= corpse.max_damage() && !corpse.has_flag( flag_PULPED ) ) {
+                    corpse.set_flag( flag_PULPED );
                     num_corpses++;
                 }
             }
@@ -1948,6 +1949,7 @@ void activity_handlers::pulp_do_turn( player_activity *act, Character *you )
                 return;
             }
         }
+        // This set_flag usually doesn't run, but I'll leave it here for corner cases.
         corpse.set_flag( flag_PULPED );
     }
     // If we reach this, all corpses have been pulped, finish the activity

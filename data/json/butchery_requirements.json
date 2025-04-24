@@ -27,7 +27,7 @@
           "QUARTER": "field_dress",
           "SKIN": "field_dress",
           "DISSECT": "dissect_small",
-          "FULL": "butchery_small",
+          "FULL": "full_butchery_large",
           "QUICK": "butchery_small",
           "BLEED": "bleed_small"
         },
@@ -74,7 +74,7 @@
           "QUARTER": "field_dress_no_surface",
           "SKIN": "field_dress_no_surface",
           "DISSECT": "dissect_small_no_surface",
-          "FULL": "butchery_small_no_surface",
+          "FULL": "full_butchery_large_no_surface",
           "QUICK": "butchery_small_no_surface",
           "BLEED": "bleed_small"
         },
