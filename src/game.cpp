@@ -9306,6 +9306,7 @@ static void butcher_submenu( const std::vector<map_stack::iterator> &corpses, in
     bool has_blood = false;
     bool has_skin = false;
     bool has_organs = false;
+    bool intact = false;
     std::string dissect_wp_hint; // dissection weakpoint proficiencies training hint
     int dissect_wp_hint_lines = 0; // track hint lines so menu width doesn't change
 
@@ -9313,19 +9314,30 @@ static void butcher_submenu( const std::vector<map_stack::iterator> &corpses, in
         const mtype *dead_mon = corpses[index]->get_mtype();
         if( dead_mon ) {
             for( const harvest_entry &entry : dead_mon->harvest.obj() ) {
-                if( entry.type == harvest_drop_skin && !corpses[index]->has_flag( flag_SKINNED ) ) {
+                if( entry.type == harvest_drop_skin && !( corpses[index]->has_flag( flag_SKINNED ) ||
+                        ( corpses[index]->has_flag( flag_QUARTERED ) ) || ( corpses[index]->has_flag( flag_PULPED ) ) ||
+                        ( corpses[index]->has_flag( flag_GIBBED ) ) ) ) {
                     has_skin = true;
                 }
                 if( entry.type == harvest_drop_offal && !( corpses[index]->has_flag( flag_QUARTERED ) ||
                         corpses[index]->has_flag( flag_FIELD_DRESS ) ||
-                        corpses[index]->has_flag( flag_FIELD_DRESS_FAILED ) ) ) {
+                        corpses[index]->has_flag( flag_FIELD_DRESS_FAILED ) ||
+                        ( corpses[index]->has_flag( flag_PULPED ) ) || ( corpses[index]->has_flag( flag_GIBBED ) ) ) ) {
                     has_organs = true;
                 }
                 if( entry.type == harvest_drop_blood && dead_mon->bleed_rate > 0 &&
                     !( corpses[index]->has_flag( flag_QUARTERED ) ||
                        corpses[index]->has_flag( flag_FIELD_DRESS ) ||
-                       corpses[index]->has_flag( flag_FIELD_DRESS_FAILED ) || corpses[index]->has_flag( flag_BLED ) ) ) {
+                       corpses[index]->has_flag( flag_FIELD_DRESS_FAILED ) || corpses[index]->has_flag( flag_BLED ) ||
+                       ( corpses[index]->has_flag( flag_PULPED ) ) || ( corpses[index]->has_flag( flag_GIBBED ) ) ) ) {
                     has_blood = true;
+                }
+                if( !( corpses[index]->has_flag( flag_QUARTERED ) ||
+                       corpses[index]->has_flag( flag_FIELD_DRESS ) ||
+                       corpses[index]->has_flag( flag_FIELD_DRESS_FAILED ) ||
+                       ( corpses[index]->has_flag( flag_SKINNED ) ) || ( corpses[index]->has_flag( flag_PULPED ) ) ||
+                       ( corpses[index]->has_flag( flag_GIBBED ) ) ) ) {
+                    intact = true;
                 }
             }
             if( !dead_mon->families.families.empty() ) {
@@ -9362,6 +9374,7 @@ static void butcher_submenu( const std::vector<map_stack::iterator> &corpses, in
             || ( bt == butcher_type::FIELD_DRESS && !has_organs )
             || ( bt == butcher_type::SKIN && !has_skin )
             || ( bt == butcher_type::BLEED && !has_blood )
+            || ( bt == butcher_type::DISSECT && !intact )
             || has_started_cruder_type( bt ) ) {
             return false;
         }
@@ -9381,6 +9394,8 @@ static void butcher_submenu( const std::vector<map_stack::iterator> &corpses, in
             return colorize( _( "has no skin" ), c_red );
         } else if( bt == butcher_type::BLEED && !has_blood ) {
             return colorize( _( "has no blood" ), c_red );
+        } else if( bt == butcher_type::DISSECT && !intact ) {
+            return colorize( _( "too damaged" ), c_red );
         } else if( has_started_cruder_type( bt ) ) {
             return colorize( _( "other type started" ), c_red );
         }
@@ -9421,8 +9436,8 @@ static void butcher_submenu( const std::vector<map_stack::iterator> &corpses, in
                         + progress_str( butcher_type::FIELD_DRESS ),
                         time_or_disabledreason( butcher_type::FIELD_DRESS ),
                         string_format( "%s  %s",
-                                       _( "Technique that involves removing internal organs and "
-                                          "viscera to protect the corpse from rotting from inside.  "
+                                       _( "Technique that involves removing internal organs, blood,  "
+                                          "and viscera to protect the corpse from rotting from inside."
                                           "Yields internal organs.  Carcass will be lighter and will "
                                           "stay fresh longer.  Can be combined with other methods for "
                                           "better effects." ),

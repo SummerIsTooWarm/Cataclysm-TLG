@@ -8659,7 +8659,8 @@ bool item::can_revive() const
            damage() < max_damage() &&
            !( has_flag( flag_FIELD_DRESS ) || has_flag( flag_FIELD_DRESS_FAILED ) ||
               has_flag( flag_QUARTERED ) ||
-              has_flag( flag_SKINNED ) || has_flag( flag_PULPED ) );
+              has_flag( flag_SKINNED ) || has_flag( flag_PULPED ) || has_flag( flag_GIBBED ) ||
+              has_flag( flag_FROZEN ) );
 }
 
 bool item::ready_to_revive( map &here, const tripoint &pos ) const
