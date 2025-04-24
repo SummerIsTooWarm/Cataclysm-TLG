@@ -1902,7 +1902,8 @@ void activity_handlers::pulp_do_turn( player_activity *act, Character *you )
             // Increase damage as we keep smashing ensuring we eventually smash the target.
             if( x_in_y( pulp_power, corpse.volume() / units::legacy_volume_factor ) ) {
                 corpse.inc_damage();
-                if( corpse.damage() == corpse.max_damage() ) {
+                if( corpse.damage() >= corpse.max_damage() && !corpse.has_flag( flag_PULPED ) ) {
+                    corpse.set_flag( flag_PULPED );
                     num_corpses++;
                 }
             }
@@ -1948,6 +1949,7 @@ void activity_handlers::pulp_do_turn( player_activity *act, Character *you )
                 return;
             }
         }
+        // This set_flag usually doesn't run, but I'll leave it here for corner cases.
         corpse.set_flag( flag_PULPED );
     }
     // If we reach this, all corpses have been pulped, finish the activity

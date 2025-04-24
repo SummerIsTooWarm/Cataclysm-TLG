@@ -9315,6 +9315,7 @@ static void butcher_submenu( const std::vector<map_stack::iterator> &corpses, in
         if( dead_mon ) {
             for( const harvest_entry &entry : dead_mon->harvest.obj() ) {
                 if( entry.type == harvest_drop_skin && !( corpses[index]->has_flag( flag_SKINNED ) ||
+                        corpses[index]->damage() >= corpses[index]->max_damage() ||
                         ( corpses[index]->has_flag( flag_QUARTERED ) ) || ( corpses[index]->has_flag( flag_PULPED ) ) ||
                         ( corpses[index]->has_flag( flag_GIBBED ) ) ) ) {
                     has_skin = true;
@@ -9333,6 +9334,7 @@ static void butcher_submenu( const std::vector<map_stack::iterator> &corpses, in
                     has_blood = true;
                 }
                 if( !( corpses[index]->has_flag( flag_QUARTERED ) ||
+                       corpses[index]->damage() >= corpses[index]->max_damage() ||
                        corpses[index]->has_flag( flag_FIELD_DRESS ) ||
                        corpses[index]->has_flag( flag_FIELD_DRESS_FAILED ) ||
                        ( corpses[index]->has_flag( flag_SKINNED ) ) || ( corpses[index]->has_flag( flag_PULPED ) ) ||
